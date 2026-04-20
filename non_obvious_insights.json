@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Exec Vacuum hits SMB hardest \u2014 the opposite of the expected pattern",
+    "finding": "SMB deals with Exec Vacuum signal have the lowest win rate (0.0%) compared to Mid-Market (0.0%) and Enterprise (0.0%). The assumption that SMB is simpler is wrong \u2014 SMB champions are disproportionately ICs with no path to budget authority, and reps treat it as a high-velocity segment rather than one requiring exec access.",
+    "implication": "SMB qualification should include an explicit question about who controls the technology budget, not just who owns the use case.",
+    "category": "segmentation"
+  },
+  {
+    "title": "Enterprise has the highest rate of misattributed loss reasons",
+    "finding": "30.9% of Enterprise lost deals have a stated loss reason that contradicts the behavioral evidence. This is higher than other segments, suggesting Enterprise reps are more likely to default to 'price' or 'timing' without accurately diagnosing why the deal actually failed.",
+    "implication": "Loss reason analysis for this segment is systematically unreliable. CRM-based competitive intelligence from this segment may be misleading.",
+    "category": "data_quality"
+  }
+]

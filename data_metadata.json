@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-04-20 22:37:25",
+  "generated_by": "Deal Trajectory Engine \u2014 Mock Data Generator v1.0",
+  "note": "All data is synthetic. Deliberately imperfect: includes duplicates, missing fields, inconsistent date formats, and intentional contradictions between stated_loss_reason and injected_stall_signature.",
+  "datasets": {
+    "historical_deals.csv": {
+      "rows_approx": 1000,
+      "purpose": "Training set for Win/Loss Synthesizer. Contains closed won and lost deals with behavioral signals.",
+      "key_fields": [
+        "outcome",
+        "stated_loss_reason",
+        "injected_stall_signature"
+      ],
+      "known_issues": [
+        "~3% duplicate deal_ids (suffixed -DUP)",
+        "~8% of non-critical fields randomly nulled",
+        "~45% of lost deals have stated_loss_reason that contradicts injected_stall_signature (intentional ground-truth test)",
+        "Date fields use mixed formats (YYYY-MM-DD, MM/DD/YYYY, DD-Mon-YYYY)",
+        "company_name has inconsistent casing and suffix formatting"
+      ]
+    },
+    "active_pipeline.csv": {
+      "rows_approx": 150,
+      "purpose": "Live deals for Stall Predictor scoring. No outcome column.",
+      "stall_signature_mix": {
+        "None (healthy)": "~38%",
+        "Champion Collapse": "~15%",
+        "Competitor Displacement": "~15%",
+        "Ghost Stall": "~17%",
+        "Exec Vacuum": "~15%"
+      },
+      "known_issues": [
+        "~2.5% duplicate rows",
+        "Missing fields match same null rate as historical set"
+      ]
+    }
+  },
+  "stall_signatures": {
+    "Champion Collapse": {
+      "email_response_latency_delta": ">= 5",
+      "unique_stakeholders_midpoint": "<= 1",
+      "days_since_multithread": ">= 18",
+      "champion_engagement_score_delta": "<= -20"
+    },
+    "Competitor Displacement": {
+      "competitive_mentions_count": ">= 3",
+      "pricing_objection_raised": true,
+      "days_since_last_activity": ">= 10",
+      "stage_regression_count": ">= 1"
+    },
+    "Ghost Stall": {
+      "days_since_last_rep_touch": ">= 12",
+      "email_response_rate": "<= 0.25",
+      "meeting_count_last_30d": "== 0",
+      "days_in_current_stage": ">= 25"
+    },
+    "Exec Vacuum": {
+      "executive_sponsor_engaged": false,
+      "days_to_first_exec_engagement": ">= 50",
+      "economic_buyer_meetings": "== 0",
+      "champion_seniority": "IC"
+    }
+  },
+  "field_dictionary": {
+    "deal_id": "Unique deal identifier",
+    "injected_stall_signature": "Ground truth label \u2014 which stall pattern was injected into behavioral fields. NULL = healthy or won deal. Use for validation only.",
+    "stated_loss_reason": "What the rep logged as the loss reason. Intentionally contradicts injected_stall_signature ~45% of the time.",
+    "email_response_latency_delta_days": "Change in email response time from start to end of deal. Positive = slowing down.",
+    "champion_engagement_score_delta": "Change in champion engagement score. Negative = disengaging.",
+    "stakeholders_at_midpoint": "Unique contacts engaged at cycle midpoint. Low value = over-reliance on single champion.",
+    "days_since_multithread_touch": "Days since last outreach to a non-champion contact.",
+    "economic_buyer_meetings": "Total meetings with economic buyer / financial approver."
+  }
+}

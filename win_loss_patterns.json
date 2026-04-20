@@ -1,0 +1,843 @@
+{
+  "days_since_last_activity": {
+    "won_mean": 5.156,
+    "won_median": 5.0,
+    "lost_mean": 10.592,
+    "lost_median": 9.0,
+    "mean_delta": 5.436,
+    "p_value": 0.0,
+    "cohen_d": -0.794,
+    "significant": true,
+    "effect_size": "medium",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 5.409,
+        "lost_mean": 10.207,
+        "delta": 4.798
+      },
+      "Mid-Market": {
+        "won_mean": 4.948,
+        "lost_mean": 11.043,
+        "delta": 6.094
+      },
+      "Enterprise": {
+        "won_mean": 5.108,
+        "lost_mean": 10.5,
+        "delta": 5.392
+      }
+    }
+  },
+  "email_response_latency_delta_days": {
+    "won_mean": 0.176,
+    "won_median": 0.2,
+    "lost_mean": 1.416,
+    "lost_median": 0.6,
+    "mean_delta": 1.24,
+    "p_value": 0.0,
+    "cohen_d": -0.631,
+    "significant": true,
+    "effect_size": "medium",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.119,
+        "lost_mean": 1.397,
+        "delta": 1.278
+      },
+      "Mid-Market": {
+        "won_mean": 0.135,
+        "lost_mean": 1.642,
+        "delta": 1.506
+      },
+      "Enterprise": {
+        "won_mean": 0.322,
+        "lost_mean": 1.206,
+        "delta": 0.884
+      }
+    }
+  },
+  "days_since_last_rep_touch": {
+    "won_mean": 3.934,
+    "won_median": 4.0,
+    "lost_mean": 7.862,
+    "lost_median": 5.0,
+    "mean_delta": 3.928,
+    "p_value": 0.0,
+    "cohen_d": -0.6,
+    "significant": true,
+    "effect_size": "medium",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 4.092,
+        "lost_mean": 7.626,
+        "delta": 3.534
+      },
+      "Mid-Market": {
+        "won_mean": 3.914,
+        "lost_mean": 8.378,
+        "delta": 4.464
+      },
+      "Enterprise": {
+        "won_mean": 3.783,
+        "lost_mean": 7.559,
+        "delta": 3.776
+      }
+    }
+  },
+  "days_in_current_stage": {
+    "won_mean": 11.648,
+    "won_median": 12.0,
+    "lost_mean": 17.422,
+    "lost_median": 14.0,
+    "mean_delta": 5.774,
+    "p_value": 0.0,
+    "cohen_d": -0.552,
+    "significant": true,
+    "effect_size": "medium",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 11.664,
+        "lost_mean": 16.464,
+        "delta": 4.8
+      },
+      "Mid-Market": {
+        "won_mean": 11.388,
+        "lost_mean": 18.59,
+        "delta": 7.202
+      },
+      "Enterprise": {
+        "won_mean": 11.968,
+        "lost_mean": 17.173,
+        "delta": 5.205
+      }
+    }
+  },
+  "champion_engagement_score_delta": {
+    "won_mean": 2.462,
+    "won_median": 2.0,
+    "lost_mean": -3.101,
+    "lost_median": -1.0,
+    "mean_delta": -5.563,
+    "p_value": 0.0,
+    "cohen_d": 0.517,
+    "significant": true,
+    "effect_size": "medium",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 2.127,
+        "lost_mean": -2.712,
+        "delta": -4.839
+      },
+      "Mid-Market": {
+        "won_mean": 3.724,
+        "lost_mean": -4.3,
+        "delta": -8.025
+      },
+      "Enterprise": {
+        "won_mean": 1.269,
+        "lost_mean": -2.301,
+        "delta": -3.57
+      }
+    }
+  },
+  "competitive_mentions_count": {
+    "won_mean": 1.056,
+    "won_median": 1.0,
+    "lost_mean": 1.735,
+    "lost_median": 1.0,
+    "mean_delta": 0.679,
+    "p_value": 0.0,
+    "cohen_d": -0.488,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 1.1,
+        "lost_mean": 1.806,
+        "delta": 0.706
+      },
+      "Mid-Market": {
+        "won_mean": 1.052,
+        "lost_mean": 1.652,
+        "delta": 0.601
+      },
+      "Enterprise": {
+        "won_mean": 1.011,
+        "lost_mean": 1.736,
+        "delta": 0.725
+      }
+    }
+  },
+  "days_since_multithread_touch": {
+    "won_mean": 8.019,
+    "won_median": 8.0,
+    "lost_mean": 11.652,
+    "lost_median": 9.0,
+    "mean_delta": 3.634,
+    "p_value": 0.0,
+    "cohen_d": -0.482,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 7.845,
+        "lost_mean": 11.248,
+        "delta": 3.402
+      },
+      "Mid-Market": {
+        "won_mean": 8.103,
+        "lost_mean": 12.416,
+        "delta": 4.313
+      },
+      "Enterprise": {
+        "won_mean": 8.237,
+        "lost_mean": 11.282,
+        "delta": 3.045
+      }
+    }
+  },
+  "champion_engagement_score": {
+    "won_mean": 74.935,
+    "won_median": 76.0,
+    "lost_mean": 67.138,
+    "lost_median": 71.0,
+    "mean_delta": -7.797,
+    "p_value": 0.0,
+    "cohen_d": 0.475,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 75.145,
+        "lost_mean": 67.018,
+        "delta": -8.127
+      },
+      "Mid-Market": {
+        "won_mean": 74.983,
+        "lost_mean": 66.376,
+        "delta": -8.607
+      },
+      "Enterprise": {
+        "won_mean": 74.688,
+        "lost_mean": 67.973,
+        "delta": -6.716
+      }
+    }
+  },
+  "executive_sponsor_engaged": {
+    "won_mean": 0.617,
+    "won_median": 1.0,
+    "lost_mean": 0.393,
+    "lost_median": 0.0,
+    "mean_delta": -0.224,
+    "p_value": 0.0,
+    "cohen_d": 0.459,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.573,
+        "lost_mean": 0.396,
+        "delta": -0.176
+      },
+      "Mid-Market": {
+        "won_mean": 0.655,
+        "lost_mean": 0.389,
+        "delta": -0.266
+      },
+      "Enterprise": {
+        "won_mean": 0.624,
+        "lost_mean": 0.391,
+        "delta": -0.233
+      }
+    }
+  },
+  "stage_regression_count": {
+    "won_mean": 0.525,
+    "won_median": 1.0,
+    "lost_mean": 0.796,
+    "lost_median": 1.0,
+    "mean_delta": 0.271,
+    "p_value": 0.0,
+    "cohen_d": -0.399,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.536,
+        "lost_mean": 0.761,
+        "delta": 0.225
+      },
+      "Mid-Market": {
+        "won_mean": 0.5,
+        "lost_mean": 0.838,
+        "delta": 0.338
+      },
+      "Enterprise": {
+        "won_mean": 0.548,
+        "lost_mean": 0.786,
+        "delta": 0.238
+      }
+    }
+  },
+  "discount_pct": {
+    "won_mean": 0.086,
+    "won_median": 0.05,
+    "lost_mean": 0.129,
+    "lost_median": 0.11,
+    "mean_delta": 0.042,
+    "p_value": 0.0,
+    "cohen_d": -0.395,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.083,
+        "lost_mean": 0.123,
+        "delta": 0.039
+      },
+      "Mid-Market": {
+        "won_mean": 0.089,
+        "lost_mean": 0.13,
+        "delta": 0.041
+      },
+      "Enterprise": {
+        "won_mean": 0.086,
+        "lost_mean": 0.133,
+        "delta": 0.047
+      }
+    }
+  },
+  "meeting_count_last_30d": {
+    "won_mean": 3.006,
+    "won_median": 3.0,
+    "lost_mean": 2.442,
+    "lost_median": 2.0,
+    "mean_delta": -0.564,
+    "p_value": 0.0,
+    "cohen_d": 0.367,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 3.018,
+        "lost_mean": 2.383,
+        "delta": -0.635
+      },
+      "Mid-Market": {
+        "won_mean": 2.948,
+        "lost_mean": 2.335,
+        "delta": -0.614
+      },
+      "Enterprise": {
+        "won_mean": 3.087,
+        "lost_mean": 2.61,
+        "delta": -0.477
+      }
+    }
+  },
+  "unique_stakeholders_at_midpoint": {
+    "won_mean": 4.338,
+    "won_median": 5.0,
+    "lost_mean": 3.617,
+    "lost_median": 4.0,
+    "mean_delta": -0.72,
+    "p_value": 0.0,
+    "cohen_d": 0.333,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 4.523,
+        "lost_mean": 3.716,
+        "delta": -0.807
+      },
+      "Mid-Market": {
+        "won_mean": 4.224,
+        "lost_mean": 3.607,
+        "delta": -0.617
+      },
+      "Enterprise": {
+        "won_mean": 4.301,
+        "lost_mean": 3.523,
+        "delta": -0.778
+      }
+    }
+  },
+  "email_response_rate": {
+    "won_mean": 0.597,
+    "won_median": 0.6,
+    "lost_mean": 0.508,
+    "lost_median": 0.5,
+    "mean_delta": -0.089,
+    "p_value": 0.0,
+    "cohen_d": 0.328,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.621,
+        "lost_mean": 0.501,
+        "delta": -0.12
+      },
+      "Mid-Market": {
+        "won_mean": 0.584,
+        "lost_mean": 0.508,
+        "delta": -0.075
+      },
+      "Enterprise": {
+        "won_mean": 0.584,
+        "lost_mean": 0.514,
+        "delta": -0.07
+      }
+    }
+  },
+  "pricing_objection_raised": {
+    "won_mean": 0.467,
+    "won_median": 0.0,
+    "lost_mean": 0.606,
+    "lost_median": 1.0,
+    "mean_delta": 0.138,
+    "p_value": 0.0,
+    "cohen_d": -0.28,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.445,
+        "lost_mean": 0.608,
+        "delta": 0.163
+      },
+      "Mid-Market": {
+        "won_mean": 0.457,
+        "lost_mean": 0.624,
+        "delta": 0.167
+      },
+      "Enterprise": {
+        "won_mean": 0.495,
+        "lost_mean": 0.582,
+        "delta": 0.087
+      }
+    }
+  },
+  "pricing_objection_count": {
+    "won_mean": 1.162,
+    "won_median": 0.0,
+    "lost_mean": 1.492,
+    "lost_median": 1.0,
+    "mean_delta": 0.33,
+    "p_value": 0.0008,
+    "cohen_d": -0.227,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 1.182,
+        "lost_mean": 1.523,
+        "delta": 0.341
+      },
+      "Mid-Market": {
+        "won_mean": 1.121,
+        "lost_mean": 1.577,
+        "delta": 0.456
+      },
+      "Enterprise": {
+        "won_mean": 1.14,
+        "lost_mean": 1.373,
+        "delta": 0.233
+      }
+    }
+  },
+  "economic_buyer_meetings": {
+    "won_mean": 1.888,
+    "won_median": 1.0,
+    "lost_mean": 1.541,
+    "lost_median": 1.0,
+    "mean_delta": -0.346,
+    "p_value": 0.0056,
+    "cohen_d": 0.19,
+    "significant": true,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 1.8,
+        "lost_mean": 1.568,
+        "delta": -0.232
+      },
+      "Mid-Market": {
+        "won_mean": 2.017,
+        "lost_mean": 1.547,
+        "delta": -0.47
+      },
+      "Enterprise": {
+        "won_mean": 1.839,
+        "lost_mean": 1.498,
+        "delta": -0.341
+      }
+    }
+  },
+  "days_to_first_exec_engagement": {
+    "won_mean": 19.298,
+    "won_median": 18.0,
+    "lost_mean": 20.124,
+    "lost_median": 20.0,
+    "mean_delta": 0.826,
+    "p_value": 0.3427,
+    "cohen_d": -0.09,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 19.984,
+        "lost_mean": 20.375,
+        "delta": 0.391
+      },
+      "Mid-Market": {
+        "won_mean": 18.855,
+        "lost_mean": 20.549,
+        "delta": 1.694
+      },
+      "Enterprise": {
+        "won_mean": 19.155,
+        "lost_mean": 19.384,
+        "delta": 0.229
+      }
+    }
+  },
+  "legal_review_started": {
+    "won_mean": 0.511,
+    "won_median": 1.0,
+    "lost_mean": 0.476,
+    "lost_median": 0.0,
+    "mean_delta": -0.035,
+    "p_value": 0.2986,
+    "cohen_d": 0.071,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.564,
+        "lost_mean": 0.486,
+        "delta": -0.077
+      },
+      "Mid-Market": {
+        "won_mean": 0.526,
+        "lost_mean": 0.457,
+        "delta": -0.069
+      },
+      "Enterprise": {
+        "won_mean": 0.419,
+        "lost_mean": 0.486,
+        "delta": 0.067
+      }
+    }
+  },
+  "product_trial_active": {
+    "won_mean": 0.517,
+    "won_median": 1.0,
+    "lost_mean": 0.482,
+    "lost_median": 0.0,
+    "mean_delta": -0.036,
+    "p_value": 0.2942,
+    "cohen_d": 0.071,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.509,
+        "lost_mean": 0.473,
+        "delta": -0.036
+      },
+      "Mid-Market": {
+        "won_mean": 0.552,
+        "lost_mean": 0.487,
+        "delta": -0.065
+      },
+      "Enterprise": {
+        "won_mean": 0.484,
+        "lost_mean": 0.486,
+        "delta": 0.002
+      }
+    }
+  },
+  "intent_score": {
+    "won_mean": 73.445,
+    "won_median": 74.0,
+    "lost_mean": 72.52,
+    "lost_median": 73.0,
+    "mean_delta": -0.925,
+    "p_value": 0.3408,
+    "cohen_d": 0.068,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 74.303,
+        "lost_mean": 73.734,
+        "delta": -0.569
+      },
+      "Mid-Market": {
+        "won_mean": 73.441,
+        "lost_mean": 72.63,
+        "delta": -0.811
+      },
+      "Enterprise": {
+        "won_mean": 72.31,
+        "lost_mean": 71.09,
+        "delta": -1.221
+      }
+    }
+  },
+  "days_to_proposal": {
+    "won_mean": 27.627,
+    "won_median": 28.0,
+    "lost_mean": 27.078,
+    "lost_median": 26.0,
+    "mean_delta": -0.548,
+    "p_value": 0.5716,
+    "cohen_d": 0.054,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 26.75,
+        "lost_mean": 27.29,
+        "delta": 0.54
+      },
+      "Mid-Market": {
+        "won_mean": 26.452,
+        "lost_mean": 26.583,
+        "delta": 0.132
+      },
+      "Enterprise": {
+        "won_mean": 30.234,
+        "lost_mean": 27.342,
+        "delta": -2.892
+      }
+    }
+  },
+  "sales_cycle_days": {
+    "won_mean": 83.8,
+    "won_median": 71.0,
+    "lost_mean": 86.913,
+    "lost_median": 73.0,
+    "mean_delta": 3.113,
+    "p_value": 0.4285,
+    "cohen_d": -0.054,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 28.945,
+        "lost_mean": 28.995,
+        "delta": 0.05
+      },
+      "Mid-Market": {
+        "won_mean": 75.517,
+        "lost_mean": 74.584,
+        "delta": -0.934
+      },
+      "Enterprise": {
+        "won_mean": 161.13,
+        "lost_mean": 158.141,
+        "delta": -2.99
+      }
+    }
+  },
+  "unique_stakeholders_total": {
+    "won_mean": 5.237,
+    "won_median": 6.0,
+    "lost_mean": 5.135,
+    "lost_median": 5.0,
+    "mean_delta": -0.103,
+    "p_value": 0.45,
+    "cohen_d": 0.051,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 5.427,
+        "lost_mean": 5.131,
+        "delta": -0.297
+      },
+      "Mid-Market": {
+        "won_mean": 5.198,
+        "lost_mean": 5.253,
+        "delta": 0.055
+      },
+      "Enterprise": {
+        "won_mean": 5.087,
+        "lost_mean": 5.005,
+        "delta": -0.082
+      }
+    }
+  },
+  "proposal_sent": {
+    "won_mean": 0.514,
+    "won_median": 1.0,
+    "lost_mean": 0.49,
+    "lost_median": 0.0,
+    "mean_delta": -0.024,
+    "p_value": 0.4864,
+    "cohen_d": 0.047,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.509,
+        "lost_mean": 0.482,
+        "delta": -0.027
+      },
+      "Mid-Market": {
+        "won_mean": 0.534,
+        "lost_mean": 0.462,
+        "delta": -0.073
+      },
+      "Enterprise": {
+        "won_mean": 0.505,
+        "lost_mean": 0.532,
+        "delta": 0.026
+      }
+    }
+  },
+  "stage_change_count": {
+    "won_mean": 4.053,
+    "won_median": 4.0,
+    "lost_mean": 3.99,
+    "lost_median": 4.0,
+    "mean_delta": -0.063,
+    "p_value": 0.516,
+    "cohen_d": 0.044,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 3.836,
+        "lost_mean": 3.932,
+        "delta": 0.096
+      },
+      "Mid-Market": {
+        "won_mean": 4.233,
+        "lost_mean": 4.147,
+        "delta": -0.086
+      },
+      "Enterprise": {
+        "won_mean": 4.108,
+        "lost_mean": 3.891,
+        "delta": -0.217
+      }
+    }
+  },
+  "security_review_complete": {
+    "won_mean": 0.533,
+    "won_median": 1.0,
+    "lost_mean": 0.521,
+    "lost_median": 1.0,
+    "mean_delta": -0.011,
+    "p_value": 0.7389,
+    "cohen_d": 0.023,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.555,
+        "lost_mean": 0.491,
+        "delta": -0.064
+      },
+      "Mid-Market": {
+        "won_mean": 0.578,
+        "lost_mean": 0.568,
+        "delta": -0.009
+      },
+      "Enterprise": {
+        "won_mean": 0.462,
+        "lost_mean": 0.5,
+        "delta": 0.038
+      }
+    }
+  },
+  "multithread_attempt_count": {
+    "won_mean": 2.47,
+    "won_median": 2.0,
+    "lost_mean": 2.438,
+    "lost_median": 2.0,
+    "mean_delta": -0.032,
+    "p_value": 0.7805,
+    "cohen_d": 0.019,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "lower_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 2.587,
+        "lost_mean": 2.374,
+        "delta": -0.213
+      },
+      "Mid-Market": {
+        "won_mean": 2.431,
+        "lost_mean": 2.436,
+        "delta": 0.005
+      },
+      "Enterprise": {
+        "won_mean": 2.402,
+        "lost_mean": 2.516,
+        "delta": 0.114
+      }
+    }
+  },
+  "technical_validation_complete": {
+    "won_mean": 0.486,
+    "won_median": 0.0,
+    "lost_mean": 0.492,
+    "lost_median": 0.0,
+    "mean_delta": 0.006,
+    "p_value": 0.8621,
+    "cohen_d": -0.012,
+    "significant": false,
+    "effect_size": "small",
+    "loss_direction": "higher_is_worse",
+    "segment_breakdown": {
+      "SMB": {
+        "won_mean": 0.536,
+        "lost_mean": 0.509,
+        "delta": -0.027
+      },
+      "Mid-Market": {
+        "won_mean": 0.474,
+        "lost_mean": 0.474,
+        "delta": 0.0
+      },
+      "Enterprise": {
+        "won_mean": 0.441,
+        "lost_mean": 0.495,
+        "delta": 0.055
+      }
+    }
+  }
+}

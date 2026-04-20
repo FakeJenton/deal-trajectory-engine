@@ -1,0 +1,265 @@
+{
+  "Champion Collapse": {
+    "description": "Deal champion disengages or loses organizational authority mid-cycle. Thread collapses to a single contact with declining responsiveness.",
+    "deal_count": 126,
+    "loss_rate": 1.0,
+    "avg_acv": 172487.0,
+    "avg_cycle_days": 86.6,
+    "defining_signals": {
+      "email_response_latency_delta_days": {
+        "threshold": 3.4,
+        "direction": "above",
+        "stall_median": 6.6,
+        "healthy_median": 0.2,
+        "cohen_d": 7.553,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
+      "champion_engagement_score_delta": {
+        "threshold": -12.0,
+        "direction": "below",
+        "stall_median": -26.0,
+        "healthy_median": 2.0,
+        "cohen_d": -4.671,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
+      "champion_engagement_score": {
+        "threshold": 54.5,
+        "direction": "below",
+        "stall_median": 33.0,
+        "healthy_median": 76.0,
+        "cohen_d": -3.836,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
+      "days_since_multithread_touch": {
+        "threshold": 18.75,
+        "direction": "above",
+        "stall_median": 29.5,
+        "healthy_median": 8.0,
+        "cohen_d": 3.811,
+        "p_value": 0.0,
+        "signal_group": "stakeholder_breadth"
+      },
+      "unique_stakeholders_at_midpoint": {
+        "threshold": 3.0,
+        "direction": "below",
+        "stall_median": 1.0,
+        "healthy_median": 5.0,
+        "cohen_d": -2.265,
+        "p_value": 0.0,
+        "signal_group": "stakeholder_breadth"
+      },
+      "executive_sponsor_engaged": {
+        "threshold": 0.5,
+        "direction": "below",
+        "stall_median": 0.0,
+        "healthy_median": 1.0,
+        "cohen_d": -1.792,
+        "p_value": 0.0,
+        "signal_group": "stakeholder_breadth"
+      }
+    },
+    "signal_coverage": {
+      "email_response_latency_delta_days": 1.0,
+      "champion_engagement_score_delta": 1.0,
+      "champion_engagement_score": 1.0,
+      "unique_stakeholders_at_midpoint": 1.0,
+      "days_since_multithread_touch": 0.96,
+      "executive_sponsor_engaged": 1.0
+    },
+    "top_3_signals": [
+      "email_response_latency_delta_days",
+      "champion_engagement_score_delta",
+      "champion_engagement_score"
+    ],
+    "segment_loss_rate": {
+      "SMB": 1.0,
+      "Mid-Market": 1.0,
+      "Enterprise": 1.0
+    }
+  },
+  "Competitor Displacement": {
+    "description": "A competitor gains foothold in the deal \u2014 often surfacing as pricing pressure, increased objections, and stage regression.",
+    "deal_count": 128,
+    "loss_rate": 1.0,
+    "avg_acv": 198734.0,
+    "avg_cycle_days": 85.7,
+    "defining_signals": {
+      "competitive_mentions_count": {
+        "threshold": 3.0,
+        "direction": "above",
+        "stall_median": 5.0,
+        "healthy_median": 1.0,
+        "cohen_d": 3.336,
+        "p_value": 0.0,
+        "signal_group": "competitive_pressure"
+      },
+      "discount_pct": {
+        "threshold": 0.16,
+        "direction": "above",
+        "stall_median": 0.27,
+        "healthy_median": 0.05,
+        "cohen_d": 2.464,
+        "p_value": 0.0,
+        "signal_group": "competitive_pressure"
+      },
+      "stage_regression_count": {
+        "threshold": 1.5,
+        "direction": "above",
+        "stall_median": 2.0,
+        "healthy_median": 1.0,
+        "cohen_d": 2.27,
+        "p_value": 0.0,
+        "signal_group": "competitive_pressure"
+      },
+      "pricing_objection_raised": {
+        "threshold": 0.5,
+        "direction": "above",
+        "stall_median": 1.0,
+        "healthy_median": 0.0,
+        "cohen_d": 1.508,
+        "p_value": 0.0,
+        "signal_group": "competitive_pressure"
+      },
+      "pricing_objection_count": {
+        "threshold": 1.0,
+        "direction": "above",
+        "stall_median": 2.0,
+        "healthy_median": 0.0,
+        "cohen_d": 0.944,
+        "p_value": 0.0,
+        "signal_group": "competitive_pressure"
+      }
+    },
+    "signal_coverage": {
+      "competitive_mentions_count": 0.812,
+      "pricing_objection_raised": 1.0,
+      "pricing_objection_count": 0.719,
+      "stage_regression_count": 0.703,
+      "discount_pct": 1.0
+    },
+    "top_3_signals": [
+      "competitive_mentions_count",
+      "discount_pct",
+      "stage_regression_count"
+    ],
+    "segment_loss_rate": {
+      "SMB": 1.0,
+      "Mid-Market": 1.0,
+      "Enterprise": 1.0
+    }
+  },
+  "Ghost Stall": {
+    "description": "Prospect goes silent without a stated reason. No activity, no replies, no forward motion. Deal lives in the pipeline but is effectively dead.",
+    "deal_count": 125,
+    "loss_rate": 1.0,
+    "avg_acv": 192947.0,
+    "avg_cycle_days": 84.7,
+    "defining_signals": {
+      "days_since_last_rep_touch": {
+        "threshold": 15.0,
+        "direction": "above",
+        "stall_median": 26.0,
+        "healthy_median": 4.0,
+        "cohen_d": 4.206,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
+      "days_in_current_stage": {
+        "threshold": 28.0,
+        "direction": "above",
+        "stall_median": 44.0,
+        "healthy_median": 12.0,
+        "cohen_d": 3.741,
+        "p_value": 0.0,
+        "signal_group": "process_velocity"
+      },
+      "meeting_count_last_30d": {
+        "threshold": 1.5,
+        "direction": "below",
+        "stall_median": 0.0,
+        "healthy_median": 3.0,
+        "cohen_d": -3.09,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
+      "days_since_last_activity": {
+        "threshold": 14.0,
+        "direction": "above",
+        "stall_median": 23.0,
+        "healthy_median": 5.0,
+        "cohen_d": 3.013,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
+      "email_response_rate": {
+        "threshold": 0.39,
+        "direction": "below",
+        "stall_median": 0.17,
+        "healthy_median": 0.6,
+        "cohen_d": -2.391,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      }
+    },
+    "signal_coverage": {
+      "email_response_rate": 1.0,
+      "days_since_last_rep_touch": 0.92,
+      "days_since_last_activity": 0.92,
+      "meeting_count_last_30d": 1.0,
+      "days_in_current_stage": 0.84
+    },
+    "top_3_signals": [
+      "days_since_last_rep_touch",
+      "days_in_current_stage",
+      "meeting_count_last_30d"
+    ],
+    "segment_loss_rate": {
+      "SMB": 1.0,
+      "Mid-Market": 1.0,
+      "Enterprise": 1.0
+    }
+  },
+  "Exec Vacuum": {
+    "description": "Deal is confined to IC-level champion with no economic buyer visibility. Budget decisions happen above the champion's authority level.",
+    "deal_count": 153,
+    "loss_rate": 1.0,
+    "avg_acv": 194998.0,
+    "avg_cycle_days": 84.6,
+    "defining_signals": {
+      "executive_sponsor_engaged": {
+        "threshold": 0.5,
+        "direction": "below",
+        "stall_median": 0.0,
+        "healthy_median": 1.0,
+        "cohen_d": -1.792,
+        "p_value": 0.0,
+        "signal_group": "stakeholder_breadth"
+      },
+      "economic_buyer_meetings": {
+        "threshold": 0.5,
+        "direction": "below",
+        "stall_median": 0.0,
+        "healthy_median": 1.0,
+        "cohen_d": -1.425,
+        "p_value": 0.0,
+        "signal_group": "stakeholder_breadth"
+      }
+    },
+    "signal_coverage": {
+      "executive_sponsor_engaged": 1.0,
+      "economic_buyer_meetings": 1.0
+    },
+    "top_3_signals": [
+      "executive_sponsor_engaged",
+      "economic_buyer_meetings"
+    ],
+    "segment_loss_rate": {
+      "SMB": 1.0,
+      "Mid-Market": 1.0,
+      "Enterprise": 1.0
+    }
+  }
+}

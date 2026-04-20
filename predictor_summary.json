@@ -1,0 +1,89 @@
+{
+  "run_timestamp": "2026-04-20 23:03:19",
+  "total_pipeline_deals": 150,
+  "trajectory_distribution": {
+    "critical": 88,
+    "healthy": 45,
+    "watch": 11,
+    "at-risk": 6
+  },
+  "flagged_deal_count": 94,
+  "flagged_pct": 0.627,
+  "total_acv_scored": 27739900.0,
+  "acv_at_risk": 15642400.0,
+  "acv_at_risk_pct": 0.564,
+  "stall_type_distribution": {
+    "Exec Vacuum": 27,
+    "Competitor Displacement": 24,
+    "Ghost Stall": 22,
+    "Champion Collapse": 21
+  },
+  "segment_distribution": {
+    "('Enterprise', 'critical')": 20,
+    "('Enterprise', 'at-risk')": 2,
+    "('Mid-Market', 'critical')": 40,
+    "('Mid-Market', 'at-risk')": 2,
+    "('SMB', 'critical')": 28,
+    "('SMB', 'at-risk')": 2
+  },
+  "reps_with_most_flags": {
+    "Kelly Martin": 2,
+    "Alan Griffin": 1,
+    "Alyssa Klein": 1,
+    "Amy Jackson": 1,
+    "Aimee Johnson": 1,
+    "Amy Williamson": 1,
+    "Ariel Gomez": 1,
+    "Ashley Banks": 1,
+    "Barbara Hardin": 1,
+    "Benjamin Allison": 1
+  },
+  "contradiction_flags": 37,
+  "top_5_priority_deals": [
+    {
+      "deal_id": "PIPE-2052",
+      "company": "Burns PLC Inc",
+      "acv": 729900.0,
+      "stall": "Exec Vacuum",
+      "trajectory": "critical",
+      "priority": 3.0,
+      "top_action": "Ask the champion directly: 'Who else needs to say yes for this to move forward?' \u2014 then get a warm intro to that person in the same week"
+    },
+    {
+      "deal_id": "PIPE-2037",
+      "company": "Berry, Garcia and Smith Inc",
+      "acv": 335800.0,
+      "stall": "Champion Collapse",
+      "trajectory": "critical",
+      "priority": 3.0,
+      "top_action": "Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours"
+    },
+    {
+      "deal_id": "PIPE-2148",
+      "company": "flores-pope",
+      "acv": 488300.0,
+      "stall": "Exec Vacuum",
+      "trajectory": "critical",
+      "priority": 3.0,
+      "top_action": "Ask the champion directly: 'Who else needs to say yes for this to move forward?' \u2014 then get a warm intro to that person in the same week"
+    },
+    {
+      "deal_id": "PIPE-2086",
+      "company": "Hubbard Group, Inc.",
+      "acv": 661600.0,
+      "stall": "Ghost Stall",
+      "trajectory": "critical",
+      "priority": 3.0,
+      "top_action": "Break the email thread \u2014 call, text, or LinkedIn. Change the medium before you change the message."
+    },
+    {
+      "deal_id": "PIPE-2040",
+      "company": "Hendricks,BakerandJones",
+      "acv": 432400.0,
+      "stall": "Exec Vacuum",
+      "trajectory": "critical",
+      "priority": 3.0,
+      "top_action": "Ask the champion directly: 'Who else needs to say yes for this to move forward?' \u2014 then get a warm intro to that person in the same week"
+    }
+  ]
+}

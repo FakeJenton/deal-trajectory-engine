@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Deal Trajectory Engine</title>
+<style>
+  :root {
+    --bg: #0b1020;
+    --panel: #121a33;
+    --panel-2: #172142;
+    --border: #26325a;
+    --text: #e8ecf7;
+    --muted: #98a2c3;
+    --accent: #6ee7ff;
+    --critical: #ef4444;
+    --at-risk: #f59e0b;
+    --watch: #eab308;
+    --healthy: #22c55e;
+    --champion: #ef4444;
+    --exec: #a855f7;
+    --ghost: #64748b;
+    --compet: #f97316;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  header {
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, #141c3a 0%, #0b1020 100%);
+  }
+  header h1 { margin: 0; font-size: 22px; letter-spacing: -0.02em; }
+  header .sub { color: var(--muted); margin-top: 4px; font-size: 13px; }
+  main { padding: 24px 32px 64px; max-width: 1400px; margin: 0 auto; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+  .stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .stat .value { font-size: 24px; font-weight: 600; margin-top: 6px; }
+  .stat .foot { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .stat.alert .value { color: var(--critical); }
+
+  .section-title {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 24px 0 10px;
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .chip {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: all 0.15s;
+  }
+  .chip:hover { background: var(--panel-2); }
+  .chip.active { background: var(--accent); color: #0b1020; border-color: var(--accent); font-weight: 600; }
+  .chip .ct { opacity: 0.7; margin-left: 6px; font-size: 11px; }
+
+  .deal-row {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+  .deal-head {
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: 90px 1fr 160px 120px 110px 100px 40px;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+  }
+  .deal-head:hover { background: var(--panel-2); }
+  .deal-id { font-family: ui-monospace, Menlo, monospace; color: var(--muted); font-size: 12px; }
+  .deal-name { font-weight: 600; }
+  .deal-name .rep { display: block; color: var(--muted); font-weight: 400; font-size: 12px; margin-top: 2px; }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .pill.critical { background: rgba(239,68,68,0.18); color: #fca5a5; }
+  .pill.at-risk  { background: rgba(245,158,11,0.18); color: #fcd34d; }
+  .pill.watch    { background: rgba(234,179,8,0.18); color: #fde68a; }
+  .pill.healthy  { background: rgba(34,197,94,0.18); color: #86efac; }
+  .stall-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .stall-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .stall-Champion { background: var(--champion); }
+  .stall-Exec { background: var(--exec); }
+  .stall-Ghost { background: var(--ghost); }
+  .stall-Compet { background: var(--compet); }
+  .acv { font-family: ui-monospace, Menlo, monospace; font-weight: 600; text-align: right; }
+  .stage { color: var(--muted); font-size: 13px; }
+  .chev { color: var(--muted); text-align: center; transition: transform 0.2s; }
+  .deal-row.open .chev { transform: rotate(90deg); }
+
+  .contradiction-badge {
+    display: inline-block;
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-left: 8px;
+  }
+
+  .deal-body {
+    display: none;
+    padding: 20px 22px 24px;
+    border-top: 1px solid var(--border);
+    background: #0e1530;
+  }
+  .deal-row.open .deal-body { display: block; }
+  .deal-body h4 {
+    margin: 0 0 8px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .deal-body .block { margin-bottom: 18px; }
+  .deal-body ul { margin: 0; padding-left: 18px; }
+  .deal-body ul li { margin: 4px 0; }
+  .deal-body .contradiction {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 3px solid var(--critical);
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    color: #fecaca;
+  }
+  .deal-body .first-move {
+    background: #0b1a33;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    padding: 14px 16px;
+    white-space: pre-wrap;
+    line-height: 1.6;
+  }
+  .deal-body .historical {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .deal-body .meta {
+    display: flex;
+    gap: 18px;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 14px;
+  }
+  .deal-body strong { color: var(--text); }
+
+  .empty {
+    padding: 40px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .deal-head { grid-template-columns: 1fr; gap: 6px; }
+    .acv { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Deal Trajectory Engine</h1>
+  <div class="sub" id="sub">Loading…</div>
+</header>
+<main>
+  <div class="stats" id="stats"></div>
+
+  <div class="section-title">Filter by Stall Pattern</div>
+  <div class="filters" id="stall-filters"></div>
+
+  <div class="section-title">Filter by Trajectory</div>
+  <div class="filters" id="traj-filters"></div>
+
+  <div class="section-title" id="queue-title">Intervention Queue</div>
+  <div id="queue"></div>
+</main>
+
+<script>
+/*__DATA__*/
+
+(function () {
+  const fmt$ = n => '$' + Math.round(n).toLocaleString();
+  const fmtM = n => '$' + (n / 1_000_000).toFixed(1) + 'M';
+  const stats = DATA.signal_stats;
+  const deals = DATA.intervention_queue;
+
+  // Header sub
+  document.getElementById('sub').textContent =
+    'Generated ' + DATA.generated_at + ' · ' + stats.total_deals + ' deals scored · ' +
+    stats.flagged_deals + ' flagged · ' + fmtM(stats.acv_at_risk) + ' ACV at risk';
+
+  // Top stats
+  const statEls = [
+    { label: 'Total Pipeline ACV', value: fmtM(stats.acv_total), foot: stats.total_deals + ' deals' },
+    { label: 'ACV At Risk', value: fmtM(stats.acv_at_risk), foot: Math.round(stats.acv_at_risk / stats.acv_total * 100) + '% of pipeline', alert: true },
+    { label: 'Flagged Deals', value: stats.flagged_deals + ' / ' + stats.total_deals, foot: Math.round(stats.flagged_deals / stats.total_deals * 100) + '% flagged' },
+    { label: 'Critical', value: stats.trajectory_distribution.critical, foot: 'needs intervention now', alert: true },
+    { label: 'Contradiction Flags', value: stats.contradiction_flags, foot: 'rep notes ≠ behavioral signals' },
+  ];
+  document.getElementById('stats').innerHTML = statEls.map(s =>
+    `<div class="stat ${s.alert ? 'alert' : ''}">
+       <div class="label">${s.label}</div>
+       <div class="value">${s.value}</div>
+       <div class="foot">${s.foot}</div>
+     </div>`
+  ).join('');
+
+  // Filters
+  let activeStall = 'all';
+  let activeTraj = 'all';
+
+  const stallCounts = stats.stall_type_distribution;
+  const stallFilters = [{ key: 'all', label: 'All', count: deals.length }]
+    .concat(Object.keys(stallCounts).map(k => ({ key: k, label: k, count: stallCounts[k] })));
+  document.getElementById('stall-filters').innerHTML = stallFilters.map(f =>
+    `<button class="chip ${f.key === 'all' ? 'active' : ''}" data-stall="${f.key}">
+       ${f.label}<span class="ct">${f.count}</span>
+     </button>`
+  ).join('');
+
+  const trajCounts = stats.trajectory_distribution;
+  const trajOrder = ['critical', 'at-risk', 'watch', 'healthy'];
+  const trajFilters = [{ key: 'all', label: 'All', count: deals.length }]
+    .concat(trajOrder.filter(k => trajCounts[k]).map(k => ({ key: k, label: k, count: trajCounts[k] })));
+  document.getElementById('traj-filters').innerHTML = trajFilters.map(f =>
+    `<button class="chip ${f.key === 'all' ? 'active' : ''}" data-traj="${f.key}">
+       ${f.label}<span class="ct">${f.count}</span>
+     </button>`
+  ).join('');
+
+  function stallClass(s) {
+    if (s.startsWith('Champion')) return 'stall-Champion';
+    if (s.startsWith('Exec')) return 'stall-Exec';
+    if (s.startsWith('Ghost')) return 'stall-Ghost';
+    if (s.startsWith('Competitor')) return 'stall-Compet';
+    return '';
+  }
+
+  function renderQueue() {
+    const filtered = deals.filter(d =>
+      (activeStall === 'all' || d.dominant_stall_type === activeStall) &&
+      (activeTraj === 'all' || d.trajectory === activeTraj)
+    );
+
+    document.getElementById('queue-title').textContent =
+      'Intervention Queue · ' + filtered.length + ' deal' + (filtered.length === 1 ? '' : 's');
+
+    if (!filtered.length) {
+      document.getElementById('queue').innerHTML =
+        '<div class="empty">No deals match these filters.</div>';
+      return;
+    }
+
+    document.getElementById('queue').innerHTML = filtered.map((d, i) => {
+      const contradiction = d.note_contradiction
+        ? `<span class="contradiction-badge">⚠ Contradiction</span>` : '';
+      const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
+      const contradictionBlock = d.note_contradiction
+        ? `<div class="contradiction"><strong>⚠ Contradiction detected:</strong> ${d.note_contradiction}</div>`
+        : '';
+      const firstMoveHtml = (d.first_move || '')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+      return `
+      <div class="deal-row" data-i="${i}">
+        <div class="deal-head">
+          <div class="deal-id">${d.deal_id}</div>
+          <div class="deal-name">
+            ${d.company_name}${contradiction}
+            <span class="rep">${d.rep_name} · ${d.segment}</span>
+          </div>
+          <div class="stall-tag"><span class="stall-dot ${stallClass(d.dominant_stall_type)}"></span>${d.dominant_stall_type}</div>
+          <div class="stage">${d.current_stage}</div>
+          <div><span class="pill ${d.trajectory}">${d.trajectory}</span></div>
+          <div class="acv">${fmt$(d.acv_usd)}</div>
+          <div class="chev">▶</div>
+        </div>
+        <div class="deal-body">
+          ${contradictionBlock}
+          <div class="block">
+            <h4>Stall Signature · ${d.signal_coverage}</h4>
+            <div>${d.stall_description}</div>
+          </div>
+          <div class="block">
+            <h4>Signal Evidence</h4>
+            <ul>${evidenceList}</ul>
+          </div>
+          <div class="block">
+            <h4>Historical Context</h4>
+            <div class="historical">${d.historical_context}</div>
+          </div>
+          <div class="block">
+            <h4>Recommended First Move — For ${d.rep_name}</h4>
+            <div class="first-move">${firstMoveHtml}</div>
+          </div>
+          <div class="block">
+            <h4>Playbook Intervention</h4>
+            <div><strong>${d.top_intervention.action}</strong></div>
+            <div class="historical" style="margin-top:6px">${d.top_intervention.rationale}</div>
+          </div>
+          <div class="meta">
+            <span>Priority score: <strong>${d.priority_score.toFixed(2)}</strong></span>
+            <span>Urgency: <strong>${d.urgency_stage}</strong></span>
+            <span>Stall score: <strong>${(d.stall_score * 100).toFixed(0)}%</strong></span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    document.querySelectorAll('.deal-row .deal-head').forEach(head => {
+      head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    });
+  }
+
+  document.getElementById('stall-filters').addEventListener('click', e => {
+    const btn = e.target.closest('.chip');
+    if (!btn) return;
+    activeStall = btn.dataset.stall;
+    document.querySelectorAll('#stall-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
+    renderQueue();
+  });
+  document.getElementById('traj-filters').addEventListener('click', e => {
+    const btn = e.target.closest('.chip');
+    if (!btn) return;
+    activeTraj = btn.dataset.traj;
+    document.querySelectorAll('#traj-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
+    renderQueue();
+  });
+
+  renderQueue();
+})();
+</script>
+</body>
+</html>
