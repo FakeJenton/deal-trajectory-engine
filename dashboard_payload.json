@@ -216,7 +216,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 1
+      "overall_rank": 1,
+      "days_in_current_stage": 34,
+      "signals_hit_labels": "Last rep outreach was 21 days ago (threshold: 15d) | Deal has been stuck in current stage for 34 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 20.00 (threshold: 14.00) | Only 24% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2095",
@@ -293,7 +296,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 2
+      "overall_rank": 2,
+      "days_in_current_stage": 58,
+      "signals_hit_labels": "Last rep outreach was 19 days ago (threshold: 15d) | Deal has been stuck in current stage for 58 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 40.00 (threshold: 14.00) | Only 13% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2040",
@@ -367,7 +373,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 3
+      "overall_rank": 3,
+      "days_in_current_stage": 20,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2112",
@@ -444,7 +453,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 4
+      "overall_rank": 4,
+      "days_in_current_stage": 12,
+      "signals_hit_labels": "5 competitor mentions logged (threshold: 3) | Discount at 28.0% — above threshold of 16.0% | Deal has regressed 2 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2141",
@@ -522,7 +534,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 5
+      "overall_rank": 5,
+      "days_in_current_stage": 19,
+      "signals_hit_labels": "Email response time has slowed by 6.8 days since deal start (threshold: 3.4d) | Champion engagement dropped 26 pts (threshold: -12) | Champion engagement at 41/100 — below healthy baseline of 54 | Last multi-thread touch was 23 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2025",
@@ -596,7 +611,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 6
+      "overall_rank": 6,
+      "days_in_current_stage": 15,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2016",
@@ -674,7 +692,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 7
+      "overall_rank": 7,
+      "days_in_current_stage": 18,
+      "signals_hit_labels": "Email response time has slowed by 6.0 days since deal start (threshold: 3.4d) | Champion engagement dropped 35 pts (threshold: -12) | Champion engagement at 46/100 — below healthy baseline of 54 | Last multi-thread touch was 20 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2131",
@@ -751,7 +772,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 8
+      "overall_rank": 8,
+      "days_in_current_stage": 34,
+      "signals_hit_labels": "Last rep outreach was 31 days ago (threshold: 15d) | Deal has been stuck in current stage for 34 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 33.00 (threshold: 14.00) | Only 17% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2136",
@@ -838,7 +862,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 9
+      "overall_rank": 9,
+      "days_in_current_stage": 15,
+      "signals_hit_labels": "Email response time has slowed by 5.9 days since deal start (threshold: 3.4d) | Champion engagement dropped 24 pts (threshold: -12) | Champion engagement at 48/100 — below healthy baseline of 54 | Last multi-thread touch was 19 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2049",
@@ -915,7 +942,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 10
+      "overall_rank": 10,
+      "days_in_current_stage": 14,
+      "signals_hit_labels": "4 competitor mentions logged (threshold: 3) | Discount at 24.0% — above threshold of 16.0% | Deal has regressed 3 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 3 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2011",
@@ -992,7 +1022,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 11
+      "overall_rank": 11,
+      "days_in_current_stage": 59,
+      "signals_hit_labels": "Last rep outreach was 20 days ago (threshold: 15d) | Deal has been stuck in current stage for 59 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 21.00 (threshold: 14.00) | Only 12% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2077",
@@ -1075,7 +1108,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 12
+      "overall_rank": 12,
+      "days_in_current_stage": 59,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2129",
@@ -1152,7 +1188,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 13
+      "overall_rank": 13,
+      "days_in_current_stage": 39,
+      "signals_hit_labels": "Last rep outreach was 24 days ago (threshold: 15d) | Deal has been stuck in current stage for 39 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 36.00 (threshold: 14.00) | Only 15% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2005",
@@ -1226,7 +1265,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 14
+      "overall_rank": 14,
+      "days_in_current_stage": 19,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2108",
@@ -1303,7 +1345,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 15
+      "overall_rank": 15,
+      "days_in_current_stage": 32,
+      "signals_hit_labels": "Last rep outreach was 34 days ago (threshold: 15d) | Deal has been stuck in current stage for 32 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 37.00 (threshold: 14.00) | Only 11% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2102",
@@ -1381,7 +1426,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 16
+      "overall_rank": 16,
+      "days_in_current_stage": 10,
+      "signals_hit_labels": "Email response time has slowed by 7.1 days since deal start (threshold: 3.4d) | Champion engagement dropped 25 pts (threshold: -12) | Champion engagement at 21/100 — below healthy baseline of 54 | Last multi-thread touch was 26 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2107",
@@ -1468,7 +1516,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 17
+      "overall_rank": 17,
+      "days_in_current_stage": 5,
+      "signals_hit_labels": "Email response time has slowed by 6.5 days since deal start (threshold: 3.4d) | Champion engagement dropped 29 pts (threshold: -12) | Champion engagement at 41/100 — below healthy baseline of 54 | Last multi-thread touch was 23 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2114",
@@ -1542,7 +1593,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 18
+      "overall_rank": 18,
+      "days_in_current_stage": 10,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2017",
@@ -1616,7 +1670,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 19
+      "overall_rank": 19,
+      "days_in_current_stage": 11,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2082",
@@ -1694,7 +1751,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 20
+      "overall_rank": 20,
+      "days_in_current_stage": 11,
+      "signals_hit_labels": "Email response time has slowed by 5.7 days since deal start (threshold: 3.4d) | Champion engagement dropped 29 pts (threshold: -12) | Champion engagement at 28/100 — below healthy baseline of 54 | Last multi-thread touch was 37 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2052",
@@ -1768,7 +1828,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 21
+      "overall_rank": 21,
+      "days_in_current_stage": 10,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2034",
@@ -1845,7 +1908,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 22
+      "overall_rank": 22,
+      "days_in_current_stage": 48,
+      "signals_hit_labels": "Last rep outreach was 34 days ago (threshold: 15d) | Deal has been stuck in current stage for 48 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 16.00 (threshold: 14.00) | Only 19% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2054",
@@ -1932,7 +1998,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 23
+      "overall_rank": 23,
+      "days_in_current_stage": 13,
+      "signals_hit_labels": "Email response time has slowed by 6.4 days since deal start (threshold: 3.4d) | Champion engagement dropped 33 pts (threshold: -12) | Champion engagement at 32/100 — below healthy baseline of 54 | Last multi-thread touch was 30 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2046",
@@ -2019,7 +2088,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 24
+      "overall_rank": 24,
+      "days_in_current_stage": 4,
+      "signals_hit_labels": "Email response time has slowed by 7.0 days since deal start (threshold: 3.4d) | Champion engagement dropped 22 pts (threshold: -12) | Champion engagement at 47/100 — below healthy baseline of 54 | Last multi-thread touch was 38 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2032",
@@ -2096,7 +2168,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 25
+      "overall_rank": 25,
+      "days_in_current_stage": 35,
+      "signals_hit_labels": "Last rep outreach was 17 days ago (threshold: 15d) | Deal has been stuck in current stage for 35 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 39.00 (threshold: 14.00) | Only 20% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2138",
@@ -2173,7 +2248,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 26
+      "overall_rank": 26,
+      "days_in_current_stage": 45,
+      "signals_hit_labels": "Last rep outreach was 17 days ago (threshold: 15d) | Deal has been stuck in current stage for 45 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 33.00 (threshold: 14.00) | Only 23% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2149",
@@ -2250,7 +2328,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 27
+      "overall_rank": 27,
+      "days_in_current_stage": 7,
+      "signals_hit_labels": "6 competitor mentions logged (threshold: 3) | Discount at 28.0% — above threshold of 16.0% | Deal has regressed 3 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 3 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2083",
@@ -2324,7 +2405,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 28
+      "overall_rank": 28,
+      "days_in_current_stage": 20,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2118",
@@ -2401,7 +2485,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 29
+      "overall_rank": 29,
+      "days_in_current_stage": 49,
+      "signals_hit_labels": "Last rep outreach was 27 days ago (threshold: 15d) | Deal has been stuck in current stage for 49 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 38.00 (threshold: 14.00) | Only 17% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2073",
@@ -2478,7 +2565,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 30
+      "overall_rank": 30,
+      "days_in_current_stage": 17,
+      "signals_hit_labels": "5 competitor mentions logged (threshold: 3) | Discount at 22.0% — above threshold of 16.0% | Deal has regressed 3 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2022",
@@ -2555,7 +2645,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 31
+      "overall_rank": 31,
+      "days_in_current_stage": 49,
+      "signals_hit_labels": "Last rep outreach was 23 days ago (threshold: 15d) | Deal has been stuck in current stage for 49 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 35.00 (threshold: 14.00) | Only 13% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2012",
@@ -2638,7 +2731,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 32
+      "overall_rank": 32,
+      "days_in_current_stage": 20,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2075",
@@ -2715,7 +2811,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 33
+      "overall_rank": 33,
+      "days_in_current_stage": 20,
+      "signals_hit_labels": "7 competitor mentions logged (threshold: 3) | Discount at 33.0% — above threshold of 16.0% | Deal has regressed 2 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2024",
@@ -2793,7 +2892,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 34
+      "overall_rank": 34,
+      "days_in_current_stage": 14,
+      "signals_hit_labels": "Email response time has slowed by 7.0 days since deal start (threshold: 3.4d) | Champion engagement dropped 22 pts (threshold: -12) | Champion engagement at 21/100 — below healthy baseline of 54 | Last multi-thread touch was 20 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2145",
@@ -2863,7 +2965,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 35
+      "overall_rank": 35,
+      "days_in_current_stage": 3,
+      "signals_hit_labels": "Discount at 20.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 4 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 3
     },
     {
       "deal_id": "PIPE-2080",
@@ -2940,7 +3045,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 36
+      "overall_rank": 36,
+      "days_in_current_stage": 17,
+      "signals_hit_labels": "7 competitor mentions logged (threshold: 3) | Discount at 29.0% — above threshold of 16.0% | Deal has regressed 3 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2019",
@@ -3010,7 +3118,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 37
+      "overall_rank": 37,
+      "days_in_current_stage": 7,
+      "signals_hit_labels": "Discount at 17.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 4 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 3
     },
     {
       "deal_id": "PIPE-2002",
@@ -3081,7 +3192,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 38
+      "overall_rank": 38,
+      "days_in_current_stage": 19,
+      "signals_hit_labels": "7 competitor mentions logged (threshold: 3) | Discount at 22.0% — above threshold of 16.0% | Deal has regressed 2 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50)",
+      "signals_hit_count": 4
     },
     {
       "deal_id": "PIPE-2105",
@@ -3155,7 +3269,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 39
+      "overall_rank": 39,
+      "days_in_current_stage": 9,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2043",
@@ -3229,7 +3346,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 40
+      "overall_rank": 40,
+      "days_in_current_stage": 14,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2086",
@@ -3315,7 +3435,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 41
+      "overall_rank": 41,
+      "days_in_current_stage": 46,
+      "signals_hit_labels": "Last rep outreach was 22 days ago (threshold: 15d) | Deal has been stuck in current stage for 46 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 28.00 (threshold: 14.00) | Only 18% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2148",
@@ -3389,7 +3512,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 42
+      "overall_rank": 42,
+      "days_in_current_stage": 5,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2042",
@@ -3460,7 +3586,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 43
+      "overall_rank": 43,
+      "days_in_current_stage": 20,
+      "signals_hit_labels": "Discount at 22.0% — above threshold of 16.0% | Deal has regressed 2 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 4
     },
     {
       "deal_id": "PIPE-2134",
@@ -3538,7 +3667,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 44
+      "overall_rank": 44,
+      "days_in_current_stage": 15,
+      "signals_hit_labels": "Email response time has slowed by 6.0 days since deal start (threshold: 3.4d) | Champion engagement dropped 33 pts (threshold: -12) | Champion engagement at 40/100 — below healthy baseline of 54 | Last multi-thread touch was 27 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2006",
@@ -3616,7 +3748,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 45
+      "overall_rank": 45,
+      "days_in_current_stage": 12,
+      "signals_hit_labels": "Email response time has slowed by 6.0 days since deal start (threshold: 3.4d) | Champion engagement dropped 20 pts (threshold: -12) | Champion engagement at 50/100 — below healthy baseline of 54 | Last multi-thread touch was 22 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2026",
@@ -3694,7 +3829,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 46
+      "overall_rank": 46,
+      "days_in_current_stage": 16,
+      "signals_hit_labels": "Email response time has slowed by 6.3 days since deal start (threshold: 3.4d) | Champion engagement dropped 24 pts (threshold: -12) | Champion engagement at 46/100 — below healthy baseline of 54 | Last multi-thread touch was 37 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2057",
@@ -3772,7 +3910,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 47
+      "overall_rank": 47,
+      "days_in_current_stage": 5,
+      "signals_hit_labels": "Email response time has slowed by 5.5 days since deal start (threshold: 3.4d) | Champion engagement dropped 30 pts (threshold: -12) | Champion engagement at 28/100 — below healthy baseline of 54 | Last multi-thread touch was 35 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2050",
@@ -3849,7 +3990,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 48
+      "overall_rank": 48,
+      "days_in_current_stage": 37,
+      "signals_hit_labels": "Last rep outreach was 27 days ago (threshold: 15d) | Deal has been stuck in current stage for 37 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 35.00 (threshold: 14.00) | Only 9% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2008",
@@ -3932,7 +4076,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 49
+      "overall_rank": 49,
+      "days_in_current_stage": 5,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2135",
@@ -4002,7 +4149,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 50
+      "overall_rank": 50,
+      "days_in_current_stage": 11,
+      "signals_hit_labels": "Discount at 25.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 3
     },
     {
       "deal_id": "PIPE-2069",
@@ -4085,7 +4235,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 51
+      "overall_rank": 51,
+      "days_in_current_stage": 14,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2035",
@@ -4168,7 +4321,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 52
+      "overall_rank": 52,
+      "days_in_current_stage": 15,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2044",
@@ -4242,7 +4398,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 53
+      "overall_rank": 53,
+      "days_in_current_stage": 9,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2142",
@@ -4319,7 +4478,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 54
+      "overall_rank": 54,
+      "days_in_current_stage": 3,
+      "signals_hit_labels": "7 competitor mentions logged (threshold: 3) | Discount at 29.0% — above threshold of 16.0% | Deal has regressed 2 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2064",
@@ -4393,7 +4555,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 55
+      "overall_rank": 55,
+      "days_in_current_stage": 5,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2097",
@@ -4476,7 +4641,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 56
+      "overall_rank": 56,
+      "days_in_current_stage": 8,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2147",
@@ -4553,7 +4721,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 57
+      "overall_rank": 57,
+      "days_in_current_stage": 58,
+      "signals_hit_labels": "Last rep outreach was 19 days ago (threshold: 15d) | Deal has been stuck in current stage for 58 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 33.00 (threshold: 14.00) | Only 20% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2021",
@@ -4624,7 +4795,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 58
+      "overall_rank": 58,
+      "days_in_current_stage": 9,
+      "signals_hit_labels": "5 competitor mentions logged (threshold: 3) | Discount at 20.0% — above threshold of 16.0% | Deal has regressed 2 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50)",
+      "signals_hit_count": 4
     },
     {
       "deal_id": "PIPE-2018",
@@ -4701,7 +4875,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 59
+      "overall_rank": 59,
+      "days_in_current_stage": 32,
+      "signals_hit_labels": "Last rep outreach was 27 days ago (threshold: 15d) | Deal has been stuck in current stage for 32 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 36.00 (threshold: 14.00) | Only 9% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2099",
@@ -4772,7 +4949,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 60
+      "overall_rank": 60,
+      "days_in_current_stage": 16,
+      "signals_hit_labels": "5 competitor mentions logged (threshold: 3) | Discount at 25.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 3 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 4
     },
     {
       "deal_id": "PIPE-2036",
@@ -4849,7 +5029,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 61
+      "overall_rank": 61,
+      "days_in_current_stage": 52,
+      "signals_hit_labels": "Last rep outreach was 26 days ago (threshold: 15d) | Deal has been stuck in current stage for 52 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 28.00 (threshold: 14.00) | Only 9% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2103",
@@ -4927,7 +5110,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 62
+      "overall_rank": 62,
+      "days_in_current_stage": 4,
+      "signals_hit_labels": "Email response time has slowed by 7.5 days since deal start (threshold: 3.4d) | Champion engagement dropped 22 pts (threshold: -12) | Champion engagement at 30/100 — below healthy baseline of 54 | Last multi-thread touch was 33 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2116",
@@ -5010,7 +5196,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 63
+      "overall_rank": 63,
+      "days_in_current_stage": 18,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2015",
@@ -5088,7 +5277,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 64
+      "overall_rank": 64,
+      "days_in_current_stage": 15,
+      "signals_hit_labels": "Email response time has slowed by 7.2 days since deal start (threshold: 3.4d) | Champion engagement dropped 20 pts (threshold: -12) | Champion engagement at 44/100 — below healthy baseline of 54 | Last multi-thread touch was 35 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2020",
@@ -5158,7 +5350,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 65
+      "overall_rank": 65,
+      "days_in_current_stage": 14,
+      "signals_hit_labels": "Discount at 29.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 3
     },
     {
       "deal_id": "PIPE-2132",
@@ -5236,7 +5431,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 66
+      "overall_rank": 66,
+      "days_in_current_stage": 10,
+      "signals_hit_labels": "Email response time has slowed by 5.8 days since deal start (threshold: 3.4d) | Champion engagement dropped 21 pts (threshold: -12) | Champion engagement at 31/100 — below healthy baseline of 54 | Last multi-thread touch was 34 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2087",
@@ -5322,7 +5520,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 67
+      "overall_rank": 67,
+      "days_in_current_stage": 13,
+      "signals_hit_labels": "7 competitor mentions logged (threshold: 3) | Discount at 26.0% — above threshold of 16.0% | Deal has regressed 2 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2070",
@@ -5400,7 +5601,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 68
+      "overall_rank": 68,
+      "days_in_current_stage": 16,
+      "signals_hit_labels": "Email response time has slowed by 6.8 days since deal start (threshold: 3.4d) | Champion engagement dropped 21 pts (threshold: -12) | Champion engagement at 24/100 — below healthy baseline of 54 | Last multi-thread touch was 21 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2090",
@@ -5486,7 +5690,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 69
+      "overall_rank": 69,
+      "days_in_current_stage": 35,
+      "signals_hit_labels": "Last rep outreach was 32 days ago (threshold: 15d) | Deal has been stuck in current stage for 35 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 22.00 (threshold: 14.00) | Only 18% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2030",
@@ -5560,7 +5767,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 70
+      "overall_rank": 70,
+      "days_in_current_stage": 18,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2059",
@@ -5630,7 +5840,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 71
+      "overall_rank": 71,
+      "days_in_current_stage": 28,
+      "signals_hit_labels": "Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 15.00 (threshold: 14.00) | Only 6% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 3
     },
     {
       "deal_id": "PIPE-2029",
@@ -5704,7 +5917,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 72
+      "overall_rank": 72,
+      "days_in_current_stage": 6,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2037",
@@ -5790,7 +6006,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 73
+      "overall_rank": 73,
+      "days_in_current_stage": 11,
+      "signals_hit_labels": "Email response time has slowed by 5.8 days since deal start (threshold: 3.4d) | Champion engagement dropped 23 pts (threshold: -12) | Champion engagement at 40/100 — below healthy baseline of 54 | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2071",
@@ -5860,7 +6079,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 74
+      "overall_rank": 74,
+      "days_in_current_stage": 20,
+      "signals_hit_labels": "Discount at 20.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 3
     },
     {
       "deal_id": "PIPE-2092",
@@ -5943,7 +6165,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 75
+      "overall_rank": 75,
+      "days_in_current_stage": 8,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2072",
@@ -6021,7 +6246,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 76
+      "overall_rank": 76,
+      "days_in_current_stage": 11,
+      "signals_hit_labels": "Email response time has slowed by 6.9 days since deal start (threshold: 3.4d) | Champion engagement dropped 22 pts (threshold: -12) | Champion engagement at 43/100 — below healthy baseline of 54 | Last multi-thread touch was 21 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2111",
@@ -6092,7 +6320,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 77
+      "overall_rank": 77,
+      "days_in_current_stage": 6,
+      "signals_hit_labels": "4 competitor mentions logged (threshold: 3) | Discount at 25.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 4 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 4
     },
     {
       "deal_id": "PIPE-2124",
@@ -6169,7 +6400,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 78
+      "overall_rank": 78,
+      "days_in_current_stage": 15,
+      "signals_hit_labels": "4 competitor mentions logged (threshold: 3) | Discount at 22.0% — above threshold of 16.0% | Deal has regressed 2 stage(s) (threshold: 2) | pricing_objection_raised = 1.00 (threshold: 0.50) | 3 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2109",
@@ -6243,7 +6477,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 79
+      "overall_rank": 79,
+      "days_in_current_stage": 18,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2009",
@@ -6320,7 +6557,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 80
+      "overall_rank": 80,
+      "days_in_current_stage": 59,
+      "signals_hit_labels": "Last rep outreach was 23 days ago (threshold: 15d) | Deal has been stuck in current stage for 59 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 30.00 (threshold: 14.00) | Only 8% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2093",
@@ -6406,7 +6646,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 81
+      "overall_rank": 81,
+      "days_in_current_stage": 10,
+      "signals_hit_labels": "Email response time has slowed by 6.3 days since deal start (threshold: 3.4d) | Champion engagement dropped 34 pts (threshold: -12) | Champion engagement at 24/100 — below healthy baseline of 54 | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2058",
@@ -6484,7 +6727,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 82
+      "overall_rank": 82,
+      "days_in_current_stage": 6,
+      "signals_hit_labels": "Email response time has slowed by 6.1 days since deal start (threshold: 3.4d) | Champion engagement dropped 33 pts (threshold: -12) | Champion engagement at 41/100 — below healthy baseline of 54 | Last multi-thread touch was 40 days ago (threshold: 19d) | Only 1 stakeholder(s) engaged at midpoint (threshold: 3) | No executive sponsor engaged (required by this stage for recovery likelihood)",
+      "signals_hit_count": 6
     },
     {
       "deal_id": "PIPE-2001",
@@ -6570,7 +6816,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 83
+      "overall_rank": 83,
+      "days_in_current_stage": 40,
+      "signals_hit_labels": "Last rep outreach was 34 days ago (threshold: 15d) | Deal has been stuck in current stage for 40 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 38.00 (threshold: 14.00) | Only 21% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2004",
@@ -6647,7 +6896,10 @@
           "text": "Confidence strong (98%)"
         }
       ],
-      "overall_rank": 84
+      "overall_rank": 84,
+      "days_in_current_stage": 47,
+      "signals_hit_labels": "Last rep outreach was 17 days ago (threshold: 15d) | Deal has been stuck in current stage for 47 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 40.00 (threshold: 14.00) | Only 8% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 5
     },
     {
       "deal_id": "PIPE-2110",
@@ -6721,7 +6973,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 85
+      "overall_rank": 85,
+      "days_in_current_stage": 6,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2078",
@@ -6804,7 +7059,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 86
+      "overall_rank": 86,
+      "days_in_current_stage": 18,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2128",
@@ -6878,7 +7136,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 87
+      "overall_rank": 87,
+      "days_in_current_stage": 12,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2074",
@@ -6961,7 +7222,10 @@
           "text": "Confidence moderate — check before acting (58%)"
         }
       ],
-      "overall_rank": 88
+      "overall_rank": 88,
+      "days_in_current_stage": 10,
+      "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood) | Only 0 economic buyer meeting(s) (threshold: 0)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2027",
@@ -7032,7 +7296,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 89
+      "overall_rank": 89,
+      "days_in_current_stage": 8,
+      "signals_hit_labels": "5 competitor mentions logged (threshold: 3) | Discount at 33.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 3 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 4
     },
     {
       "deal_id": "PIPE-2003",
@@ -7102,7 +7369,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 90
+      "overall_rank": 90,
+      "days_in_current_stage": 5,
+      "signals_hit_labels": "Discount at 31.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 3 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 3
     },
     {
       "deal_id": "PIPE-2060",
@@ -7173,7 +7443,10 @@
           "text": "Confidence strong (93%)"
         }
       ],
-      "overall_rank": 91
+      "overall_rank": 91,
+      "days_in_current_stage": 31,
+      "signals_hit_labels": "Deal has been stuck in current stage for 31 days (threshold: 28d) | Only 0 meetings in the last 30 days (threshold: 2) | days_since_last_activity = 40.00 (threshold: 14.00) | Only 5% of emails getting replies (threshold: 39%)",
+      "signals_hit_count": 4
     },
     {
       "deal_id": "PIPE-2140",
@@ -7252,7 +7525,10 @@
           "text": "Confidence moderate — check before acting (73%)"
         }
       ],
-      "overall_rank": 92
+      "overall_rank": 92,
+      "days_in_current_stage": 16,
+      "signals_hit_labels": "Discount at 20.0% — above threshold of 16.0% | pricing_objection_raised = 1.00 (threshold: 0.50) | 2 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 3
     },
     {
       "deal_id": "PIPE-2094",
@@ -7326,7 +7602,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 93
+      "overall_rank": 93,
+      "days_in_current_stage": 5,
+      "signals_hit_labels": "pricing_objection_raised = 1.00 (threshold: 0.50) | 4 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 2
     },
     {
       "deal_id": "PIPE-2066",
@@ -7400,7 +7679,10 @@
           "text": "Confidence strong (78%)"
         }
       ],
-      "overall_rank": 97
+      "overall_rank": 97,
+      "days_in_current_stage": 3,
+      "signals_hit_labels": "pricing_objection_raised = 1.00 (threshold: 0.50) | 4 pricing objections raised (threshold: 1)",
+      "signals_hit_count": 2
     }
   ],
   "stall_colors": {
@@ -7431,6 +7713,7 @@
       "signals_hit_labels": "Discount at 19.0% — above threshold of 16.0%",
       "next_step_defined": true,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 18,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7475,6 +7758,7 @@
       "signals_hit_labels": "Only 1 meetings in the last 30 days (threshold: 2)",
       "next_step_defined": false,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 4,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -7525,6 +7809,7 @@
       "signals_hit_labels": "pricing_objection_raised = 1.00 (threshold: 0.50)",
       "next_step_defined": false,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 14,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -7575,6 +7860,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Commit",
+      "days_in_current_stage": 11,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7615,6 +7901,7 @@
       "signals_hit_labels": "Only 1 meetings in the last 30 days (threshold: 2)",
       "next_step_defined": true,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 3,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7659,6 +7946,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Commit",
+      "days_in_current_stage": 7,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7699,6 +7987,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Commit",
+      "days_in_current_stage": 10,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7739,6 +8028,7 @@
       "signals_hit_labels": "Only 1 meetings in the last 30 days (threshold: 2) | Only 12% of emails getting replies (threshold: 39%)",
       "next_step_defined": true,
       "forecast_category": "Commit",
+      "days_in_current_stage": 13,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7783,6 +8073,7 @@
       "signals_hit_labels": "Discount at 21.0% — above threshold of 16.0%",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 19,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7827,6 +8118,7 @@
       "signals_hit_labels": "Only 38% of emails getting replies (threshold: 39%)",
       "next_step_defined": true,
       "forecast_category": "Commit",
+      "days_in_current_stage": 11,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7871,6 +8163,7 @@
       "signals_hit_labels": "pricing_objection_raised = 1.00 (threshold: 0.50) | 4 pricing objections raised (threshold: 1)",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 4,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7915,6 +8208,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 11,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -7955,6 +8249,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 15,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -8001,6 +8296,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 29,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -8047,6 +8343,7 @@
       "signals_hit_labels": "pricing_objection_raised = 1.00 (threshold: 0.50) | 3 pricing objections raised (threshold: 1)",
       "next_step_defined": true,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 9,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8091,6 +8388,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 9,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8131,6 +8429,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Commit",
+      "days_in_current_stage": 5,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8171,6 +8470,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "—",
+      "days_in_current_stage": 5,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -8217,6 +8517,7 @@
       "signals_hit_labels": "Only 21% of emails getting replies (threshold: 39%)",
       "next_step_defined": true,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 9,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8261,6 +8562,7 @@
       "signals_hit_labels": "Only 34% of emails getting replies (threshold: 39%)",
       "next_step_defined": false,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 4,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -8311,6 +8613,7 @@
       "signals_hit_labels": "Only 25% of emails getting replies (threshold: 39%)",
       "next_step_defined": true,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 11,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8355,6 +8658,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "—",
+      "days_in_current_stage": 16,
       "confidence_score": 0.76,
       "confidence_factors": [
         {
@@ -8401,6 +8705,7 @@
       "signals_hit_labels": "Discount at 21.0% — above threshold of 16.0%",
       "next_step_defined": false,
       "forecast_category": "—",
+      "days_in_current_stage": 15,
       "confidence_score": 0.76,
       "confidence_factors": [
         {
@@ -8451,6 +8756,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 14,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8491,6 +8797,7 @@
       "signals_hit_labels": "Only 2 stakeholder(s) engaged at midpoint (threshold: 3)",
       "next_step_defined": false,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 18,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -8541,6 +8848,7 @@
       "signals_hit_labels": "pricing_objection_raised = 1.00 (threshold: 0.50) | 3 pricing objections raised (threshold: 1)",
       "next_step_defined": true,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 18,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8585,6 +8893,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 14,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8625,6 +8934,7 @@
       "signals_hit_labels": "Discount at 20.0% — above threshold of 16.0%",
       "next_step_defined": true,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 7,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8669,6 +8979,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 18,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -8715,6 +9026,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 5,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8755,6 +9067,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 10,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8795,6 +9108,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 15,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8835,6 +9149,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 3,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -8875,6 +9190,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 8,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -8921,6 +9237,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 20,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -8967,6 +9284,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Commit",
+      "days_in_current_stage": 6,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -9007,6 +9325,7 @@
       "signals_hit_labels": "Only 1 meetings in the last 30 days (threshold: 2)",
       "next_step_defined": false,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 18,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9057,6 +9376,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 14,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9103,6 +9423,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 18,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -9143,6 +9464,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "—",
+      "days_in_current_stage": 6,
       "confidence_score": 0.76,
       "confidence_factors": [
         {
@@ -9189,6 +9511,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Commit",
+      "days_in_current_stage": 11,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9235,6 +9558,7 @@
       "signals_hit_labels": "Discount at 26.0% — above threshold of 16.0%",
       "next_step_defined": true,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 4,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -9279,6 +9603,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 13,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -9319,6 +9644,7 @@
       "signals_hit_labels": "No executive sponsor engaged (required by this stage for recovery likelihood)",
       "next_step_defined": false,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 5,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9369,6 +9695,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 10,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9415,6 +9742,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 15,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9461,6 +9789,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 19,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9507,6 +9836,7 @@
       "signals_hit_labels": "Only 2 stakeholder(s) engaged at midpoint (threshold: 3)",
       "next_step_defined": true,
       "forecast_category": "Commit",
+      "days_in_current_stage": 20,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -9551,6 +9881,7 @@
       "signals_hit_labels": "Discount at 17.0% — above threshold of 16.0%",
       "next_step_defined": true,
       "forecast_category": "—",
+      "days_in_current_stage": 7,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9601,6 +9932,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 13,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -9641,6 +9973,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Pipeline",
+      "days_in_current_stage": 16,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9687,6 +10020,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 12,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9733,6 +10067,7 @@
       "signals_hit_labels": "",
       "next_step_defined": false,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 9,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -9779,6 +10114,7 @@
       "signals_hit_labels": "",
       "next_step_defined": true,
       "forecast_category": "Best Case",
+      "days_in_current_stage": 5,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -9819,6 +10155,7 @@
       "signals_hit_labels": "pricing_objection_raised = 1.00 (threshold: 0.50) | 4 pricing objections raised (threshold: 1)",
       "next_step_defined": true,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 14,
       "confidence_score": 1,
       "confidence_factors": [],
       "review_status": "auto",
@@ -9863,6 +10200,7 @@
       "signals_hit_labels": "pricing_objection_raised = 1.00 (threshold: 0.50)",
       "next_step_defined": false,
       "forecast_category": "Omitted",
+      "days_in_current_stage": 11,
       "confidence_score": 0.88,
       "confidence_factors": [
         {
@@ -10847,5 +11185,757 @@
       "company_name": "FISCHER, ELLIOTT AND MORAN",
       "acv_usd": 420600
     }
-  }
+  },
+  "aggregate_stats": {
+    "total_acv_scored": 27739900,
+    "acv_at_risk": 15642400,
+    "critical_count": 88,
+    "contradiction_count": 21
+  },
+  "rep_breakdown": [
+    {
+      "rep_name": "David Garcia",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 783200,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Aimee Johnson",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 771900,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Brandi Pearson",
+      "critical": 0,
+      "at_risk": 1,
+      "acv_at_risk": 769300,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Cindy Bowen",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 729900,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Lindsay Howard",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 718200,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "James Hill",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 708700,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Alyssa Klein",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 661600,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Doris Taylor",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 643800,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Stephanie Clark",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 635900,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Daniel Duarte",
+      "critical": 0,
+      "at_risk": 1,
+      "acv_at_risk": 632800,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Kelsey Williams MD",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 561600,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jeffrey Morris",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 488300,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Nicholas Lawrence",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 451000,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Susan Kennedy MD",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 432400,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Frank Ortiz",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 420600,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "John Gaines",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 417000,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Daniel Harris",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 335800,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jim Padilla Jr.",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 286500,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "James Edwards",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 272400,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Mr. Jimmy Wright",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 186900,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Tonya Strickland",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 184400,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Kelly Martin",
+      "critical": 1,
+      "at_risk": 1,
+      "acv_at_risk": 162500,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Mark Nguyen",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 153200,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Gregory Gibson",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 149600,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Meghan Oneill",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 148800,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Valerie Soto",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 143900,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Mark Pena",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 141600,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Dr. Peter Stevens",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 132600,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Gail Jones",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 123000,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Deanna Mcclain",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 118600,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Stacey Moore",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 117600,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jeffrey Young",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 117100,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Karen Woods",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 114400,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jeffrey Bush",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 106700,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Luis Hunt",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 104600,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Ruben Graham",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 103900,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Ariel Gomez",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 99300,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jackie Hamilton DVM",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 97500,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Ronald Smith",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 96900,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Ricardo Harrison",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 95900,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Joseph Arnold",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 94900,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Christopher Rodriguez",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 93300,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Vincent Cooper",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 92500,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Johnny Mata",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 87700,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Victor Brooks",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 85500,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Kelsey Johnson",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 81800,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Tina Wagner",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 81500,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Curtis Weaver",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 80000,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Curtis Cunningham",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 79100,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Amy Williamson",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 75400,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Mark Rodriguez",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 71100,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Nicole Allen",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 70900,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Rebecca Hogan",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 64800,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Cheryl Thomas",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 64500,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Laura Grant",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 56900,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Peggy Ferguson",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 55800,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "James May",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 54900,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Terri Jacobs",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 53400,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Alan Griffin",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 47200,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Ashley Banks",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 47100,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Amy Jackson",
+      "critical": 0,
+      "at_risk": 1,
+      "acv_at_risk": 39600,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jennifer Tanner",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 38400,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Christopher Wright",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 36800,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Heather Castillo",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 36700,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Larry West",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 34800,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Amy Love",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 34300,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jennifer Martinez",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 34100,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Sandra Warner",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 33600,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Sarah Martinez",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 33400,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Steven Clark",
+      "critical": 0,
+      "at_risk": 1,
+      "acv_at_risk": 32500,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Scott Evans",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 32000,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Vanessa Mcconnell",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 30500,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Kim Hale",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 30100,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Benjamin Allison",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 29100,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Sean Perez",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 28100,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Kendra White",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 24700,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Kevin Yu",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 22500,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Christine Stark",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 19200,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Timothy Khan",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 18700,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Michael Walker",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 18700,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Lauren Warren",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 18600,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "George Watkins",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 17500,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jason Brown",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 17200,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Barbara Hardin",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 16700,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Breanna Curry",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 16300,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Sherri Lambert",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 14400,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Robin Fuller",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 12100,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Stephanie Mendoza",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 11700,
+      "top_stall": "Champion Collapse",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Virginia Johnson",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 11500,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jennifer Davis",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 11500,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Jonathan Briggs",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 10100,
+      "top_stall": "Ghost Stall",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Glen Velazquez",
+      "critical": 1,
+      "at_risk": 0,
+      "acv_at_risk": 9500,
+      "top_stall": "Exec Vacuum",
+      "top_stall_count": 1
+    },
+    {
+      "rep_name": "Kurt Doyle",
+      "critical": 0,
+      "at_risk": 1,
+      "acv_at_risk": 9300,
+      "top_stall": "Competitor Displacement",
+      "top_stall_count": 1
+    }
+  ]
 }

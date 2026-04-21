@@ -43,6 +43,14 @@ const idx = Object.fromEntries(header.map((h, i) => [h, i]));
 
 const flaggedIds = new Set(payload.intervention_queue.map(d => d.deal_id));
 
+// Index CSV rows by deal_id so we can stamp extra fields onto the intervention queue too
+const csvById = {};
+for (let r = 1; r < rows.length; r++) {
+  const row = rows[r];
+  if (!row.length || !row[idx.deal_id]) continue;
+  csvById[row[idx.deal_id]] = row;
+}
+
 // Load historical analysis artifacts
 const featureImportance = JSON.parse(fs.readFileSync(path.join(__dirname, 'feature_importance.json'), 'utf8'));
 const stallLibrary = JSON.parse(fs.readFileSync(path.join(__dirname, 'stall_signature_library.json'), 'utf8'));
@@ -91,7 +99,20 @@ for (let r = 1; r < rows.length; r++) {
 nonFlagged.sort((a, b) => b.acv_usd - a.acv_usd);
 
 // Mark the flagged deals too so the frontend can tell them apart
-payload.intervention_queue.forEach(d => { d.has_intervention = true; });
+payload.intervention_queue.forEach(d => {
+  d.has_intervention = true;
+  const row = csvById[d.deal_id];
+  if (row) {
+    d.days_in_current_stage = parseInt(row[idx.days_in_current_stage], 10) || 0;
+    if (d.signals_hit_labels == null) d.signals_hit_labels = row[idx.signals_hit_labels] || '';
+    if (d.signals_hit_count == null) d.signals_hit_count = parseInt(row[idx.signals_hit_count], 10) || 0;
+  }
+});
+// Also stamp days_in_current_stage onto non-flagged entries
+nonFlagged.forEach(d => {
+  const row = csvById[d.deal_id];
+  if (row) d.days_in_current_stage = parseInt(row[idx.days_in_current_stage], 10) || 0;
+});
 payload.non_flagged_deals = nonFlagged;
 payload.generated_at = payload.generated_at; // preserved
 
@@ -310,6 +331,47 @@ payload.pipeline_summary = {
   acv_in_escalate: acvEscalate,
   top_deal: ranked[0] ? { deal_id: ranked[0].deal_id, company_name: ranked[0].company_name, acv_usd: ranked[0].acv_usd } : null,
 };
+
+// ----- aggregate stats for the CRO-facing header strip -----
+let totalAcv = 0, atRiskAcv = 0, criticalCount = 0, contradictionCount = 0;
+for (const d of ranked) {
+  totalAcv += d.acv_usd || 0;
+  if (d.trajectory === 'critical' || d.trajectory === 'at-risk') atRiskAcv += d.acv_usd || 0;
+  if (d.trajectory === 'critical') criticalCount += 1;
+  if (d.note_contradiction) contradictionCount += 1;
+}
+payload.aggregate_stats = {
+  total_acv_scored: totalAcv,
+  acv_at_risk: atRiskAcv,
+  critical_count: criticalCount,
+  contradiction_count: contradictionCount,
+};
+
+// ----- rep breakdown (leader view) — one row per rep with >=1 flagged deal -----
+const repMap = {};
+for (const d of payload.intervention_queue) {
+  const rep = d.rep_name || '—';
+  if (!repMap[rep]) {
+    repMap[rep] = { rep_name: rep, critical: 0, at_risk: 0, acv_at_risk: 0, stall_counts: {} };
+  }
+  const row = repMap[rep];
+  if (d.trajectory === 'critical') row.critical += 1;
+  else if (d.trajectory === 'at-risk') row.at_risk += 1;
+  row.acv_at_risk += d.acv_usd || 0;
+  const st = d.dominant_stall_type || 'Unknown';
+  row.stall_counts[st] = (row.stall_counts[st] || 0) + 1;
+}
+payload.rep_breakdown = Object.values(repMap).map(r => {
+  const topStall = Object.entries(r.stall_counts).sort((a, b) => b[1] - a[1])[0];
+  return {
+    rep_name: r.rep_name,
+    critical: r.critical,
+    at_risk: r.at_risk,
+    acv_at_risk: r.acv_at_risk,
+    top_stall: topStall ? topStall[0] : '—',
+    top_stall_count: topStall ? topStall[1] : 0,
+  };
+}).sort((a, b) => b.acv_at_risk - a.acv_at_risk);
 
 // ------------------------------ Historical analysis payload ------------------------------
 // 1. Contradiction cross-tab: stated_loss_reason × behavioral_best_match

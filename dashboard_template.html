@@ -45,6 +45,13 @@
   }
   header h1 { margin: 0; font-size: 26px; letter-spacing: -0.025em; font-weight: 600; }
   header .sub { color: var(--muted); margin-top: 6px; font-size: 13px; }
+  header .freshness {
+    color: var(--muted-2);
+    font-size: 12px;
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+  header .freshness strong { color: var(--muted); font-weight: 500; }
   main { padding: 28px 32px 72px; max-width: 1400px; margin: 0 auto; }
 
   .intro-banner {
@@ -83,6 +90,220 @@
   .stat .value { font-size: 28px; font-weight: 600; margin-top: 8px; letter-spacing: -0.02em; }
   .stat .foot { color: var(--muted-2); font-size: 12px; margin-top: 6px; }
   .stat.alert .value { color: var(--critical); }
+  .stat.warn .value { color: var(--at-risk); }
+
+  /* CRO-facing aggregate stats header — sits above everything on pipeline tab */
+  .agg-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .agg-stat {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    border-top: 3px solid var(--border-strong);
+  }
+  .agg-stat.alert { border-top-color: var(--critical); }
+  .agg-stat.warn { border-top-color: var(--at-risk); }
+  .agg-stat.neutral { border-top-color: var(--accent); }
+  .agg-stat .agg-label {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .agg-stat .agg-value {
+    font-size: 32px;
+    font-weight: 600;
+    margin-top: 6px;
+    letter-spacing: -0.025em;
+  }
+  .agg-stat .agg-foot {
+    color: var(--muted-2);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  .agg-stat.alert .agg-value { color: var(--critical); }
+  .agg-stat.warn .agg-value { color: var(--at-risk); }
+  @media (max-width: 900px) { .agg-stats { grid-template-columns: repeat(2, 1fr); } }
+
+  /* Search */
+  .search-wrap {
+    position: relative;
+    margin-bottom: 18px;
+  }
+  .search-input {
+    width: 100%;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 11px 40px 11px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.15s;
+  }
+  .search-input:focus { outline: none; border-color: var(--accent); }
+  .search-input::placeholder { color: var(--muted-2); }
+  .search-clear {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--panel-2);
+    border: none;
+    color: var(--muted);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .search-clear.show { display: flex; }
+  .search-clear:hover { color: var(--text); }
+
+  /* Inline contradiction chip on each row */
+  .contr-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(245,158,11,0.15);
+    color: #fcd34d;
+    border: 1px solid rgba(245,158,11,0.35);
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+  .contr-chip::before { content: '⚠'; font-size: 11px; }
+
+  /* Plain-English why-score synopsis at top of expanded card */
+  .why-synopsis {
+    background: rgba(110,231,255,0.05);
+    border: 1px solid rgba(110,231,255,0.2);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .why-synopsis strong { color: var(--accent); }
+
+  /* Actioned state */
+  .deal-row.actioned {
+    opacity: 0.55;
+    background: var(--panel-3);
+  }
+  .deal-row.actioned .deal-name,
+  .deal-row.actioned .acv {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(255,255,255,0.25);
+  }
+  .pill.actioned {
+    background: rgba(34,197,94,0.18);
+    color: #86efac;
+  }
+  .pill.actioned::before { content: '✓ '; }
+  .action-btn {
+    background: var(--panel-2);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 12px;
+    transition: all 0.15s;
+  }
+  .action-btn:hover { background: var(--accent); color: var(--bg); }
+  .action-btn.is-actioned {
+    background: rgba(34,197,94,0.15);
+    border-color: #22c55e;
+    color: #86efac;
+  }
+  .action-btn.is-actioned::before { content: '✓ '; }
+
+  /* Rep breakdown */
+  .rep-section {
+    margin-top: 32px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .rep-section-head {
+    padding: 14px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--panel-2);
+    transition: background 0.15s;
+  }
+  .rep-section-head:hover { background: #1b2650; }
+  .rep-section-head .rep-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .rep-section-head .rep-sub {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .rep-section-head .chev { transition: transform 0.2s; }
+  .rep-section.open .rep-section-head .chev { transform: rotate(90deg); }
+  .rep-section-body { display: none; padding: 16px 20px 22px; }
+  .rep-section.open .rep-section-body { display: block; }
+  .rep-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .rep-table th, .rep-table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .rep-table th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .rep-table tbody tr:hover { background: var(--panel-2); }
+  .rep-table .num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, Menlo, monospace; }
+  .rep-table .rep-name-cell { color: var(--text); font-weight: 600; }
+  .rep-table .acv-cell { color: var(--text); font-weight: 600; }
+  .rep-table .crit-cell strong { color: var(--critical); }
+
+  /* "See active deals" button on stall pattern cards */
+  .see-active-btn {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 10px;
+    transition: all 0.15s;
+  }
+  .see-active-btn:hover { background: var(--accent); color: var(--bg); }
 
   .section-title {
     font-size: 15px;
@@ -988,6 +1209,7 @@
     <div>
       <h1>Deal Trajectory Engine</h1>
       <div class="sub" id="sub">Loading…</div>
+      <div class="freshness" id="freshness"></div>
     </div>
     <button class="refresh-btn" id="refresh-btn" title="Re-fetch dashboard_payload.json">
       <span class="icon">⟳</span>
@@ -998,16 +1220,21 @@
 <div class="toast" id="toast"></div>
 <nav class="tabs">
   <button class="tab-btn active" data-tab="pipeline">Active Pipeline</button>
-  <button class="tab-btn" data-tab="historical">Historical Deal Review</button>
+  <button class="tab-btn" data-tab="historical">Pattern Intelligence</button>
 </nav>
 <main>
   <div class="tab-pane active" id="tab-pipeline">
+    <div class="agg-stats" id="agg-stats"></div>
+
     <div class="intro-banner">
       <div class="intro-title">Every active deal, ranked by how urgently it needs attention</div>
-      Each deal is scored against patterns we've seen cause losses before. Deals at the top of the list are both the most likely to stall <em>and</em> the most expensive if they do. Click any row to see what's happening and what to do next.
+      Each deal is scored against patterns we've seen cause losses before. Deals at the top of the list are both the most likely to stall <em>and</em> the most expensive if they do. Click any row to see what's happening and what to do next. Deals marked with a contradiction warning have rep notes that conflict with the behavioral data — prioritize reviewing those before any coaching conversation.
     </div>
 
-    <div class="stats" id="stats"></div>
+    <div class="search-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="Search by company, rep, or deal ID..." autocomplete="off" />
+      <button class="search-clear" id="search-clear" type="button" aria-label="Clear search">×</button>
+    </div>
 
     <div class="viz-grid" id="pipeline-viz"></div>
 
@@ -1019,8 +1246,8 @@
     <div class="section-hint">Critical = needs action today. At-risk = multiple warning signs. Watch = minor signals. Healthy = on track.</div>
     <div class="filters" id="traj-filters"></div>
 
-    <div class="section-title">Filter by review status</div>
-    <div class="section-hint">Auto = confident recommendation. Caution = worth a sanity check. Escalate = manager review required before acting.</div>
+    <div class="section-title">Filter by confidence</div>
+    <div class="section-hint">Auto = system is confident in this recommendation. Caution = worth a sanity check before acting. Escalate = manager review required — do not act autonomously.</div>
     <div class="filters" id="review-filters"></div>
 
     <div class="section-title" id="queue-title">Pipeline</div>
@@ -1035,13 +1262,24 @@
       <div class="sortable" data-sort="rank">Rank <span class="sort-arrow"></span></div>
       <div class="sortable" data-sort="company">Deal / Owner <span class="sort-arrow"></span></div>
       <div class="sortable" data-sort="stall">Pattern <span class="sort-arrow"></span></div>
-      <div class="sortable" data-sort="stage">Stage <span class="sort-arrow"></span></div>
+      <div class="sortable" data-sort="days_in_stage" title="Click to sort by days in current stage">Stage · Days <span class="sort-arrow"></span></div>
       <div class="sortable" data-sort="trajectory">Health <span class="sort-arrow"></span></div>
-      <div class="sortable" data-sort="review">Review <span class="sort-arrow"></span></div>
-      <div class="sortable val-col" data-sort="acv">Value <span class="sort-arrow"></span></div>
+      <div class="sortable" data-sort="review">Confidence <span class="sort-arrow"></span></div>
+      <div class="sortable val-col" data-sort="acv">ACV <span class="sort-arrow"></span></div>
       <div></div>
     </div>
     <div id="queue"></div>
+
+    <div class="rep-section" id="rep-section">
+      <div class="rep-section-head" id="rep-section-head">
+        <div>
+          <div class="rep-title">Rep breakdown</div>
+          <div class="rep-sub">ACV at risk by deal owner — click to expand</div>
+        </div>
+        <div class="chev">▶</div>
+      </div>
+      <div class="rep-section-body" id="rep-section-body"></div>
+    </div>
   </div>
 
   <div class="tab-pane" id="tab-historical">
@@ -1097,8 +1335,41 @@
   let activeStall = 'all';
   let activeTraj = 'all';
   let activeReview = 'all';
-  let xFilterContext = null;   // { source: 'insight'|'save-rate', label: string }
+  let searchTerm = '';
+  let xFilterContext = null;   // { source: 'insight'|'save-rate'|'stall-card', label: string }
   let dataReady = false;
+
+  // Actioned deals — persisted to localStorage for navigation continuity;
+  // a hard page load still shows fresh state because we reload from storage.
+  const ACTIONED_KEY = 'dte_actioned_v1';
+  function loadActioned() {
+    try { return new Set(JSON.parse(localStorage.getItem(ACTIONED_KEY) || '[]')); }
+    catch { return new Set(); }
+  }
+  function saveActioned(set) {
+    try { localStorage.setItem(ACTIONED_KEY, JSON.stringify([...set])); } catch {}
+  }
+  let actionedDeals = loadActioned();
+
+  function fmtMoneyShort(n) {
+    if (!n && n !== 0) return '—';
+    if (n >= 1_000_000) return '$' + (n / 1_000_000).toFixed(1) + 'M';
+    if (n >= 1_000) return '$' + Math.round(n / 1_000) + 'K';
+    return '$' + Math.round(n);
+  }
+
+  function formatFreshness(iso) {
+    if (!iso) return '';
+    // Accept "YYYY-MM-DD HH:MM:SS" or ISO
+    const d = new Date(iso.includes('T') ? iso : iso.replace(' ', 'T'));
+    if (isNaN(d.getTime())) return 'Last scored: ' + iso;
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    let h = d.getHours();
+    const m = d.getMinutes().toString().padStart(2, '0');
+    const ampm = h >= 12 ? 'pm' : 'am';
+    h = h % 12; if (h === 0) h = 12;
+    return `Last scored: ${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} at ${h}:${m}${ampm}`;
+  }
 
   // Feedback persistence — localStorage keyed per deal_id
   const FB_KEY = 'dte_feedback_v1';
@@ -1149,22 +1420,10 @@
   function renderHeader(data) {
     const stats = data.signal_stats;
     document.getElementById('sub').textContent =
-      'Generated ' + data.generated_at + ' · ' + stats.total_deals + ' deals scored · ' +
+      stats.total_deals + ' deals scored · ' +
       stats.flagged_deals + ' flagged · ' + fmtM(stats.acv_at_risk) + ' ACV at risk';
+    document.getElementById('freshness').textContent = formatFreshness(data.generated_at);
 
-    const statEls = [
-      { label: 'Pipeline value', value: fmtM(stats.acv_total), foot: stats.total_deals + ' active deals' },
-      { label: 'Revenue at risk', value: fmtM(stats.acv_at_risk), foot: Math.round(stats.acv_at_risk / stats.acv_total * 100) + '% of pipeline', alert: true },
-      { label: 'Deals needing attention', value: stats.flagged_deals + ' of ' + stats.total_deals, foot: Math.round(stats.flagged_deals / stats.total_deals * 100) + '% of pipeline flagged' },
-      { label: 'Critical — act today', value: stats.trajectory_distribution.critical, foot: 'Short intervention window', alert: true },
-    ];
-    document.getElementById('stats').innerHTML = statEls.map(s =>
-      `<div class="stat ${s.alert ? 'alert' : ''}">
-         <div class="label">${s.label}</div>
-         <div class="value">${s.value}</div>
-         <div class="foot">${s.foot}</div>
-       </div>`
-    ).join('');
   }
 
   function renderFilters(data) {
@@ -1198,7 +1457,7 @@
     deals.forEach(d => { if (d.review_status) revCounts[d.review_status] = (revCounts[d.review_status] || 0) + 1; });
     const revOrder = [
       { key: 'all', label: 'All', count: total },
-      { key: 'auto', label: 'Auto-recommend', count: revCounts.auto },
+      { key: 'auto', label: 'Auto', count: revCounts.auto },
       { key: 'caution', label: 'Caution', count: revCounts.caution },
       { key: 'escalate', label: 'Escalate', count: revCounts.escalate },
     ];
@@ -1269,7 +1528,14 @@
       </div>`;
   }
 
+  function renderActionButton(d) {
+    const on = actionedDeals.has(d.deal_id);
+    return `<button class="action-btn ${on ? 'is-actioned' : ''}" data-action-deal="${d.deal_id}" type="button">${on ? 'Actioned' : 'Mark actioned'}</button>`;
+  }
+
   function renderFlaggedBody(d) {
+    const synopsis = whyScoreSynopsis(d);
+    const synopsisBlock = synopsis ? `<div class="why-synopsis">${synopsis}</div>` : '';
     const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
     const firstMoveHtml = (d.first_move || '')
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -1288,6 +1554,7 @@
       </div>`;
     return `
       ${renderRankExplain(d)}
+      ${synopsisBlock}
       ${renderReviewBlock(d)}
       ${renderWhyScoreBlock(d)}
       <div class="block">
@@ -1308,6 +1575,7 @@
       </div>
       ${interventionBlock}
       ${metaBlock}
+      ${renderActionButton(d)}
       ${renderFeedbackRow(d)}`;
   }
 
@@ -1339,6 +1607,7 @@
         <span>Composite priority: <strong>${(d.composite_priority || 0).toFixed(2)}</strong></span>
         <span>Trajectory: <strong>${d.trajectory}</strong></span>
       </div>
+      ${renderActionButton(d)}
       ${renderFeedbackRow(d)}`;
   }
 
@@ -1348,10 +1617,10 @@
     rank: 'priority rank',
     company: 'deal / owner',
     stall: 'stall pattern',
-    stage: 'deal stage',
+    days_in_stage: 'days stuck in stage',
     trajectory: 'health',
-    review: 'review status',
-    acv: 'deal value',
+    review: 'confidence',
+    acv: 'ACV',
   };
   const TRAJ_ORDER = { 'critical': 0, 'at-risk': 1, 'watch': 2, 'healthy': 3 };
   const REVIEW_ORDER = { 'escalate': 0, 'caution': 1, 'auto': 2 };
@@ -1365,13 +1634,17 @@
         case 'acv': return d.acv_usd || 0;
         case 'company': return (d.company_name || '').toLowerCase();
         case 'stall': return d.dominant_stall_type || 'zzz';
-        case 'stage': return (d.current_stage || '').toLowerCase();
+        case 'days_in_stage': return d.days_in_current_stage || 0;
         case 'trajectory': return TRAJ_ORDER[d.trajectory] ?? 99;
         case 'review': return REVIEW_ORDER[d.review_status] ?? 99;
         default: return 0;
       }
     };
     return [...deals].sort((a, b) => {
+      // Actioned deals always sink to the bottom, regardless of sort
+      const aActioned = actionedDeals.has(a.deal_id) ? 1 : 0;
+      const bActioned = actionedDeals.has(b.deal_id) ? 1 : 0;
+      if (aActioned !== bActioned) return aActioned - bActioned;
       const av = getVal(a), bv = getVal(b);
       if (av < bv) return -1 * mult;
       if (av > bv) return 1 * mult;
@@ -1398,6 +1671,7 @@
 
   function filterDeals(data) {
     const deals = allDeals(data);
+    const q = searchTerm.trim().toLowerCase();
     return deals.filter(d => {
       const stallMatch =
         activeStall === 'all' ||
@@ -1405,7 +1679,11 @@
         d.dominant_stall_type === activeStall;
       const trajMatch = activeTraj === 'all' || d.trajectory === activeTraj;
       const reviewMatch = activeReview === 'all' || d.review_status === activeReview;
-      return stallMatch && trajMatch && reviewMatch;
+      const searchMatch = !q ||
+        (d.company_name || '').toLowerCase().includes(q) ||
+        (d.rep_name || '').toLowerCase().includes(q) ||
+        (d.deal_id || '').toLowerCase().includes(q);
+      return stallMatch && trajMatch && reviewMatch && searchMatch;
     });
   }
 
@@ -1425,6 +1703,85 @@
       renderFilters(currentData);
       renderQueue(currentData);
     });
+  }
+
+  function renderAggStats(data) {
+    const a = data.aggregate_stats || {};
+    const cells = [
+      {
+        label: 'Total ACV scored',
+        value: fmtMoneyShort(a.total_acv_scored),
+        foot: 'All active pipeline',
+        kind: 'neutral',
+      },
+      {
+        label: 'ACV at risk',
+        value: fmtMoneyShort(a.acv_at_risk),
+        foot: 'Critical + at-risk deals',
+        kind: 'alert',
+      },
+      {
+        label: 'Critical deals',
+        value: String(a.critical_count || 0),
+        foot: 'Need action today',
+        kind: 'alert',
+      },
+      {
+        label: 'Contradiction flags',
+        value: String(a.contradiction_count || 0),
+        foot: 'Rep notes conflict with data',
+        kind: 'warn',
+      },
+    ];
+    document.getElementById('agg-stats').innerHTML = cells.map(c =>
+      `<div class="agg-stat ${c.kind}">
+         <div class="agg-label">${c.label}</div>
+         <div class="agg-value">${c.value}</div>
+         <div class="agg-foot">${c.foot}</div>
+       </div>`
+    ).join('');
+  }
+
+  function renderRepBreakdown(data) {
+    const rows = data.rep_breakdown || [];
+    const body = document.getElementById('rep-section-body');
+    if (!rows.length) {
+      body.innerHTML = '<div style="color:var(--muted);font-size:13px">No reps have flagged deals.</div>';
+      return;
+    }
+    body.innerHTML = `
+      <table class="rep-table">
+        <thead><tr>
+          <th>Rep</th>
+          <th class="num">Critical</th>
+          <th class="num">At-risk</th>
+          <th class="num">ACV at risk</th>
+          <th>Most common pattern</th>
+        </tr></thead>
+        <tbody>${rows.map(r => `
+          <tr>
+            <td class="rep-name-cell">${r.rep_name}</td>
+            <td class="num crit-cell">${r.critical ? '<strong>' + r.critical + '</strong>' : 0}</td>
+            <td class="num">${r.at_risk || 0}</td>
+            <td class="num acv-cell">${fmtMoneyShort(r.acv_at_risk)}</td>
+            <td>${r.top_stall || '—'}${r.top_stall_count > 1 ? ' <span style="color:var(--muted);font-size:11px">(' + r.top_stall_count + '×)</span>' : ''}</td>
+          </tr>`).join('')}
+        </tbody>
+      </table>`;
+  }
+
+  // Plain-English 1–2 sentence synopsis from stall_score + signal_coverage + top evidence
+  function whyScoreSynopsis(d) {
+    if (!d.has_intervention) return '';
+    const pct = Math.round((d.stall_score || 0) * 100);
+    const coverage = d.signal_coverage || '';
+    const stallType = d.dominant_stall_type || 'stall pattern';
+    const ev = (d.evidence || []).slice(0, 2);
+    const tail = ev.length
+      ? ' The two most severe: ' + ev.map(e => e.replace(/\s*\(threshold:[^)]+\)/g, '').trim().replace(/\.$/, '')).join('; ') + '.'
+      : '';
+    const head = `Scored <strong>${pct}%</strong> — ${coverage || 'signals breached'} for <strong>${stallType}</strong>.`;
+    return head + tail;
   }
 
   function renderSummaryStrip(data) {
@@ -1484,18 +1841,28 @@
         ? d.dominant_stall_type : '—';
       const stallTagClass = stallType === '—' ? 'stall-tag none' : 'stall-tag';
       const body = d.has_intervention ? renderFlaggedBody(d) : renderNonFlaggedBody(d);
+      const actioned = actionedDeals.has(d.deal_id);
+      const contrChip = d.note_contradiction
+        ? `<span class="contr-chip" title="Rep notes conflict with the behavioral data">Notes conflict</span>`
+        : '';
+      const healthCell = actioned
+        ? `<span class="pill actioned">Actioned</span>`
+        : `<span class="pill ${d.trajectory}">${d.trajectory}</span>`;
+      const daysCell = d.days_in_current_stage != null
+        ? `<div class="stage">${d.current_stage}<div style="font-size:11px;color:var(--muted-2);margin-top:2px">${d.days_in_current_stage}d in stage</div></div>`
+        : `<div class="stage">${d.current_stage}</div>`;
 
       return `
-      <div class="deal-row" data-i="${i}">
+      <div class="deal-row ${actioned ? 'actioned' : ''}" data-i="${i}" data-deal-id="${d.deal_id}">
         <div class="deal-head">
           <div class="rank-cell">#<span class="rank-n">${d.overall_rank || '—'}</span></div>
           <div class="deal-name">
-            ${d.company_name}
+            ${d.company_name}${contrChip}
             <span class="rep">${d.rep_name} · ${d.segment} · ${d.deal_id}</span>
           </div>
           <div class="${stallTagClass}"><span class="stall-dot ${stallClass(d.dominant_stall_type)}"></span>${stallType}</div>
-          <div class="stage">${d.current_stage}</div>
-          <div><span class="pill ${d.trajectory}">${d.trajectory}</span></div>
+          ${daysCell}
+          <div>${healthCell}</div>
           <div>${reviewChip(d.review_status)}</div>
           <div class="acv">${fmt$(d.acv_usd)}</div>
           <div class="chev">▶</div>
@@ -1506,6 +1873,18 @@
 
     document.querySelectorAll('.deal-row .deal-head').forEach(head => {
       head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    });
+
+    // Mark-actioned button wiring
+    queueEl.querySelectorAll('.action-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const dealId = btn.dataset.actionDeal;
+        if (actionedDeals.has(dealId)) actionedDeals.delete(dealId);
+        else actionedDeals.add(dealId);
+        saveActioned(actionedDeals);
+        renderQueue(currentData);
+      });
     });
 
     // Feedback button wiring
@@ -1606,9 +1985,11 @@
   function renderAll(data) {
     currentData = data;
     renderHeader(data);
+    renderAggStats(data);
     renderFilters(data);
     renderPipelineViz(data);
     renderQueue(data);
+    renderRepBreakdown(data);
     renderHistorical(data);
   }
 
@@ -1731,6 +2112,7 @@
               <h4>What to do about it</h4>
               ${interventions}
             </div>` : ''}
+            <button class="see-active-btn" data-see-active="${stallType}" type="button">See active deals with this pattern →</button>
           </div>
         </div>`;
     }).join('');
@@ -1738,6 +2120,20 @@
     document.getElementById('stall-library').innerHTML = html;
     document.querySelectorAll('.stall-card .stall-card-head').forEach(head => {
       head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    });
+    document.querySelectorAll('.stall-card .see-active-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const stallType = btn.dataset.seeActive;
+        activeStall = stallType;
+        activeTraj = 'all';
+        activeReview = 'all';
+        xFilterContext = { source: 'stall-card', label: 'Pattern · ' + stallType };
+        switchTab('pipeline');
+        renderFilters(currentData);
+        renderQueue(currentData);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     });
     document.querySelectorAll('.stall-card .detail-toggle').forEach(btn => {
       btn.addEventListener('click', e => {
@@ -2063,7 +2459,7 @@
     } else {
       activeSort.col = col;
       // Smart default: numeric/severity columns default desc, text & rank columns default asc
-      activeSort.dir = (col === 'acv' || col === 'trajectory') ? 'desc' : 'asc';
+      activeSort.dir = (col === 'acv' || col === 'trajectory' || col === 'days_in_stage') ? 'desc' : 'asc';
     }
     renderQueue(currentData);
   });
@@ -2080,6 +2476,27 @@
     compareView = btn.dataset.view;
     document.querySelectorAll('#compare-view-toggle button').forEach(b => b.classList.toggle('active', b === btn));
     renderCompareView(currentData.historical);
+  });
+
+  // Search input
+  const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
+  searchInput.addEventListener('input', e => {
+    searchTerm = e.target.value;
+    searchClear.classList.toggle('show', !!searchTerm);
+    renderQueue(currentData);
+  });
+  searchClear.addEventListener('click', () => {
+    searchTerm = '';
+    searchInput.value = '';
+    searchClear.classList.remove('show');
+    searchInput.focus();
+    renderQueue(currentData);
+  });
+
+  // Rep breakdown toggle
+  document.getElementById('rep-section-head').addEventListener('click', () => {
+    document.getElementById('rep-section').classList.toggle('open');
   });
 
   function switchTab(target) {
