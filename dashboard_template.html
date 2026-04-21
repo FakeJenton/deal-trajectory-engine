@@ -377,8 +377,13 @@
 
   function renderFlaggedBody(d) {
     const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
-    const contradictionBlock = d.note_contradiction
-      ? `<div class="contradiction"><strong>⚠ Contradiction detected:</strong> ${d.note_contradiction}</div>`
+    const contradictionMsg = d.note_contradiction
+      ? (typeof d.note_contradiction === 'string'
+          ? d.note_contradiction
+          : (d.note_contradiction.flag || ''))
+      : '';
+    const contradictionBlock = contradictionMsg
+      ? `<div class="contradiction"><strong>⚠ Contradiction detected:</strong> ${contradictionMsg}</div>`
       : '';
     const firstMoveHtml = (d.first_move || '')
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
