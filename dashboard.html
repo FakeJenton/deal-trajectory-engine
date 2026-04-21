@@ -1353,7 +1353,7 @@
   }
   .exec-contradiction-alert .eca-btn:hover { background: rgba(245,158,11,0.35); color: #fff; }
 
-  /* ---------------- Compact stall pattern grid (Pattern Intelligence) ---------------- */
+  /* ---------------- Compact stall pattern grid (Historical Deal Insights) ---------------- */
   .stall-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1520,7 +1520,7 @@
 <nav class="tabs">
   <button class="tab-btn active" data-tab="executive">Executive Summary</button>
   <button class="tab-btn" data-tab="pipeline">Active Pipeline</button>
-  <button class="tab-btn" data-tab="historical">Pattern Intelligence</button>
+  <button class="tab-btn" data-tab="historical">Historical Deal Insights</button>
 </nav>
 <main>
   <div class="tab-pane active" id="tab-executive">
@@ -1664,7 +1664,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
   let activeReview = 'all';
   let searchTerm = '';
   let contradictionOnly = false;
-  let activeStallCard = null;   // which compact card is expanded on Pattern Intelligence
+  let activeStallCard = null;   // which compact card is expanded on Historical Deal Insights
   let xFilterContext = null;   // { source: 'insight'|'save-rate'|'stall-card'|'exec-contradiction', label: string }
   let dataReady = false;
 
@@ -2682,20 +2682,28 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
     });
   }
 
+  // Rank-based strength so the labels stay dispersed even when the
+  // underlying scores are skewed (tree-based importance typically has one
+  // feature that dwarfs the rest; Cohen's d on synthetic data can leave
+  // zero scores clearing the 0.8 "large" threshold). The labels describe
+  // position within the top-N shown, not proximity to the dominant score.
+  // Split: top ~25% = Very strong, next ~35% = Meaningful, rest = Minor.
+  function rankStrength(i, n) {
+    const largeCut = Math.max(1, Math.ceil(n * 0.25));
+    const mediumCut = Math.max(largeCut + 1, Math.ceil(n * 0.6));
+    if (i < largeCut) return 'large';
+    if (i < mediumCut) return 'medium';
+    return 'small';
+  }
+  const STRENGTH_LABEL = { large: 'Very strong', medium: 'Meaningful', small: 'Minor' };
+
   function renderFeatureBars(h) {
     const top = h.feature_importance;
-    const max = Math.max(...top.map(x => x.importance));
-    const strengthLabel = { large: 'Very strong', medium: 'Meaningful', small: 'Minor' };
-    const strengthFor = v => {
-      const ratio = v / max;
-      if (ratio >= 0.7) return 'large';
-      if (ratio >= 0.4) return 'medium';
-      return 'small';
-    };
+    const n = top.length;
     document.getElementById('feature-bars').innerHTML =
       `<div class="feat-grid">` +
       top.map((x, i) => {
-        const eff = strengthFor(x.importance);
+        const eff = rankStrength(i, n);
         return `
           <div class="feat-card">
             <div class="feat-head">
@@ -2704,7 +2712,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
             </div>
             <div class="feat-meta">
               <span class="feat-score">${x.importance.toFixed(3)}</span>
-              <span class="effect-pill ${eff}">${strengthLabel[eff]}</span>
+              <span class="effect-pill ${eff}">${STRENGTH_LABEL[eff]}</span>
             </div>
           </div>`;
       }).join('') +
@@ -2726,12 +2734,8 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
   }
 
   function renderCompareTable(h) {
-    const strengthLabel = {
-      large: 'Very strong',
-      medium: 'Meaningful',
-      small: 'Minor',
-    };
-    const rows = h.signal_comparison.map(row => {
+    const n = h.signal_comparison.length;
+    const rows = h.signal_comparison.map((row, i) => {
       const useSegment = activeSegment !== 'All' && row.segment_breakdown[activeSegment];
       const wonVal = useSegment ? row.segment_breakdown[activeSegment].won_mean : row.won_mean;
       const lostVal = useSegment ? row.segment_breakdown[activeSegment].lost_mean : row.lost_mean;
@@ -2743,13 +2747,15 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
       const arrow = worse
         ? `<span class="dir-arrow worse">↑</span>`
         : `<span class="dir-arrow better">↓</span>`;
+      // Rank-based strength — see rankStrength() docstring above
+      const eff = rankStrength(i, n);
       return `
         <tr>
           <td>${arrow}<span class="sig-text">${pretty(row.signal)}</span></td>
           <td class="mono">${fmtNum(wonVal)}</td>
           <td class="mono">${fmtNum(lostVal)}</td>
           <td class="mono ${deltaClass}">${deltaSign}${fmtNum(delta)}</td>
-          <td><span class="effect-pill ${row.effect_size}">${strengthLabel[row.effect_size] || row.effect_size}</span></td>
+          <td><span class="effect-pill ${eff}">${STRENGTH_LABEL[eff]}</span></td>
         </tr>`;
     }).join('');
     document.getElementById('compare-table-wrap').innerHTML = `
@@ -2885,9 +2891,10 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
   let compareView = 'chart';
 
   function renderCompareChart(h) {
-    const strengthLabel = { large: 'Very strong', medium: 'Meaningful', small: 'Minor' };
     // Normalize each signal: compute relative bar widths based on max of won/lost so pairs are visually comparable
-    const rows = h.signal_comparison.slice(0, 12).map(row => {
+    const shown = h.signal_comparison.slice(0, 12);
+    const n = shown.length;
+    const rows = shown.map((row, i) => {
       const useSegment = activeSegment !== 'All' && row.segment_breakdown[activeSegment];
       const wonVal = useSegment ? row.segment_breakdown[activeSegment].won_mean : row.won_mean;
       const lostVal = useSegment ? row.segment_breakdown[activeSegment].lost_mean : row.lost_mean;
@@ -2899,6 +2906,8 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
       const arrow = worse
         ? `<span class="dir-arrow worse">↑</span>`
         : `<span class="dir-arrow better">↓</span>`;
+      // Rank-based strength — see rankStrength() docstring above
+      const eff = rankStrength(i, n);
       return `
         <div class="pair-row">
           <div class="pair-label">${arrow}<span class="sig-text">${pretty(row.signal)}</span></div>
@@ -2910,7 +2919,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
             <div class="pair-bar lost" style="width:${lostPct * 0.9}%"></div>
             <span class="pair-val">${fmtNum(lostVal)}</span>
           </div>
-          <div class="pair-strength"><span class="effect-pill ${row.effect_size}">${strengthLabel[row.effect_size] || row.effect_size}</span></div>
+          <div class="pair-strength"><span class="effect-pill ${eff}">${STRENGTH_LABEL[eff]}</span></div>
         </div>`;
     }).join('');
     document.getElementById('compare-table-wrap').innerHTML = `
