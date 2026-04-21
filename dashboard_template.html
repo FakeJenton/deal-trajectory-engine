@@ -1559,11 +1559,6 @@
       Each deal is scored against patterns we've seen cause losses before. Deals at the top of the list are both the most likely to stall <em>and</em> the most expensive if they do. Click any row to see what's happening and what to do next. Deals marked with a contradiction warning have rep notes that conflict with the behavioral data — prioritize reviewing those before any coaching conversation.
     </div>
 
-    <div class="search-wrap">
-      <input type="text" class="search-input" id="search-input" placeholder="Search by company, rep, or deal ID..." autocomplete="off" />
-      <button class="search-clear" id="search-clear" type="button" aria-label="Clear search">×</button>
-    </div>
-
     <div class="viz-grid" id="pipeline-viz"></div>
 
     <div class="section-title">Filter by stall pattern</div>
@@ -1577,6 +1572,11 @@
     <div class="section-title">Filter by confidence</div>
     <div class="section-hint">Auto = system is confident in this recommendation. Caution = worth a sanity check before acting. Escalate = manager review required — do not act autonomously.</div>
     <div class="filters" id="review-filters"></div>
+
+    <div class="search-wrap">
+      <input type="text" class="search-input" id="search-input" placeholder="Search by company, rep, or deal ID..." autocomplete="off" />
+      <button class="search-clear" id="search-clear" type="button" aria-label="Clear search">×</button>
+    </div>
 
     <div class="section-title" id="queue-title">Pipeline</div>
     <div class="summary-strip" id="summary-strip"></div>
