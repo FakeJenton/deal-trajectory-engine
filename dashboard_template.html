@@ -200,6 +200,65 @@
     border-radius: 10px;
   }
 
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .refresh-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .refresh-btn:hover { background: var(--panel-2); border-color: var(--accent); }
+  .refresh-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+  .refresh-btn .icon { font-size: 14px; display: inline-block; transition: transform 0.6s; }
+  .refresh-btn.loading .icon { animation: spin 0.8s linear infinite; }
+  @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s, transform 0.2s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .toast.error { border-color: rgba(239,68,68,0.5); color: #fca5a5; }
+  .toast.success { border-color: rgba(34,197,94,0.4); color: #86efac; }
+
+  .stall-tag.none { color: var(--muted); font-style: italic; }
+  .stall-dot.none { background: #334155; }
+
+  .monitor-note {
+    background: rgba(34, 197, 94, 0.08);
+    border-left: 3px solid var(--healthy);
+    padding: 10px 14px;
+    border-radius: 4px;
+    color: #bbf7d0;
+    font-size: 13px;
+  }
+
   @media (max-width: 900px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
     .deal-head { grid-template-columns: 1fr; gap: 6px; }
@@ -209,9 +268,18 @@
 </head>
 <body>
 <header>
-  <h1>Deal Trajectory Engine</h1>
-  <div class="sub" id="sub">Loading…</div>
+  <div class="header-row">
+    <div>
+      <h1>Deal Trajectory Engine</h1>
+      <div class="sub" id="sub">Loading…</div>
+    </div>
+    <button class="refresh-btn" id="refresh-btn" title="Re-fetch dashboard_payload.json">
+      <span class="icon">⟳</span>
+      <span class="label">Refresh Data</span>
+    </button>
+  </div>
 </header>
+<div class="toast" id="toast"></div>
 <main>
   <div class="stats" id="stats"></div>
 
@@ -231,54 +299,27 @@
 (function () {
   const fmt$ = n => '$' + Math.round(n).toLocaleString();
   const fmtM = n => '$' + (n / 1_000_000).toFixed(1) + 'M';
-  const stats = DATA.signal_stats;
-  const deals = DATA.intervention_queue;
 
-  // Header sub
-  document.getElementById('sub').textContent =
-    'Generated ' + DATA.generated_at + ' · ' + stats.total_deals + ' deals scored · ' +
-    stats.flagged_deals + ' flagged · ' + fmtM(stats.acv_at_risk) + ' ACV at risk';
-
-  // Top stats
-  const statEls = [
-    { label: 'Total Pipeline ACV', value: fmtM(stats.acv_total), foot: stats.total_deals + ' deals' },
-    { label: 'ACV At Risk', value: fmtM(stats.acv_at_risk), foot: Math.round(stats.acv_at_risk / stats.acv_total * 100) + '% of pipeline', alert: true },
-    { label: 'Flagged Deals', value: stats.flagged_deals + ' / ' + stats.total_deals, foot: Math.round(stats.flagged_deals / stats.total_deals * 100) + '% flagged' },
-    { label: 'Critical', value: stats.trajectory_distribution.critical, foot: 'needs intervention now', alert: true },
-    { label: 'Contradiction Flags', value: stats.contradiction_flags, foot: 'rep notes ≠ behavioral signals' },
-  ];
-  document.getElementById('stats').innerHTML = statEls.map(s =>
-    `<div class="stat ${s.alert ? 'alert' : ''}">
-       <div class="label">${s.label}</div>
-       <div class="value">${s.value}</div>
-       <div class="foot">${s.foot}</div>
-     </div>`
-  ).join('');
-
-  // Filters
+  let currentData = DATA;
   let activeStall = 'all';
   let activeTraj = 'all';
 
-  const stallCounts = stats.stall_type_distribution;
-  const stallFilters = [{ key: 'all', label: 'All', count: deals.length }]
-    .concat(Object.keys(stallCounts).map(k => ({ key: k, label: k, count: stallCounts[k] })));
-  document.getElementById('stall-filters').innerHTML = stallFilters.map(f =>
-    `<button class="chip ${f.key === 'all' ? 'active' : ''}" data-stall="${f.key}">
-       ${f.label}<span class="ct">${f.count}</span>
-     </button>`
-  ).join('');
+  function showToast(msg, kind) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.className = 'toast show ' + (kind || '');
+    clearTimeout(el._t);
+    el._t = setTimeout(() => { el.className = 'toast'; }, 3500);
+  }
 
-  const trajCounts = stats.trajectory_distribution;
-  const trajOrder = ['critical', 'at-risk', 'watch', 'healthy'];
-  const trajFilters = [{ key: 'all', label: 'All', count: deals.length }]
-    .concat(trajOrder.filter(k => trajCounts[k]).map(k => ({ key: k, label: k, count: trajCounts[k] })));
-  document.getElementById('traj-filters').innerHTML = trajFilters.map(f =>
-    `<button class="chip ${f.key === 'all' ? 'active' : ''}" data-traj="${f.key}">
-       ${f.label}<span class="ct">${f.count}</span>
-     </button>`
-  ).join('');
+  function allDeals(data) {
+    const flagged = data.intervention_queue || [];
+    const nonFlagged = data.non_flagged_deals || [];
+    return flagged.concat(nonFlagged);
+  }
 
   function stallClass(s) {
+    if (!s || s === 'null') return 'none';
     if (s.startsWith('Champion')) return 'stall-Champion';
     if (s.startsWith('Exec')) return 'stall-Exec';
     if (s.startsWith('Ghost')) return 'stall-Ghost';
@@ -286,14 +327,138 @@
     return '';
   }
 
-  function renderQueue() {
-    const filtered = deals.filter(d =>
-      (activeStall === 'all' || d.dominant_stall_type === activeStall) &&
-      (activeTraj === 'all' || d.trajectory === activeTraj)
-    );
+  function renderHeader(data) {
+    const stats = data.signal_stats;
+    document.getElementById('sub').textContent =
+      'Generated ' + data.generated_at + ' · ' + stats.total_deals + ' deals scored · ' +
+      stats.flagged_deals + ' flagged · ' + fmtM(stats.acv_at_risk) + ' ACV at risk';
+
+    const statEls = [
+      { label: 'Total Pipeline ACV', value: fmtM(stats.acv_total), foot: stats.total_deals + ' deals' },
+      { label: 'ACV At Risk', value: fmtM(stats.acv_at_risk), foot: Math.round(stats.acv_at_risk / stats.acv_total * 100) + '% of pipeline', alert: true },
+      { label: 'Flagged Deals', value: stats.flagged_deals + ' / ' + stats.total_deals, foot: Math.round(stats.flagged_deals / stats.total_deals * 100) + '% flagged' },
+      { label: 'Critical', value: stats.trajectory_distribution.critical, foot: 'needs intervention now', alert: true },
+      { label: 'Contradiction Flags', value: stats.contradiction_flags, foot: 'rep notes ≠ behavioral signals' },
+    ];
+    document.getElementById('stats').innerHTML = statEls.map(s =>
+      `<div class="stat ${s.alert ? 'alert' : ''}">
+         <div class="label">${s.label}</div>
+         <div class="value">${s.value}</div>
+         <div class="foot">${s.foot}</div>
+       </div>`
+    ).join('');
+  }
+
+  function renderFilters(data) {
+    const stats = data.signal_stats;
+    const total = allDeals(data).length;
+
+    const stallCounts = stats.stall_type_distribution;
+    const healthyCount = (data.non_flagged_deals || []).length;
+    const stallFilters = [{ key: 'all', label: 'All', count: total }]
+      .concat(Object.keys(stallCounts).map(k => ({ key: k, label: k, count: stallCounts[k] })))
+      .concat(healthyCount > 0 ? [{ key: '__none__', label: 'No Stall Signal', count: healthyCount }] : []);
+    document.getElementById('stall-filters').innerHTML = stallFilters.map(f =>
+      `<button class="chip ${f.key === activeStall ? 'active' : ''}" data-stall="${f.key}">
+         ${f.label}<span class="ct">${f.count}</span>
+       </button>`
+    ).join('');
+
+    const trajCounts = stats.trajectory_distribution;
+    const trajOrder = ['critical', 'at-risk', 'watch', 'healthy'];
+    const trajFilters = [{ key: 'all', label: 'All', count: total }]
+      .concat(trajOrder.filter(k => trajCounts[k]).map(k => ({ key: k, label: k, count: trajCounts[k] })));
+    document.getElementById('traj-filters').innerHTML = trajFilters.map(f =>
+      `<button class="chip ${f.key === activeTraj ? 'active' : ''}" data-traj="${f.key}">
+         ${f.label}<span class="ct">${f.count}</span>
+       </button>`
+    ).join('');
+  }
+
+  function renderFlaggedBody(d) {
+    const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
+    const contradictionBlock = d.note_contradiction
+      ? `<div class="contradiction"><strong>⚠ Contradiction detected:</strong> ${d.note_contradiction}</div>`
+      : '';
+    const firstMoveHtml = (d.first_move || '')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>');
+    const interventionBlock = d.top_intervention
+      ? `<div class="block">
+          <h4>Playbook Intervention</h4>
+          <div><strong>${d.top_intervention.action}</strong></div>
+          <div class="historical" style="margin-top:6px">${d.top_intervention.rationale}</div>
+        </div>` : '';
+    const metaBlock = `
+      <div class="meta">
+        <span>Priority score: <strong>${(d.priority_score || 0).toFixed(2)}</strong></span>
+        <span>Urgency: <strong>${d.urgency_stage || '—'}</strong></span>
+        <span>Stall score: <strong>${((d.stall_score || 0) * 100).toFixed(0)}%</strong></span>
+      </div>`;
+    return `
+      ${contradictionBlock}
+      <div class="block">
+        <h4>Stall Signature · ${d.signal_coverage || ''}</h4>
+        <div>${d.stall_description || ''}</div>
+      </div>
+      <div class="block">
+        <h4>Signal Evidence</h4>
+        <ul>${evidenceList}</ul>
+      </div>
+      <div class="block">
+        <h4>Historical Context</h4>
+        <div class="historical">${d.historical_context || ''}</div>
+      </div>
+      <div class="block">
+        <h4>Recommended First Move — For ${d.rep_name}</h4>
+        <div class="first-move">${firstMoveHtml}</div>
+      </div>
+      ${interventionBlock}
+      ${metaBlock}`;
+  }
+
+  function renderNonFlaggedBody(d) {
+    const label = d.trajectory === 'watch'
+      ? 'Monitoring — minor signals present but below intervention threshold'
+      : 'Healthy — behavioral signals track with historical won deals';
+    const signalsNote = d.signals_hit_count
+      ? `<div class="block"><h4>Signals observed</h4><div>${d.signals_hit_count} minor signal(s) hit: ${d.signals_hit_labels || '—'}</div></div>`
+      : '';
+    return `
+      <div class="block">
+        <div class="monitor-note">${label}</div>
+      </div>
+      ${signalsNote}
+      <div class="block">
+        <h4>Deal Context</h4>
+        <div>
+          <strong>${d.segment}</strong> · Stage: <strong>${d.current_stage}</strong> · Forecast: <strong>${d.forecast_category || '—'}</strong>
+        </div>
+        <div class="historical" style="margin-top:6px">
+          Next step defined: ${d.next_step_defined ? 'Yes' : 'No'}
+        </div>
+      </div>
+      <div class="meta">
+        <span>Priority score: <strong>${(d.priority_score || 0).toFixed(2)}</strong></span>
+        <span>Trajectory: <strong>${d.trajectory}</strong></span>
+      </div>`;
+  }
+
+  function renderQueue(data) {
+    const deals = allDeals(data);
+    const filtered = deals.filter(d => {
+      const stallMatch =
+        activeStall === 'all' ||
+        (activeStall === '__none__' && !d.has_intervention) ||
+        d.dominant_stall_type === activeStall;
+      const trajMatch = activeTraj === 'all' || d.trajectory === activeTraj;
+      return stallMatch && trajMatch;
+    });
+
+    filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0) || (b.acv_usd || 0) - (a.acv_usd || 0));
 
     document.getElementById('queue-title').textContent =
-      'Intervention Queue · ' + filtered.length + ' deal' + (filtered.length === 1 ? '' : 's');
+      'Pipeline · ' + filtered.length + ' deal' + (filtered.length === 1 ? '' : 's');
 
     if (!filtered.length) {
       document.getElementById('queue').innerHTML =
@@ -304,13 +469,10 @@
     document.getElementById('queue').innerHTML = filtered.map((d, i) => {
       const contradiction = d.note_contradiction
         ? `<span class="contradiction-badge">⚠ Contradiction</span>` : '';
-      const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
-      const contradictionBlock = d.note_contradiction
-        ? `<div class="contradiction"><strong>⚠ Contradiction detected:</strong> ${d.note_contradiction}</div>`
-        : '';
-      const firstMoveHtml = (d.first_move || '')
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>');
+      const stallType = d.dominant_stall_type && d.dominant_stall_type !== 'null'
+        ? d.dominant_stall_type : '—';
+      const stallTagClass = stallType === '—' ? 'stall-tag none' : 'stall-tag';
+      const body = d.has_intervention ? renderFlaggedBody(d) : renderNonFlaggedBody(d);
 
       return `
       <div class="deal-row" data-i="${i}">
@@ -320,41 +482,13 @@
             ${d.company_name}${contradiction}
             <span class="rep">${d.rep_name} · ${d.segment}</span>
           </div>
-          <div class="stall-tag"><span class="stall-dot ${stallClass(d.dominant_stall_type)}"></span>${d.dominant_stall_type}</div>
+          <div class="${stallTagClass}"><span class="stall-dot ${stallClass(d.dominant_stall_type)}"></span>${stallType}</div>
           <div class="stage">${d.current_stage}</div>
           <div><span class="pill ${d.trajectory}">${d.trajectory}</span></div>
           <div class="acv">${fmt$(d.acv_usd)}</div>
           <div class="chev">▶</div>
         </div>
-        <div class="deal-body">
-          ${contradictionBlock}
-          <div class="block">
-            <h4>Stall Signature · ${d.signal_coverage}</h4>
-            <div>${d.stall_description}</div>
-          </div>
-          <div class="block">
-            <h4>Signal Evidence</h4>
-            <ul>${evidenceList}</ul>
-          </div>
-          <div class="block">
-            <h4>Historical Context</h4>
-            <div class="historical">${d.historical_context}</div>
-          </div>
-          <div class="block">
-            <h4>Recommended First Move — For ${d.rep_name}</h4>
-            <div class="first-move">${firstMoveHtml}</div>
-          </div>
-          <div class="block">
-            <h4>Playbook Intervention</h4>
-            <div><strong>${d.top_intervention.action}</strong></div>
-            <div class="historical" style="margin-top:6px">${d.top_intervention.rationale}</div>
-          </div>
-          <div class="meta">
-            <span>Priority score: <strong>${d.priority_score.toFixed(2)}</strong></span>
-            <span>Urgency: <strong>${d.urgency_stage}</strong></span>
-            <span>Stall score: <strong>${(d.stall_score * 100).toFixed(0)}%</strong></span>
-          </div>
-        </div>
+        <div class="deal-body">${body}</div>
       </div>`;
     }).join('');
 
@@ -363,22 +497,51 @@
     });
   }
 
+  function renderAll(data) {
+    currentData = data;
+    renderHeader(data);
+    renderFilters(data);
+    renderQueue(data);
+  }
+
+  async function refresh() {
+    const btn = document.getElementById('refresh-btn');
+    btn.classList.add('loading');
+    btn.disabled = true;
+    try {
+      const resp = await fetch('./dashboard_payload.json', { cache: 'no-cache' });
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      const fresh = await resp.json();
+      renderAll(fresh);
+      showToast('Data refreshed · ' + (fresh.generated_at || 'now'), 'success');
+    } catch (err) {
+      const isFile = location.protocol === 'file:';
+      showToast(isFile
+        ? 'Refresh requires live deployment (not file://)'
+        : 'Refresh failed: ' + err.message, 'error');
+    } finally {
+      btn.classList.remove('loading');
+      btn.disabled = false;
+    }
+  }
+
   document.getElementById('stall-filters').addEventListener('click', e => {
     const btn = e.target.closest('.chip');
     if (!btn) return;
     activeStall = btn.dataset.stall;
     document.querySelectorAll('#stall-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
-    renderQueue();
+    renderQueue(currentData);
   });
   document.getElementById('traj-filters').addEventListener('click', e => {
     const btn = e.target.closest('.chip');
     if (!btn) return;
     activeTraj = btn.dataset.traj;
     document.querySelectorAll('#traj-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
-    renderQueue();
+    renderQueue(currentData);
   });
+  document.getElementById('refresh-btn').addEventListener('click', refresh);
 
-  renderQueue();
+  renderAll(DATA);
 })();
 </script>
 </body>
