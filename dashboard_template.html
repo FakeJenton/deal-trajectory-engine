@@ -67,7 +67,7 @@
 
   .stats {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 14px;
     margin-bottom: 28px;
   }
@@ -132,12 +132,66 @@
   .deal-head {
     padding: 14px 18px;
     display: grid;
-    grid-template-columns: 90px 1fr 160px 120px 110px 100px 40px;
+    grid-template-columns: 90px 1fr 160px 120px 110px 110px 40px;
     align-items: center;
     gap: 14px;
     cursor: pointer;
   }
   .deal-head:hover { background: var(--panel-2); }
+
+  .deal-header-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 160px 120px 110px 110px 40px;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 18px;
+    background: var(--panel-3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .deal-header-row .sortable {
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+  }
+  .deal-header-row .sortable:hover { color: var(--text); }
+  .deal-header-row .sortable.active { color: var(--accent); }
+  .deal-header-row .sort-arrow {
+    font-size: 10px;
+    line-height: 1;
+  }
+  .deal-header-row .val-col { text-align: right; justify-content: flex-end; }
+
+  .sort-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .sort-bar .count { color: var(--text); font-weight: 600; }
+  .sort-bar .reset {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  .sort-bar .reset:hover { color: var(--text); border-color: var(--border-strong); }
   .deal-id { font-family: ui-monospace, Menlo, monospace; color: var(--muted); font-size: 12px; }
   .deal-name { font-weight: 600; }
   .deal-name .rep { display: block; color: var(--muted); font-weight: 400; font-size: 12px; margin-top: 2px; }
@@ -170,18 +224,6 @@
   .chev { color: var(--muted); text-align: center; transition: transform 0.2s; }
   .deal-row.open .chev { transform: rotate(90deg); }
 
-  .contradiction-badge {
-    display: inline-block;
-    background: rgba(239, 68, 68, 0.15);
-    color: #fca5a5;
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    margin-left: 8px;
-  }
-
   .deal-body {
     display: none;
     padding: 22px 24px 26px;
@@ -200,14 +242,6 @@
   .deal-body .block { margin-bottom: 18px; }
   .deal-body ul { margin: 0; padding-left: 18px; }
   .deal-body ul li { margin: 4px 0; }
-  .deal-body .contradiction {
-    background: rgba(239, 68, 68, 0.1);
-    border-left: 3px solid var(--critical);
-    padding: 10px 14px;
-    border-radius: 4px;
-    margin-bottom: 18px;
-    color: #fecaca;
-  }
   .deal-body .first-move {
     background: var(--accent-soft);
     border: 1px solid var(--accent);
@@ -744,6 +778,20 @@
     <div class="filters" id="traj-filters"></div>
 
     <div class="section-title" id="queue-title">Pipeline</div>
+    <div class="sort-bar">
+      <span><span class="count" id="queue-count">0</span> deals shown</span>
+      <span>· sorted by <strong id="sort-label" style="color:var(--text)">priority</strong></span>
+      <button class="reset" id="sort-reset" type="button">Reset sort</button>
+    </div>
+    <div class="deal-header-row" id="deal-headers">
+      <div>ID</div>
+      <div class="sortable" data-sort="company">Deal / Owner <span class="sort-arrow"></span></div>
+      <div class="sortable" data-sort="stall">Pattern <span class="sort-arrow"></span></div>
+      <div class="sortable" data-sort="stage">Stage <span class="sort-arrow"></span></div>
+      <div class="sortable" data-sort="trajectory">Health <span class="sort-arrow"></span></div>
+      <div class="sortable val-col" data-sort="acv">Value <span class="sort-arrow"></span></div>
+      <div></div>
+    </div>
     <div id="queue"></div>
   </div>
 
@@ -778,12 +826,6 @@
       <div class="hist-sub">For each signal, we compare the average value on deals that closed Won vs. those that were Lost. "Strength" tells you how reliably this gap appears — strong signals are the ones you can trust most. Filter by segment to see where the gap is largest.</div>
       <div class="segfilter" id="seg-filter"></div>
       <div id="compare-table-wrap"></div>
-    </div>
-
-    <div class="hist-section">
-      <h2>Where rep notes disagree with the data</h2>
-      <div class="hist-sub" id="contr-sub">This shows deals where the rep-logged loss reason conflicts with what the behavior actually suggested. Darker cells = more mismatches. This is why you can't trust stated loss reasons alone — a third of the time, they're pointing at the wrong problem.</div>
-      <div id="crosstab"></div>
     </div>
 
     <div class="hist-section">
@@ -840,7 +882,6 @@
       { label: 'Revenue at risk', value: fmtM(stats.acv_at_risk), foot: Math.round(stats.acv_at_risk / stats.acv_total * 100) + '% of pipeline', alert: true },
       { label: 'Deals needing attention', value: stats.flagged_deals + ' of ' + stats.total_deals, foot: Math.round(stats.flagged_deals / stats.total_deals * 100) + '% of pipeline flagged' },
       { label: 'Critical — act today', value: stats.trajectory_distribution.critical, foot: 'Short intervention window', alert: true },
-      { label: 'Rep notes don\'t match data', value: stats.contradiction_flags, foot: 'Stated reason vs. behavior conflicts' },
     ];
     document.getElementById('stats').innerHTML = statEls.map(s =>
       `<div class="stat ${s.alert ? 'alert' : ''}">
@@ -879,14 +920,6 @@
 
   function renderFlaggedBody(d) {
     const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
-    const contradictionMsg = d.note_contradiction
-      ? (typeof d.note_contradiction === 'string'
-          ? d.note_contradiction
-          : (d.note_contradiction.flag || ''))
-      : '';
-    const contradictionBlock = contradictionMsg
-      ? `<div class="contradiction"><strong>⚠ Contradiction detected:</strong> ${contradictionMsg}</div>`
-      : '';
     const firstMoveHtml = (d.first_move || '')
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>');
@@ -903,7 +936,6 @@
         <span>Stall score: <strong>${((d.stall_score || 0) * 100).toFixed(0)}%</strong></span>
       </div>`;
     return `
-      ${contradictionBlock}
       <div class="block">
         <h4>Stall Signature · ${d.signal_coverage || ''}</h4>
         <div>${d.stall_description || ''}</div>
@@ -951,6 +983,57 @@
       </div>`;
   }
 
+  let activeSort = { col: 'priority', dir: 'desc' };
+
+  const SORT_LABELS = {
+    priority: 'priority',
+    company: 'deal / owner',
+    stall: 'stall pattern',
+    stage: 'deal stage',
+    trajectory: 'health',
+    acv: 'deal value',
+  };
+  const TRAJ_ORDER = { 'critical': 0, 'at-risk': 1, 'watch': 2, 'healthy': 3 };
+
+  function sortDeals(deals) {
+    const { col, dir } = activeSort;
+    const mult = dir === 'desc' ? -1 : 1;
+    const getVal = d => {
+      switch (col) {
+        case 'priority': return d.priority_score || 0;
+        case 'acv': return d.acv_usd || 0;
+        case 'company': return (d.company_name || '').toLowerCase();
+        case 'stall': return d.dominant_stall_type || 'zzz';
+        case 'stage': return (d.current_stage || '').toLowerCase();
+        case 'trajectory': return TRAJ_ORDER[d.trajectory] ?? 99;
+        default: return 0;
+      }
+    };
+    return [...deals].sort((a, b) => {
+      const av = getVal(a), bv = getVal(b);
+      if (av < bv) return -1 * mult;
+      if (av > bv) return 1 * mult;
+      // Stable tiebreak on priority score
+      return (b.priority_score || 0) - (a.priority_score || 0);
+    });
+  }
+
+  function renderSortHeaders() {
+    document.querySelectorAll('#deal-headers .sortable').forEach(h => {
+      const col = h.dataset.sort;
+      const arrow = h.querySelector('.sort-arrow');
+      if (col === activeSort.col) {
+        h.classList.add('active');
+        arrow.textContent = activeSort.dir === 'desc' ? '▼' : '▲';
+      } else {
+        h.classList.remove('active');
+        arrow.textContent = '';
+      }
+    });
+    document.getElementById('sort-label').textContent =
+      SORT_LABELS[activeSort.col] + ' (' + (activeSort.dir === 'desc' ? 'high → low' : 'low → high') + ')';
+  }
+
   function renderQueue(data) {
     const deals = allDeals(data);
     const filtered = deals.filter(d => {
@@ -962,20 +1045,19 @@
       return stallMatch && trajMatch;
     });
 
-    filtered.sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0) || (b.acv_usd || 0) - (a.acv_usd || 0));
+    const sorted = sortDeals(filtered);
 
-    document.getElementById('queue-title').textContent =
-      'Pipeline · ' + filtered.length + ' deal' + (filtered.length === 1 ? '' : 's');
+    document.getElementById('queue-title').textContent = 'Pipeline';
+    document.getElementById('queue-count').textContent = sorted.length;
+    renderSortHeaders();
 
-    if (!filtered.length) {
+    if (!sorted.length) {
       document.getElementById('queue').innerHTML =
         '<div class="empty">No deals match these filters.</div>';
       return;
     }
 
-    document.getElementById('queue').innerHTML = filtered.map((d, i) => {
-      const contradiction = d.note_contradiction
-        ? `<span class="contradiction-badge">⚠ Contradiction</span>` : '';
+    document.getElementById('queue').innerHTML = sorted.map((d, i) => {
       const stallType = d.dominant_stall_type && d.dominant_stall_type !== 'null'
         ? d.dominant_stall_type : '—';
       const stallTagClass = stallType === '—' ? 'stall-tag none' : 'stall-tag';
@@ -986,7 +1068,7 @@
         <div class="deal-head">
           <div class="deal-id">${d.deal_id}</div>
           <div class="deal-name">
-            ${d.company_name}${contradiction}
+            ${d.company_name}
             <span class="rep">${d.rep_name} · ${d.segment}</span>
           </div>
           <div class="${stallTagClass}"><span class="stall-dot ${stallClass(d.dominant_stall_type)}"></span>${stallType}</div>
@@ -1095,7 +1177,6 @@
     const recoveryRate = totalStalled ? Math.round(totalRecovered / totalStalled * 100) : 0;
     const stats = [
       { label: 'Past deals we studied', value: s.total_historical_deals.toLocaleString(), foot: 'Closed Won or Lost' },
-      { label: 'Misdiagnosed losses', value: s.contradictions + ' (' + s.contradiction_pct + '%)', foot: 'Rep-stated reason didn\'t match behavior', alert: true },
       { label: 'Saved deals', value: totalRecovered.toLocaleString(), foot: 'Stalled, then recovered to a win' },
       { label: 'Overall save rate', value: recoveryRate + '%', foot: 'Across all stall patterns' },
       { label: 'Patterns found', value: Object.keys(h.stall_library).length, foot: 'Learned from the data, not preset' },
@@ -1411,7 +1492,6 @@
     renderFeatureBars(h);
     renderSegmentFilter();
     renderCompareView(h);
-    renderCrosstab(h);
     renderInsights(h);
   }
 
@@ -1451,6 +1531,26 @@
     renderQueue(currentData);
   });
   document.getElementById('refresh-btn').addEventListener('click', refresh);
+
+  // Sort header clicks
+  document.getElementById('deal-headers').addEventListener('click', e => {
+    const hdr = e.target.closest('.sortable');
+    if (!hdr) return;
+    const col = hdr.dataset.sort;
+    if (activeSort.col === col) {
+      activeSort.dir = activeSort.dir === 'desc' ? 'asc' : 'desc';
+    } else {
+      activeSort.col = col;
+      // Smart default: numeric columns default desc, text columns default asc
+      activeSort.dir = (col === 'acv' || col === 'priority' || col === 'trajectory') ? 'desc' : 'asc';
+    }
+    renderQueue(currentData);
+  });
+
+  document.getElementById('sort-reset').addEventListener('click', () => {
+    activeSort = { col: 'priority', dir: 'desc' };
+    renderQueue(currentData);
+  });
 
   // Compare view chart/table toggle
   document.getElementById('compare-view-toggle').addEventListener('click', e => {
