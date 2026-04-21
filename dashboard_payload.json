@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-21 10:52:28",
+  "generated_at": "2026-04-21 15:04:01",
   "signal_stats": {
     "trajectory_distribution": {
       "critical": 69,
@@ -170,7 +170,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**James — Hill-Ochoa LLC has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 49,
@@ -251,7 +252,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost — security / compliance failed.. no additional detail..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Nina — action required today.**\n\nYour champion thread at Luna, Anderson and Smith is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 6,
@@ -331,7 +333,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Prospect stopped engaging after the proposal. No explanation given.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — Patterson and Sons Inc has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 60,
@@ -412,7 +415,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost — price / budget.. no additional detail..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Alex — action required today.**\n\nYour champion thread at The Jackson, Mcdonald and Greene is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 15,
@@ -497,7 +501,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "New data lead came in and had a prior relationship with Snowflake.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Emily — action required today.**\n\nYour champion thread at Mendoza,JosephandGarcia is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 18,
@@ -579,7 +584,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — no economic buyer visibility at Robinson-Brown LLC.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 14,
@@ -656,7 +662,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — security / compliance failed. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — no economic buyer visibility at Mercer,GreenandPerez.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 10,
@@ -733,7 +740,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Priya — no economic buyer visibility at Banks, Douglas and Chen LLC.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 5,
@@ -814,7 +822,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Our champion got moved to a different team mid-deal. Lost access.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**James — action required today.**\n\nYour champion thread at WILLIAMS, BURNS AND GOULD is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 17,
@@ -893,7 +902,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — The Lopez and Sons has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 43,
@@ -965,7 +975,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Champion was IC level, couldn't drive the purchase alone.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Marcus — no economic buyer visibility at Mayer LLC LLC.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 17,
@@ -1042,7 +1053,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Marcus — no economic buyer visibility at sexton and sons.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 27,
@@ -1122,7 +1134,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "just went dark.. last email 3 weeks ago, no response..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**James — RICE-LARSON has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 60,
@@ -1203,7 +1216,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — champion left. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — no economic buyer visibility at GATES GROUP.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 44,
@@ -1289,7 +1303,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Marcus — action required today.**\n\nYour champion thread at The Cook and Sons is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 3,
@@ -1366,7 +1381,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — price / budget. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — no economic buyer visibility at Lutz Group Inc.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 10,
@@ -1443,7 +1459,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — security / compliance failed. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — no economic buyer visibility at Johnson,WilliamsandHendricks.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 13,
@@ -1520,7 +1537,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — wrong timing. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Alex — no economic buyer visibility at harvey-gordon.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 18,
@@ -1605,7 +1623,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — chose competitor. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Nina — action required today.**\n\nYour champion thread at Alexander,OrtizandSutton is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 5,
@@ -1690,7 +1709,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Just went dark. Last email 3 weeks ago, no response.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — Acosta,PetersandJohnson has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 49,
@@ -1775,7 +1795,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost — chose competitor.. no additional detail..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Marcus — action required today.**\n\nYour champion thread at Keller, Rivas and Burgess is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 15,
@@ -1860,7 +1881,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Multiple follow-ups with no reply. Probably went internal.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**James — WoodwardLLC has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 59,
@@ -1944,7 +1966,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — chose competitor. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — Ingram Inc LLC has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 50,
@@ -2026,7 +2049,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Nina — no economic buyer visibility at Gillespie,LoganandLynch.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 16,
@@ -2106,7 +2130,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Prospect stopped engaging after the proposal. No explanation given.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — Freeman PLC, Inc. has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 54,
@@ -2187,7 +2212,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — champion left. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — no economic buyer visibility at Johnson-Barnes.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 11,
@@ -2273,7 +2299,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — price / budget. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — action required today.**\n\nYour champion thread at The Smith Ltd is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 13,
@@ -2352,7 +2379,8 @@
         "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost to Fivetran on connector breadth. They had 200+ native connectors.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Priya — competitive threat at nan.**\n\nThe behavioral data shows a competitor is gaining ground. Don't discount yet.\n\n**Do this:** Schedule a working session (not a demo) focused on their specific technical environment. Open with: *'I want to spend 45 min going deeper on [specific use case] — not slides, just your data and our stack together.'*\n\n**Don't:** Respond to price pressure by discounting. Recovered deals competed on depth, not price.",
       "has_intervention": true,
       "days_in_current_stage": 20,
@@ -2428,7 +2456,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — champion left. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — no economic buyer visibility at Hernandez Ltd.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 11,
@@ -2510,7 +2539,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Priya — no economic buyer visibility at Graham, Dominguez and Cook LLC.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 12,
@@ -2591,7 +2621,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — action required today.**\n\nYour champion thread at Rodriguez-Mccarty is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 14,
@@ -2671,7 +2702,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — price / budget. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — The Bradley-Robles has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 33,
@@ -2752,7 +2784,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "They went with Databricks. Had deeper existing footprint.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — no economic buyer visibility at soto llc.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 16,
@@ -2838,7 +2871,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "champion left teh company.. couldn't rebuild teh relationship in time..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Marcus — action required today.**\n\nYour champion thread at juarez llc is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 5,
@@ -2915,7 +2949,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Never got above the data team. Budget decision was above champion's level.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — no economic buyer visibility at The Hunt Group.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 7,
@@ -2996,7 +3031,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost — champion left.. no additional detail..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — action required today.**\n\nYour champion thread at carpenter-logan is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 4,
@@ -3077,7 +3113,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — champion left. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — no economic buyer visibility at Singleton PLC LLC.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 9,
@@ -3159,7 +3196,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — wrong timing. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Nina — no economic buyer visibility at DouglasGroup.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 7,
@@ -3240,7 +3278,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — champion left. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Priya — no economic buyer visibility at Hinton Inc Inc.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 6,
@@ -3322,7 +3361,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — wrong timing. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — no economic buyer visibility at Johnson-Gutierrez.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 12,
@@ -3401,7 +3441,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — wrong timing. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**James — CARPENTER, MORSE AND FOX has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 29,
@@ -3477,7 +3518,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — security / compliance failed. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — action required today.**\n\nYour champion thread at Phillips-Richard, Inc. is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 11,
@@ -3558,7 +3600,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — no decision / stalled. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Nina — action required today.**\n\nYour champion thread at Sanchez-Wilson, Inc. is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 3,
@@ -3637,7 +3680,8 @@
         "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost to fivetran on connector breadth.. they had 200+ native connectors..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Nina — competitive threat at wheeler llc.**\n\nThe behavioral data shows a competitor is gaining ground. Don't discount yet.\n\n**Do this:** Schedule a working session (not a demo) focused on their specific technical environment. Open with: *'I want to spend 45 min going deeper on [specific use case] — not slides, just your data and our stack together.'*\n\n**Don't:** Respond to price pressure by discounting. Recovered deals competed on depth, not price.",
       "has_intervention": true,
       "days_in_current_stage": 15,
@@ -3709,7 +3753,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — security / compliance failed. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — no economic buyer visibility at BROWN AND SONS.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 20,
@@ -3786,7 +3831,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — no decision / stalled. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — no economic buyer visibility at Silva, Cruz and Powell, Inc..**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 6,
@@ -3867,7 +3913,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — chose competitor. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Tyler — no economic buyer visibility at dean llc.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 4,
@@ -3952,7 +3999,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Multiple follow-ups with no reply. Probably went internal.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Emily — Giles-Mcguire LLC has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 46,
@@ -4030,7 +4078,8 @@
         "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — wrong timing. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Priya — competitive threat at jordan-rubio.**\n\nThe behavioral data shows a competitor is gaining ground. Don't discount yet.\n\n**Do this:** Schedule a working session (not a demo) focused on their specific technical environment. Open with: *'I want to spend 45 min going deeper on [specific use case] — not slides, just your data and our stack together.'*\n\n**Don't:** Respond to price pressure by discounting. Recovered deals competed on depth, not price.",
       "has_intervention": true,
       "days_in_current_stage": 18,
@@ -4102,7 +4151,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — price / budget. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Emily — no economic buyer visibility at Mcdonald-Mata.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 10,
@@ -4179,7 +4229,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — security / compliance failed. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — no economic buyer visibility at The Clarke Ltd.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 16,
@@ -4260,7 +4311,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — security / compliance failed. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Marcus — action required today.**\n\nYour champion thread at Johnson-Saunders Inc is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 3,
@@ -4341,7 +4393,8 @@
         "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Our champion got moved to a different team mid-deal. Lost access.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**James — action required today.**\n\nYour champion thread at The George-Williams is collapsing. Don't send another follow-up to the same contact.\n\n**Do this:** Map the org and find one additional stakeholder — their manager, a peer on the team, or whoever owns budget. Reach out directly with: *'I wanted to introduce myself separately — I know [champion] has been our main contact but I'd love 15 min to hear your perspective.'*\n\n**Don't:** Ask your champion to make the intro. If they could, they would have by now.",
       "has_intervention": true,
       "days_in_current_stage": 7,
@@ -4425,7 +4478,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — champion left. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — Burns Ltd has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 49,
@@ -4507,7 +4561,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost — price / budget.. no additional detail..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — no economic buyer visibility at murphy inc.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 20,
@@ -4586,7 +4641,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — wrong timing. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Emily — nan has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 26,
@@ -4658,7 +4714,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — no decision / stalled. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — no economic buyer visibility at Barry-Miller.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 12,
@@ -4737,7 +4794,8 @@
         "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — chose competitor. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Tyler — competitive threat at Swanson-Anderson.**\n\nThe behavioral data shows a competitor is gaining ground. Don't discount yet.\n\n**Do this:** Schedule a working session (not a demo) focused on their specific technical environment. Open with: *'I want to spend 45 min going deeper on [specific use case] — not slides, just your data and our stack together.'*\n\n**Don't:** Respond to price pressure by discounting. Recovered deals competed on depth, not price.",
       "has_intervention": true,
       "days_in_current_stage": 3,
@@ -4810,7 +4868,8 @@
         "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Emily — competitive threat at Roberts and Sons LLC.**\n\nThe behavioral data shows a competitor is gaining ground. Don't discount yet.\n\n**Do this:** Schedule a working session (not a demo) focused on their specific technical environment. Open with: *'I want to spend 45 min going deeper on [specific use case] — not slides, just your data and our stack together.'*\n\n**Don't:** Respond to price pressure by discounting. Recovered deals competed on depth, not price.",
       "has_intervention": true,
       "days_in_current_stage": 6,
@@ -4886,7 +4945,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost to fivetran on connector breadth.. they had 200+ native connectors..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Tyler — no economic buyer visibility at carter, hill and reid.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 19,
@@ -4975,7 +5035,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost — champion left.. no additional detail..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Priya — Garza, Davis and Wilson has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 37,
@@ -5057,7 +5118,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — no decision / stalled. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Tyler — no economic buyer visibility at nan.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 19,
@@ -5134,7 +5196,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — security / compliance failed. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — no economic buyer visibility at fernandez, graham and tate.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 15,
@@ -5211,7 +5274,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — price / budget. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Rachel — no economic buyer visibility at Harrington, Brown and Bowman.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 18,
@@ -5288,7 +5352,8 @@
         "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — no decision / stalled. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Priya — no economic buyer visibility at young-benson.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 19,
@@ -5366,7 +5431,8 @@
         "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost to Fivetran on connector breadth. They had 200+ native connectors.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — competitive threat at Li, Lambert and Stark LLC.**\n\nThe behavioral data shows a competitor is gaining ground. Don't discount yet.\n\n**Do this:** Schedule a working session (not a demo) focused on their specific technical environment. Open with: *'I want to spend 45 min going deeper on [specific use case] — not slides, just your data and our stack together.'*\n\n**Don't:** Respond to price pressure by discounting. Recovered deals competed on depth, not price.",
       "has_intervention": true,
       "days_in_current_stage": 18,
@@ -5442,7 +5508,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost — champion left.. no additional detail..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — no economic buyer visibility at Schwartz Group, Inc..**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 19,
@@ -5526,7 +5593,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Prospect stopped engaging after the proposal. No explanation given.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — Gibbs, Chase and Molina has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 41,
@@ -5599,7 +5667,8 @@
         "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — missing feature. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Alex — competitive threat at Roth, Ellis and Lewis LLC.**\n\nThe behavioral data shows a competitor is gaining ground. Don't discount yet.\n\n**Do this:** Schedule a working session (not a demo) focused on their specific technical environment. Open with: *'I want to spend 45 min going deeper on [specific use case] — not slides, just your data and our stack together.'*\n\n**Don't:** Respond to price pressure by discounting. Recovered deals competed on depth, not price.",
       "has_intervention": true,
       "days_in_current_stage": 17,
@@ -5675,7 +5744,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "They went with Databricks. Had deeper existing footprint.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Alex — no economic buyer visibility at Bennett, Rivera and Stanley.**\n\nYour champion can't close this alone. You need a name above them this week.\n\n**Do this:** Ask your champion directly: *'Who else needs to say yes for this to happen? Can you help me get 20 min with them before end of month?'*\n\n**Don't:** Wait for the champion to bring it up. They won't — it's uncomfortable for them too.",
       "has_intervention": true,
       "days_in_current_stage": 15,
@@ -5758,7 +5828,8 @@
         "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Multiple follow-ups with no reply. Probably went internal.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Marcus — Nguyen-Whitaker, Inc. has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 27,
@@ -5835,7 +5906,8 @@
         "notes_imply": "Champion Collapse",
         "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "lost — champion left.. no additional detail..",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Sophia — Lopez Inc LLC has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 43,
@@ -5912,7 +5984,8 @@
         "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
       },
       "note_contradiction": null,
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Lost — price / budget. No additional detail.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**Priya — competitive threat at The Long-Delgado.**\n\nThe behavioral data shows a competitor is gaining ground. Don't discount yet.\n\n**Do this:** Schedule a working session (not a demo) focused on their specific technical environment. Open with: *'I want to spend 45 min going deeper on [specific use case] — not slides, just your data and our stack together.'*\n\n**Don't:** Respond to price pressure by discounting. Recovered deals competed on depth, not price.",
       "has_intervention": true,
       "days_in_current_stage": 14,
@@ -5993,7 +6066,8 @@
         "notes_imply": "Competitor Displacement",
         "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
       },
-      "generated_at": "2026-04-21 10:49:42",
+      "rep_notes": "Snowflake offered a massive discount at the last minute. We couldn't match.",
+      "generated_at": "2026-04-21 15:03:39",
       "first_move": "**David — HUNTER LTD has gone dark.**\n\nMore emails won't work. Change the medium before you change the message.\n\n**Do this:** Call or LinkedIn message today with: *'Not chasing you — just want to know if the [original problem] is still on the table or if priorities shifted. One sentence is fine.'*\n\n**Don't:** Send another 'just checking in' email. You've already sent too many.",
       "has_intervention": true,
       "days_in_current_stage": 11,

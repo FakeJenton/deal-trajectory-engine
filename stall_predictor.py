@@ -465,6 +465,13 @@ def _build_queue_entry(row, trajectory, dominant_stall, score, weighted_score,
     n_total  = n_hit + len(detail.get("signals_clean", []))
     coverage = f"{n_hit}/{n_total} defining signals breached"
 
+    # Preserve the raw rep-entered free text so the dashboard can show *why*
+    # the contradiction fired, not just a "notes conflict" chip. pandas loads
+    # missing cells as NaN — normalise to None so JSON output is clean.
+    rep_notes_raw = row.get("rep_notes")
+    if isinstance(rep_notes_raw, float) and np.isnan(rep_notes_raw):
+        rep_notes_raw = None
+
     return {
         "deal_id":              row.get("deal_id"),
         "company_name":         row.get("company_name"),
@@ -491,6 +498,7 @@ def _build_queue_entry(row, trajectory, dominant_stall, score, weighted_score,
         ),
         "top_intervention":     top_interv,
         "note_contradiction":   contradiction,
+        "rep_notes":            rep_notes_raw,
         "generated_at":         datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
     }
 

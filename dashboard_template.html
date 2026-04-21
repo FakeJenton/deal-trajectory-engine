@@ -187,6 +187,63 @@
   }
   .contr-chip::before { content: '⚠'; font-size: 11px; }
 
+  /* Expanded-row explanation of why the notes-conflict chip fired */
+  .contr-explain {
+    background: rgba(245,158,11,0.08);
+    border: 1px solid rgba(245,158,11,0.35);
+    border-left: 4px solid var(--at-risk);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  .contr-explain .ce-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    color: #fcd34d;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 10px;
+  }
+  .contr-explain .ce-title::before { content: '⚠'; font-size: 14px; }
+  .contr-explain .ce-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .contr-explain .ce-cell {
+    background: rgba(17,17,22,0.35);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+  .contr-explain .ce-cell-label {
+    color: var(--muted-2);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .contr-explain .ce-cell-val { color: var(--text); font-weight: 600; font-size: 13px; }
+  .contr-explain .ce-quote {
+    background: rgba(17,17,22,0.45);
+    border-left: 3px solid rgba(245,158,11,0.5);
+    padding: 8px 12px;
+    margin: 0 0 10px;
+    font-style: italic;
+    color: var(--muted-1);
+    border-radius: 0 4px 4px 0;
+  }
+  .contr-explain .ce-quote-label { font-style: normal; color: var(--muted-2); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; display: block; }
+  .contr-explain .ce-action { color: #fcd34d; font-weight: 600; }
+
   /* Plain-English why-score synopsis at top of expanded card */
   .why-synopsis {
     background: rgba(110,231,255,0.05);
@@ -1862,9 +1919,49 @@
     return `<button class="action-btn ${on ? 'is-actioned' : ''}" data-action-deal="${d.deal_id}" type="button">${on ? 'Actioned' : 'Mark actioned'}</button>`;
   }
 
+  function renderContradictionExplain(d) {
+    const nc = d.note_contradiction;
+    if (!nc) return '';
+    // note_contradiction may arrive as either the structured object from
+    // stall_predictor.py (behavioral_signal / notes_imply / flag) or, for
+    // older runs, as a plain flag string.
+    const behavior = typeof nc === 'object' ? (nc.behavioral_signal || d.dominant_stall_type || '—') : (d.dominant_stall_type || '—');
+    const implied  = typeof nc === 'object' ? (nc.notes_imply || '—') : '—';
+    const rawNote  = (d.rep_notes || '').toString().trim();
+    const quote = rawNote
+      ? `<blockquote class="ce-quote"><span class="ce-quote-label">Rep note on file</span>${escapeHtml(rawNote)}</blockquote>`
+      : '';
+    return `
+      <div class="contr-explain">
+        <div class="ce-title">Notes conflict — read before acting</div>
+        <div class="ce-grid">
+          <div class="ce-cell">
+            <div class="ce-cell-label">What the rep's notes imply</div>
+            <div class="ce-cell-val">${escapeHtml(implied)}</div>
+          </div>
+          <div class="ce-cell">
+            <div class="ce-cell-label">What the behavioral signals show</div>
+            <div class="ce-cell-val">${escapeHtml(behavior)}</div>
+          </div>
+        </div>
+        ${quote}
+        <div class="ce-action">Investigate the mismatch with the rep before coaching or acting on the intervention — the logged reason may be masking the real cause.</div>
+      </div>`;
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   function renderFlaggedBody(d) {
     const synopsis = whyScoreSynopsis(d);
     const synopsisBlock = synopsis ? `<div class="why-synopsis">${synopsis}</div>` : '';
+    const contrBlock = renderContradictionExplain(d);
     const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
     const firstMoveHtml = (d.first_move || '')
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
@@ -1884,6 +1981,7 @@
     return `
       ${renderRankExplain(d)}
       ${synopsisBlock}
+      ${contrBlock}
       ${renderReviewBlock(d)}
       ${renderWhyScoreBlock(d)}
       <div class="block">

@@ -106,6 +106,12 @@ payload.intervention_queue.forEach(d => {
     d.days_in_current_stage = parseInt(row[idx.days_in_current_stage], 10) || 0;
     if (d.signals_hit_labels == null) d.signals_hit_labels = row[idx.signals_hit_labels] || '';
     if (d.signals_hit_count == null) d.signals_hit_count = parseInt(row[idx.signals_hit_count], 10) || 0;
+    // Backfill rep_notes so the contradiction explanation has the source text
+    // even if the Phase 3 run predates the queue-entry change.
+    if (d.rep_notes == null && idx.rep_notes != null) {
+      const raw = row[idx.rep_notes];
+      d.rep_notes = (raw && raw !== 'nan' && raw !== 'NaN') ? raw : null;
+    }
   }
 });
 // Also stamp days_in_current_stage onto non-flagged entries

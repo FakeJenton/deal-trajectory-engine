@@ -27,7 +27,8 @@
       "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost to fivetran on connector breadth.. they had 200+ native connectors..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2132",
@@ -55,7 +56,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2108",
@@ -87,7 +89,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost \u2014 price / budget.. no additional detail..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2123",
@@ -123,7 +126,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 chose competitor. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2101",
@@ -153,7 +157,8 @@
       "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost to Fivetran on connector breadth. They had 200+ native connectors.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2003",
@@ -181,7 +186,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2100",
@@ -209,7 +215,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 price / budget. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2054",
@@ -240,7 +247,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Prospect stopped engaging after the proposal. No explanation given.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2020",
@@ -272,7 +280,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 champion left. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2012",
@@ -304,7 +313,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "They went with Databricks. Had deeper existing footprint.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2058",
@@ -339,7 +349,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 chose competitor. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2137",
@@ -370,7 +381,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "just went dark.. last email 3 weeks ago, no response..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2018",
@@ -402,7 +414,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2130",
@@ -434,7 +447,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost \u2014 security / compliance failed.. no additional detail..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2124",
@@ -464,7 +478,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2119",
@@ -495,7 +510,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Prospect stopped engaging after the proposal. No explanation given.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2064",
@@ -527,7 +543,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2083",
@@ -555,7 +572,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2073",
@@ -591,7 +609,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost \u2014 chose competitor.. no additional detail..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2131",
@@ -623,7 +642,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 champion left. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2069",
@@ -651,7 +671,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2000",
@@ -679,7 +700,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Never got above the data team. Budget decision was above champion's level.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2136",
@@ -710,7 +732,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2110",
@@ -746,7 +769,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "New data lead came in and had a prior relationship with Snowflake.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2023",
@@ -774,7 +798,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2086",
@@ -802,7 +827,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2076",
@@ -834,7 +860,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "champion left teh company.. couldn't rebuild teh relationship in time..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2048",
@@ -862,7 +889,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Champion was IC level, couldn't drive the purchase alone.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2061",
@@ -890,7 +918,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2112",
@@ -922,7 +951,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 champion left. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2031",
@@ -954,7 +984,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost to fivetran on connector breadth.. they had 200+ native connectors..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2111",
@@ -984,7 +1015,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2060",
@@ -1012,7 +1044,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 price / budget. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2121",
@@ -1043,7 +1076,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Just went dark. Last email 3 weeks ago, no response.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2120",
@@ -1072,7 +1106,8 @@
       "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost to Fivetran on connector breadth. They had 200+ native connectors.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2129",
@@ -1102,7 +1137,8 @@
       "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 chose competitor. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2149",
@@ -1133,7 +1169,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Multiple follow-ups with no reply. Probably went internal.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2036",
@@ -1163,7 +1200,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2053",
@@ -1198,7 +1236,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 champion left. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2050",
@@ -1230,7 +1269,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 chose competitor. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2037",
@@ -1262,7 +1302,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Our champion got moved to a different team mid-deal. Lost access.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2087",
@@ -1294,7 +1335,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 champion left. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2128",
@@ -1326,7 +1368,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2138",
@@ -1359,7 +1402,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost \u2014 champion left.. no additional detail..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2004",
@@ -1391,7 +1435,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 no decision / stalled. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2104",
@@ -1423,7 +1468,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 price / budget. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2105",
@@ -1452,7 +1498,8 @@
       "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2090",
@@ -1480,7 +1527,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost \u2014 price / budget.. no additional detail..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2085",
@@ -1508,7 +1556,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2068",
@@ -1539,7 +1588,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Multiple follow-ups with no reply. Probably went internal.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2026",
@@ -1567,7 +1617,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 no decision / stalled. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2051",
@@ -1595,7 +1646,8 @@
       "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 price / budget. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2035",
@@ -1624,7 +1676,8 @@
       "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2095",
@@ -1652,7 +1705,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2028",
@@ -1684,7 +1738,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Snowflake offered a massive discount at the last minute. We couldn't match.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2114",
@@ -1714,7 +1769,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Prospect stopped engaging after the proposal. No explanation given.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2001",
@@ -1746,7 +1802,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2081",
@@ -1778,7 +1835,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Our champion got moved to a different team mid-deal. Lost access.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2063",
@@ -1806,7 +1864,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 no decision / stalled. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2006",
@@ -1837,7 +1896,8 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 price / budget. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2082",
@@ -1872,7 +1932,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Ghost Stall'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost \u2014 champion left.. no additional detail..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2148",
@@ -1900,7 +1961,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2049",
@@ -1928,7 +1990,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 price / budget. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2072",
@@ -1956,7 +2019,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2019",
@@ -1984,7 +2048,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2041",
@@ -2012,7 +2077,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 no decision / stalled. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2067",
@@ -2040,7 +2106,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 no decision / stalled. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2144",
@@ -2072,7 +2139,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 champion left. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2042",
@@ -2104,7 +2172,8 @@
       "notes_imply": "Competitor Displacement",
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "They went with Databricks. Had deeper existing footprint.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2116",
@@ -2136,7 +2205,8 @@
       "rationale": "Champion instability is rarely recoverable through the champion alone \u2014 you need to rebuild the thread before access closes entirely"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost \u2014 champion left.. no additional detail..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2099",
@@ -2164,7 +2234,8 @@
       "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2102",
@@ -2193,7 +2264,8 @@
       "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Lost \u2014 missing feature. No additional detail.",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2146",
@@ -2225,7 +2297,8 @@
       "notes_imply": "Champion Collapse",
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Exec Vacuum'. Investigate before intervening."
     },
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "lost \u2014 champion left.. no additional detail..",
+    "generated_at": "2026-04-21 15:03:39"
   },
   {
     "deal_id": "PIPE-2089",
@@ -2254,6 +2327,7 @@
       "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
     },
     "note_contradiction": null,
-    "generated_at": "2026-04-21 10:49:42"
+    "rep_notes": "Multiple follow-ups with no reply. Probably went internal.",
+    "generated_at": "2026-04-21 15:03:39"
   }
 ]
