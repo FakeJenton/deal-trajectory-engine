@@ -10,9 +10,9 @@ SMB deals with Exec Vacuum signal have the lowest win rate (0.0%) compared to Mi
 **Implication:** SMB qualification should include an explicit question about who controls the technology budget, not just who owns the use case.
 
 
-### Enterprise has the highest rate of misattributed loss reasons
+### Mid-Market has the highest rate of misattributed loss reasons
 
-30.9% of Enterprise lost deals have a stated loss reason that contradicts the behavioral evidence. This is higher than other segments, suggesting Enterprise reps are more likely to default to 'price' or 'timing' without accurately diagnosing why the deal actually failed.
+31.9% of Mid-Market lost deals have a stated loss reason that contradicts the behavioral evidence. This is higher than other segments, suggesting Mid-Market reps are more likely to default to 'price' or 'timing' without accurately diagnosing why the deal actually failed.
 
 
 **Implication:** Loss reason analysis for this segment is systematically unreliable. CRM-based competitive intelligence from this segment may be misleading.
@@ -22,8 +22,8 @@ SMB deals with Exec Vacuum signal have the lowest win rate (0.0%) compared to Mi
 
 - **Champion Collapse**: 30% recovery rate (204 recovered deals)
 
-- **Competitor Displacement**: 23% recovery rate (88 recovered deals)
+- **Competitor Displacement**: 25% recovery rate (96 recovered deals)
 
-- **Ghost Stall**: 30% recovery rate (185 recovered deals)
+- **Ghost Stall**: 28% recovery rate (192 recovered deals)
 
-- **Exec Vacuum**: 23% recovery rate (123 recovered deals)
+- **Exec Vacuum**: 24% recovery rate (153 recovered deals)

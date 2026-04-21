@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-20 22:37:25",
+  "generated_at": "2026-04-21 10:48:18",
   "generated_by": "Deal Trajectory Engine \u2014 Mock Data Generator v1.0",
   "note": "All data is synthetic. Deliberately imperfect: includes duplicates, missing fields, inconsistent date formats, and intentional contradictions between stated_loss_reason and injected_stall_signature.",
   "datasets": {

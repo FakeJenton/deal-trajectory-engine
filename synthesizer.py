@@ -33,8 +33,9 @@ from sklearn.model_selection import cross_val_score
 
 warnings.filterwarnings("ignore")
 
-DATA_PATH = Path("/home/claude/historical_deals.csv")
-OUTPUT_DIR = Path("/home/claude/outputs")
+SCRIPT_DIR = Path(__file__).parent
+DATA_PATH = SCRIPT_DIR / "historical_deals.csv"
+OUTPUT_DIR = SCRIPT_DIR
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"

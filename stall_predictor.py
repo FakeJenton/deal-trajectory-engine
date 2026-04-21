@@ -27,10 +27,11 @@ from pathlib import Path
 from datetime import datetime
 
 # ── Paths ────────────────────────────────────────────────────────────────────
-PIPELINE_PATH   = Path("/home/claude/active_pipeline.csv")
-SIGNATURE_PATH  = Path("/home/claude/outputs/stall_signature_library.json")
-INTERV_PATH     = Path("/home/claude/outputs/intervention_library.json")
-OUTPUT_DIR      = Path("/home/claude/outputs")
+SCRIPT_DIR      = Path(__file__).parent
+PIPELINE_PATH   = SCRIPT_DIR / "active_pipeline.csv"
+SIGNATURE_PATH  = SCRIPT_DIR / "stall_signature_library.json"
+INTERV_PATH     = SCRIPT_DIR / "intervention_library.json"
+OUTPUT_DIR      = SCRIPT_DIR
 OUTPUT_DIR.mkdir(exist_ok=True)
 
 # ── Trajectory thresholds ────────────────────────────────────────────────────

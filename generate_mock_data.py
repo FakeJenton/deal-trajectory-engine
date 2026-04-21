@@ -12,16 +12,41 @@ import pandas as pd
 import numpy as np
 import random
 import json
+from pathlib import Path
 from datetime import datetime, timedelta
 from faker import Faker
 
 fake = Faker()
+Faker.seed(42)
 random.seed(42)
 np.random.seed(42)
+
+SCRIPT_DIR = Path(__file__).parent
 
 # ─────────────────────────────────────────────
 # REFERENCE TABLES
 # ─────────────────────────────────────────────
+
+# Small, fixed pool of reps so each person owns many deals — real teams
+# have 8–12 AEs, not 1,000. Keeping the same pool across historical and
+# active pipeline lets the dashboard show meaningful per-rep exposure.
+REP_POOL = [
+    "Alex Morgan", "Priya Shah", "Marcus Chen", "Emily Rodriguez",
+    "David Park", "Sophia Nguyen", "James O'Brien", "Rachel Kim",
+    "Tyler Brooks", "Nina Petrov",
+]
+
+SENIOR_OWNER_POOL = [
+    "Jordan Blake", "Amara Osei", "Liam Sutherland",
+    "Hana Takeda", "Benjamin Cross",
+]
+
+SDR_POOL = [
+    "Casey Wu", "Danny Patel", "Elena Ruiz", "Frankie Hale",
+    "Grace Okonkwo", "Henry Vasquez", "Isla Berg", "Jaylen Ford",
+]
+
+REP_ID_MAP = {name: f"REP-{100 + i}" for i, name in enumerate(REP_POOL)}
 
 SEGMENTS = ["SMB", "Mid-Market", "Enterprise"]
 INDUSTRIES = [
@@ -202,8 +227,8 @@ def build_deal(deal_id, closed=True, outcome=None, force_stall=None):
     product = random.choice(PRODUCT_LINES)
     contract = random.choice(CONTRACT_TYPES)
     lead_source = random.choice(LEAD_SOURCES)
-    rep_name = fake.name()
-    rep_id = f"REP-{random.randint(100,999)}"
+    rep_name = random.choice(REP_POOL)
+    rep_id = REP_ID_MAP[rep_name]
 
     champion_title = random.choice(CHAMPION_TITLES)
     champion_seniority = SENIORITY_MAP[champion_title]
@@ -363,8 +388,8 @@ def build_deal(deal_id, closed=True, outcome=None, force_stall=None):
         "region": region,
         "rep_name": rep_name,
         "rep_id": rep_id,
-        "account_owner": maybe_null(fake.name(), null_rate=0.1),
-        "sdr_name": maybe_null(fake.name(), null_rate=0.2),
+        "account_owner": maybe_null(random.choice(SENIOR_OWNER_POOL), null_rate=0.1),
+        "sdr_name": maybe_null(random.choice(SDR_POOL), null_rate=0.2),
         "product_line": product,
         "contract_type": contract,
         "lead_source": lead_source,
@@ -630,19 +655,19 @@ def generate_metadata():
 if __name__ == "__main__":
     print("Generating historical deals...")
     hist = generate_historical_deals(n=150)
-    hist.to_csv("/home/claude/historical_deals.csv", index=False)
+    hist.to_csv(SCRIPT_DIR / "historical_deals.csv", index=False)
     print(f"  → {len(hist)} rows written to historical_deals.csv")
     print(f"  → Outcome split: {hist['outcome'].value_counts().to_dict()}")
     print(f"  → Stall signatures: {hist['injected_stall_signature'].value_counts(dropna=False).to_dict()}")
 
     print("\nGenerating active pipeline...")
     pipe = generate_active_pipeline(n=40)
-    pipe.to_csv("/home/claude/active_pipeline.csv", index=False)
+    pipe.to_csv(SCRIPT_DIR / "active_pipeline.csv", index=False)
     print(f"  → {len(pipe)} rows written to active_pipeline.csv")
     print(f"  → Stall signature mix: {pipe['injected_stall_signature'].value_counts(dropna=False).to_dict()}")
 
     print("\nWriting metadata...")
-    with open("/home/claude/data_metadata.json", "w") as f:
+    with open(SCRIPT_DIR / "data_metadata.json", "w") as f:
         json.dump(generate_metadata(), f, indent=2)
     print("  → data_metadata.json written")
 

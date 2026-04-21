@@ -1,23 +1,23 @@
 {
   "Champion Collapse": {
     "recovered_deal_count": 204,
-    "lost_deal_count": 486,
-    "recovery_rate": 0.296,
+    "lost_deal_count": 482,
+    "recovery_rate": 0.297,
     "top_differentiators": [
       {
         "signal": "executive_sponsor_engaged",
-        "recovered_mean": 0.62,
-        "lost_mean": 0.37,
-        "delta": 0.25,
-        "cohen_d": 0.51,
+        "recovered_mean": 0.71,
+        "lost_mean": 0.35,
+        "delta": 0.36,
+        "cohen_d": 0.783,
         "p_value": 0.0,
-        "interpretation": "Executive sponsor was engaged in 62% of recovered deals vs 37% of lost"
+        "interpretation": "Executive sponsor was engaged in 71% of recovered deals vs 35% of lost"
       }
     ],
     "timing_insights": {
       "avg_days_in_stage_at_stall": {
-        "recovered": 11.9,
-        "lost": 17.2
+        "recovered": 11.1,
+        "lost": 17.1
       },
       "note": "Recovered deals tended to intervene earlier in the current stage, suggesting the intervention window closes quickly once a stall signature appears."
     },
@@ -40,42 +40,42 @@
     ]
   },
   "Competitor Displacement": {
-    "recovered_deal_count": 88,
-    "lost_deal_count": 299,
-    "recovery_rate": 0.227,
+    "recovered_deal_count": 96,
+    "lost_deal_count": 292,
+    "recovery_rate": 0.247,
     "top_differentiators": [
       {
         "signal": "competitive_mentions_count",
-        "recovered_mean": 1.06,
-        "lost_mean": 2.67,
-        "delta": -1.62,
-        "cohen_d": -0.972,
+        "recovered_mean": 1.0,
+        "lost_mean": 2.73,
+        "delta": -1.73,
+        "cohen_d": -1.035,
         "p_value": 0.0,
-        "interpretation": "Competitive mentions were 1.6 fewer in recovered deals"
-      },
-      {
-        "signal": "days_in_current_stage",
-        "recovered_mean": 10.68,
-        "lost_mean": 16.51,
-        "delta": -5.83,
-        "cohen_d": -0.626,
-        "p_value": 0.0,
-        "interpretation": "Recovered deals spent 6 fewer days stuck in stage"
+        "interpretation": "Competitive mentions were 1.7 fewer in recovered deals"
       },
       {
         "signal": "discount_pct",
         "recovered_mean": 0.22,
         "lost_mean": 0.25,
-        "delta": -0.03,
-        "cohen_d": -0.591,
+        "delta": -0.02,
+        "cohen_d": -0.516,
         "p_value": 0.0,
-        "interpretation": "Recovered deals had 2.6% lower average discount"
+        "interpretation": "Recovered deals had 2.5% lower average discount"
+      },
+      {
+        "signal": "days_in_current_stage",
+        "recovered_mean": 10.91,
+        "lost_mean": 15.01,
+        "delta": -4.1,
+        "cohen_d": -0.449,
+        "p_value": 0.0,
+        "interpretation": "Recovered deals spent 4 fewer days stuck in stage"
       }
     ],
     "timing_insights": {
       "avg_days_in_stage_at_stall": {
-        "recovered": 10.7,
-        "lost": 16.5
+        "recovered": 10.9,
+        "lost": 15.0
       },
       "note": "Recovered deals tended to intervene earlier in the current stage, suggesting the intervention window closes quickly once a stall signature appears."
     },
@@ -98,33 +98,33 @@
     ]
   },
   "Ghost Stall": {
-    "recovered_deal_count": 185,
-    "lost_deal_count": 429,
-    "recovery_rate": 0.301,
+    "recovered_deal_count": 192,
+    "lost_deal_count": 497,
+    "recovery_rate": 0.279,
     "top_differentiators": [
       {
         "signal": "days_since_last_rep_touch",
-        "recovered_mean": 4.73,
-        "lost_mean": 10.7,
-        "delta": -5.97,
-        "cohen_d": -0.815,
+        "recovered_mean": 4.72,
+        "lost_mean": 9.24,
+        "delta": -4.52,
+        "cohen_d": -0.683,
         "p_value": 0.0,
-        "interpretation": "Recovered reps last touched the deal 6 days sooner"
+        "interpretation": "Recovered reps last touched the deal 5 days sooner"
       },
       {
         "signal": "meeting_count_last_30d",
-        "recovered_mean": 2.62,
-        "lost_mean": 1.88,
-        "delta": 0.73,
-        "cohen_d": 0.463,
+        "recovered_mean": 3.01,
+        "lost_mean": 2.23,
+        "delta": 0.78,
+        "cohen_d": 0.48,
         "p_value": 0.0,
-        "interpretation": "Recovered deals had 0.7 more meetings in the last 30 days"
+        "interpretation": "Recovered deals had 0.8 more meetings in the last 30 days"
       }
     ],
     "timing_insights": {
       "avg_days_in_stage_at_stall": {
-        "recovered": 14.0,
-        "lost": 22.2
+        "recovered": 12.9,
+        "lost": 19.9
       },
       "note": "Recovered deals tended to intervene earlier in the current stage, suggesting the intervention window closes quickly once a stall signature appears."
     },
@@ -147,24 +147,24 @@
     ]
   },
   "Exec Vacuum": {
-    "recovered_deal_count": 123,
-    "lost_deal_count": 411,
-    "recovery_rate": 0.23,
+    "recovered_deal_count": 153,
+    "lost_deal_count": 474,
+    "recovery_rate": 0.244,
     "top_differentiators": [
       {
-        "signal": "economic_buyer_meetings",
-        "recovered_mean": 0.0,
-        "lost_mean": 0.66,
-        "delta": -0.66,
-        "cohen_d": -0.68,
+        "signal": "executive_sponsor_engaged",
+        "recovered_mean": 0.35,
+        "lost_mean": 0.13,
+        "delta": 0.22,
+        "cohen_d": 0.534,
         "p_value": 0.0,
-        "interpretation": "Recovered deals had 0.7 more economic buyer meetings"
+        "interpretation": "Executive sponsor was engaged in 35% of recovered deals vs 13% of lost"
       }
     ],
     "timing_insights": {
       "avg_days_in_stage_at_stall": {
-        "recovered": 12.2,
-        "lost": 14.5
+        "recovered": 10.9,
+        "lost": 15.1
       },
       "note": "Recovered deals tended to intervene earlier in the current stage, suggesting the intervention window closes quickly once a stall signature appears."
     },

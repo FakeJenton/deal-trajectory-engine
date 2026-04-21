@@ -6,8 +6,8 @@
     "category": "segmentation"
   },
   {
-    "title": "Enterprise has the highest rate of misattributed loss reasons",
-    "finding": "30.9% of Enterprise lost deals have a stated loss reason that contradicts the behavioral evidence. This is higher than other segments, suggesting Enterprise reps are more likely to default to 'price' or 'timing' without accurately diagnosing why the deal actually failed.",
+    "title": "Mid-Market has the highest rate of misattributed loss reasons",
+    "finding": "31.9% of Mid-Market lost deals have a stated loss reason that contradicts the behavioral evidence. This is higher than other segments, suggesting Mid-Market reps are more likely to default to 'price' or 'timing' without accurately diagnosing why the deal actually failed.",
     "implication": "Loss reason analysis for this segment is systematically unreliable. CRM-based competitive intelligence from this segment may be misleading.",
     "category": "data_quality"
   }

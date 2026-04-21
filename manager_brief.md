@@ -1,5 +1,5 @@
 # Deal Trajectory Engine — Daily Manager Brief
-**Monday, April 20 2026**
+**Tuesday, April 21 2026**
 
 ---
 
@@ -8,12 +8,12 @@
 | Metric | Value |
 |--------|-------|
 | Deals scored | 150 |
-| Flagged (at-risk + critical) | 94 (62.7%) |
-| ACV at risk | $15,642,400 |
-| Critical | 88 deals |
-| At-Risk | 6 deals |
-| Watch | 11 deals |
-| Contradiction flags | 37 (rep notes ≠ behavioral signals) |
+| Flagged (at-risk + critical) | 74 (49.3%) |
+| ACV at risk | $16,132,800 |
+| Critical | 69 deals |
+| At-Risk | 5 deals |
+| Watch | 20 deals |
+| Contradiction flags | 36 (rep notes ≠ behavioral signals) |
 
 ---
 
@@ -21,74 +21,74 @@
 
 | Pattern | Count |
 |---------|-------|
-| Exec Vacuum                    |  27 deals |
-| Competitor Displacement        |  24 deals |
-| Ghost Stall                    |  22 deals |
-| Champion Collapse              |  21 deals |
+| Exec Vacuum                    |  33 deals |
+| Ghost Stall                    |  18 deals |
+| Champion Collapse              |  15 deals |
+| Competitor Displacement        |   8 deals |
 
 ---
 
 ## Top 10 Priority Actions Today
 
-1. **Burns PLC Inc** (Enterprise, $729,900) — [CRITICAL] Exec Vacuum
-   → No executive sponsor engaged (required by this stage for recovery likelihood)
-   → **Action:** Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm i...
-
-2. **Berry, Garcia and Smith Inc** (Enterprise, $335,800) — [CRITICAL] Champion Collapse
-   → Email response time has slowed by 5.8 days since deal start (threshold: 3.4d)
-   → **Action:** Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours...
-
-3. **flores-pope** (Enterprise, $488,300) — [CRITICAL] Exec Vacuum
-   → No executive sponsor engaged (required by this stage for recovery likelihood)
-   → **Action:** Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm i...
-
-4. **Hubbard Group, Inc.** (Enterprise, $661,600) — [CRITICAL] Ghost Stall
-   → Last rep outreach was 22 days ago (threshold: 15d)
-   → **Action:** Break the email thread — call, text, or LinkedIn. Change the medium before you change the message....
-
-5. **Hendricks,BakerandJones** (Enterprise, $432,400) — [CRITICAL] Exec Vacuum
-   → No executive sponsor engaged (required by this stage for recovery likelihood)
-   → **Action:** Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm i...
-
-6. **Clay-Walter Inc** (Enterprise, $783,200) — [CRITICAL] Competitor Displacement
+1. **wheeler llc** (Enterprise, $545,200) — [CRITICAL] Competitor Displacement
    → 4 competitor mentions logged (threshold: 3)
    → **Action:** Accelerate technical validation immediately — schedule a working session, not a demo...
 
-7. **Russo, Cox and Evans, Inc.** (Enterprise, $635,900) — [CRITICAL] Ghost Stall
-   → Last rep outreach was 27 days ago (threshold: 15d)
-   → **Action:** Break the email thread — call, text, or LinkedIn. Change the medium before you change the message....
-
-8. **Morales-Williams Inc** (Enterprise, $451,000) — [CRITICAL] Champion Collapse
-   → Email response time has slowed by 6.4 days since deal start (threshold: 3.4d)
-   → **Action:** Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours...
-
-9. **Martin, Harrison and Reid, Inc.** (Enterprise, $708,700) — [CRITICAL] Exec Vacuum
+2. **Robinson-Brown LLC** (Enterprise, $541,400) — [CRITICAL] Exec Vacuum
    → No executive sponsor engaged (required by this stage for recovery likelihood)
    → **Action:** Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm i...
 
-10. **The Torres LLC** (Enterprise, $417,000) — [CRITICAL] Competitor Displacement
-   → 7 competitor mentions logged (threshold: 3)
+3. **The Jackson, Mcdonald and Greene** (Enterprise, $279,400) — [CRITICAL] Champion Collapse
+   → Email response time has slowed by 6.8 days since deal start (threshold: 3.4d)
+   → **Action:** Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours...
+
+4. **Alexander,OrtizandSutton** (Enterprise, $427,200) — [CRITICAL] Champion Collapse
+   → Email response time has slowed by 6.0 days since deal start (threshold: 3.4d)
+   → **Action:** Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours...
+
+5. **nan** (Enterprise, $598,700) — [CRITICAL] Competitor Displacement
+   → 6 competitor mentions logged (threshold: 3)
    → **Action:** Accelerate technical validation immediately — schedule a working session, not a demo...
+
+6. **Mercer,GreenandPerez** (Enterprise, $529,700) — [CRITICAL] Exec Vacuum
+   → No executive sponsor engaged (required by this stage for recovery likelihood)
+   → **Action:** Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm i...
+
+7. **Lutz Group Inc** (Enterprise, $678,500) — [CRITICAL] Exec Vacuum
+   → No executive sponsor engaged (required by this stage for recovery likelihood)
+   → **Action:** Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm i...
+
+8. **Patterson and Sons Inc** (Enterprise, $464,500) — [CRITICAL] Ghost Stall
+   → Last rep outreach was 17 days ago (threshold: 14d)
+   → **Action:** Break the email thread — call, text, or LinkedIn. Change the medium before you change the message....
+
+9. **Hernandez Ltd** (Enterprise, $754,900) — [CRITICAL] Exec Vacuum
+   → No executive sponsor engaged (required by this stage for recovery likelihood)
+   → **Action:** Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm i...
+
+10. **soto llc** (Enterprise, $311,700) — [CRITICAL] Exec Vacuum
+   → No executive sponsor engaged (required by this stage for recovery likelihood)
+   → **Action:** Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm i...
 
 ---
 
 ## Reps with Most Flagged Deals
 
-- Kelly Martin: 2 flagged deals
-- Alan Griffin: 1 flagged deals
-- Alyssa Klein: 1 flagged deals
-- Amy Jackson: 1 flagged deals
-- Aimee Johnson: 1 flagged deals
+- David Park: 13 flagged deals
+- Sophia Nguyen: 11 flagged deals
+- Rachel Kim: 10 flagged deals
+- Priya Shah: 8 flagged deals
+- Marcus Chen: 7 flagged deals
 
 ---
 
 ## What to Watch
 
-- **37 deals** have rep notes that contradict the behavioral evidence.
+- **36 deals** have rep notes that contradict the behavioral evidence.
   These are the highest-risk coaching conversations — the rep thinks the deal is
   one thing, the data says it's another.
 
-- **Ghost Stall** accounts for 22 flagged deals.
+- **Ghost Stall** accounts for 18 flagged deals.
   These are the easiest to ignore and the easiest to lose. Set a hard rule:
   any deal with >12 days of silence gets a channel-change attempt today, not next week.
 
@@ -97,4 +97,4 @@
   that deal has a low close probability regardless of what the rep says.
 
 ---
-*Generated by Deal Trajectory Engine v1.0 | Data as of 2026-04-20 23:07*
+*Generated by Deal Trajectory Engine v1.0 | Data as of 2026-04-21 10:52*

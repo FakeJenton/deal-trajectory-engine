@@ -28,14 +28,14 @@ Phase 2: Win/Loss Synthesizer
   └── stall_signature_library.json   (data-derived thresholds)
   └── win_loss_patterns.json         (signal stats, effect sizes)
   └── feature_importance.json        (GBM permutation importance)
-  └── contradiction_report.csv       (29.2% of losses misattributed)
+  └── contradiction_report.csv       (28.1% of losses misattributed)
   └── intervention_library.json      (recovery playbook per stall type)
   └── synthesis_report.md            (LLM narrative summary)
 
 Phase 3: Stall Predictor
   stall_predictor.py
   └── scored_pipeline.csv            (all 150 deals with scores)
-  └── flagged_deals.csv              (94 at-risk + critical deals)
+  └── flagged_deals.csv              (74 at-risk + critical deals)
   └── intervention_queue.json        (priority-sorted action cards)
   └── predictor_summary.json         (aggregate stats)
 
@@ -92,7 +92,7 @@ Total runtime: approximately 60–90 seconds for all four phases. Phase 2 is the
 
 **Fastest:** open the live deployment at [deal-trajectory-engine.vercel.app](https://deal-trajectory-engine.vercel.app/). Auto-deployed from `main` — every push rebuilds.
 
-**Locally:** open `dashboard.html` in any browser (double-click — no server required). All 94 flagged deals are embedded as filterable, expandable cards with signal evidence, historical context, contradiction flags, and rep-specific first moves.
+**Locally:** open `dashboard.html` in any browser (double-click — no server required). All 74 flagged deals are embedded as filterable, expandable cards with signal evidence, historical context, contradiction flags, and rep-specific first moves.
 
 To regenerate the dashboard after re-running the pipeline:
 ```bash
@@ -163,10 +163,10 @@ Each active deal is scored against all four signatures. The score (0–1) repres
 
 The Win/Loss Synthesizer trains a Gradient Boosting classifier on 29 behavioral signals.
 
-- Cross-validated AUC: **0.826 ± 0.043** (5-fold)
-- Top predictive signals: `days_since_last_activity`, `email_response_latency_delta_days`, `email_response_rate`, `pricing_objection_count`, `days_since_multithread_touch`
+- Cross-validated AUC: **0.841 ± 0.034** (5-fold)
+- Top predictive signals: `days_since_last_activity`, `executive_sponsor_engaged`, `competitive_mentions_count`, `champion_engagement_score`, `email_response_latency_delta_days`
 
-The Stall Predictor's stall type classification achieves **77.9% accuracy** against ground truth labels on the active pipeline, using only behavioral signals (no access to `injected_stall_signature`).
+The Stall Predictor's stall type classification achieves **69.5% accuracy** against ground truth labels on the active pipeline, using only behavioral signals (no access to `injected_stall_signature`).
 
 ---
 
@@ -196,18 +196,18 @@ The Stall Predictor's stall type classification achieves **77.9% accuracy** agai
 | `stall_signature_library.json` | 2 | Data-derived thresholds per stall type |
 | `win_loss_patterns.json` | 2 | Statistical comparison for all 29 signals |
 | `feature_importance.json` | 2 | GBM permutation importance, top 20 signals |
-| `contradiction_report.csv` | 2 | 677 lost deals, 198 contradictions flagged |
+| `contradiction_report.csv` | 2 | 670 lost deals, 188 contradictions flagged |
 | `intervention_library.json` | 2 | Recovery playbook per stall type |
 | `synthesis_report.md` | 2 | LLM-generated narrative of non-obvious findings |
 | `stall_predictor.py` | 3 | Stall Predictor — scores active pipeline |
 | `scored_pipeline.csv` | 3 | All 150 active deals with scores + trajectory tags |
-| `flagged_deals.csv` | 3 | 94 at-risk + critical deals, sorted by priority |
+| `flagged_deals.csv` | 3 | 74 at-risk + critical deals, sorted by priority |
 | `intervention_queue.json` | 3 | Priority-sorted intervention cards |
 | `predictor_summary.json` | 3 | Aggregate pipeline stats |
 | `intervention_card_generator.py` | 4 | Card generator + manager brief builder |
 | `manager_brief.md` | 4 | Daily manager brief, top 10 actions |
 | `dashboard_payload.json` | 4 | Serialized output for the interactive dashboard |
-| `dashboard.html` | 4 | Self-contained browser dashboard — all 94 deals embedded, no server required |
+| `dashboard.html` | 4 | Self-contained browser dashboard — all 74 deals embedded, no server required |
 | `dashboard_template.html` | 4 | Template used to build `dashboard.html` (data placeholder) |
 | `build_dashboard.js` | 4 | Node script that embeds `dashboard_payload.json` into the template |
 | `cards/` | 4 | Individual markdown intervention cards, top 20 by priority |

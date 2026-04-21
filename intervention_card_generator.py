@@ -20,10 +20,11 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
-QUEUE_PATH    = Path("/home/claude/outputs/intervention_queue.json")
-SCORED_PATH   = Path("/home/claude/outputs/scored_pipeline.csv")
-SUMMARY_PATH  = Path("/home/claude/outputs/predictor_summary.json")
-OUTPUT_DIR    = Path("/home/claude/outputs")
+SCRIPT_DIR    = Path(__file__).parent
+QUEUE_PATH    = SCRIPT_DIR / "intervention_queue.json"
+SCORED_PATH   = SCRIPT_DIR / "scored_pipeline.csv"
+SUMMARY_PATH  = SCRIPT_DIR / "predictor_summary.json"
+OUTPUT_DIR    = SCRIPT_DIR
 
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
 
@@ -317,6 +318,17 @@ def build_manager_brief(queue: list, summary: dict, first_moves: dict) -> str:
 # 4. BUILD DASHBOARD PAYLOAD
 # ─────────────────────────────────────────────────────────────────────────────
 
+def _sanitize_nans(obj):
+    """Recursively replace float NaN with None so strict JSON parsers accept the output."""
+    if isinstance(obj, dict):
+        return {k: _sanitize_nans(v) for k, v in obj.items()}
+    if isinstance(obj, (list, tuple)):
+        return [_sanitize_nans(v) for v in obj]
+    if isinstance(obj, float) and np.isnan(obj):
+        return None
+    return obj
+
+
 def build_dashboard_payload(queue: list, scored_df: pd.DataFrame,
                              summary: dict, first_moves: dict) -> dict:
     """
@@ -417,7 +429,9 @@ def run_card_generator():
     print("\n[5] Building dashboard payload...")
     payload = build_dashboard_payload(queue, scored_df, summary, first_moves)
     with open(OUTPUT_DIR / "dashboard_payload.json", "w") as f:
-        json.dump(payload, f, indent=2, default=str)
+        # allow_nan=False + pre-sanitize ensures the JSON parses cleanly in
+        # build_dashboard.js (which uses strict JSON.parse).
+        json.dump(_sanitize_nans(payload), f, indent=2, default=str, allow_nan=False)
     print(f"  → dashboard_payload.json written ({len(payload['intervention_queue'])} cards)")
 
     print("\n" + "="*60)
