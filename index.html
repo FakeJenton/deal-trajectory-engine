@@ -965,53 +965,6 @@
   .bar-row .sig { color: var(--text); font-size: 13px; }
   .sig-text { color: var(--text); font-size: 13px; }
 
-  .feat-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 10px;
-  }
-  .feat-card {
-    background: var(--panel-3);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px 14px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    transition: border-color 0.15s;
-  }
-  .feat-card:hover { border-color: var(--border-strong); }
-  .feat-head {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-  .feat-rank {
-    color: var(--muted-2);
-    font-size: 11px;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    min-width: 22px;
-  }
-  .feat-name {
-    font-size: 13px;
-    color: var(--text);
-    line-height: 1.3;
-    flex: 1;
-  }
-  .feat-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding-left: 30px;
-  }
-  .feat-score {
-    font-family: ui-monospace, Menlo, monospace;
-    font-size: 12px;
-    color: var(--muted);
-    font-variant-numeric: tabular-nums;
-  }
   .bar-track {
     background: #0b1530;
     border-radius: 4px;
@@ -1272,7 +1225,7 @@
   /* Paired bars for Won vs Lost */
   .pair-row {
     display: grid;
-    grid-template-columns: 220px 1fr 1fr 90px;
+    grid-template-columns: 230px 72px 1fr 1fr 90px;
     gap: 12px;
     align-items: center;
     padding: 8px 0;
@@ -1281,6 +1234,20 @@
   }
   .pair-row:last-child { border-bottom: none; }
   .pair-label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text); }
+  .pair-rank {
+    color: var(--muted-2);
+    font-size: 11px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 18px;
+  }
+  .pair-weight {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 11px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
   .pair-wonwrap, .pair-lostwrap { display: flex; align-items: center; gap: 8px; }
   .pair-wonwrap { justify-content: flex-end; }
   .pair-bar {
@@ -1295,7 +1262,7 @@
   .pair-strength { text-align: right; }
   .pair-head {
     display: grid;
-    grid-template-columns: 220px 1fr 1fr 90px;
+    grid-template-columns: 230px 72px 1fr 1fr 90px;
     gap: 12px;
     font-size: 11px;
     color: var(--muted);
@@ -1305,6 +1272,7 @@
     padding: 6px 0 8px;
     border-bottom: 1px solid var(--border-strong);
   }
+  .pair-head .weight-label { text-align: right; }
   .pair-head .won-label { text-align: right; color: #86efac; }
   .pair-head .lost-label { color: #fca5a5; }
 
@@ -1788,9 +1756,8 @@
       <div class="tb-title">Use this when you want to understand the model — why a deal was flagged, or to coach a rep on the underlying patterns.</div>
       <div class="tb-steps">
         <div class="tb-step" data-n="1"><strong>Four stall patterns</strong> — the recurring shapes losses took. Each card has the recovery rate and full playbook.</div>
-        <div class="tb-step" data-n="2"><strong>What predicts outcomes</strong> — which behavioral signals the model weighs most heavily.</div>
-        <div class="tb-step" data-n="3"><strong>Won vs Lost comparison</strong> — how winning deals behaved differently on each signal, with statistical strength.</div>
-        <div class="tb-step" data-n="4"><strong>Non-obvious findings</strong> — counterintuitive insights from segment and pattern cuts.</div>
+        <div class="tb-step" data-n="2"><strong>Signals that drive outcomes</strong> — ranked by model weight and shown side-by-side as won vs. lost averages, with statistical strength.</div>
+        <div class="tb-step" data-n="3"><strong>Non-obvious findings</strong> — counterintuitive insights from segment and pattern cuts.</div>
       </div>
       <div class="tb-foot">
         This is the <strong>why</strong> behind every score on the <a data-goto-tab="pipeline">Active Pipeline →</a> tab. The patterns here drive scoring decisions there.
@@ -1806,19 +1773,13 @@
     </div>
 
     <div class="hist-section">
-      <h2>What predicts a deal winning or losing</h2>
-      <div class="hist-sub">The behavioral signals that matter most when predicting a deal's outcome. Higher score = stronger predictor. This is what the scoring model weighs most heavily.</div>
-      <div id="feature-bars"></div>
-    </div>
-
-    <div class="hist-section">
-      <h2>How winning deals behave vs. losing deals
+      <h2>Behavioral signals that drive deal outcomes
         <span class="view-toggle" id="compare-view-toggle">
           <button data-view="chart" class="active">Chart</button>
           <button data-view="table">Table</button>
         </span>
       </h2>
-      <div class="hist-sub">For each signal, we compare the average value on deals that closed Won vs. those that were Lost. "Strength" tells you how reliably this gap appears — strong signals are the ones you can trust most. Filter by segment to see where the gap is largest.</div>
+      <div class="hist-sub">Signals are ranked by how heavily the model weighs them (the "Weight" column). For each one, we show the average value on deals that closed Won vs. those that were Lost — so you can see both <em>which</em> signals matter and <em>how</em> they differ. "Strength" reflects that ranking. Filter by segment to see where the gap is largest.</div>
       <div class="segfilter" id="seg-filter"></div>
       <div id="compare-table-wrap"></div>
     </div>
@@ -2919,28 +2880,6 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
   }
   const STRENGTH_LABEL = { large: 'Very strong', medium: 'Meaningful', small: 'Minor' };
 
-  function renderFeatureBars(h) {
-    const top = h.feature_importance;
-    const n = top.length;
-    document.getElementById('feature-bars').innerHTML =
-      `<div class="feat-grid">` +
-      top.map((x, i) => {
-        const eff = rankStrength(i, n);
-        return `
-          <div class="feat-card">
-            <div class="feat-head">
-              <span class="feat-rank">${i + 1}.</span>
-              <span class="feat-name">${pretty(x.signal)}</span>
-            </div>
-            <div class="feat-meta">
-              <span class="feat-score">${x.importance.toFixed(3)}</span>
-              <span class="effect-pill ${eff}">${STRENGTH_LABEL[eff]}</span>
-            </div>
-          </div>`;
-      }).join('') +
-      `</div>`;
-  }
-
   function renderSegmentFilter() {
     const segs = ['All', 'SMB', 'Mid-Market', 'Enterprise'];
     document.getElementById('seg-filter').innerHTML = segs.map(s =>
@@ -2955,9 +2894,26 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
     });
   }
 
+  function buildMergedSignalRows(h, limit) {
+    // Order by model weight (feature_importance). For each, look up the won/lost
+    // comparison row by signal name. Skip entries with no comparison data.
+    const cmpMap = {};
+    for (const row of (h.signal_comparison || [])) cmpMap[row.signal] = row;
+    const out = [];
+    for (const fi of (h.feature_importance || [])) {
+      const cmp = cmpMap[fi.signal];
+      if (!cmp) continue;
+      out.push({ importance: fi.importance, cmp });
+      if (limit && out.length >= limit) break;
+    }
+    return out;
+  }
+
   function renderCompareTable(h) {
-    const n = h.signal_comparison.length;
-    const rows = h.signal_comparison.map((row, i) => {
+    const merged = buildMergedSignalRows(h);
+    const n = merged.length;
+    const rows = merged.map((m, i) => {
+      const row = m.cmp;
       const useSegment = activeSegment !== 'All' && row.segment_breakdown[activeSegment];
       const wonVal = useSegment ? row.segment_breakdown[activeSegment].won_mean : row.won_mean;
       const lostVal = useSegment ? row.segment_breakdown[activeSegment].lost_mean : row.lost_mean;
@@ -2973,7 +2929,8 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       const eff = rankStrength(i, n);
       return `
         <tr>
-          <td>${arrow}<span class="sig-text">${pretty(row.signal)}</span></td>
+          <td><span class="pair-rank">${i + 1}.</span>${arrow}<span class="sig-text">${pretty(row.signal)}</span></td>
+          <td class="mono">${m.importance.toFixed(3)}</td>
           <td class="mono">${fmtNum(wonVal)}</td>
           <td class="mono">${fmtNum(lostVal)}</td>
           <td class="mono ${deltaClass}">${deltaSign}${fmtNum(delta)}</td>
@@ -2984,6 +2941,7 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       <table class="compare-table">
         <thead><tr>
           <th>Signal <span style="color:var(--muted-2);font-weight:400;text-transform:none;letter-spacing:0">(↑ worse on losses · ↓ better on losses)</span></th>
+          <th>Weight</th>
           <th>Avg on wins</th>
           <th>Avg on losses</th>
           <th>Difference</th>
@@ -3113,10 +3071,11 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
   let compareView = 'chart';
 
   function renderCompareChart(h) {
-    // Normalize each signal: compute relative bar widths based on max of won/lost so pairs are visually comparable
-    const shown = h.signal_comparison.slice(0, 12);
-    const n = shown.length;
-    const rows = shown.map((row, i) => {
+    // Order by model weight (feature_importance), join won/lost comparison data
+    const merged = buildMergedSignalRows(h, 12);
+    const n = merged.length;
+    const rows = merged.map((m, i) => {
+      const row = m.cmp;
       const useSegment = activeSegment !== 'All' && row.segment_breakdown[activeSegment];
       const wonVal = useSegment ? row.segment_breakdown[activeSegment].won_mean : row.won_mean;
       const lostVal = useSegment ? row.segment_breakdown[activeSegment].lost_mean : row.lost_mean;
@@ -3132,7 +3091,8 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       const eff = rankStrength(i, n);
       return `
         <div class="pair-row">
-          <div class="pair-label">${arrow}<span class="sig-text">${pretty(row.signal)}</span></div>
+          <div class="pair-label"><span class="pair-rank">${i + 1}.</span>${arrow}<span class="sig-text">${pretty(row.signal)}</span></div>
+          <div class="pair-weight">${m.importance.toFixed(3)}</div>
           <div class="pair-wonwrap">
             <span class="pair-val wonval">${fmtNum(wonVal)}</span>
             <div class="pair-bar won" style="width:${wonPct * 0.9}%"></div>
@@ -3147,6 +3107,7 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
     document.getElementById('compare-table-wrap').innerHTML = `
       <div class="pair-head">
         <div>Signal <span style="text-transform:none;letter-spacing:0;color:var(--muted-2);font-weight:400">(↑ worse on losses · ↓ better on losses)</span></div>
+        <div class="weight-label">Weight</div>
         <div class="won-label" style="text-align:right">◀ Wins</div>
         <div class="lost-label">Losses ▶</div>
         <div style="text-align:right">Strength</div>
@@ -3164,7 +3125,6 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
     const h = data.historical;
     renderHistStats(h);
     renderStallLibrary(h);
-    renderFeatureBars(h);
     renderSegmentFilter();
     renderCompareView(h);
     renderInsights(h);
