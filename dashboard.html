@@ -5,13 +5,18 @@
 <title>Deal Trajectory Engine</title>
 <style>
   :root {
-    --bg: #0b1020;
-    --panel: #121a33;
-    --panel-2: #172142;
-    --border: #26325a;
-    --text: #e8ecf7;
-    --muted: #98a2c3;
+    --bg: #0a0f1f;
+    --panel: #141b33;
+    --panel-2: #1a2340;
+    --panel-3: #0e1530;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.14);
+    --text: #f1f4fb;
+    --muted: #8893b3;
+    --muted-2: #6b7693;
     --accent: #6ee7ff;
+    --accent-soft: rgba(110, 231, 255, 0.1);
+    --accent-alt: #c084fc;
     --critical: #ef4444;
     --at-risk: #f59e0b;
     --watch: #eab308;
@@ -20,48 +25,76 @@
     --exec: #a855f7;
     --ghost: #64748b;
     --compet: #f97316;
+    --shadow-sm: 0 2px 6px rgba(0,0,0,0.2);
+    --shadow-md: 0 8px 20px rgba(0,0,0,0.25);
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
   }
   header {
-    padding: 24px 32px;
+    padding: 28px 32px 24px;
     border-bottom: 1px solid var(--border);
-    background: linear-gradient(180deg, #141c3a 0%, #0b1020 100%);
+    background: linear-gradient(180deg, #161f3f 0%, var(--bg) 100%);
   }
-  header h1 { margin: 0; font-size: 22px; letter-spacing: -0.02em; }
-  header .sub { color: var(--muted); margin-top: 4px; font-size: 13px; }
-  main { padding: 24px 32px 64px; max-width: 1400px; margin: 0 auto; }
+  header h1 { margin: 0; font-size: 26px; letter-spacing: -0.025em; font-weight: 600; }
+  header .sub { color: var(--muted); margin-top: 6px; font-size: 13px; }
+  main { padding: 28px 32px 72px; max-width: 1400px; margin: 0 auto; }
+
+  .intro-banner {
+    background: linear-gradient(135deg, rgba(110,231,255,0.08) 0%, rgba(192,132,252,0.06) 100%);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .intro-banner strong { color: var(--accent); font-weight: 600; }
+  .intro-banner .intro-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
 
   .stats {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 14px;
+    margin-bottom: 28px;
   }
   .stat {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: border-color 0.15s, transform 0.15s;
   }
-  .stat .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
-  .stat .value { font-size: 24px; font-weight: 600; margin-top: 6px; }
-  .stat .foot { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .stat:hover { border-color: var(--border-strong); }
+  .stat .label { color: var(--muted); font-size: 12px; font-weight: 500; }
+  .stat .value { font-size: 28px; font-weight: 600; margin-top: 8px; letter-spacing: -0.02em; }
+  .stat .foot { color: var(--muted-2); font-size: 12px; margin-top: 6px; }
   .stat.alert .value { color: var(--critical); }
 
   .section-title {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 600;
+    margin: 28px 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .section-hint {
     font-size: 13px;
     color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin: 24px 0 10px;
+    margin: -6px 0 12px;
   }
 
   .filters {
@@ -74,23 +107,28 @@
     background: var(--panel);
     border: 1px solid var(--border);
     color: var(--text);
-    padding: 6px 12px;
+    padding: 7px 14px;
     border-radius: 999px;
     cursor: pointer;
     font-size: 13px;
+    font-weight: 500;
     transition: all 0.15s;
   }
-  .chip:hover { background: var(--panel-2); }
-  .chip.active { background: var(--accent); color: #0b1020; border-color: var(--accent); font-weight: 600; }
-  .chip .ct { opacity: 0.7; margin-left: 6px; font-size: 11px; }
+  .chip:hover { background: var(--panel-2); border-color: var(--border-strong); }
+  .chip.active { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 600; }
+  .chip .ct { opacity: 0.65; margin-left: 8px; font-size: 11px; font-weight: 500; }
+  .chip.active .ct { opacity: 0.8; }
 
   .deal-row {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    margin-bottom: 8px;
+    border-radius: 12px;
+    margin-bottom: 10px;
     overflow: hidden;
+    transition: border-color 0.15s;
   }
+  .deal-row:hover { border-color: var(--border-strong); }
+  .deal-row.open { border-color: var(--border-strong); box-shadow: var(--shadow-sm); }
   .deal-head {
     padding: 14px 18px;
     display: grid;
@@ -146,9 +184,9 @@
 
   .deal-body {
     display: none;
-    padding: 20px 22px 24px;
+    padding: 22px 24px 26px;
     border-top: 1px solid var(--border);
-    background: #0e1530;
+    background: var(--panel-3);
   }
   .deal-row.open .deal-body { display: block; }
   .deal-body h4 {
@@ -171,12 +209,12 @@
     color: #fecaca;
   }
   .deal-body .first-move {
-    background: #0b1a33;
+    background: var(--accent-soft);
     border: 1px solid var(--accent);
-    border-radius: 6px;
-    padding: 14px 16px;
+    border-radius: 8px;
+    padding: 16px 18px;
     white-space: pre-wrap;
-    line-height: 1.6;
+    line-height: 1.65;
   }
   .deal-body .historical {
     color: var(--muted);
@@ -264,14 +302,17 @@
     display: flex;
     gap: 4px;
     padding: 0 32px;
-    background: #0b1020;
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
   .tab-btn {
     background: none;
     border: none;
     color: var(--muted);
-    padding: 14px 20px;
+    padding: 16px 22px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -280,7 +321,7 @@
     font-family: inherit;
   }
   .tab-btn:hover { color: var(--text); }
-  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
   .tab-pane { display: none; }
   .tab-pane.active { display: block; }
 
@@ -288,20 +329,38 @@
   .hist-section {
     background: var(--panel);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px 22px;
-    margin-bottom: 16px;
+    border-radius: 12px;
+    padding: 24px 26px;
+    margin-bottom: 18px;
   }
   .hist-section h2 {
-    margin: 0 0 4px;
-    font-size: 16px;
+    margin: 0 0 6px;
+    font-size: 18px;
     font-weight: 600;
+    letter-spacing: -0.015em;
   }
   .hist-section .hist-sub {
     color: var(--muted);
     font-size: 13px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    line-height: 1.55;
+    max-width: 820px;
   }
+  .hist-section .detail-toggle {
+    float: right;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    margin-top: -4px;
+  }
+  .hist-section .detail-toggle:hover { color: var(--text); border-color: var(--border-strong); }
+  .detail-block { display: none; }
+  .detail-block.show { display: block; }
 
   .bar-row {
     display: grid;
@@ -375,15 +434,24 @@
 
   .effect-pill {
     display: inline-block;
-    padding: 2px 8px;
+    padding: 3px 10px;
     border-radius: 999px;
     font-size: 11px;
     font-weight: 600;
-    text-transform: capitalize;
+    letter-spacing: 0.01em;
   }
   .effect-pill.large  { background: rgba(239,68,68,0.18);  color: #fca5a5; }
   .effect-pill.medium { background: rgba(245,158,11,0.18); color: #fcd34d; }
   .effect-pill.small  { background: rgba(100,116,139,0.25); color: var(--muted); }
+  .dir-arrow {
+    display: inline-block;
+    width: 18px;
+    text-align: center;
+    margin-right: 6px;
+    font-weight: 700;
+  }
+  .dir-arrow.worse { color: #fca5a5; }
+  .dir-arrow.better { color: #86efac; }
 
   .segment-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
   .segment-cell {
@@ -451,6 +519,23 @@
 
   .segfilter { display: flex; gap: 8px; margin-bottom: 8px; }
 
+  .signal-plain-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+  .signal-plain {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: var(--panel-3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .signal-plain .sig-name {
+    flex: 1;
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 12px;
+    color: var(--text);
+  }
+
   @media (max-width: 1100px) {
     .stall-card-head { grid-template-columns: 1fr; gap: 4px; }
     .crosstab { grid-template-columns: 180px repeat(4, 1fr); }
@@ -479,54 +564,66 @@
 </header>
 <div class="toast" id="toast"></div>
 <nav class="tabs">
-  <button class="tab-btn active" data-tab="pipeline">Pipeline</button>
-  <button class="tab-btn" data-tab="historical">Historical Analysis</button>
+  <button class="tab-btn active" data-tab="pipeline">Active Pipeline</button>
+  <button class="tab-btn" data-tab="historical">What We've Learned</button>
 </nav>
 <main>
   <div class="tab-pane active" id="tab-pipeline">
+    <div class="intro-banner">
+      <div class="intro-title">Every active deal, ranked by how urgently it needs attention</div>
+      Each deal is scored against patterns we've seen cause losses before. Deals at the top of the list are both the most likely to stall <em>and</em> the most expensive if they do. Click any row to see what's happening and what to do next.
+    </div>
+
     <div class="stats" id="stats"></div>
 
-    <div class="section-title">Filter by Stall Pattern</div>
+    <div class="section-title">Filter by stall pattern</div>
+    <div class="section-hint">A stall pattern is the specific way a deal is losing momentum. Click one to see only those deals.</div>
     <div class="filters" id="stall-filters"></div>
 
-    <div class="section-title">Filter by Trajectory</div>
+    <div class="section-title">Filter by health</div>
+    <div class="section-hint">Critical = needs action today. At-risk = multiple warning signs. Watch = minor signals. Healthy = on track.</div>
     <div class="filters" id="traj-filters"></div>
 
-    <div class="section-title" id="queue-title">Intervention Queue</div>
+    <div class="section-title" id="queue-title">Pipeline</div>
     <div id="queue"></div>
   </div>
 
   <div class="tab-pane" id="tab-historical">
+    <div class="intro-banner">
+      <div class="intro-title">What history taught us about why deals die — and how to save them</div>
+      We looked at <strong>every closed deal</strong> to find the behavioral patterns that separate wins from losses. Then we compared what reps <em>said</em> killed each deal to what the data actually shows. The patterns below drive every scoring decision on the Active Pipeline tab.
+    </div>
+
     <div class="stats" id="hist-stats"></div>
 
     <div class="hist-section">
-      <h2>Stall Signature Library</h2>
-      <div class="hist-sub">Four behavioral patterns derived from historical losses. Click each to expand — thresholds, recovery differentiators, and the intervention playbook are inside.</div>
+      <h2>The four ways deals die</h2>
+      <div class="hist-sub">Across every lost deal, the behavior clustered into four recurring patterns. Click any pattern to see the warning signs, which segments it hits hardest, and the playbook for recovering deals that show it.</div>
       <div id="stall-library"></div>
     </div>
 
     <div class="hist-section">
-      <h2>Signal Importance</h2>
-      <div class="hist-sub">Top 12 behavioral signals ranked by permutation importance in the win/loss GBM (AUC 0.826). Higher = more predictive of outcome.</div>
+      <h2>What predicts a deal winning or losing</h2>
+      <div class="hist-sub">These are the behavioral signals that matter most when predicting the outcome of a deal. Longer bars = stronger predictor. This is what the scoring model weighs most heavily.</div>
       <div id="feature-bars"></div>
     </div>
 
     <div class="hist-section">
-      <h2>Win vs. Lost — Signal Comparison</h2>
-      <div class="hist-sub">For each significant signal, the mean value in won deals vs. lost deals, sorted by effect size. Filter by segment to see where the gap is largest.</div>
+      <h2>How winning deals behave vs. losing deals</h2>
+      <div class="hist-sub">For each signal, we compare the average value on deals that closed Won vs. those that were Lost. "Strength" tells you how reliably this gap appears — strong signals are the ones you can trust most. Filter by segment to see where the gap is largest.</div>
       <div class="segfilter" id="seg-filter"></div>
       <div id="compare-table-wrap"></div>
     </div>
 
     <div class="hist-section">
-      <h2>Contradiction Cross-tab — Where the Lies Live</h2>
-      <div class="hist-sub" id="contr-sub">Rows: what the rep logged. Columns: what the behavioral signals say actually happened. Cells show the count of contradicted deals — this is where loss-reason data is unreliable.</div>
+      <h2>Where rep notes disagree with the data</h2>
+      <div class="hist-sub" id="contr-sub">This shows deals where the rep-logged loss reason conflicts with what the behavior actually suggested. Darker cells = more mismatches. This is why you can't trust stated loss reasons alone — a third of the time, they're pointing at the wrong problem.</div>
       <div id="crosstab"></div>
     </div>
 
     <div class="hist-section">
-      <h2>Non-Obvious Insights</h2>
-      <div class="hist-sub">Findings surfaced programmatically from segment × stall type cross-cuts.</div>
+      <h2>The non-obvious things worth knowing</h2>
+      <div class="hist-sub">Findings that surfaced when we cut the data by segment and stall pattern — the counterintuitive stuff a scorecard alone would miss.</div>
       <div class="insight-grid" id="insights"></div>
     </div>
   </div>
@@ -573,11 +670,11 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
       stats.flagged_deals + ' flagged · ' + fmtM(stats.acv_at_risk) + ' ACV at risk';
 
     const statEls = [
-      { label: 'Total Pipeline ACV', value: fmtM(stats.acv_total), foot: stats.total_deals + ' deals' },
-      { label: 'ACV At Risk', value: fmtM(stats.acv_at_risk), foot: Math.round(stats.acv_at_risk / stats.acv_total * 100) + '% of pipeline', alert: true },
-      { label: 'Flagged Deals', value: stats.flagged_deals + ' / ' + stats.total_deals, foot: Math.round(stats.flagged_deals / stats.total_deals * 100) + '% flagged' },
-      { label: 'Critical', value: stats.trajectory_distribution.critical, foot: 'needs intervention now', alert: true },
-      { label: 'Contradiction Flags', value: stats.contradiction_flags, foot: 'rep notes ≠ behavioral signals' },
+      { label: 'Pipeline value', value: fmtM(stats.acv_total), foot: stats.total_deals + ' active deals' },
+      { label: 'Revenue at risk', value: fmtM(stats.acv_at_risk), foot: Math.round(stats.acv_at_risk / stats.acv_total * 100) + '% of pipeline', alert: true },
+      { label: 'Deals needing attention', value: stats.flagged_deals + ' of ' + stats.total_deals, foot: Math.round(stats.flagged_deals / stats.total_deals * 100) + '% of pipeline flagged' },
+      { label: 'Critical — act today', value: stats.trajectory_distribution.critical, foot: 'Short intervention window', alert: true },
+      { label: 'Rep notes don\'t match data', value: stats.contradiction_flags, foot: 'Stated reason vs. behavior conflicts' },
     ];
     document.getElementById('stats').innerHTML = statEls.map(s =>
       `<div class="stat ${s.alert ? 'alert' : ''}">
@@ -763,11 +860,11 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
     const totalStalled = Object.values(h.stall_library).reduce((a, v) => a + (v.lost_deal_count || 0) + (v.recovered_deal_count || 0), 0);
     const recoveryRate = totalStalled ? Math.round(totalRecovered / totalStalled * 100) : 0;
     const stats = [
-      { label: 'Historical Deals Analyzed', value: s.total_historical_deals.toLocaleString(), foot: 'closed Won or Lost' },
-      { label: 'Contradictions Flagged', value: s.contradictions + ' (' + s.contradiction_pct + '%)', foot: 'stated reason ≠ behavioral evidence', alert: true },
-      { label: 'Recovered Deals', value: totalRecovered.toLocaleString(), foot: 'stalled then progressed to won' },
-      { label: 'Avg Recovery Rate', value: recoveryRate + '%', foot: 'across all stall patterns' },
-      { label: 'Stall Patterns Derived', value: Object.keys(h.stall_library).length, foot: 'data-derived, not hardcoded' },
+      { label: 'Past deals we studied', value: s.total_historical_deals.toLocaleString(), foot: 'Closed Won or Lost' },
+      { label: 'Misdiagnosed losses', value: s.contradictions + ' (' + s.contradiction_pct + '%)', foot: 'Rep-stated reason didn\'t match behavior', alert: true },
+      { label: 'Saved deals', value: totalRecovered.toLocaleString(), foot: 'Stalled, then recovered to a win' },
+      { label: 'Overall save rate', value: recoveryRate + '%', foot: 'Across all stall patterns' },
+      { label: 'Patterns found', value: Object.keys(h.stall_library).length, foot: 'Learned from the data, not preset' },
     ];
     document.getElementById('hist-stats').innerHTML = stats.map(s =>
       `<div class="stat ${s.alert ? 'alert' : ''}">
@@ -779,8 +876,21 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
   }
 
   function renderStallLibrary(h) {
+    const strengthLabel = { large: 'Very strong', medium: 'Meaningful', small: 'Minor' };
     const html = Object.entries(h.stall_library).map(([stallType, lib]) => {
       const stallKey = stallClass(stallType);
+      const topSignalsPlain = lib.top_signals.slice(0, 4).map(s => {
+        const dir = s.direction === 'above' ? '↑' : '↓';
+        const dirClass = s.direction === 'above' ? 'worse' : 'worse';
+        const eff = Math.abs(s.cohen_d) >= 0.8 ? 'large'
+                  : Math.abs(s.cohen_d) >= 0.5 ? 'medium' : 'small';
+        return `
+          <div class="signal-plain">
+            <span class="dir-arrow ${dirClass}">${dir}</span>
+            <span class="sig-name">${s.signal}</span>
+            <span class="effect-pill ${eff}">${strengthLabel[eff]}</span>
+          </div>`;
+      }).join('');
       const thresholds = lib.top_signals.slice(0, 6).map(s => `
         <tr>
           <td class="mono">${s.signal}</td>
@@ -810,7 +920,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
           <div class="s-foot">loss rate when present</div>
         </div>`).join('');
       const timingNote = lib.timing_insights
-        ? `<div class="block"><h4>Intervention Timing</h4><div class="historical">${lib.timing_insights.note} (Recovered: ${lib.timing_insights.avg_days_in_stage_at_stall.recovered}d avg in stage; Lost: ${lib.timing_insights.avg_days_in_stage_at_stall.lost}d)</div></div>`
+        ? `<div class="block"><h4>When to intervene</h4><div class="historical">${lib.timing_insights.note} Saved deals caught this pattern around <strong>${lib.timing_insights.avg_days_in_stage_at_stall.recovered} days</strong> into the stage on average — lost deals didn't see action until <strong>${lib.timing_insights.avg_days_in_stage_at_stall.lost} days</strong>.</div></div>`
         : '';
 
       return `
@@ -830,26 +940,30 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
           </div>
           <div class="stall-card-body">
             <div class="block">
-              <h4>Defining Signals & Thresholds</h4>
-              <table class="threshold-table">
-                <thead><tr><th>Signal</th><th>Threshold</th><th>Stall Median</th><th>Healthy Median</th><th>Cohen's d</th></tr></thead>
-                <tbody>${thresholds}</tbody>
-              </table>
+              <h4>Warning signs to watch for</h4>
+              <div class="signal-plain-list">${topSignalsPlain}</div>
+              <button class="detail-toggle" data-detail="thr-${stallType.replace(/\s+/g,'-')}" style="float:none;margin-top:12px">Show exact thresholds</button>
+              <div class="detail-block" id="thr-${stallType.replace(/\s+/g,'-')}">
+                <table class="threshold-table">
+                  <thead><tr><th>Signal</th><th>Threshold</th><th>Typical stalled</th><th>Typical healthy</th><th>Cohen's d</th></tr></thead>
+                  <tbody>${thresholds}</tbody>
+                </table>
+              </div>
             </div>
             ${diffs ? `<div class="block">
-              <h4>Recovery Differentiators — what separated recovered from lost</h4>
+              <h4>What separated saved deals from lost ones</h4>
               <table class="threshold-table">
-                <thead><tr><th>Signal</th><th>Recovered μ</th><th>Lost μ</th><th>Δ</th><th>Interpretation</th></tr></thead>
+                <thead><tr><th>Signal</th><th>Saved avg</th><th>Lost avg</th><th>Difference</th><th>What it means</th></tr></thead>
                 <tbody>${diffs}</tbody>
               </table>
             </div>` : ''}
             ${timingNote}
             ${segments ? `<div class="block">
-              <h4>Segment Loss Rates</h4>
+              <h4>Who this hits hardest</h4>
               <div class="segment-breakdown">${segments}</div>
             </div>` : ''}
             ${interventions ? `<div class="block">
-              <h4>Intervention Playbook</h4>
+              <h4>What to do about it</h4>
               ${interventions}
             </div>` : ''}
           </div>
@@ -859,6 +973,15 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
     document.getElementById('stall-library').innerHTML = html;
     document.querySelectorAll('.stall-card .stall-card-head').forEach(head => {
       head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    });
+    document.querySelectorAll('.stall-card .detail-toggle').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const target = document.getElementById(btn.dataset.detail);
+        if (!target) return;
+        const shown = target.classList.toggle('show');
+        btn.textContent = shown ? 'Hide exact thresholds' : 'Show exact thresholds';
+      });
     });
   }
 
@@ -888,6 +1011,11 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
   }
 
   function renderCompareTable(h) {
+    const strengthLabel = {
+      large: 'Very strong',
+      medium: 'Meaningful',
+      small: 'Minor',
+    };
     const rows = h.signal_comparison.map(row => {
       const useSegment = activeSegment !== 'All' && row.segment_breakdown[activeSegment];
       const wonVal = useSegment ? row.segment_breakdown[activeSegment].won_mean : row.won_mean;
@@ -897,20 +1025,26 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
         ? (lostVal > wonVal) : (lostVal < wonVal);
       const deltaClass = worse ? 'neg' : 'pos';
       const deltaSign = delta > 0 ? '+' : '';
+      const arrow = worse
+        ? `<span class="dir-arrow worse">↑</span>`
+        : `<span class="dir-arrow better">↓</span>`;
       return `
         <tr>
-          <td class="mono">${row.signal}</td>
+          <td>${arrow}<span class="mono">${row.signal}</span></td>
           <td class="mono">${fmtNum(wonVal)}</td>
           <td class="mono">${fmtNum(lostVal)}</td>
           <td class="mono ${deltaClass}">${deltaSign}${fmtNum(delta)}</td>
-          <td class="mono">${fmtNum(row.cohen_d)}</td>
-          <td><span class="effect-pill ${row.effect_size}">${row.effect_size}</span></td>
+          <td><span class="effect-pill ${row.effect_size}">${strengthLabel[row.effect_size] || row.effect_size}</span></td>
         </tr>`;
     }).join('');
     document.getElementById('compare-table-wrap').innerHTML = `
       <table class="compare-table">
         <thead><tr>
-          <th>Signal</th><th>Won μ</th><th>Lost μ</th><th>Δ (Lost − Won)</th><th>Cohen's d</th><th>Effect</th>
+          <th>Signal <span style="color:var(--muted-2);font-weight:400;text-transform:none;letter-spacing:0">(↑ worse on losses · ↓ better on losses)</span></th>
+          <th>Avg on wins</th>
+          <th>Avg on losses</th>
+          <th>Difference</th>
+          <th>Strength</th>
         </tr></thead>
         <tbody>${rows}</tbody>
       </table>`;
