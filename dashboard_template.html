@@ -72,6 +72,104 @@
     color: var(--text);
   }
 
+  /* Orientation banner — a more structured, numbered "how to use this page"
+     strip so a new viewer knows where to look and in what order. Replaces
+     the flat prose intro-banner on each tab. */
+  .tour-banner {
+    background: linear-gradient(135deg, rgba(110,231,255,0.09) 0%, rgba(192,132,252,0.07) 100%);
+    border: 1px solid var(--border-strong);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 26px;
+  }
+  .tour-banner .tb-kicker {
+    display: inline-block;
+    background: rgba(110,231,255,0.15);
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .tour-banner .tb-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+    line-height: 1.35;
+  }
+  .tour-banner .tb-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .tour-banner .tb-step {
+    background: rgba(17,17,22,0.35);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px 10px 40px;
+    position: relative;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--muted-1);
+  }
+  .tour-banner .tb-step strong { color: var(--text); font-weight: 600; }
+  .tour-banner .tb-step::before {
+    content: attr(data-n);
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tour-banner .tb-foot {
+    font-size: 12px;
+    color: var(--muted);
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .tour-banner .tb-foot strong { color: var(--text); font-weight: 600; }
+  .tour-banner .tb-foot a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(110,231,255,0.45);
+    cursor: pointer;
+  }
+  .tour-banner .tb-foot a:hover { border-bottom-color: var(--accent); }
+
+  /* Step badge placed next to a section heading on Executive Summary so
+     the numbered tour lines up visually with the sections themselves. */
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 10px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
   .stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1581,26 +1679,37 @@
 </nav>
 <main>
   <div class="tab-pane active" id="tab-executive">
-    <div class="intro-banner">
-      <div class="intro-title">What needs your attention right now</div>
-      The quick read for leaders: where the pipeline stands, which deals need action today, where the damage is concentrated, and which reps need coaching. Click any row to drill into the full context on Active Pipeline.
+    <div class="tour-banner">
+      <div class="tb-kicker">Start here · 3-minute scan</div>
+      <div class="tb-title">What needs your attention right now, in the order that matters.</div>
+      <div class="tb-steps">
+        <div class="tb-step" data-n="1"><strong>Scan the hero stats</strong> — is damage concentrated in a few deals or spread across the pipeline?</div>
+        <div class="tb-step" data-n="2"><strong>Work the top 5 deals</strong> — these need action today. Click a row to jump into its full breakdown.</div>
+        <div class="tb-step" data-n="3"><strong>Check stall patterns &amp; rep exposure</strong> — where the damage clusters and which reps need coaching.</div>
+        <div class="tb-step" data-n="4"><strong>Review contradictions</strong> — deals where rep notes disagree with the data. Read these before any coaching conversation.</div>
+      </div>
+      <div class="tb-foot">
+        <strong>Need more depth?</strong>
+        <a data-goto-tab="pipeline">Active Pipeline →</a> every deal, filterable ·
+        <a data-goto-tab="historical">Historical Deal Insights →</a> why deals die and what predicts outcomes
+      </div>
     </div>
     <div class="exec-hero" id="exec-hero"></div>
 
     <div class="exec-section">
-      <h2>Top 5 deals that need action today</h2>
+      <h2><span class="step-num">2</span>Top 5 deals that need action today</h2>
       <div class="exec-sub">Highest-priority flagged deals. Click a row to open its full breakdown on the Active Pipeline tab.</div>
       <div id="exec-top-deals-wrap"></div>
     </div>
 
     <div class="exec-section">
-      <h2>Stall pattern breakdown</h2>
+      <h2><span class="step-num">3</span>Stall pattern breakdown</h2>
       <div class="exec-sub">Where the flagged deals are clustering today, with the historical recovery rate for each pattern.</div>
       <div class="exec-pattern-grid" id="exec-pattern-grid"></div>
     </div>
 
     <div class="exec-section">
-      <h2>Rep exposure</h2>
+      <h2><span class="step-num">3</span>Rep exposure</h2>
       <div class="exec-sub">Top 5 reps by ACV at risk — the coaching lens.</div>
       <div id="exec-rep-wrap"></div>
     </div>
@@ -1611,9 +1720,15 @@
   <div class="tab-pane" id="tab-pipeline">
     <div class="agg-stats" id="agg-stats"></div>
 
-    <div class="intro-banner">
-      <div class="intro-title">Every active deal, ranked by how urgently it needs attention</div>
-      Each deal is scored against patterns we've seen cause losses before. Deals at the top of the list are both the most likely to stall <em>and</em> the most expensive if they do. Click any row to see what's happening and what to do next. Deals marked with a contradiction warning have rep notes that conflict with the behavioral data — prioritize reviewing those before any coaching conversation.
+    <div class="tour-banner">
+      <div class="tb-kicker">How to use this page</div>
+      <div class="tb-title">Every active deal, ranked by how urgently it needs attention.</div>
+      <div class="tb-steps">
+        <div class="tb-step" data-n="1"><strong>Start at the top.</strong> Rows are sorted by composite priority — most likely to stall × most expensive if they do.</div>
+        <div class="tb-step" data-n="2"><strong>Narrow with filters.</strong> Stall pattern, health, or confidence. Or search by company, rep, or deal ID.</div>
+        <div class="tb-step" data-n="3"><strong>Click any row</strong> to see the evidence, playbook intervention, and a drafted first move for the rep.</div>
+        <div class="tb-step" data-n="4"><strong>Escalate first.</strong> Rows tagged <em>Escalate</em> or <em>Notes conflict</em> need a human call before you act on them.</div>
+      </div>
     </div>
 
     <div class="viz-grid" id="pipeline-viz"></div>
@@ -1668,9 +1783,18 @@
   </div>
 
   <div class="tab-pane" id="tab-historical">
-    <div class="intro-banner">
-      <div class="intro-title">What history taught us about why deals die — and how to save them</div>
-      We looked at <strong>every closed deal</strong> to find the behavioral patterns that separate wins from losses. Then we compared what reps <em>said</em> killed each deal to what the data actually shows. The patterns below drive every scoring decision on the Active Pipeline tab.
+    <div class="tour-banner">
+      <div class="tb-kicker">What's on this page</div>
+      <div class="tb-title">Use this when you want to understand the model — why a deal was flagged, or to coach a rep on the underlying patterns.</div>
+      <div class="tb-steps">
+        <div class="tb-step" data-n="1"><strong>Four stall patterns</strong> — the recurring shapes losses took. Each card has the recovery rate and full playbook.</div>
+        <div class="tb-step" data-n="2"><strong>What predicts outcomes</strong> — which behavioral signals the model weighs most heavily.</div>
+        <div class="tb-step" data-n="3"><strong>Won vs Lost comparison</strong> — how winning deals behaved differently on each signal, with statistical strength.</div>
+        <div class="tb-step" data-n="4"><strong>Non-obvious findings</strong> — counterintuitive insights from segment and pattern cuts.</div>
+      </div>
+      <div class="tb-foot">
+        This is the <strong>why</strong> behind every score on the <a data-goto-tab="pipeline">Active Pipeline →</a> tab. The patterns here drive scoring decisions there.
+      </div>
     </div>
 
     <div class="stats" id="hist-stats"></div>
@@ -3151,6 +3275,16 @@
   // Tab switching
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+
+  // Inline "→ Active Pipeline" / "→ Historical Deal Insights" links inside
+  // the tour banners; delegate on click so newly-rendered banners still work.
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('[data-goto-tab]');
+    if (!link) return;
+    e.preventDefault();
+    switchTab(link.dataset.gotoTab);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   dataReady = true;
