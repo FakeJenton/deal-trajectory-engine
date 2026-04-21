@@ -2,8 +2,6 @@
 
 A four-phase GTM engineering system that detects stalling deals before reps notice, identifies where stated loss reasons contradict behavioral evidence, and generates prioritized, rep-specific intervention cards.
 
-Built as a take-home submission for Tiger Data.
-
 **🔗 Live dashboard:** [deal-trajectory-engine.vercel.app](https://deal-trajectory-engine.vercel.app/)
 
 ---
