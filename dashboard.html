@@ -190,10 +190,10 @@
   .stat.alert .value { color: var(--critical); }
   .stat.warn .value { color: var(--at-risk); }
 
-  /* CRO-facing aggregate stats header — sits above everything on pipeline tab */
+  /* CRO-facing aggregate stats — pipeline + exec summary use the same 5-card set */
   .agg-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 12px;
     margin-bottom: 24px;
   }
@@ -1909,8 +1909,6 @@
   </div>
 
   <div class="tab-pane" id="tab-pipeline">
-    <div class="agg-stats" id="agg-stats"></div>
-
     <div class="tour-banner">
       <div class="tb-kicker">How to use this page</div>
       <div class="tb-title">Every active deal, ranked by how urgently it needs attention.</div>
@@ -1921,6 +1919,8 @@
         <div class="tb-step" data-n="4"><strong>Escalate first.</strong> Rows tagged <em>Escalate</em> or <em>Notes conflict</em> need a human call before you act on them.</div>
       </div>
     </div>
+
+    <div class="agg-stats" id="agg-stats"></div>
 
     <div class="viz-grid" id="pipeline-viz"></div>
 
@@ -2445,39 +2445,63 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
 
   function renderAggStats(data) {
     const a = data.aggregate_stats || {};
+    const atRiskCount = allDeals(data).filter(d => d.trajectory === 'at-risk').length;
+    // Same five cards as Executive Summary — each is clickable-as-filter
     const cells = [
       {
-        label: 'Total ACV scored',
+        label: 'Total pipeline ACV',
         value: fmtMoneyShort(a.total_acv_scored),
-        foot: 'All active pipeline',
+        foot: 'All active deals',
         kind: 'neutral',
+        filter: { label: 'All active deals' },
       },
       {
         label: 'ACV at risk',
         value: fmtMoneyShort(a.acv_at_risk),
-        foot: 'Critical + at-risk deals',
+        foot: 'Critical + at-risk',
         kind: 'alert',
+        filter: { traj: ['critical', 'at-risk'], label: 'ACV at risk · critical + at-risk' },
       },
       {
         label: 'Critical deals',
         value: String(a.critical_count || 0),
         foot: 'Need action today',
         kind: 'alert',
+        filter: { traj: 'critical', label: 'Critical deals' },
+      },
+      {
+        label: 'At-risk deals',
+        value: String(atRiskCount),
+        foot: 'Multiple warning signs',
+        kind: 'warn',
+        filter: { traj: 'at-risk', label: 'At-risk deals' },
       },
       {
         label: 'Contradiction flags',
         value: String(a.contradiction_count || 0),
-        foot: 'Rep notes conflict with data',
+        foot: 'Notes disagree with data',
         kind: 'warn',
+        filter: { contradictionOnly: true, label: 'Deals with contradiction flags' },
       },
     ];
-    document.getElementById('agg-stats').innerHTML = cells.map(c =>
-      `<div class="agg-stat ${c.kind}">
+    document.getElementById('agg-stats').innerHTML = cells.map((c, i) =>
+      `<div class="agg-stat ${c.kind} clickable" data-agg-idx="${i}" role="button" tabindex="0">
          <div class="agg-label">${c.label}</div>
          <div class="agg-value">${c.value}</div>
          <div class="agg-foot">${c.foot}</div>
+         <div class="agg-jump">Apply filter →</div>
        </div>`
     ).join('');
+    document.querySelectorAll('#agg-stats .agg-stat').forEach(el => {
+      const go = () => {
+        const c = cells[+el.dataset.aggIdx];
+        if (c && c.filter) jumpWithFilter(c.filter);
+      };
+      el.addEventListener('click', go);
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+      });
+    });
   }
 
   function renderRepBreakdown(data) {
