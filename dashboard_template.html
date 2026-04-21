@@ -1190,11 +1190,310 @@
     color: var(--text);
   }
 
+  /* ---------------- Executive Summary tab ---------------- */
+  .exec-hero {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .exec-section { margin-top: 32px; }
+  .exec-section h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .exec-section .exec-sub {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  .exec-top-deals {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .exec-top-deals thead { background: var(--panel-3); }
+  .exec-top-deals th,
+  .exec-top-deals td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .exec-top-deals th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .exec-top-deals tbody tr { cursor: pointer; transition: background 0.15s; }
+  .exec-top-deals tbody tr:hover { background: var(--panel-2); }
+  .exec-top-deals tbody tr:last-child td { border-bottom: none; }
+  .exec-top-deals .et-company { font-weight: 600; color: var(--text); }
+  .exec-top-deals .et-action { color: var(--muted); font-size: 12px; }
+  .exec-top-deals .et-acv {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, Menlo, monospace;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .exec-pattern-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .exec-pattern-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+  .exec-pattern-card .epc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .exec-pattern-card .epc-name {
+    font-weight: 600;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .exec-pattern-card .epc-count { font-size: 22px; font-weight: 600; color: var(--text); }
+  .exec-pattern-card .epc-bar {
+    background: var(--panel-3);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .exec-pattern-card .epc-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e 0%, #6ee7ff 100%);
+    border-radius: 4px;
+  }
+  .exec-pattern-card .epc-foot {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 6px;
+  }
+
+  .exec-rep-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .exec-rep-table thead { background: var(--panel-3); }
+  .exec-rep-table th,
+  .exec-rep-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .exec-rep-table th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .exec-rep-table tbody tr:last-child td { border-bottom: none; }
+  .exec-rep-table .er-name { font-weight: 600; color: var(--text); }
+  .exec-rep-table .er-num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-family: ui-monospace, Menlo, monospace;
+  }
+  .exec-rep-table .er-crit strong { color: var(--critical); }
+
+  .exec-contradiction-alert {
+    background: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.08) 100%);
+    border: 1px solid rgba(245,158,11,0.35);
+    border-left: 4px solid var(--at-risk);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .exec-contradiction-alert .eca-text {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .exec-contradiction-alert .eca-text strong { color: #fcd34d; }
+  .exec-contradiction-alert .eca-btn {
+    background: rgba(245,158,11,0.2);
+    border: 1px solid rgba(245,158,11,0.5);
+    color: #fcd34d;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+  }
+  .exec-contradiction-alert .eca-btn:hover { background: rgba(245,158,11,0.35); color: #fff; }
+
+  /* ---------------- Compact stall pattern grid (Pattern Intelligence) ---------------- */
+  .stall-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .stall-compact {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .stall-compact:hover { border-color: var(--border-strong); }
+  .stall-compact.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(110,231,255,0.15);
+  }
+  .stall-compact .sc-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .stall-compact .sc-title {
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .stall-compact .sc-count { color: var(--muted); font-size: 12px; }
+  .stall-compact .sc-count strong { color: var(--text); font-weight: 600; }
+  .stall-compact .sc-rate-bar {
+    background: var(--panel-3);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .stall-compact .sc-rate-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22c55e 0%, #6ee7ff 100%);
+    border-radius: 4px;
+  }
+  .stall-compact .sc-rate-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 6px;
+    color: var(--muted);
+  }
+  .stall-compact .sc-rate-label strong { color: var(--text); font-weight: 600; }
+  .stall-compact .sc-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .stall-compact .sc-tag {
+    background: var(--panel-3);
+    border: 1px solid var(--border);
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .stall-compact .sc-cta {
+    color: var(--accent);
+    font-size: 11px;
+    margin-top: 10px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .stall-compact.active .sc-cta { color: var(--accent); }
+
+  .stall-detail-panel {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-top: 6px;
+    margin-bottom: 14px;
+  }
+  .stall-detail-panel .sdp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .stall-detail-panel .sdp-title {
+    font-weight: 600;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .stall-detail-panel .sdp-desc {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 10px;
+  }
+  .stall-detail-panel .sdp-meta {
+    display: flex;
+    gap: 18px;
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+  .stall-detail-panel .sdp-meta strong {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .sdp-close {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sdp-close:hover { color: var(--text); border-color: var(--border-strong); }
+
   @media (max-width: 1100px) {
     .stall-card-head { grid-template-columns: 1fr; gap: 4px; }
     .crosstab { grid-template-columns: 180px repeat(4, 1fr); }
     .insight-grid { grid-template-columns: 1fr; }
     .bar-row { grid-template-columns: 180px 1fr 50px; }
+    .exec-hero { grid-template-columns: repeat(2, 1fr); }
+    .exec-pattern-grid { grid-template-columns: 1fr; }
+    .stall-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 900px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
@@ -1219,11 +1518,40 @@
 </header>
 <div class="toast" id="toast"></div>
 <nav class="tabs">
-  <button class="tab-btn active" data-tab="pipeline">Active Pipeline</button>
+  <button class="tab-btn active" data-tab="executive">Executive Summary</button>
+  <button class="tab-btn" data-tab="pipeline">Active Pipeline</button>
   <button class="tab-btn" data-tab="historical">Pattern Intelligence</button>
 </nav>
 <main>
-  <div class="tab-pane active" id="tab-pipeline">
+  <div class="tab-pane active" id="tab-executive">
+    <div class="intro-banner">
+      <div class="intro-title">What needs your attention right now</div>
+      The quick read for leaders: where the pipeline stands, which deals need action today, where the damage is concentrated, and which reps need coaching. Click any row to drill into the full context on Active Pipeline.
+    </div>
+    <div class="exec-hero" id="exec-hero"></div>
+
+    <div class="exec-section">
+      <h2>Top 5 deals that need action today</h2>
+      <div class="exec-sub">Highest-priority flagged deals. Click a row to open its full breakdown on the Active Pipeline tab.</div>
+      <div id="exec-top-deals-wrap"></div>
+    </div>
+
+    <div class="exec-section">
+      <h2>Stall pattern breakdown</h2>
+      <div class="exec-sub">Where the flagged deals are clustering today, with the historical recovery rate for each pattern.</div>
+      <div class="exec-pattern-grid" id="exec-pattern-grid"></div>
+    </div>
+
+    <div class="exec-section">
+      <h2>Rep exposure</h2>
+      <div class="exec-sub">Top 5 reps by ACV at risk — the coaching lens.</div>
+      <div id="exec-rep-wrap"></div>
+    </div>
+
+    <div id="exec-contradiction-wrap"></div>
+  </div>
+
+  <div class="tab-pane" id="tab-pipeline">
     <div class="agg-stats" id="agg-stats"></div>
 
     <div class="intro-banner">
@@ -1292,8 +1620,7 @@
 
     <div class="hist-section">
       <h2>The four ways deals die</h2>
-      <div class="hist-sub">Across every lost deal, the behavior clustered into four recurring patterns. The chart below shows how often each pattern can be recovered — click any pattern for the warning signs, segment hits, and the recovery playbook.</div>
-      <div id="save-rate-chart" style="margin-bottom:18px"></div>
+      <div class="hist-sub">Across every lost deal, the behavior clustered into four recurring patterns. Each card shows the historical recovery rate, deal count, and top warning signals — click a card for the full playbook and recovery details.</div>
       <div id="stall-library"></div>
     </div>
 
@@ -1336,7 +1663,9 @@
   let activeTraj = 'all';
   let activeReview = 'all';
   let searchTerm = '';
-  let xFilterContext = null;   // { source: 'insight'|'save-rate'|'stall-card', label: string }
+  let contradictionOnly = false;
+  let activeStallCard = null;   // which compact card is expanded on Pattern Intelligence
+  let xFilterContext = null;   // { source: 'insight'|'save-rate'|'stall-card'|'exec-contradiction', label: string }
   let dataReady = false;
 
   // Actioned deals — persisted to localStorage for navigation continuity;
@@ -1683,7 +2012,8 @@
         (d.company_name || '').toLowerCase().includes(q) ||
         (d.rep_name || '').toLowerCase().includes(q) ||
         (d.deal_id || '').toLowerCase().includes(q);
-      return stallMatch && trajMatch && reviewMatch && searchMatch;
+      const contrMatch = !contradictionOnly || !!d.note_contradiction;
+      return stallMatch && trajMatch && reviewMatch && searchMatch && contrMatch;
     });
   }
 
@@ -1700,6 +2030,7 @@
       activeStall = 'all';
       activeTraj = 'all';
       activeReview = 'all';
+      contradictionOnly = false;
       renderFilters(currentData);
       renderQueue(currentData);
     });
@@ -1809,6 +2140,175 @@
          <div class="sum-foot">${c.foot || ''}</div>
        </div>`
     ).join('');
+  }
+
+  // ---------- Navigation helpers for Executive Summary ----------
+  function clearAllFilters() {
+    activeStall = 'all';
+    activeTraj = 'all';
+    activeReview = 'all';
+    contradictionOnly = false;
+    searchTerm = '';
+    const si = document.getElementById('search-input');
+    const sc = document.getElementById('search-clear');
+    if (si) si.value = '';
+    if (sc) sc.classList.remove('show');
+  }
+
+  function jumpToDeal(dealId) {
+    clearAllFilters();
+    xFilterContext = null;
+    switchTab('pipeline');
+    renderFilters(currentData);
+    renderQueue(currentData);
+    requestAnimationFrame(() => {
+      const row = document.querySelector('.deal-row[data-deal-id="' + dealId + '"]');
+      if (row) {
+        row.classList.add('open');
+        row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+
+  function jumpToContradictions() {
+    clearAllFilters();
+    contradictionOnly = true;
+    xFilterContext = { source: 'exec-contradiction', label: 'Deals with contradiction flags' };
+    switchTab('pipeline');
+    renderFilters(currentData);
+    renderQueue(currentData);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderExecutiveSummary(data) {
+    const deals = allDeals(data);
+    const flagged = deals.filter(d => d.has_intervention);
+    const agg = data.aggregate_stats || {};
+    const atRiskCount = deals.filter(d => d.trajectory === 'at-risk').length;
+
+    // Hero: 5 stat cards
+    const hero = [
+      { label: 'Total pipeline ACV', value: fmtMoneyShort(agg.total_acv_scored), foot: 'All active deals', kind: 'neutral' },
+      { label: 'ACV at risk',        value: fmtMoneyShort(agg.acv_at_risk),      foot: 'Critical + at-risk',  kind: 'alert' },
+      { label: 'Critical deals',     value: String(agg.critical_count || 0),     foot: 'Need action today',   kind: 'alert' },
+      { label: 'At-risk deals',      value: String(atRiskCount),                 foot: 'Multiple warning signs', kind: 'warn' },
+      { label: 'Contradiction flags',value: String(agg.contradiction_count || 0),foot: 'Notes disagree with data', kind: 'warn' },
+    ];
+    document.getElementById('exec-hero').innerHTML = hero.map(c =>
+      `<div class="agg-stat ${c.kind}">
+         <div class="agg-label">${c.label}</div>
+         <div class="agg-value">${c.value}</div>
+         <div class="agg-foot">${c.foot}</div>
+       </div>`
+    ).join('');
+
+    // Top 5 deals — flagged, highest composite_priority
+    const top5 = [...flagged].sort((a, b) => (b.composite_priority || 0) - (a.composite_priority || 0)).slice(0, 5);
+    const wrap = document.getElementById('exec-top-deals-wrap');
+    if (!top5.length) {
+      wrap.innerHTML = '<div style="color:var(--muted);font-size:13px">No flagged deals right now — pipeline looks clean.</div>';
+    } else {
+      wrap.innerHTML = `
+        <table class="exec-top-deals">
+          <thead><tr>
+            <th>Company</th>
+            <th>Rep</th>
+            <th>Pattern</th>
+            <th>Stage</th>
+            <th style="text-align:right">ACV</th>
+            <th>Top action</th>
+          </tr></thead>
+          <tbody>
+            ${top5.map(d => {
+              const actionRaw = (d.top_intervention && d.top_intervention.action)
+                || (d.first_move ? d.first_move.replace(/\*\*/g, '').split(/\.(\s|$)/)[0] : '')
+                || '—';
+              const action = actionRaw.length > 110 ? actionRaw.slice(0, 107) + '…' : actionRaw;
+              const stallDot = `<span class="stall-dot ${stallClass(d.dominant_stall_type)}"></span>`;
+              const stallName = d.dominant_stall_type || '—';
+              return `<tr data-deal-id="${d.deal_id}">
+                <td class="et-company">${d.company_name}</td>
+                <td>${d.rep_name}</td>
+                <td>${stallDot}${stallName}</td>
+                <td>${d.current_stage || '—'}</td>
+                <td class="et-acv">${fmtMoneyShort(d.acv_usd)}</td>
+                <td class="et-action">${action}</td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>`;
+      document.querySelectorAll('.exec-top-deals tbody tr').forEach(tr => {
+        tr.addEventListener('click', () => jumpToDeal(tr.dataset.dealId));
+      });
+    }
+
+    // Stall pattern breakdown — 4 compact cards
+    const stallCounts = {};
+    flagged.forEach(d => {
+      const k = d.dominant_stall_type || 'Unknown';
+      stallCounts[k] = (stallCounts[k] || 0) + 1;
+    });
+    const lib = (data.historical && data.historical.stall_library) || {};
+    const patternOrder = ['Champion Collapse', 'Competitor Displacement', 'Ghost Stall', 'Exec Vacuum'];
+    const patternHtml = patternOrder.map(p => {
+      const count = stallCounts[p] || 0;
+      const rate = (lib[p] && lib[p].recovery_rate) || 0;
+      const pct = Math.round(rate * 100);
+      return `<div class="exec-pattern-card">
+        <div class="epc-head">
+          <div class="epc-name"><span class="stall-dot ${stallClass(p)}"></span>${p}</div>
+          <div class="epc-count">${count}</div>
+        </div>
+        <div class="epc-bar"><div class="epc-fill" style="width:${pct}%"></div></div>
+        <div class="epc-foot">Recovery rate <strong style="color:var(--text)">${pct}%</strong> historically · ${count === 1 ? '1 flagged deal' : count + ' flagged deals'}</div>
+      </div>`;
+    }).join('');
+    document.getElementById('exec-pattern-grid').innerHTML = patternHtml;
+
+    // Rep exposure — top 5
+    const repRows = (data.rep_breakdown || []).slice(0, 5);
+    const repWrap = document.getElementById('exec-rep-wrap');
+    if (!repRows.length) {
+      repWrap.innerHTML = '<div style="color:var(--muted);font-size:13px">No reps have flagged deals.</div>';
+    } else {
+      repWrap.innerHTML = `
+        <table class="exec-rep-table">
+          <thead><tr>
+            <th>Rep</th>
+            <th class="er-num">Critical</th>
+            <th class="er-num">At-risk</th>
+            <th class="er-num">ACV at risk</th>
+            <th>Dominant pattern</th>
+          </tr></thead>
+          <tbody>
+            ${repRows.map(r => `
+              <tr>
+                <td class="er-name">${r.rep_name}</td>
+                <td class="er-num er-crit">${r.critical ? '<strong>' + r.critical + '</strong>' : 0}</td>
+                <td class="er-num">${r.at_risk || 0}</td>
+                <td class="er-num">${fmtMoneyShort(r.acv_at_risk)}</td>
+                <td>${r.top_stall || '—'}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>`;
+    }
+
+    // Contradiction alert
+    const contrWrap = document.getElementById('exec-contradiction-wrap');
+    const n = agg.contradiction_count || 0;
+    if (n > 0) {
+      contrWrap.innerHTML = `
+        <div class="exec-contradiction-alert">
+          <div class="eca-text"><strong>${n} deals</strong> have rep notes that conflict with behavioral signals. These should be reviewed before any coaching conversation.</div>
+          <button class="eca-btn" id="eca-jump" type="button">Review contradiction-flagged deals →</button>
+        </div>`;
+      const btn = document.getElementById('eca-jump');
+      if (btn) btn.addEventListener('click', jumpToContradictions);
+    } else {
+      contrWrap.innerHTML = '';
+    }
   }
 
   function renderQueue(data) {
@@ -1985,6 +2485,7 @@
   function renderAll(data) {
     currentData = data;
     renderHeader(data);
+    renderExecutiveSummary(data);
     renderAggStats(data);
     renderFilters(data);
     renderPipelineViz(data);
@@ -2023,16 +2524,41 @@
 
   function renderStallLibrary(h) {
     const strengthLabel = { large: 'Very strong', medium: 'Meaningful', small: 'Minor' };
-    const html = Object.entries(h.stall_library).map(([stallType, lib]) => {
+
+    // Compact 2x2 grid
+    const grid = Object.entries(h.stall_library).map(([stallType, lib]) => {
+      const stallKey = stallClass(stallType);
+      const pct = Math.round((lib.recovery_rate || 0) * 100);
+      const topTags = (lib.top_signals || []).slice(0, 3).map(s =>
+        `<span class="sc-tag">${pretty(s.signal)}</span>`
+      ).join('');
+      const isActive = activeStallCard === stallType;
+      return `
+        <div class="stall-compact ${isActive ? 'active' : ''}" data-stall="${stallType}">
+          <div class="sc-head">
+            <div class="sc-title"><span class="stall-dot ${stallKey}"></span>${stallType}</div>
+            <div class="sc-count"><strong>${lib.deal_count || 0}</strong> deals</div>
+          </div>
+          <div class="sc-rate-bar"><div class="sc-rate-fill" style="width:${pct}%"></div></div>
+          <div class="sc-rate-label"><span>Recovery rate</span><strong>${pct}%</strong></div>
+          <div class="sc-signals">${topTags}</div>
+          <div class="sc-cta">${isActive ? '▼ Hide playbook' : 'See playbook ›'}</div>
+        </div>`;
+    }).join('');
+
+    // Detail panel for the active card
+    let detail = '';
+    if (activeStallCard && h.stall_library[activeStallCard]) {
+      const stallType = activeStallCard;
+      const lib = h.stall_library[stallType];
       const stallKey = stallClass(stallType);
       const topSignalsPlain = lib.top_signals.slice(0, 4).map(s => {
         const dir = s.direction === 'above' ? '↑' : '↓';
-        const dirClass = s.direction === 'above' ? 'worse' : 'worse';
         const eff = Math.abs(s.cohen_d) >= 0.8 ? 'large'
                   : Math.abs(s.cohen_d) >= 0.5 ? 'medium' : 'small';
         return `
           <div class="signal-plain">
-            <span class="dir-arrow ${dirClass}">${dir}</span>
+            <span class="dir-arrow worse">${dir}</span>
             <span class="sig-name">${pretty(s.signal)}</span>
             <span class="effect-pill ${eff}">${strengthLabel[eff]}</span>
           </div>`;
@@ -2069,65 +2595,75 @@
         ? `<div class="block"><h4>When to intervene</h4><div class="historical">${lib.timing_insights.note} Saved deals caught this pattern around <strong>${lib.timing_insights.avg_days_in_stage_at_stall.recovered} days</strong> into the stage on average — lost deals didn't see action until <strong>${lib.timing_insights.avg_days_in_stage_at_stall.lost} days</strong>.</div></div>`
         : '';
 
-      return `
-        <div class="stall-card" data-stall="${stallType}">
-          <div class="stall-card-head">
-            <div class="stall-card-title"><span class="stall-dot ${stallKey}"></span>${stallType}</div>
-            <div style="color:var(--muted); font-size:13px">${lib.description}</div>
-            <div class="stall-card-stats">
-              <span><strong>${lib.deal_count || 0}</strong> deals</span>
-              <span><strong>${Math.round((lib.recovery_rate || 0) * 100)}%</strong> recovery</span>
+      detail = `
+        <div class="stall-detail-panel">
+          <div class="sdp-head">
+            <div class="sdp-title">
+              <span class="stall-dot ${stallKey}"></span>${stallType}
+              <span class="sdp-desc">${lib.description}</span>
             </div>
-            <div class="stall-card-stats">
-              <span>Avg ACV <strong>$${Math.round((lib.avg_acv || 0) / 1000)}K</strong></span>
-              <span>Cycle <strong>${Math.round(lib.avg_cycle_days || 0)}d</strong></span>
-            </div>
-            <div class="chev">▶</div>
+            <button class="sdp-close" id="sdp-close" type="button" aria-label="Close">×</button>
           </div>
-          <div class="stall-card-body">
-            <div class="block">
-              <h4>Warning signs to watch for</h4>
-              <div class="signal-plain-list">${topSignalsPlain}</div>
-              <button class="detail-toggle" data-detail="thr-${stallType.replace(/\s+/g,'-')}" style="float:none;margin-top:12px">Show exact thresholds</button>
-              <div class="detail-block" id="thr-${stallType.replace(/\s+/g,'-')}">
-                <table class="threshold-table">
-                  <thead><tr><th>Signal</th><th>Threshold</th><th>Typical stalled</th><th>Typical healthy</th><th>Cohen's d</th></tr></thead>
-                  <tbody>${thresholds}</tbody>
-                </table>
-              </div>
-            </div>
-            ${diffs ? `<div class="block">
-              <h4>What separated saved deals from lost ones</h4>
+          <div class="sdp-meta">
+            <span><strong>${lib.deal_count || 0}</strong> deals</span>
+            <span><strong>${Math.round((lib.recovery_rate || 0) * 100)}%</strong> recovery</span>
+            <span>Avg ACV <strong>$${Math.round((lib.avg_acv || 0) / 1000)}K</strong></span>
+            <span>Cycle <strong>${Math.round(lib.avg_cycle_days || 0)}d</strong></span>
+          </div>
+          <div class="block">
+            <h4>Warning signs to watch for</h4>
+            <div class="signal-plain-list">${topSignalsPlain}</div>
+            <button class="detail-toggle" data-detail="thr-${stallType.replace(/\s+/g,'-')}" style="float:none;margin-top:12px">Show exact thresholds</button>
+            <div class="detail-block" id="thr-${stallType.replace(/\s+/g,'-')}">
               <table class="threshold-table">
-                <thead><tr><th>Signal</th><th>Saved avg</th><th>Lost avg</th><th>Difference</th><th>What it means</th></tr></thead>
-                <tbody>${diffs}</tbody>
+                <thead><tr><th>Signal</th><th>Threshold</th><th>Typical stalled</th><th>Typical healthy</th><th>Cohen's d</th></tr></thead>
+                <tbody>${thresholds}</tbody>
               </table>
-            </div>` : ''}
-            ${timingNote}
-            ${segments ? `<div class="block">
-              <h4>Who this hits hardest</h4>
-              <div class="segment-breakdown">${segments}</div>
-            </div>` : ''}
-            ${interventions ? `<div class="block">
-              <h4>What to do about it</h4>
-              ${interventions}
-            </div>` : ''}
-            <button class="see-active-btn" data-see-active="${stallType}" type="button">See active deals with this pattern →</button>
+            </div>
           </div>
+          ${diffs ? `<div class="block">
+            <h4>What separated saved deals from lost ones</h4>
+            <table class="threshold-table">
+              <thead><tr><th>Signal</th><th>Saved avg</th><th>Lost avg</th><th>Difference</th><th>What it means</th></tr></thead>
+              <tbody>${diffs}</tbody>
+            </table>
+          </div>` : ''}
+          ${timingNote}
+          ${segments ? `<div class="block">
+            <h4>Who this hits hardest</h4>
+            <div class="segment-breakdown">${segments}</div>
+          </div>` : ''}
+          ${interventions ? `<div class="block">
+            <h4>What to do about it</h4>
+            ${interventions}
+          </div>` : ''}
+          <button class="see-active-btn" data-see-active="${stallType}" type="button">See active deals with this pattern →</button>
         </div>`;
-    }).join('');
+    }
 
-    document.getElementById('stall-library').innerHTML = html;
-    document.querySelectorAll('.stall-card .stall-card-head').forEach(head => {
-      head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    document.getElementById('stall-library').innerHTML =
+      `<div class="stall-grid">${grid}</div>` + detail;
+
+    document.querySelectorAll('.stall-compact').forEach(card => {
+      card.addEventListener('click', () => {
+        const st = card.dataset.stall;
+        activeStallCard = activeStallCard === st ? null : st;
+        renderStallLibrary(h);
+      });
     });
-    document.querySelectorAll('.stall-card .see-active-btn').forEach(btn => {
+    const closeBtn = document.getElementById('sdp-close');
+    if (closeBtn) closeBtn.addEventListener('click', () => {
+      activeStallCard = null;
+      renderStallLibrary(h);
+    });
+    document.querySelectorAll('.stall-detail-panel .see-active-btn').forEach(btn => {
       btn.addEventListener('click', e => {
         e.stopPropagation();
         const stallType = btn.dataset.seeActive;
         activeStall = stallType;
         activeTraj = 'all';
         activeReview = 'all';
+        contradictionOnly = false;
         xFilterContext = { source: 'stall-card', label: 'Pattern · ' + stallType };
         switchTab('pipeline');
         renderFilters(currentData);
@@ -2135,7 +2671,7 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     });
-    document.querySelectorAll('.stall-card .detail-toggle').forEach(btn => {
+    document.querySelectorAll('.stall-detail-panel .detail-toggle').forEach(btn => {
       btn.addEventListener('click', e => {
         e.stopPropagation();
         const target = document.getElementById(btn.dataset.detail);
@@ -2396,7 +2932,6 @@
     if (!data.historical) return;
     const h = data.historical;
     renderHistStats(h);
-    renderSaveRateChart(h);
     renderStallLibrary(h);
     renderFeatureBars(h);
     renderSegmentFilter();
