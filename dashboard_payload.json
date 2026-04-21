@@ -4146,5 +4146,940 @@
       "next_step_defined": false,
       "forecast_category": "Omitted"
     }
-  ]
+  ],
+  "historical": {
+    "summary": {
+      "total_historical_deals": 675,
+      "contradictions": 197,
+      "contradiction_pct": 29.2,
+      "loss_reason_totals": {
+        "Chose Competitor": 95,
+        "No Decision / Stalled": 232,
+        "Missing Feature": 74,
+        "Price / Budget": 133,
+        "Champion Left": 97,
+        "Wrong Timing": 27,
+        "Security / Compliance Failed": 17
+      }
+    },
+    "feature_importance": [
+      {
+        "signal": "days_since_last_activity",
+        "importance": 0.1495,
+        "std": 0.0104
+      },
+      {
+        "signal": "email_response_latency_delta_days",
+        "importance": 0.0731,
+        "std": 0.0052
+      },
+      {
+        "signal": "email_response_rate",
+        "importance": 0.0248,
+        "std": 0.0024
+      },
+      {
+        "signal": "pricing_objection_count",
+        "importance": 0.0224,
+        "std": 0.0022
+      },
+      {
+        "signal": "days_since_multithread_touch",
+        "importance": 0.02,
+        "std": 0.0035
+      },
+      {
+        "signal": "executive_sponsor_engaged",
+        "importance": 0.0186,
+        "std": 0.0047
+      },
+      {
+        "signal": "discount_pct",
+        "importance": 0.0185,
+        "std": 0.0032
+      },
+      {
+        "signal": "sales_cycle_days",
+        "importance": 0.0178,
+        "std": 0.002
+      },
+      {
+        "signal": "days_to_proposal",
+        "importance": 0.0175,
+        "std": 0.0032
+      },
+      {
+        "signal": "champion_engagement_score",
+        "importance": 0.0129,
+        "std": 0.0024
+      },
+      {
+        "signal": "intent_score",
+        "importance": 0.0124,
+        "std": 0.0017
+      },
+      {
+        "signal": "competitive_mentions_count",
+        "importance": 0.0101,
+        "std": 0.0018
+      }
+    ],
+    "signal_comparison": [
+      {
+        "signal": "days_since_last_activity",
+        "won_mean": 5.156,
+        "lost_mean": 10.592,
+        "delta": 5.436,
+        "cohen_d": -0.794,
+        "effect_size": "medium",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 5.409,
+            "lost_mean": 10.207,
+            "delta": 4.798
+          },
+          "Mid-Market": {
+            "won_mean": 4.948,
+            "lost_mean": 11.043,
+            "delta": 6.094
+          },
+          "Enterprise": {
+            "won_mean": 5.108,
+            "lost_mean": 10.5,
+            "delta": 5.392
+          }
+        }
+      },
+      {
+        "signal": "email_response_latency_delta_days",
+        "won_mean": 0.176,
+        "lost_mean": 1.416,
+        "delta": 1.24,
+        "cohen_d": -0.631,
+        "effect_size": "medium",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 0.119,
+            "lost_mean": 1.397,
+            "delta": 1.278
+          },
+          "Mid-Market": {
+            "won_mean": 0.135,
+            "lost_mean": 1.642,
+            "delta": 1.506
+          },
+          "Enterprise": {
+            "won_mean": 0.322,
+            "lost_mean": 1.206,
+            "delta": 0.884
+          }
+        }
+      },
+      {
+        "signal": "days_since_last_rep_touch",
+        "won_mean": 3.934,
+        "lost_mean": 7.862,
+        "delta": 3.928,
+        "cohen_d": -0.6,
+        "effect_size": "medium",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 4.092,
+            "lost_mean": 7.626,
+            "delta": 3.534
+          },
+          "Mid-Market": {
+            "won_mean": 3.914,
+            "lost_mean": 8.378,
+            "delta": 4.464
+          },
+          "Enterprise": {
+            "won_mean": 3.783,
+            "lost_mean": 7.559,
+            "delta": 3.776
+          }
+        }
+      },
+      {
+        "signal": "days_in_current_stage",
+        "won_mean": 11.648,
+        "lost_mean": 17.422,
+        "delta": 5.774,
+        "cohen_d": -0.552,
+        "effect_size": "medium",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 11.664,
+            "lost_mean": 16.464,
+            "delta": 4.8
+          },
+          "Mid-Market": {
+            "won_mean": 11.388,
+            "lost_mean": 18.59,
+            "delta": 7.202
+          },
+          "Enterprise": {
+            "won_mean": 11.968,
+            "lost_mean": 17.173,
+            "delta": 5.205
+          }
+        }
+      },
+      {
+        "signal": "champion_engagement_score_delta",
+        "won_mean": 2.462,
+        "lost_mean": -3.101,
+        "delta": -5.563,
+        "cohen_d": 0.517,
+        "effect_size": "medium",
+        "loss_direction": "lower_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 2.127,
+            "lost_mean": -2.712,
+            "delta": -4.839
+          },
+          "Mid-Market": {
+            "won_mean": 3.724,
+            "lost_mean": -4.3,
+            "delta": -8.025
+          },
+          "Enterprise": {
+            "won_mean": 1.269,
+            "lost_mean": -2.301,
+            "delta": -3.57
+          }
+        }
+      },
+      {
+        "signal": "competitive_mentions_count",
+        "won_mean": 1.056,
+        "lost_mean": 1.735,
+        "delta": 0.679,
+        "cohen_d": -0.488,
+        "effect_size": "small",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 1.1,
+            "lost_mean": 1.806,
+            "delta": 0.706
+          },
+          "Mid-Market": {
+            "won_mean": 1.052,
+            "lost_mean": 1.652,
+            "delta": 0.601
+          },
+          "Enterprise": {
+            "won_mean": 1.011,
+            "lost_mean": 1.736,
+            "delta": 0.725
+          }
+        }
+      },
+      {
+        "signal": "days_since_multithread_touch",
+        "won_mean": 8.019,
+        "lost_mean": 11.652,
+        "delta": 3.634,
+        "cohen_d": -0.482,
+        "effect_size": "small",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 7.845,
+            "lost_mean": 11.248,
+            "delta": 3.402
+          },
+          "Mid-Market": {
+            "won_mean": 8.103,
+            "lost_mean": 12.416,
+            "delta": 4.313
+          },
+          "Enterprise": {
+            "won_mean": 8.237,
+            "lost_mean": 11.282,
+            "delta": 3.045
+          }
+        }
+      },
+      {
+        "signal": "champion_engagement_score",
+        "won_mean": 74.935,
+        "lost_mean": 67.138,
+        "delta": -7.797,
+        "cohen_d": 0.475,
+        "effect_size": "small",
+        "loss_direction": "lower_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 75.145,
+            "lost_mean": 67.018,
+            "delta": -8.127
+          },
+          "Mid-Market": {
+            "won_mean": 74.983,
+            "lost_mean": 66.376,
+            "delta": -8.607
+          },
+          "Enterprise": {
+            "won_mean": 74.688,
+            "lost_mean": 67.973,
+            "delta": -6.716
+          }
+        }
+      },
+      {
+        "signal": "executive_sponsor_engaged",
+        "won_mean": 0.617,
+        "lost_mean": 0.393,
+        "delta": -0.224,
+        "cohen_d": 0.459,
+        "effect_size": "small",
+        "loss_direction": "lower_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 0.573,
+            "lost_mean": 0.396,
+            "delta": -0.176
+          },
+          "Mid-Market": {
+            "won_mean": 0.655,
+            "lost_mean": 0.389,
+            "delta": -0.266
+          },
+          "Enterprise": {
+            "won_mean": 0.624,
+            "lost_mean": 0.391,
+            "delta": -0.233
+          }
+        }
+      },
+      {
+        "signal": "stage_regression_count",
+        "won_mean": 0.525,
+        "lost_mean": 0.796,
+        "delta": 0.271,
+        "cohen_d": -0.399,
+        "effect_size": "small",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 0.536,
+            "lost_mean": 0.761,
+            "delta": 0.225
+          },
+          "Mid-Market": {
+            "won_mean": 0.5,
+            "lost_mean": 0.838,
+            "delta": 0.338
+          },
+          "Enterprise": {
+            "won_mean": 0.548,
+            "lost_mean": 0.786,
+            "delta": 0.238
+          }
+        }
+      },
+      {
+        "signal": "discount_pct",
+        "won_mean": 0.086,
+        "lost_mean": 0.129,
+        "delta": 0.042,
+        "cohen_d": -0.395,
+        "effect_size": "small",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 0.083,
+            "lost_mean": 0.123,
+            "delta": 0.039
+          },
+          "Mid-Market": {
+            "won_mean": 0.089,
+            "lost_mean": 0.13,
+            "delta": 0.041
+          },
+          "Enterprise": {
+            "won_mean": 0.086,
+            "lost_mean": 0.133,
+            "delta": 0.047
+          }
+        }
+      },
+      {
+        "signal": "meeting_count_last_30d",
+        "won_mean": 3.006,
+        "lost_mean": 2.442,
+        "delta": -0.564,
+        "cohen_d": 0.367,
+        "effect_size": "small",
+        "loss_direction": "lower_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 3.018,
+            "lost_mean": 2.383,
+            "delta": -0.635
+          },
+          "Mid-Market": {
+            "won_mean": 2.948,
+            "lost_mean": 2.335,
+            "delta": -0.614
+          },
+          "Enterprise": {
+            "won_mean": 3.087,
+            "lost_mean": 2.61,
+            "delta": -0.477
+          }
+        }
+      },
+      {
+        "signal": "unique_stakeholders_at_midpoint",
+        "won_mean": 4.338,
+        "lost_mean": 3.617,
+        "delta": -0.72,
+        "cohen_d": 0.333,
+        "effect_size": "small",
+        "loss_direction": "lower_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 4.523,
+            "lost_mean": 3.716,
+            "delta": -0.807
+          },
+          "Mid-Market": {
+            "won_mean": 4.224,
+            "lost_mean": 3.607,
+            "delta": -0.617
+          },
+          "Enterprise": {
+            "won_mean": 4.301,
+            "lost_mean": 3.523,
+            "delta": -0.778
+          }
+        }
+      },
+      {
+        "signal": "email_response_rate",
+        "won_mean": 0.597,
+        "lost_mean": 0.508,
+        "delta": -0.089,
+        "cohen_d": 0.328,
+        "effect_size": "small",
+        "loss_direction": "lower_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 0.621,
+            "lost_mean": 0.501,
+            "delta": -0.12
+          },
+          "Mid-Market": {
+            "won_mean": 0.584,
+            "lost_mean": 0.508,
+            "delta": -0.075
+          },
+          "Enterprise": {
+            "won_mean": 0.584,
+            "lost_mean": 0.514,
+            "delta": -0.07
+          }
+        }
+      },
+      {
+        "signal": "pricing_objection_raised",
+        "won_mean": 0.467,
+        "lost_mean": 0.606,
+        "delta": 0.138,
+        "cohen_d": -0.28,
+        "effect_size": "small",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 0.445,
+            "lost_mean": 0.608,
+            "delta": 0.163
+          },
+          "Mid-Market": {
+            "won_mean": 0.457,
+            "lost_mean": 0.624,
+            "delta": 0.167
+          },
+          "Enterprise": {
+            "won_mean": 0.495,
+            "lost_mean": 0.582,
+            "delta": 0.087
+          }
+        }
+      },
+      {
+        "signal": "pricing_objection_count",
+        "won_mean": 1.162,
+        "lost_mean": 1.492,
+        "delta": 0.33,
+        "cohen_d": -0.227,
+        "effect_size": "small",
+        "loss_direction": "higher_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 1.182,
+            "lost_mean": 1.523,
+            "delta": 0.341
+          },
+          "Mid-Market": {
+            "won_mean": 1.121,
+            "lost_mean": 1.577,
+            "delta": 0.456
+          },
+          "Enterprise": {
+            "won_mean": 1.14,
+            "lost_mean": 1.373,
+            "delta": 0.233
+          }
+        }
+      },
+      {
+        "signal": "economic_buyer_meetings",
+        "won_mean": 1.888,
+        "lost_mean": 1.541,
+        "delta": -0.346,
+        "cohen_d": 0.19,
+        "effect_size": "small",
+        "loss_direction": "lower_is_worse",
+        "segment_breakdown": {
+          "SMB": {
+            "won_mean": 1.8,
+            "lost_mean": 1.568,
+            "delta": -0.232
+          },
+          "Mid-Market": {
+            "won_mean": 2.017,
+            "lost_mean": 1.547,
+            "delta": -0.47
+          },
+          "Enterprise": {
+            "won_mean": 1.839,
+            "lost_mean": 1.498,
+            "delta": -0.341
+          }
+        }
+      }
+    ],
+    "stall_library": {
+      "Champion Collapse": {
+        "description": "Deal champion disengages or loses organizational authority mid-cycle. Thread collapses to a single contact with declining responsiveness.",
+        "deal_count": 126,
+        "loss_rate": 1,
+        "avg_acv": 172487,
+        "avg_cycle_days": 86.6,
+        "recovery_rate": 0.296,
+        "recovered_deal_count": 204,
+        "lost_deal_count": 486,
+        "segment_loss_rate": {
+          "SMB": 1,
+          "Mid-Market": 1,
+          "Enterprise": 1
+        },
+        "top_signals": [
+          {
+            "signal": "email_response_latency_delta_days",
+            "threshold": 3.4,
+            "direction": "above",
+            "stall_median": 6.6,
+            "healthy_median": 0.2,
+            "cohen_d": 7.553
+          },
+          {
+            "signal": "champion_engagement_score_delta",
+            "threshold": -12,
+            "direction": "below",
+            "stall_median": -26,
+            "healthy_median": 2,
+            "cohen_d": -4.671
+          },
+          {
+            "signal": "champion_engagement_score",
+            "threshold": 54.5,
+            "direction": "below",
+            "stall_median": 33,
+            "healthy_median": 76,
+            "cohen_d": -3.836
+          },
+          {
+            "signal": "days_since_multithread_touch",
+            "threshold": 18.75,
+            "direction": "above",
+            "stall_median": 29.5,
+            "healthy_median": 8,
+            "cohen_d": 3.811
+          },
+          {
+            "signal": "unique_stakeholders_at_midpoint",
+            "threshold": 3,
+            "direction": "below",
+            "stall_median": 1,
+            "healthy_median": 5,
+            "cohen_d": -2.265
+          },
+          {
+            "signal": "executive_sponsor_engaged",
+            "threshold": 0.5,
+            "direction": "below",
+            "stall_median": 0,
+            "healthy_median": 1,
+            "cohen_d": -1.792
+          }
+        ],
+        "recovery_differentiators": [
+          {
+            "signal": "executive_sponsor_engaged",
+            "recovered_mean": 0.62,
+            "lost_mean": 0.37,
+            "delta": 0.25,
+            "cohen_d": 0.51,
+            "p_value": 0,
+            "interpretation": "Executive sponsor was engaged in 62% of recovered deals vs 37% of lost"
+          }
+        ],
+        "timing_insights": {
+          "avg_days_in_stage_at_stall": {
+            "recovered": 11.9,
+            "lost": 17.2
+          },
+          "note": "Recovered deals tended to intervene earlier in the current stage, suggesting the intervention window closes quickly once a stall signature appears."
+        },
+        "interventions": [
+          {
+            "priority": 1,
+            "action": "Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours",
+            "rationale": "Champion instability is rarely recoverable through the champion alone — you need to rebuild the thread before access closes entirely"
+          },
+          {
+            "priority": 2,
+            "action": "Request executive sponsor introduction through any available channel (board contact, partner, mutual connection)",
+            "rationale": "Recovered deals in this pattern overwhelmingly had exec engagement — it compensates for champion loss by creating a second entry point"
+          },
+          {
+            "priority": 3,
+            "action": "Map the org chart and identify who inherited the champion's responsibilities or who has budget authority in their absence",
+            "rationale": "The deal may not be dead — it may have just relocated inside the org"
+          }
+        ]
+      },
+      "Competitor Displacement": {
+        "description": "A competitor gains foothold in the deal — often surfacing as pricing pressure, increased objections, and stage regression.",
+        "deal_count": 128,
+        "loss_rate": 1,
+        "avg_acv": 198734,
+        "avg_cycle_days": 85.7,
+        "recovery_rate": 0.227,
+        "recovered_deal_count": 88,
+        "lost_deal_count": 299,
+        "segment_loss_rate": {
+          "SMB": 1,
+          "Mid-Market": 1,
+          "Enterprise": 1
+        },
+        "top_signals": [
+          {
+            "signal": "competitive_mentions_count",
+            "threshold": 3,
+            "direction": "above",
+            "stall_median": 5,
+            "healthy_median": 1,
+            "cohen_d": 3.336
+          },
+          {
+            "signal": "discount_pct",
+            "threshold": 0.16,
+            "direction": "above",
+            "stall_median": 0.27,
+            "healthy_median": 0.05,
+            "cohen_d": 2.464
+          },
+          {
+            "signal": "stage_regression_count",
+            "threshold": 1.5,
+            "direction": "above",
+            "stall_median": 2,
+            "healthy_median": 1,
+            "cohen_d": 2.27
+          },
+          {
+            "signal": "pricing_objection_raised",
+            "threshold": 0.5,
+            "direction": "above",
+            "stall_median": 1,
+            "healthy_median": 0,
+            "cohen_d": 1.508
+          },
+          {
+            "signal": "pricing_objection_count",
+            "threshold": 1,
+            "direction": "above",
+            "stall_median": 2,
+            "healthy_median": 0,
+            "cohen_d": 0.944
+          }
+        ],
+        "recovery_differentiators": [
+          {
+            "signal": "competitive_mentions_count",
+            "recovered_mean": 1.06,
+            "lost_mean": 2.67,
+            "delta": -1.62,
+            "cohen_d": -0.972,
+            "p_value": 0,
+            "interpretation": "Competitive mentions were 1.6 fewer in recovered deals"
+          },
+          {
+            "signal": "days_in_current_stage",
+            "recovered_mean": 10.68,
+            "lost_mean": 16.51,
+            "delta": -5.83,
+            "cohen_d": -0.626,
+            "p_value": 0,
+            "interpretation": "Recovered deals spent 6 fewer days stuck in stage"
+          },
+          {
+            "signal": "discount_pct",
+            "recovered_mean": 0.22,
+            "lost_mean": 0.25,
+            "delta": -0.03,
+            "cohen_d": -0.591,
+            "p_value": 0,
+            "interpretation": "Recovered deals had 2.6% lower average discount"
+          }
+        ],
+        "timing_insights": {
+          "avg_days_in_stage_at_stall": {
+            "recovered": 10.7,
+            "lost": 16.5
+          },
+          "note": "Recovered deals tended to intervene earlier in the current stage, suggesting the intervention window closes quickly once a stall signature appears."
+        },
+        "interventions": [
+          {
+            "priority": 1,
+            "action": "Accelerate technical validation immediately — schedule a working session, not a demo",
+            "rationale": "Competitor displacement deals that recovered almost always completed technical validation before pricing pressure peaked"
+          },
+          {
+            "priority": 2,
+            "action": "Get explicit on competitive differentiation: name the competitor, name the gap, and have the champion deliver it internally",
+            "rationale": "Deals lost to competitors frequently had ambiguous positioning — recovered deals had a clear, repeatable internal champion message"
+          },
+          {
+            "priority": 3,
+            "action": "Resist the discount reflex — offer a pilot or POC extension instead",
+            "rationale": "Discounting under competitive pressure in this pattern correlated with loss, not recovery. Deepening product commitment outperformed price concession."
+          }
+        ]
+      },
+      "Ghost Stall": {
+        "description": "Prospect goes silent without a stated reason. No activity, no replies, no forward motion. Deal lives in the pipeline but is effectively dead.",
+        "deal_count": 125,
+        "loss_rate": 1,
+        "avg_acv": 192947,
+        "avg_cycle_days": 84.7,
+        "recovery_rate": 0.301,
+        "recovered_deal_count": 185,
+        "lost_deal_count": 429,
+        "segment_loss_rate": {
+          "SMB": 1,
+          "Mid-Market": 1,
+          "Enterprise": 1
+        },
+        "top_signals": [
+          {
+            "signal": "days_since_last_rep_touch",
+            "threshold": 15,
+            "direction": "above",
+            "stall_median": 26,
+            "healthy_median": 4,
+            "cohen_d": 4.206
+          },
+          {
+            "signal": "days_in_current_stage",
+            "threshold": 28,
+            "direction": "above",
+            "stall_median": 44,
+            "healthy_median": 12,
+            "cohen_d": 3.741
+          },
+          {
+            "signal": "meeting_count_last_30d",
+            "threshold": 1.5,
+            "direction": "below",
+            "stall_median": 0,
+            "healthy_median": 3,
+            "cohen_d": -3.09
+          },
+          {
+            "signal": "days_since_last_activity",
+            "threshold": 14,
+            "direction": "above",
+            "stall_median": 23,
+            "healthy_median": 5,
+            "cohen_d": 3.013
+          },
+          {
+            "signal": "email_response_rate",
+            "threshold": 0.39,
+            "direction": "below",
+            "stall_median": 0.17,
+            "healthy_median": 0.6,
+            "cohen_d": -2.391
+          }
+        ],
+        "recovery_differentiators": [
+          {
+            "signal": "days_since_last_rep_touch",
+            "recovered_mean": 4.73,
+            "lost_mean": 10.7,
+            "delta": -5.97,
+            "cohen_d": -0.815,
+            "p_value": 0,
+            "interpretation": "Recovered reps last touched the deal 6 days sooner"
+          },
+          {
+            "signal": "meeting_count_last_30d",
+            "recovered_mean": 2.62,
+            "lost_mean": 1.88,
+            "delta": 0.73,
+            "cohen_d": 0.463,
+            "p_value": 0,
+            "interpretation": "Recovered deals had 0.7 more meetings in the last 30 days"
+          }
+        ],
+        "timing_insights": {
+          "avg_days_in_stage_at_stall": {
+            "recovered": 14,
+            "lost": 22.2
+          },
+          "note": "Recovered deals tended to intervene earlier in the current stage, suggesting the intervention window closes quickly once a stall signature appears."
+        },
+        "interventions": [
+          {
+            "priority": 1,
+            "action": "Break the email thread — call, text, or LinkedIn. Change the medium before you change the message.",
+            "rationale": "Ghost stalls that recovered involved a channel switch early. Additional emails to a prospect who isn't opening emails have near-zero marginal value."
+          },
+          {
+            "priority": 2,
+            "action": "Re-anchor to the original business problem — not the product. 'What changed with [pain point]?' re-opens the conversation without sounding like a follow-up.",
+            "rationale": "Ghost stalls are often disengagement from the solution frame, not the problem. Recovered deals re-established problem urgency first."
+          },
+          {
+            "priority": 3,
+            "action": "Set a 10-day deadline internally: if no response after one more creative touch, mark the deal as lost and re-engage in 60 days",
+            "rationale": "Deals lingering in Ghost Stall past 30 days without a defined close date have very low recovery rates. Knowing when to re-pipeline is itself a win."
+          }
+        ]
+      },
+      "Exec Vacuum": {
+        "description": "Deal is confined to IC-level champion with no economic buyer visibility. Budget decisions happen above the champion's authority level.",
+        "deal_count": 153,
+        "loss_rate": 1,
+        "avg_acv": 194998,
+        "avg_cycle_days": 84.6,
+        "recovery_rate": 0.23,
+        "recovered_deal_count": 123,
+        "lost_deal_count": 411,
+        "segment_loss_rate": {
+          "SMB": 1,
+          "Mid-Market": 1,
+          "Enterprise": 1
+        },
+        "top_signals": [
+          {
+            "signal": "executive_sponsor_engaged",
+            "threshold": 0.5,
+            "direction": "below",
+            "stall_median": 0,
+            "healthy_median": 1,
+            "cohen_d": -1.792
+          },
+          {
+            "signal": "economic_buyer_meetings",
+            "threshold": 0.5,
+            "direction": "below",
+            "stall_median": 0,
+            "healthy_median": 1,
+            "cohen_d": -1.425
+          }
+        ],
+        "recovery_differentiators": [
+          {
+            "signal": "economic_buyer_meetings",
+            "recovered_mean": 0,
+            "lost_mean": 0.66,
+            "delta": -0.66,
+            "cohen_d": -0.68,
+            "p_value": 0,
+            "interpretation": "Recovered deals had 0.7 more economic buyer meetings"
+          }
+        ],
+        "timing_insights": {
+          "avg_days_in_stage_at_stall": {
+            "recovered": 12.2,
+            "lost": 14.5
+          },
+          "note": "Recovered deals tended to intervene earlier in the current stage, suggesting the intervention window closes quickly once a stall signature appears."
+        },
+        "interventions": [
+          {
+            "priority": 1,
+            "action": "Ask the champion directly: 'Who else needs to say yes for this to move forward?' — then get a warm intro to that person in the same week",
+            "rationale": "Recovered Exec Vacuum deals almost always involved the champion helping broker the exec connection, not the rep cold-outreaching above them"
+          },
+          {
+            "priority": 2,
+            "action": "Build an internal business case document the champion can take upward — ROI, peer comparisons, and a recommended decision timeline",
+            "rationale": "IC-level champions need tools to sell internally. Recovered deals provided this artifact; lost deals assumed the champion would figure it out"
+          },
+          {
+            "priority": 3,
+            "action": "If the champion cannot or will not broker exec access after two attempts, escalate to your own leadership for a peer-to-peer outreach",
+            "rationale": "VP-to-VP or C-to-C outreach broke Exec Vacuum stalls in recovered deals where champion-led introductions failed"
+          }
+        ]
+      }
+    },
+    "contradiction_crosstab": {
+      "Chose Competitor": {
+        "Exec Vacuum": 27
+      },
+      "Price / Budget": {
+        "Exec Vacuum": 69,
+        "Champion Collapse": 50
+      },
+      "No Decision / Stalled": {
+        "Competitor Displacement": 47
+      },
+      "Champion Left": {
+        "Competitor Displacement": 2
+      },
+      "Wrong Timing": {
+        "Competitor Displacement": 2
+      }
+    },
+    "insights": [
+      {
+        "title": "Exec Vacuum hits SMB hardest — the opposite of the expected pattern",
+        "finding": "SMB deals with Exec Vacuum signal have the lowest win rate (0.0%) compared to Mid-Market (0.0%) and Enterprise (0.0%). The assumption that SMB is simpler is wrong — SMB champions are disproportionately ICs with no path to budget authority, and reps treat it as a high-velocity segment rather than one requiring exec access.",
+        "implication": "SMB qualification should include an explicit question about who controls the technology budget, not just who owns the use case.",
+        "category": "segmentation"
+      },
+      {
+        "title": "Enterprise has the highest rate of misattributed loss reasons",
+        "finding": "30.9% of Enterprise lost deals have a stated loss reason that contradicts the behavioral evidence. This is higher than other segments, suggesting Enterprise reps are more likely to default to 'price' or 'timing' without accurately diagnosing why the deal actually failed.",
+        "implication": "Loss reason analysis for this segment is systematically unreliable. CRM-based competitive intelligence from this segment may be misleading.",
+        "category": "data_quality"
+      }
+    ]
+  }
 }

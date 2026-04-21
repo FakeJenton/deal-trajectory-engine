@@ -43,6 +43,19 @@ const idx = Object.fromEntries(header.map((h, i) => [h, i]));
 
 const flaggedIds = new Set(payload.intervention_queue.map(d => d.deal_id));
 
+// Load historical analysis artifacts
+const featureImportance = JSON.parse(fs.readFileSync(path.join(__dirname, 'feature_importance.json'), 'utf8'));
+const stallLibrary = JSON.parse(fs.readFileSync(path.join(__dirname, 'stall_signature_library.json'), 'utf8'));
+const interventionLib = JSON.parse(fs.readFileSync(path.join(__dirname, 'intervention_library.json'), 'utf8'));
+const nonObviousInsights = JSON.parse(fs.readFileSync(path.join(__dirname, 'non_obvious_insights.json'), 'utf8'));
+const winLossPatterns = JSON.parse(fs.readFileSync(path.join(__dirname, 'win_loss_patterns.json'), 'utf8'));
+
+// Parse contradiction_report.csv for cross-tab
+const contrRaw = fs.readFileSync(path.join(__dirname, 'contradiction_report.csv'), 'utf8');
+const contrRows = parseCSV(contrRaw);
+const contrHeader = contrRows[0];
+const contrIdx = Object.fromEntries(contrHeader.map((h, i) => [h, i]));
+
 // ------------------------------ Extract non-flagged deals ------------------------------
 const nonFlagged = [];
 for (let r = 1; r < rows.length; r++) {
@@ -81,6 +94,86 @@ nonFlagged.sort((a, b) => b.acv_usd - a.acv_usd);
 payload.intervention_queue.forEach(d => { d.has_intervention = true; });
 payload.non_flagged_deals = nonFlagged;
 payload.generated_at = payload.generated_at; // preserved
+
+// ------------------------------ Historical analysis payload ------------------------------
+// 1. Contradiction cross-tab: stated_loss_reason × behavioral_best_match
+const crosstab = {};
+const contradictionCounts = { total: 0, contradictions: 0 };
+const lossReasonTotals = {};
+for (let r = 1; r < contrRows.length; r++) {
+  const row = contrRows[r];
+  if (!row.length || !row[contrIdx.deal_id]) continue;
+  contradictionCounts.total++;
+  const stated = row[contrIdx.stated_loss_reason] || 'Unknown';
+  const behavioral = row[contrIdx.behavioral_best_match] || 'Unknown';
+  const isContradiction = row[contrIdx.is_contradiction] === 'True';
+  lossReasonTotals[stated] = (lossReasonTotals[stated] || 0) + 1;
+  if (isContradiction) {
+    contradictionCounts.contradictions++;
+    if (!crosstab[stated]) crosstab[stated] = {};
+    crosstab[stated][behavioral] = (crosstab[stated][behavioral] || 0) + 1;
+  }
+}
+
+// 2. Win/loss signal comparison — keep only significant signals, sort by |Cohen's d|
+const signalComparison = Object.entries(winLossPatterns)
+  .filter(([, v]) => v.significant)
+  .map(([signal, v]) => ({
+    signal,
+    won_mean: v.won_mean,
+    lost_mean: v.lost_mean,
+    delta: v.mean_delta,
+    cohen_d: v.cohen_d,
+    effect_size: v.effect_size,
+    loss_direction: v.loss_direction,
+    segment_breakdown: v.segment_breakdown || {},
+  }))
+  .sort((a, b) => Math.abs(b.cohen_d) - Math.abs(a.cohen_d))
+  .slice(0, 20);
+
+// 3. Stall library — merge stall_signature_library + intervention_library into one structure
+const stallLibraryMerged = {};
+for (const [stallType, lib] of Object.entries(stallLibrary)) {
+  const interventions = interventionLib[stallType] || {};
+  stallLibraryMerged[stallType] = {
+    description: lib.description,
+    deal_count: lib.deal_count,
+    loss_rate: lib.loss_rate,
+    avg_acv: lib.avg_acv,
+    avg_cycle_days: lib.avg_cycle_days,
+    recovery_rate: interventions.recovery_rate,
+    recovered_deal_count: interventions.recovered_deal_count,
+    lost_deal_count: interventions.lost_deal_count,
+    segment_loss_rate: lib.segment_loss_rate || {},
+    top_signals: Object.entries(lib.defining_signals || {}).map(([signal, s]) => ({
+      signal,
+      threshold: s.threshold,
+      direction: s.direction,
+      stall_median: s.stall_median,
+      healthy_median: s.healthy_median,
+      cohen_d: s.cohen_d,
+    })).sort((a, b) => Math.abs(b.cohen_d) - Math.abs(a.cohen_d)),
+    recovery_differentiators: interventions.top_differentiators || [],
+    timing_insights: interventions.timing_insights || null,
+    interventions: interventions.interventions || [],
+  };
+}
+
+payload.historical = {
+  summary: {
+    total_historical_deals: contradictionCounts.total,
+    contradictions: contradictionCounts.contradictions,
+    contradiction_pct: contradictionCounts.total
+      ? +(contradictionCounts.contradictions / contradictionCounts.total * 100).toFixed(1)
+      : 0,
+    loss_reason_totals: lossReasonTotals,
+  },
+  feature_importance: featureImportance.slice(0, 12),
+  signal_comparison: signalComparison,
+  stall_library: stallLibraryMerged,
+  contradiction_crosstab: crosstab,
+  insights: nonObviousInsights,
+};
 
 // ------------------------------ Write updated payload + dashboards ------------------------------
 fs.writeFileSync(
