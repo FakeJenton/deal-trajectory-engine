@@ -10,7 +10,7 @@ Have these open and ready before hitting record:
 1. Terminal in the project directory — ready to run `python synthesizer.py`
 2. historical_deals.csv open in a spreadsheet viewer (scroll to show messy data)
 3. contradiction_report.csv open in a second tab
-4. `dashboard.html` open in a browser (self-contained Phase 4 output, opens by double-clicking)
+4. [deal-trajectory-engine.vercel.app](https://deal-trajectory-engine.vercel.app/) open in a browser (live deployment; also available locally as `dashboard.html`)
 5. manager_brief.md open in a markdown viewer
 6. README.md open as a fallback reference
 
@@ -70,7 +70,7 @@ Here's a specific example." [point to a row] "Behavioral data screams Champion C
 
 ## SECTION 4 — The dashboard and a specific deal card [3:00 – 4:30]
 
-**Screen:** Switch to `dashboard.html` open in a browser. Show the top-level stats briefly, then filter to "Champion Collapse" or click directly on Berry, Garcia and Smith Inc (PIPE-2037) — a critical deal with a contradiction flag. Expand the row and walk through the card.
+**Screen:** Switch to [deal-trajectory-engine.vercel.app](https://deal-trajectory-engine.vercel.app/) (or `dashboard.html` locally). Show the top-level stats briefly, then filter to "Champion Collapse" or click directly on Berry, Garcia and Smith Inc (PIPE-2037) — a critical deal with a contradiction flag. Expand the row and walk through the card.
 
 **Say:**
 

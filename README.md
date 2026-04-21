@@ -4,6 +4,8 @@ A four-phase GTM engineering system that detects stalling deals before reps noti
 
 Built as a take-home submission for Tiger Data.
 
+**🔗 Live dashboard:** [deal-trajectory-engine.vercel.app](https://deal-trajectory-engine.vercel.app/)
+
 ---
 
 ## What it does
@@ -90,7 +92,9 @@ Total runtime: approximately 60–90 seconds for all four phases. Phase 2 is the
 
 ## Viewing the dashboard
 
-After running the pipeline, open `dashboard.html` in any browser (double-click — no server required). All 94 flagged deals are embedded as filterable, expandable cards with signal evidence, historical context, contradiction flags, and rep-specific first moves.
+**Fastest:** open the live deployment at [deal-trajectory-engine.vercel.app](https://deal-trajectory-engine.vercel.app/). Auto-deployed from `main` — every push rebuilds.
+
+**Locally:** open `dashboard.html` in any browser (double-click — no server required). All 94 flagged deals are embedded as filterable, expandable cards with signal evidence, historical context, contradiction flags, and rep-specific first moves.
 
 To regenerate the dashboard after re-running the pipeline:
 ```bash
