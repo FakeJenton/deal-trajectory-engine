@@ -520,6 +520,163 @@
 
   .segfilter { display: flex; gap: 8px; margin-bottom: 8px; }
 
+  /* Visuals */
+  .viz-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .viz-panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+  }
+  .viz-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+  .viz-sub { color: var(--muted); font-size: 12px; margin-top: 4px; margin-bottom: 14px; }
+
+  .traj-bar {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--panel-3);
+    border: 1px solid var(--border);
+    margin-top: 4px;
+  }
+  .traj-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0a0f1f;
+    transition: opacity 0.15s;
+    min-width: 2px;
+  }
+  .traj-seg:hover { opacity: 0.85; }
+  .traj-critical { background: var(--critical); }
+  .traj-at-risk  { background: var(--at-risk); }
+  .traj-watch    { background: var(--watch); }
+  .traj-healthy  { background: var(--healthy); }
+
+  .traj-legend {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 14px;
+    font-size: 12px;
+  }
+  .legend-item { display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; background: var(--panel-3); border-radius: 6px; }
+  .legend-item .legend-row { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .legend-critical { background: var(--critical); }
+  .legend-at-risk  { background: var(--at-risk); }
+  .legend-watch    { background: var(--watch); }
+  .legend-healthy  { background: var(--healthy); }
+  .legend-label { color: var(--text); font-weight: 600; text-transform: capitalize; }
+  .legend-ct { color: var(--muted); font-size: 11px; margin-top: 2px; }
+
+  .stall-bar-row, .save-bar-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 80px;
+    gap: 12px;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 13px;
+  }
+  .stall-bar-label, .save-bar-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text);
+    font-size: 13px;
+  }
+  .stall-bar-track, .save-bar-track {
+    background: var(--panel-3);
+    border-radius: 6px;
+    height: 20px;
+    overflow: hidden;
+    position: relative;
+  }
+  .stall-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--accent) 0%, #4fb8ff 100%);
+  }
+  .stall-bar-fill.fill-Champion { background: linear-gradient(90deg, #ef4444 0%, #fb923c 100%); }
+  .stall-bar-fill.fill-Exec { background: linear-gradient(90deg, #a855f7 0%, #c084fc 100%); }
+  .stall-bar-fill.fill-Ghost { background: linear-gradient(90deg, #64748b 0%, #94a3b8 100%); }
+  .stall-bar-fill.fill-Compet { background: linear-gradient(90deg, #f97316 0%, #fbbf24 100%); }
+  .stall-bar-val, .save-bar-val { text-align: right; color: var(--text); font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .save-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #22c55e 0%, #6ee7ff 100%);
+  }
+
+  /* Paired bars for Won vs Lost */
+  .pair-row {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr 90px;
+    gap: 12px;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+  }
+  .pair-row:last-child { border-bottom: none; }
+  .pair-label { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text); }
+  .pair-wonwrap, .pair-lostwrap { display: flex; align-items: center; gap: 8px; }
+  .pair-wonwrap { justify-content: flex-end; }
+  .pair-bar {
+    height: 12px;
+    border-radius: 3px;
+    transition: width 0.4s;
+  }
+  .pair-bar.won  { background: linear-gradient(90deg, #22c55e 0%, #86efac 100%); }
+  .pair-bar.lost { background: linear-gradient(90deg, #ef4444 0%, #fca5a5 100%); }
+  .pair-val { font-variant-numeric: tabular-nums; font-size: 11px; color: var(--muted); min-width: 48px; }
+  .pair-val.wonval { text-align: right; }
+  .pair-strength { text-align: right; }
+  .pair-head {
+    display: grid;
+    grid-template-columns: 220px 1fr 1fr 90px;
+    gap: 12px;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    padding: 6px 0 8px;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .pair-head .won-label { text-align: right; color: #86efac; }
+  .pair-head .lost-label { color: #fca5a5; }
+
+  .view-toggle {
+    display: inline-flex;
+    gap: 2px;
+    background: var(--panel-3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 3px;
+    margin-left: 10px;
+  }
+  .view-toggle button {
+    background: none;
+    border: none;
+    color: var(--muted);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: inherit;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .view-toggle button.active { background: var(--panel); color: var(--text); }
+
   .signal-plain-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
   .signal-plain {
     display: flex;
@@ -576,6 +733,8 @@
 
     <div class="stats" id="stats"></div>
 
+    <div class="viz-grid" id="pipeline-viz"></div>
+
     <div class="section-title">Filter by stall pattern</div>
     <div class="section-hint">A stall pattern is the specific way a deal is losing momentum. Click one to see only those deals.</div>
     <div class="filters" id="stall-filters"></div>
@@ -598,7 +757,8 @@
 
     <div class="hist-section">
       <h2>The four ways deals die</h2>
-      <div class="hist-sub">Across every lost deal, the behavior clustered into four recurring patterns. Click any pattern to see the warning signs, which segments it hits hardest, and the playbook for recovering deals that show it.</div>
+      <div class="hist-sub">Across every lost deal, the behavior clustered into four recurring patterns. The chart below shows how often each pattern can be recovered — click any pattern for the warning signs, segment hits, and the recovery playbook.</div>
+      <div id="save-rate-chart" style="margin-bottom:18px"></div>
       <div id="stall-library"></div>
     </div>
 
@@ -609,7 +769,12 @@
     </div>
 
     <div class="hist-section">
-      <h2>How winning deals behave vs. losing deals</h2>
+      <h2>How winning deals behave vs. losing deals
+        <span class="view-toggle" id="compare-view-toggle">
+          <button data-view="chart" class="active">Chart</button>
+          <button data-view="table">Table</button>
+        </span>
+      </h2>
       <div class="hist-sub">For each signal, we compare the average value on deals that closed Won vs. those that were Lost. "Strength" tells you how reliably this gap appears — strong signals are the ones you can trust most. Filter by segment to see where the gap is largest.</div>
       <div class="segfilter" id="seg-filter"></div>
       <div id="compare-table-wrap"></div>
@@ -839,10 +1004,78 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
     });
   }
 
+  function renderPipelineViz(data) {
+    const deals = allDeals(data);
+    const stats = data.signal_stats;
+
+    const trajOrder = ['critical', 'at-risk', 'watch', 'healthy'];
+    const trajLabel = { 'critical': 'Critical', 'at-risk': 'At-risk', 'watch': 'Watch', 'healthy': 'Healthy' };
+    const trajData = trajOrder.map(k => {
+      const list = deals.filter(d => d.trajectory === k);
+      return {
+        key: k,
+        count: list.length,
+        acv: list.reduce((s, d) => s + (d.acv_usd || 0), 0),
+      };
+    });
+    const totalCount = deals.length;
+    const totalAcv = trajData.reduce((s, t) => s + t.acv, 0);
+
+    const trajBar = trajData.map(t => {
+      const pct = totalCount ? (t.count / totalCount * 100) : 0;
+      if (pct === 0) return '';
+      return `<div class="traj-seg traj-${t.key}" style="width:${pct}%" title="${trajLabel[t.key]}: ${t.count} deals · ${fmtM(t.acv)}">${pct > 6 ? t.count : ''}</div>`;
+    }).join('');
+
+    const legend = trajData.map(t => `
+      <div class="legend-item">
+        <div class="legend-row">
+          <span class="legend-dot legend-${t.key}"></span>
+          <span class="legend-label">${trajLabel[t.key]}</span>
+        </div>
+        <div class="legend-ct">${t.count} deals · ${fmtM(t.acv)}</div>
+      </div>`).join('');
+
+    // ACV by stall pattern — flagged deals only
+    const stallAcv = {};
+    deals.filter(d => d.has_intervention && d.dominant_stall_type && d.dominant_stall_type !== 'null')
+      .forEach(d => {
+        const k = d.dominant_stall_type;
+        if (!stallAcv[k]) stallAcv[k] = { acv: 0, count: 0 };
+        stallAcv[k].acv += d.acv_usd || 0;
+        stallAcv[k].count += 1;
+      });
+    const stallEntries = Object.entries(stallAcv).sort((a, b) => b[1].acv - a[1].acv);
+    const maxStallAcv = Math.max(...stallEntries.map(([, v]) => v.acv), 1);
+    const stallBars = stallEntries.map(([k, v]) => {
+      const pct = v.acv / maxStallAcv * 100;
+      const fillClass = stallClass(k).replace('stall-', 'fill-');
+      return `<div class="stall-bar-row">
+        <div class="stall-bar-label"><span class="stall-dot ${stallClass(k)}"></span>${k}</div>
+        <div class="stall-bar-track"><div class="stall-bar-fill ${fillClass}" style="width:${pct}%"></div></div>
+        <div class="stall-bar-val">${fmtM(v.acv)}</div>
+      </div>`;
+    }).join('');
+
+    document.getElementById('pipeline-viz').innerHTML = `
+      <div class="viz-panel">
+        <div class="viz-title">Pipeline health at a glance</div>
+        <div class="viz-sub">${totalCount} active deals · ${fmtM(totalAcv)} total value</div>
+        <div class="traj-bar">${trajBar}</div>
+        <div class="traj-legend">${legend}</div>
+      </div>
+      <div class="viz-panel">
+        <div class="viz-title">Revenue at risk by stall pattern</div>
+        <div class="viz-sub">Where the risk dollars concentrate across flagged deals</div>
+        <div style="margin-top:10px">${stallBars || '<div style="color:var(--muted);font-size:13px">No flagged deals yet.</div>'}</div>
+      </div>`;
+  }
+
   function renderAll(data) {
     currentData = data;
     renderHeader(data);
     renderFilters(data);
+    renderPipelineViz(data);
     renderQueue(data);
     renderHistorical(data);
   }
@@ -1006,7 +1239,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
       btn.addEventListener('click', () => {
         activeSegment = btn.dataset.seg;
         renderSegmentFilter();
-        renderCompareTable(currentData.historical);
+        renderCompareView(currentData.historical);
       });
     });
   }
@@ -1099,14 +1332,85 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
       </div>`).join('');
   }
 
+  function renderSaveRateChart(h) {
+    const entries = Object.entries(h.stall_library)
+      .map(([k, v]) => ({
+        key: k,
+        rate: v.recovery_rate || 0,
+        saved: v.recovered_deal_count || 0,
+        lost: v.lost_deal_count || 0,
+      }))
+      .sort((a, b) => b.rate - a.rate);
+    const html = `
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+        <div style="font-size:13px;font-weight:600;color:var(--text)">Save rate by pattern</div>
+        <div style="font-size:11px;color:var(--muted)">% of stalled deals that recovered to a win</div>
+      </div>` + entries.map(e => {
+        const pct = Math.round(e.rate * 100);
+        return `<div class="save-bar-row">
+          <div class="save-bar-label"><span class="stall-dot ${stallClass(e.key)}"></span>${e.key}</div>
+          <div class="save-bar-track"><div class="save-bar-fill" style="width:${pct}%"></div></div>
+          <div class="save-bar-val">${pct}% <span style="color:var(--muted-2);font-weight:400;font-size:11px">(${e.saved}/${e.saved + e.lost})</span></div>
+        </div>`;
+      }).join('');
+    document.getElementById('save-rate-chart').innerHTML = html;
+  }
+
+  let compareView = 'chart';
+
+  function renderCompareChart(h) {
+    const strengthLabel = { large: 'Very strong', medium: 'Meaningful', small: 'Minor' };
+    // Normalize each signal: compute relative bar widths based on max of won/lost so pairs are visually comparable
+    const rows = h.signal_comparison.slice(0, 12).map(row => {
+      const useSegment = activeSegment !== 'All' && row.segment_breakdown[activeSegment];
+      const wonVal = useSegment ? row.segment_breakdown[activeSegment].won_mean : row.won_mean;
+      const lostVal = useSegment ? row.segment_breakdown[activeSegment].lost_mean : row.lost_mean;
+      const max = Math.max(Math.abs(wonVal), Math.abs(lostVal), 0.001);
+      const wonPct = Math.min(100, Math.abs(wonVal) / max * 100);
+      const lostPct = Math.min(100, Math.abs(lostVal) / max * 100);
+      const worse = row.loss_direction === 'higher_is_worse'
+        ? (lostVal > wonVal) : (lostVal < wonVal);
+      const arrow = worse
+        ? `<span class="dir-arrow worse">↑</span>`
+        : `<span class="dir-arrow better">↓</span>`;
+      return `
+        <div class="pair-row">
+          <div class="pair-label">${arrow}<span class="sig-text">${pretty(row.signal)}</span></div>
+          <div class="pair-wonwrap">
+            <span class="pair-val wonval">${fmtNum(wonVal)}</span>
+            <div class="pair-bar won" style="width:${wonPct * 0.9}%"></div>
+          </div>
+          <div class="pair-lostwrap">
+            <div class="pair-bar lost" style="width:${lostPct * 0.9}%"></div>
+            <span class="pair-val">${fmtNum(lostVal)}</span>
+          </div>
+          <div class="pair-strength"><span class="effect-pill ${row.effect_size}">${strengthLabel[row.effect_size] || row.effect_size}</span></div>
+        </div>`;
+    }).join('');
+    document.getElementById('compare-table-wrap').innerHTML = `
+      <div class="pair-head">
+        <div>Signal <span style="text-transform:none;letter-spacing:0;color:var(--muted-2);font-weight:400">(↑ worse on losses · ↓ better on losses)</span></div>
+        <div class="won-label" style="text-align:right">◀ Wins</div>
+        <div class="lost-label">Losses ▶</div>
+        <div style="text-align:right">Strength</div>
+      </div>
+      ${rows}`;
+  }
+
+  function renderCompareView(h) {
+    if (compareView === 'chart') renderCompareChart(h);
+    else renderCompareTable(h);
+  }
+
   function renderHistorical(data) {
     if (!data.historical) return;
     const h = data.historical;
     renderHistStats(h);
+    renderSaveRateChart(h);
     renderStallLibrary(h);
     renderFeatureBars(h);
     renderSegmentFilter();
-    renderCompareTable(h);
+    renderCompareView(h);
     renderCrosstab(h);
     renderInsights(h);
   }
@@ -1147,6 +1451,15 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
     renderQueue(currentData);
   });
   document.getElementById('refresh-btn').addEventListener('click', refresh);
+
+  // Compare view chart/table toggle
+  document.getElementById('compare-view-toggle').addEventListener('click', e => {
+    const btn = e.target.closest('button');
+    if (!btn) return;
+    compareView = btn.dataset.view;
+    document.querySelectorAll('#compare-view-toggle button').forEach(b => b.classList.toggle('active', b === btn));
+    renderCompareView(currentData.historical);
+  });
 
   // Tab switching
   document.querySelectorAll('.tab-btn').forEach(btn => {
