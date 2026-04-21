@@ -370,7 +370,8 @@
     padding: 6px 0;
     font-size: 13px;
   }
-  .bar-row .sig { color: var(--text); font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+  .bar-row .sig { color: var(--text); font-size: 13px; }
+  .sig-text { color: var(--text); font-size: 13px; }
   .bar-track {
     background: #0b1530;
     border-radius: 4px;
@@ -531,8 +532,7 @@
   }
   .signal-plain .sig-name {
     flex: 1;
-    font-family: ui-monospace, Menlo, monospace;
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text);
   }
 
@@ -635,6 +635,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
 (function () {
   const fmt$ = n => '$' + Math.round(n).toLocaleString();
   const fmtM = n => '$' + (n / 1_000_000).toFixed(1) + 'M';
+  const pretty = s => (s || '').replace(/_/g, ' ');
 
   let currentData = DATA;
   let activeStall = 'all';
@@ -887,13 +888,13 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
         return `
           <div class="signal-plain">
             <span class="dir-arrow ${dirClass}">${dir}</span>
-            <span class="sig-name">${s.signal}</span>
+            <span class="sig-name">${pretty(s.signal)}</span>
             <span class="effect-pill ${eff}">${strengthLabel[eff]}</span>
           </div>`;
       }).join('');
       const thresholds = lib.top_signals.slice(0, 6).map(s => `
         <tr>
-          <td class="mono">${s.signal}</td>
+          <td class="sig-text">${pretty(s.signal)}</td>
           <td class="mono">${s.direction === 'above' ? '>' : '<'} ${fmtNum(s.threshold)}</td>
           <td class="mono">${fmtNum(s.stall_median)}</td>
           <td class="mono">${fmtNum(s.healthy_median)}</td>
@@ -901,7 +902,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
         </tr>`).join('');
       const diffs = (lib.recovery_differentiators || []).map(d => `
         <tr>
-          <td class="mono">${d.signal}</td>
+          <td class="sig-text">${pretty(d.signal)}</td>
           <td class="mono">${fmtNum(d.recovered_mean)}</td>
           <td class="mono">${fmtNum(d.lost_mean)}</td>
           <td class="mono ${d.delta > 0 ? 'pos' : 'neg'}">${d.delta > 0 ? '+' : ''}${fmtNum(d.delta)}</td>
@@ -990,7 +991,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
     const max = Math.max(...top.map(x => x.importance));
     document.getElementById('feature-bars').innerHTML = top.map(x => `
       <div class="bar-row">
-        <div class="sig">${x.signal}</div>
+        <div class="sig">${pretty(x.signal)}</div>
         <div class="bar-track"><div class="bar-fill" style="width:${(x.importance / max * 100).toFixed(1)}%"></div></div>
         <div class="bar-val">${x.importance.toFixed(3)}</div>
       </div>`).join('');
@@ -1030,7 +1031,7 @@ const DATA = {"generated_at":"2026-04-20 23:07:00","signal_stats":{"trajectory_d
         : `<span class="dir-arrow better">↓</span>`;
       return `
         <tr>
-          <td>${arrow}<span class="mono">${row.signal}</span></td>
+          <td>${arrow}<span class="sig-text">${pretty(row.signal)}</span></td>
           <td class="mono">${fmtNum(wonVal)}</td>
           <td class="mono">${fmtNum(lostVal)}</td>
           <td class="mono ${deltaClass}">${deltaSign}${fmtNum(delta)}</td>
