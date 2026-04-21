@@ -132,18 +132,18 @@
   .deal-head {
     padding: 14px 18px;
     display: grid;
-    grid-template-columns: 90px 1fr 160px 120px 110px 110px 40px;
+    grid-template-columns: 64px 1fr 150px 110px 100px 110px 110px 40px;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     cursor: pointer;
   }
   .deal-head:hover { background: var(--panel-2); }
 
   .deal-header-row {
     display: grid;
-    grid-template-columns: 90px 1fr 160px 120px 110px 110px 40px;
+    grid-template-columns: 64px 1fr 150px 110px 100px 110px 110px 40px;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     padding: 10px 18px;
     background: var(--panel-3);
     border: 1px solid var(--border);
@@ -155,6 +155,168 @@
     letter-spacing: 0.04em;
     color: var(--muted);
   }
+
+  .rank-cell {
+    font-family: ui-monospace, Menlo, monospace;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .rank-cell .rank-n { color: var(--text); }
+
+  /* Summary strip — compact op metric ribbon above filters */
+  .summary-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .summary-cell {
+    padding: 12px 16px;
+    border-right: 1px solid var(--border);
+  }
+  .summary-cell:last-child { border-right: none; }
+  .summary-cell .sum-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .summary-cell .sum-value { font-size: 18px; font-weight: 600; margin-top: 4px; letter-spacing: -0.01em; }
+  .summary-cell .sum-foot { font-size: 11px; color: var(--muted-2); margin-top: 2px; }
+  .summary-cell.alert .sum-value { color: var(--critical); }
+  .summary-cell.good .sum-value { color: #86efac; }
+
+  /* Cross-filter banner */
+  .xfilter-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+  .xfilter-banner .xf-text { flex: 1; color: var(--text); }
+  .xfilter-banner .xf-text strong { color: var(--accent); }
+  .xfilter-banner .xf-clear {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 5px 12px;
+    font-size: 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .xfilter-banner .xf-clear:hover { border-color: var(--accent); }
+
+  /* Clickable insight/bar hint */
+  .clickable { cursor: pointer; transition: transform 0.12s, border-color 0.12s; }
+  .clickable:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .click-hint { color: var(--accent); font-size: 11px; margin-top: 6px; font-weight: 500; }
+
+  /* Confidence meter */
+  .conf-bar {
+    height: 6px;
+    background: var(--panel-3);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 4px;
+  }
+  .conf-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #ef4444 0%, #f59e0b 40%, #22c55e 75%);
+  }
+
+  /* Why-this-score block */
+  .why-block {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .why-block ul { margin: 0; padding-left: 18px; }
+  .why-block li { margin: 6px 0; color: var(--text); }
+  .why-block li.primary { color: var(--text); font-weight: 500; }
+  .why-block li.tertiary { color: var(--muted); }
+
+  .review-block {
+    background: var(--panel-2);
+    border-left: 3px solid;
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+  .review-block.review-auto { border-color: #22c55e; }
+  .review-block.review-caution { border-color: #f59e0b; }
+  .review-block.review-escalate { border-color: #ef4444; }
+  .review-block .review-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .review-block .review-head strong { color: var(--text); text-transform: uppercase; letter-spacing: 0.04em; font-size: 11px; }
+  .review-block .review-body { color: var(--text); font-size: 13px; }
+
+  .rank-explain {
+    background: rgba(110,231,255,0.06);
+    border: 1px solid rgba(110,231,255,0.2);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .rank-explain strong { color: var(--accent); }
+
+  /* Feedback */
+  .feedback-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .feedback-row .fb-label { font-size: 12px; color: var(--muted); margin-right: 4px; }
+  .fb-btn {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-family: inherit;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .fb-btn:hover { color: var(--text); border-color: var(--border-strong); }
+  .fb-btn.active {
+    color: var(--text);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .fb-saved {
+    font-size: 11px;
+    color: var(--muted-2);
+    font-style: italic;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    background: linear-gradient(90deg, var(--panel) 0%, var(--panel-2) 50%, var(--panel) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s linear infinite;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .skel-row { height: 60px; margin-bottom: 10px; }
+  .skel-stat { height: 80px; }
+  .empty.loading { border-style: dashed; }
   .deal-header-row .sortable {
     cursor: pointer;
     user-select: none;
@@ -208,6 +370,26 @@
   .pill.at-risk  { background: rgba(245,158,11,0.18); color: #fcd34d; }
   .pill.watch    { background: rgba(234,179,8,0.18); color: #fde68a; }
   .pill.healthy  { background: rgba(34,197,94,0.18); color: #86efac; }
+
+  /* Review status chips */
+  .rev-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  .rev-chip .rev-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .rev-auto      { background: rgba(34,197,94,0.15);   color: #86efac; }
+  .rev-auto .rev-dot      { background: #22c55e; }
+  .rev-caution   { background: rgba(245,158,11,0.18);  color: #fcd34d; }
+  .rev-caution .rev-dot   { background: #f59e0b; }
+  .rev-escalate  { background: rgba(239,68,68,0.18);   color: #fca5a5; }
+  .rev-escalate .rev-dot  { background: #ef4444; }
   .stall-tag {
     display: inline-flex;
     align-items: center;
@@ -599,6 +781,18 @@
     margin-top: 10px;
   }
   .insight-card .implication::before { content: '→ Implication: '; color: var(--accent); font-weight: 600; }
+  .insight-card.clickable { cursor: pointer; transition: border-color 0.15s, transform 0.15s; }
+  .insight-card.clickable:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .insight-card .jump-hint {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+  }
+  .save-bar-row.clickable { cursor: pointer; border-radius: 6px; padding: 4px 6px; margin: 0 -6px; transition: background 0.15s; }
+  .save-bar-row.clickable:hover { background: rgba(110, 231, 255, 0.06); }
 
   .segfilter { display: flex; gap: 8px; margin-bottom: 8px; }
 
@@ -825,18 +1019,25 @@
     <div class="section-hint">Critical = needs action today. At-risk = multiple warning signs. Watch = minor signals. Healthy = on track.</div>
     <div class="filters" id="traj-filters"></div>
 
+    <div class="section-title">Filter by review status</div>
+    <div class="section-hint">Auto = confident recommendation. Caution = worth a sanity check. Escalate = manager review required before acting.</div>
+    <div class="filters" id="review-filters"></div>
+
     <div class="section-title" id="queue-title">Pipeline</div>
+    <div class="summary-strip" id="summary-strip"></div>
+    <div id="xfilter-banner-wrap"></div>
     <div class="sort-bar">
       <span><span class="count" id="queue-count">0</span> deals shown</span>
       <span>· sorted by <strong id="sort-label" style="color:var(--text)">priority</strong></span>
       <button class="reset" id="sort-reset" type="button">Reset sort</button>
     </div>
     <div class="deal-header-row" id="deal-headers">
-      <div>ID</div>
+      <div class="sortable" data-sort="rank">Rank <span class="sort-arrow"></span></div>
       <div class="sortable" data-sort="company">Deal / Owner <span class="sort-arrow"></span></div>
       <div class="sortable" data-sort="stall">Pattern <span class="sort-arrow"></span></div>
       <div class="sortable" data-sort="stage">Stage <span class="sort-arrow"></span></div>
       <div class="sortable" data-sort="trajectory">Health <span class="sort-arrow"></span></div>
+      <div class="sortable" data-sort="review">Review <span class="sort-arrow"></span></div>
       <div class="sortable val-col" data-sort="acv">Value <span class="sort-arrow"></span></div>
       <div></div>
     </div>
@@ -895,6 +1096,32 @@
   let currentData = DATA;
   let activeStall = 'all';
   let activeTraj = 'all';
+  let activeReview = 'all';
+  let xFilterContext = null;   // { source: 'insight'|'save-rate', label: string }
+  let dataReady = false;
+
+  // Feedback persistence — localStorage keyed per deal_id
+  const FB_KEY = 'dte_feedback_v1';
+  function loadFeedback() {
+    try { return JSON.parse(localStorage.getItem(FB_KEY) || '{}'); }
+    catch { return {}; }
+  }
+  function saveFeedback(map) {
+    try { localStorage.setItem(FB_KEY, JSON.stringify(map)); } catch {}
+  }
+  let feedback = loadFeedback();
+
+  // Review status visuals
+  const REVIEW_META = {
+    auto:     { label: 'Auto',     dotClass: 'rev-auto',     fullLabel: 'Auto-recommend' },
+    caution:  { label: 'Caution',  dotClass: 'rev-caution',  fullLabel: 'Recommend with caution' },
+    escalate: { label: 'Escalate', dotClass: 'rev-escalate', fullLabel: 'Escalate for human review' },
+  };
+  function reviewChip(status, opts) {
+    const m = REVIEW_META[status] || REVIEW_META.auto;
+    const label = (opts && opts.full) ? m.fullLabel : m.label;
+    return `<span class="rev-chip ${m.dotClass}"><span class="rev-dot"></span>${label}</span>`;
+  }
 
   function showToast(msg, kind) {
     const el = document.getElementById('toast');
@@ -964,6 +1191,82 @@
          ${f.label}<span class="ct">${f.count}</span>
        </button>`
     ).join('');
+
+    // Review status filters — count from enriched deals
+    const deals = allDeals(data);
+    const revCounts = { auto: 0, caution: 0, escalate: 0 };
+    deals.forEach(d => { if (d.review_status) revCounts[d.review_status] = (revCounts[d.review_status] || 0) + 1; });
+    const revOrder = [
+      { key: 'all', label: 'All', count: total },
+      { key: 'auto', label: 'Auto-recommend', count: revCounts.auto },
+      { key: 'caution', label: 'Caution', count: revCounts.caution },
+      { key: 'escalate', label: 'Escalate', count: revCounts.escalate },
+    ];
+    document.getElementById('review-filters').innerHTML = revOrder.map(f =>
+      `<button class="chip ${f.key === activeReview ? 'active' : ''}" data-review="${f.key}">
+         ${f.label}<span class="ct">${f.count}</span>
+       </button>`
+    ).join('');
+  }
+
+  function renderReviewBlock(d) {
+    const m = REVIEW_META[d.review_status] || REVIEW_META.auto;
+    return `
+      <div class="block">
+        <div class="review-block review-${d.review_status}">
+          <div class="review-head">${reviewChip(d.review_status, { full: true })}</div>
+          <div class="review-body">${d.review_reason || ''}</div>
+        </div>
+      </div>`;
+  }
+
+  function renderWhyScoreBlock(d) {
+    const factors = d.score_factors || [];
+    const items = factors.map(f => `<li class="${f.weight}">${f.text}</li>`).join('');
+    const conf = d.confidence_score;
+    const confPct = Math.round(conf * 100);
+    return `
+      <div class="block">
+        <h4>Why this score</h4>
+        <div class="why-block">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px">
+            <strong style="color:var(--text);font-size:13px">Confidence ${confPct}%</strong>
+            <span style="color:var(--muted);font-size:12px">Rank #${d.overall_rank}</span>
+          </div>
+          <div class="conf-bar"><div class="conf-fill" style="width:${confPct}%"></div></div>
+          <ul style="margin-top:12px">${items}</ul>
+        </div>
+      </div>`;
+  }
+
+  function renderRankExplain(d) {
+    const topDriver = (d.score_factors && d.score_factors[0] && d.score_factors[0].text) || '';
+    const valueLine = d.acv_usd ? `$${Math.round(d.acv_usd).toLocaleString()} ACV` : '';
+    return `<div class="rank-explain">
+      Ranks <strong>#${d.overall_rank}</strong> because ${topDriver}${valueLine ? ' · ' + valueLine : ''}${d.current_stage ? ' · ' + d.current_stage : ''}.
+    </div>`;
+  }
+
+  function renderFeedbackRow(d) {
+    const current = feedback[d.deal_id] || null;
+    const options = [
+      { key: 'helpful',       label: '👍 Helpful' },
+      { key: 'not_helpful',   label: '👎 Not helpful' },
+      { key: 'action_taken',  label: '✅ Action taken' },
+      { key: 'false_positive',label: '⚠ False positive' },
+    ];
+    const buttons = options.map(o =>
+      `<button class="fb-btn ${current === o.key ? 'active' : ''}" data-fb="${o.key}" data-deal="${d.deal_id}">${o.label}</button>`
+    ).join('');
+    const saved = current
+      ? `<span class="fb-saved">· saved locally</span>`
+      : '';
+    return `
+      <div class="feedback-row">
+        <span class="fb-label">Was this recommendation useful?</span>
+        ${buttons}
+        ${saved}
+      </div>`;
   }
 
   function renderFlaggedBody(d) {
@@ -979,11 +1282,14 @@
         </div>` : '';
     const metaBlock = `
       <div class="meta">
-        <span>Priority score: <strong>${(d.priority_score || 0).toFixed(2)}</strong></span>
+        <span>Composite priority: <strong>${(d.composite_priority || 0).toFixed(2)}</strong></span>
         <span>Urgency: <strong>${d.urgency_stage || '—'}</strong></span>
         <span>Stall score: <strong>${((d.stall_score || 0) * 100).toFixed(0)}%</strong></span>
       </div>`;
     return `
+      ${renderRankExplain(d)}
+      ${renderReviewBlock(d)}
+      ${renderWhyScoreBlock(d)}
       <div class="block">
         <h4>Stall Signature · ${d.signal_coverage || ''}</h4>
         <div>${d.stall_description || ''}</div>
@@ -1001,7 +1307,8 @@
         <div class="first-move">${firstMoveHtml}</div>
       </div>
       ${interventionBlock}
-      ${metaBlock}`;
+      ${metaBlock}
+      ${renderFeedbackRow(d)}`;
   }
 
   function renderNonFlaggedBody(d) {
@@ -1012,6 +1319,9 @@
       ? `<div class="block"><h4>Signals observed</h4><div>${d.signals_hit_count} minor signal(s) hit: ${d.signals_hit_labels || '—'}</div></div>`
       : '';
     return `
+      ${renderRankExplain(d)}
+      ${renderReviewBlock(d)}
+      ${renderWhyScoreBlock(d)}
       <div class="block">
         <div class="monitor-note">${label}</div>
       </div>
@@ -1026,34 +1336,38 @@
         </div>
       </div>
       <div class="meta">
-        <span>Priority score: <strong>${(d.priority_score || 0).toFixed(2)}</strong></span>
+        <span>Composite priority: <strong>${(d.composite_priority || 0).toFixed(2)}</strong></span>
         <span>Trajectory: <strong>${d.trajectory}</strong></span>
-      </div>`;
+      </div>
+      ${renderFeedbackRow(d)}`;
   }
 
-  let activeSort = { col: 'priority', dir: 'desc' };
+  let activeSort = { col: 'rank', dir: 'asc' };
 
   const SORT_LABELS = {
-    priority: 'priority',
+    rank: 'priority rank',
     company: 'deal / owner',
     stall: 'stall pattern',
     stage: 'deal stage',
     trajectory: 'health',
+    review: 'review status',
     acv: 'deal value',
   };
   const TRAJ_ORDER = { 'critical': 0, 'at-risk': 1, 'watch': 2, 'healthy': 3 };
+  const REVIEW_ORDER = { 'escalate': 0, 'caution': 1, 'auto': 2 };
 
   function sortDeals(deals) {
     const { col, dir } = activeSort;
     const mult = dir === 'desc' ? -1 : 1;
     const getVal = d => {
       switch (col) {
-        case 'priority': return d.priority_score || 0;
+        case 'rank': return d.overall_rank || 9999;
         case 'acv': return d.acv_usd || 0;
         case 'company': return (d.company_name || '').toLowerCase();
         case 'stall': return d.dominant_stall_type || 'zzz';
         case 'stage': return (d.current_stage || '').toLowerCase();
         case 'trajectory': return TRAJ_ORDER[d.trajectory] ?? 99;
+        case 'review': return REVIEW_ORDER[d.review_status] ?? 99;
         default: return 0;
       }
     };
@@ -1061,8 +1375,8 @@
       const av = getVal(a), bv = getVal(b);
       if (av < bv) return -1 * mult;
       if (av > bv) return 1 * mult;
-      // Stable tiebreak on priority score
-      return (b.priority_score || 0) - (a.priority_score || 0);
+      // Stable tiebreak on overall rank (composite priority already baked in)
+      return (a.overall_rank || 9999) - (b.overall_rank || 9999);
     });
   }
 
@@ -1082,30 +1396,90 @@
       SORT_LABELS[activeSort.col] + ' (' + (activeSort.dir === 'desc' ? 'high → low' : 'low → high') + ')';
   }
 
-  function renderQueue(data) {
+  function filterDeals(data) {
     const deals = allDeals(data);
-    const filtered = deals.filter(d => {
+    return deals.filter(d => {
       const stallMatch =
         activeStall === 'all' ||
         (activeStall === '__none__' && !d.has_intervention) ||
         d.dominant_stall_type === activeStall;
       const trajMatch = activeTraj === 'all' || d.trajectory === activeTraj;
-      return stallMatch && trajMatch;
+      const reviewMatch = activeReview === 'all' || d.review_status === activeReview;
+      return stallMatch && trajMatch && reviewMatch;
     });
+  }
 
+  function renderXFilterBanner() {
+    const wrap = document.getElementById('xfilter-banner-wrap');
+    if (!xFilterContext) { wrap.innerHTML = ''; return; }
+    wrap.innerHTML = `
+      <div class="xfilter-banner">
+        <div class="xf-text">Viewing pipeline filtered from <strong>${xFilterContext.label}</strong></div>
+        <button class="xf-clear" id="xf-clear" type="button">Clear filter</button>
+      </div>`;
+    document.getElementById('xf-clear').addEventListener('click', () => {
+      xFilterContext = null;
+      activeStall = 'all';
+      activeTraj = 'all';
+      activeReview = 'all';
+      renderFilters(currentData);
+      renderQueue(currentData);
+    });
+  }
+
+  function renderSummaryStrip(data) {
+    const deals = allDeals(data);
+    const sum = data.pipeline_summary || {};
+    const r = sum.review_counts || { auto: 0, caution: 0, escalate: 0 };
+    const confPct = Math.round((sum.avg_confidence || 0) * 100);
+    const acvEsc = sum.acv_in_escalate || 0;
+    const flagged = (data.signal_stats && data.signal_stats.flagged_deals) || deals.filter(d => d.has_intervention).length;
+    const top = sum.top_deal;
+
+    const cells = [
+      { label: 'Pipeline', value: deals.length + ' deals', foot: flagged + ' flagged' },
+      { label: 'Avg confidence', value: confPct + '%', foot: 'Across all scored deals', kind: confPct >= 75 ? 'good' : (confPct < 55 ? 'alert' : '') },
+      { label: 'Auto-recommend', value: r.auto, foot: 'Safe to act', kind: 'good' },
+      { label: 'Caution', value: r.caution, foot: 'Sanity-check first' },
+      { label: 'Escalate', value: r.escalate, foot: fmtM(acvEsc) + ' ACV', kind: 'alert' },
+      { label: 'Top of queue', value: top ? fmt$(top.acv_usd) : '—', foot: top ? top.company_name : '' },
+    ];
+
+    document.getElementById('summary-strip').innerHTML = cells.map(c =>
+      `<div class="summary-cell ${c.kind || ''}">
+         <div class="sum-label">${c.label}</div>
+         <div class="sum-value">${c.value}</div>
+         <div class="sum-foot">${c.foot || ''}</div>
+       </div>`
+    ).join('');
+  }
+
+  function renderQueue(data) {
+    const filtered = filterDeals(data);
     const sorted = sortDeals(filtered);
 
     document.getElementById('queue-title').textContent = 'Pipeline';
     document.getElementById('queue-count').textContent = sorted.length;
     renderSortHeaders();
+    renderSummaryStrip(data);
+    renderXFilterBanner();
 
+    const queueEl = document.getElementById('queue');
+
+    if (!dataReady) {
+      queueEl.innerHTML = Array.from({ length: 6 }).map(() => `<div class="skeleton skel-row"></div>`).join('');
+      return;
+    }
+    if (!allDeals(data).length) {
+      queueEl.innerHTML = '<div class="empty">No pipeline data available yet. Run the scoring pipeline and refresh.</div>';
+      return;
+    }
     if (!sorted.length) {
-      document.getElementById('queue').innerHTML =
-        '<div class="empty">No deals match these filters.</div>';
+      queueEl.innerHTML = '<div class="empty">No deals match the current filters. Try clearing a filter or resetting sort.</div>';
       return;
     }
 
-    document.getElementById('queue').innerHTML = sorted.map((d, i) => {
+    queueEl.innerHTML = sorted.map((d, i) => {
       const stallType = d.dominant_stall_type && d.dominant_stall_type !== 'null'
         ? d.dominant_stall_type : '—';
       const stallTagClass = stallType === '—' ? 'stall-tag none' : 'stall-tag';
@@ -1114,14 +1488,15 @@
       return `
       <div class="deal-row" data-i="${i}">
         <div class="deal-head">
-          <div class="deal-id">${d.deal_id}</div>
+          <div class="rank-cell">#<span class="rank-n">${d.overall_rank || '—'}</span></div>
           <div class="deal-name">
             ${d.company_name}
-            <span class="rep">${d.rep_name} · ${d.segment}</span>
+            <span class="rep">${d.rep_name} · ${d.segment} · ${d.deal_id}</span>
           </div>
           <div class="${stallTagClass}"><span class="stall-dot ${stallClass(d.dominant_stall_type)}"></span>${stallType}</div>
           <div class="stage">${d.current_stage}</div>
           <div><span class="pill ${d.trajectory}">${d.trajectory}</span></div>
+          <div>${reviewChip(d.review_status)}</div>
           <div class="acv">${fmt$(d.acv_usd)}</div>
           <div class="chev">▶</div>
         </div>
@@ -1131,6 +1506,33 @@
 
     document.querySelectorAll('.deal-row .deal-head').forEach(head => {
       head.addEventListener('click', () => head.parentElement.classList.toggle('open'));
+    });
+
+    // Feedback button wiring
+    queueEl.querySelectorAll('.fb-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const dealId = btn.dataset.deal;
+        const key = btn.dataset.fb;
+        if (feedback[dealId] === key) {
+          delete feedback[dealId];
+        } else {
+          feedback[dealId] = key;
+        }
+        saveFeedback(feedback);
+        // In-place toggle without full rerender
+        const row = btn.closest('.feedback-row');
+        row.querySelectorAll('.fb-btn').forEach(b => b.classList.toggle('active', b.dataset.fb === feedback[dealId]));
+        let saved = row.querySelector('.fb-saved');
+        if (feedback[dealId] && !saved) {
+          saved = document.createElement('span');
+          saved.className = 'fb-saved';
+          saved.textContent = '· saved locally';
+          row.appendChild(saved);
+        } else if (!feedback[dealId] && saved) {
+          saved.remove();
+        }
+      });
     });
   }
 
@@ -1470,13 +1872,44 @@
       `Of <strong>${h.summary.total_historical_deals}</strong> historical lost deals, <strong>${h.summary.contradictions}</strong> (${h.summary.contradiction_pct}%) had stated loss reasons that contradicted the behavioral evidence. Rows: what the rep logged. Columns: what the behavior actually looked like.`;
   }
 
+  function insightStallFromText(ins) {
+    const hay = ((ins.title || '') + ' ' + (ins.finding || '')).toLowerCase();
+    const map = [
+      { key: 'Champion Collapse', matcher: 'champion collapse' },
+      { key: 'Ghost Stall', matcher: 'ghost stall' },
+      { key: 'Exec Vacuum', matcher: 'exec vacuum' },
+      { key: 'Competitor Displacement', matcher: 'competitor displacement' },
+    ];
+    for (const m of map) if (hay.includes(m.matcher)) return m.key;
+    return null;
+  }
+
   function renderInsights(h) {
-    document.getElementById('insights').innerHTML = h.insights.map(ins => `
-      <div class="insight-card">
+    document.getElementById('insights').innerHTML = h.insights.map((ins, i) => `
+      <div class="insight-card clickable" data-insight-idx="${i}">
         <h3>${ins.title}</h3>
         <p>${ins.finding}</p>
         <div class="implication">${ins.implication}</div>
+        <div class="jump-hint">Click to view matching deals →</div>
       </div>`).join('');
+    document.querySelectorAll('#insights .insight-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const ins = h.insights[+card.dataset.insightIdx];
+        const stallKey = insightStallFromText(ins);
+        if (stallKey) {
+          activeStall = stallKey;
+          xFilterContext = { source: 'insight', label: ins.title + ' (' + stallKey + ')' };
+        } else {
+          activeStall = 'all';
+          xFilterContext = { source: 'insight', label: ins.title };
+        }
+        activeTraj = 'all';
+        activeReview = 'all';
+        switchTab('pipeline');
+        renderFilters(currentData);
+        renderQueue(currentData);
+      });
+    });
   }
 
   function renderSaveRateChart(h) {
@@ -1494,13 +1927,27 @@
         <div style="font-size:11px;color:var(--muted)">% of stalled deals that recovered to a win</div>
       </div>` + entries.map(e => {
         const pct = Math.round(e.rate * 100);
-        return `<div class="save-bar-row">
+        return `<div class="save-bar-row" data-stall="${e.key}">
           <div class="save-bar-label"><span class="stall-dot ${stallClass(e.key)}"></span>${e.key}</div>
           <div class="save-bar-track"><div class="save-bar-fill" style="width:${pct}%"></div></div>
           <div class="save-bar-val">${pct}% <span style="color:var(--muted-2);font-weight:400;font-size:11px">(${e.saved}/${e.saved + e.lost})</span></div>
         </div>`;
       }).join('');
     document.getElementById('save-rate-chart').innerHTML = html;
+    document.querySelectorAll('#save-rate-chart .save-bar-row').forEach(row => {
+      row.classList.add('clickable');
+      row.addEventListener('click', () => {
+        const key = row.dataset.stall;
+        if (!key) return;
+        activeStall = key;
+        activeTraj = 'all';
+        activeReview = 'all';
+        xFilterContext = { source: 'save-rate', label: 'Save rate · ' + key };
+        switchTab('pipeline');
+        renderFilters(currentData);
+        renderQueue(currentData);
+      });
+    });
   }
 
   let compareView = 'chart';
@@ -1569,6 +2016,7 @@
       const resp = await fetch('./dashboard_payload.json', { cache: 'no-cache' });
       if (!resp.ok) throw new Error('HTTP ' + resp.status);
       const fresh = await resp.json();
+      dataReady = true;
       renderAll(fresh);
       showToast('Data refreshed · ' + (fresh.generated_at || 'now'), 'success');
     } catch (err) {
@@ -1596,6 +2044,13 @@
     document.querySelectorAll('#traj-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
     renderQueue(currentData);
   });
+  document.getElementById('review-filters').addEventListener('click', e => {
+    const btn = e.target.closest('.chip');
+    if (!btn) return;
+    activeReview = btn.dataset.review;
+    document.querySelectorAll('#review-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
+    renderQueue(currentData);
+  });
   document.getElementById('refresh-btn').addEventListener('click', refresh);
 
   // Sort header clicks
@@ -1607,14 +2062,14 @@
       activeSort.dir = activeSort.dir === 'desc' ? 'asc' : 'desc';
     } else {
       activeSort.col = col;
-      // Smart default: numeric columns default desc, text columns default asc
-      activeSort.dir = (col === 'acv' || col === 'priority' || col === 'trajectory') ? 'desc' : 'asc';
+      // Smart default: numeric/severity columns default desc, text & rank columns default asc
+      activeSort.dir = (col === 'acv' || col === 'trajectory') ? 'desc' : 'asc';
     }
     renderQueue(currentData);
   });
 
   document.getElementById('sort-reset').addEventListener('click', () => {
-    activeSort = { col: 'priority', dir: 'desc' };
+    activeSort = { col: 'rank', dir: 'asc' };
     renderQueue(currentData);
   });
 
@@ -1627,17 +2082,19 @@
     renderCompareView(currentData.historical);
   });
 
+  function switchTab(target) {
+    document.querySelectorAll('.tab-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.tab === target));
+    document.querySelectorAll('.tab-pane').forEach(p =>
+      p.classList.toggle('active', p.id === 'tab-' + target));
+  }
+
   // Tab switching
   document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.dataset.tab;
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b === btn));
-      document.querySelectorAll('.tab-pane').forEach(p =>
-        p.classList.toggle('active', p.id === 'tab-' + target)
-      );
-    });
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
   });
 
+  dataReady = true;
   renderAll(DATA);
 })();
 </script>
