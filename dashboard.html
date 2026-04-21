@@ -227,6 +227,16 @@
   }
   .agg-stat.alert .agg-value { color: var(--critical); }
   .agg-stat.warn .agg-value { color: var(--at-risk); }
+  .agg-stat.clickable { cursor: pointer; transition: border-color 0.15s, transform 0.1s; }
+  .agg-stat.clickable:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+  .agg-stat .agg-jump {
+    color: var(--muted-2);
+    font-size: 11px;
+    margin-top: 8px;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .agg-stat.clickable:hover .agg-jump { opacity: 1; color: var(--accent); }
   @media (max-width: 900px) { .agg-stats { grid-template-columns: repeat(2, 1fr); } }
 
   /* Search */
@@ -1411,6 +1421,18 @@
     font-size: 12px;
     margin-top: 6px;
   }
+  .exec-pattern-card.clickable { cursor: pointer; transition: border-color 0.15s, transform 0.1s; }
+  .exec-pattern-card.clickable:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+  .exec-pattern-card .epc-jump {
+    color: var(--muted-2);
+    font-size: 11px;
+    margin-top: 6px;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .exec-pattern-card.clickable:hover .epc-jump { opacity: 1; color: var(--accent); }
+  .exec-pattern-card.disabled { opacity: 0.55; }
+  .exec-pattern-card.disabled:hover { border-color: var(--border); transform: none; }
 
   .exec-rep-table {
     width: 100%;
@@ -1807,7 +1829,7 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
   let searchTerm = '';
   let contradictionOnly = false;
   let activeStallCard = null;   // which compact card is expanded on Historical Deal Insights
-  let xFilterContext = null;   // { source: 'insight'|'save-rate'|'stall-card'|'exec-contradiction', label: string }
+  let xFilterContext = null;   // { source: 'insight'|'save-rate'|'stall-card'|'exec-contradiction'|'exec-card'|'exec-stall-card', label: string }
   let dataReady = false;
 
   // Actioned deals — persisted to localStorage for navigation continuity;
@@ -2189,7 +2211,8 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
         activeStall === 'all' ||
         (activeStall === '__none__' && !d.has_intervention) ||
         d.dominant_stall_type === activeStall;
-      const trajMatch = activeTraj === 'all' || d.trajectory === activeTraj;
+      const trajMatch = activeTraj === 'all' ||
+        (Array.isArray(activeTraj) ? activeTraj.includes(d.trajectory) : d.trajectory === activeTraj);
       const reviewMatch = activeReview === 'all' || d.review_status === activeReview;
       const searchMatch = !q ||
         (d.company_name || '').toLowerCase().includes(q) ||
@@ -2365,27 +2388,71 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  function jumpWithFilter(opts) {
+    clearAllFilters();
+    if (opts.stall) activeStall = opts.stall;
+    if (opts.traj) activeTraj = opts.traj;
+    if (opts.review) activeReview = opts.review;
+    if (opts.contradictionOnly) contradictionOnly = true;
+    xFilterContext = opts.label ? { source: opts.source || 'exec-card', label: opts.label } : null;
+    switchTab('pipeline');
+    renderFilters(currentData);
+    renderQueue(currentData);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   function renderExecutiveSummary(data) {
     const deals = allDeals(data);
     const flagged = deals.filter(d => d.has_intervention);
     const agg = data.aggregate_stats || {};
     const atRiskCount = deals.filter(d => d.trajectory === 'at-risk').length;
 
-    // Hero: 5 stat cards
+    // Hero: 5 stat cards — each filters into Active Pipeline on click
     const hero = [
-      { label: 'Total pipeline ACV', value: fmtMoneyShort(agg.total_acv_scored), foot: 'All active deals', kind: 'neutral' },
-      { label: 'ACV at risk',        value: fmtMoneyShort(agg.acv_at_risk),      foot: 'Critical + at-risk',  kind: 'alert' },
-      { label: 'Critical deals',     value: String(agg.critical_count || 0),     foot: 'Need action today',   kind: 'alert' },
-      { label: 'At-risk deals',      value: String(atRiskCount),                 foot: 'Multiple warning signs', kind: 'warn' },
-      { label: 'Contradiction flags',value: String(agg.contradiction_count || 0),foot: 'Notes disagree with data', kind: 'warn' },
+      {
+        label: 'Total pipeline ACV', value: fmtMoneyShort(agg.total_acv_scored),
+        foot: 'All active deals', kind: 'neutral',
+        filter: { label: 'All active deals' },
+      },
+      {
+        label: 'ACV at risk', value: fmtMoneyShort(agg.acv_at_risk),
+        foot: 'Critical + at-risk', kind: 'alert',
+        filter: { traj: ['critical', 'at-risk'], label: 'ACV at risk · critical + at-risk' },
+      },
+      {
+        label: 'Critical deals', value: String(agg.critical_count || 0),
+        foot: 'Need action today', kind: 'alert',
+        filter: { traj: 'critical', label: 'Critical deals' },
+      },
+      {
+        label: 'At-risk deals', value: String(atRiskCount),
+        foot: 'Multiple warning signs', kind: 'warn',
+        filter: { traj: 'at-risk', label: 'At-risk deals' },
+      },
+      {
+        label: 'Contradiction flags', value: String(agg.contradiction_count || 0),
+        foot: 'Notes disagree with data', kind: 'warn',
+        filter: { contradictionOnly: true, label: 'Deals with contradiction flags' },
+      },
     ];
-    document.getElementById('exec-hero').innerHTML = hero.map(c =>
-      `<div class="agg-stat ${c.kind}">
+    document.getElementById('exec-hero').innerHTML = hero.map((c, i) =>
+      `<div class="agg-stat ${c.kind} clickable" data-hero-idx="${i}" role="button" tabindex="0">
          <div class="agg-label">${c.label}</div>
          <div class="agg-value">${c.value}</div>
          <div class="agg-foot">${c.foot}</div>
+         <div class="agg-jump">View in pipeline →</div>
        </div>`
     ).join('');
+    document.querySelectorAll('#exec-hero .agg-stat').forEach(el => {
+      const go = () => {
+        const c = hero[+el.dataset.heroIdx];
+        if (c && c.filter) jumpWithFilter(c.filter);
+      };
+      el.addEventListener('click', go);
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+      });
+    });
 
     // Top 5 deals — flagged, highest composite_priority
     const top5 = [...flagged].sort((a, b) => (b.composite_priority || 0) - (a.composite_priority || 0)).slice(0, 5);
@@ -2427,7 +2494,7 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       });
     }
 
-    // Stall pattern breakdown — 4 compact cards
+    // Stall pattern breakdown — 4 compact cards, each filters into Active Pipeline
     const stallCounts = {};
     flagged.forEach(d => {
       const k = d.dominant_stall_type || 'Unknown';
@@ -2439,16 +2506,28 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       const count = stallCounts[p] || 0;
       const rate = (lib[p] && lib[p].recovery_rate) || 0;
       const pct = Math.round(rate * 100);
-      return `<div class="exec-pattern-card">
+      const cls = count > 0 ? 'clickable' : 'disabled';
+      return `<div class="exec-pattern-card ${cls}" data-pattern="${p}" role="button" tabindex="${count > 0 ? 0 : -1}">
         <div class="epc-head">
           <div class="epc-name"><span class="stall-dot ${stallClass(p)}"></span>${p}</div>
           <div class="epc-count">${count}</div>
         </div>
         <div class="epc-bar"><div class="epc-fill" style="width:${pct}%"></div></div>
         <div class="epc-foot">Recovery rate <strong style="color:var(--text)">${pct}%</strong> historically · ${count === 1 ? '1 flagged deal' : count + ' flagged deals'}</div>
+        ${count > 0 ? '<div class="epc-jump">View these deals →</div>' : ''}
       </div>`;
     }).join('');
     document.getElementById('exec-pattern-grid').innerHTML = patternHtml;
+    document.querySelectorAll('#exec-pattern-grid .exec-pattern-card.clickable').forEach(el => {
+      const go = () => {
+        const p = el.dataset.pattern;
+        jumpWithFilter({ stall: p, label: 'Stall pattern · ' + p, source: 'exec-stall-card' });
+      };
+      el.addEventListener('click', go);
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+      });
+    });
 
     // Rep exposure — top 5
     const repRows = (data.rep_breakdown || []).slice(0, 5);
