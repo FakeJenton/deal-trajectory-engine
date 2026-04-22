@@ -1917,6 +1917,29 @@
     font-family: ui-monospace, Menlo, monospace;
   }
   .exec-rep-table .er-crit strong { color: var(--critical); }
+  .exec-rep-table tbody tr.clickable {
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .exec-rep-table tbody tr.clickable:hover { background: var(--panel-2); }
+  .exec-rep-table tbody tr.clickable:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+  .exec-rep-table .er-jump {
+    text-align: right;
+    color: var(--muted-2);
+    font-size: 11px;
+    width: 1%;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.15s, color 0.15s;
+  }
+  .exec-rep-table tbody tr.clickable:hover .er-jump,
+  .exec-rep-table tbody tr.clickable:focus-visible .er-jump {
+    opacity: 1;
+    color: var(--accent);
+  }
 
   .exec-contradiction-alert {
     background: linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(245,158,11,0.08) 100%);
@@ -3346,18 +3369,30 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
             <th class="er-num">At-risk</th>
             <th class="er-num">ACV at risk</th>
             <th>Dominant pattern</th>
+            <th class="er-jump"></th>
           </tr></thead>
           <tbody>
             ${repRows.map(r => `
-              <tr>
-                <td class="er-name">${r.rep_name}</td>
+              <tr class="clickable" data-rep-name="${escapeHtml(r.rep_name)}" role="button" tabindex="0">
+                <td class="er-name">${escapeHtml(r.rep_name)}</td>
                 <td class="er-num er-crit">${r.critical ? '<strong>' + r.critical + '</strong>' : 0}</td>
                 <td class="er-num">${r.at_risk || 0}</td>
                 <td class="er-num">${fmtMoneyShort(r.acv_at_risk)}</td>
                 <td>${r.top_stall || '—'}</td>
+                <td class="er-jump">View deals →</td>
               </tr>`).join('')}
           </tbody>
         </table>`;
+      document.querySelectorAll('#exec-rep-wrap .exec-rep-table tbody tr.clickable').forEach(el => {
+        const go = () => {
+          const repName = el.dataset.repName;
+          jumpWithFilter({ rep: repName, label: 'Rep · ' + repName, source: 'exec-rep-row' });
+        };
+        el.addEventListener('click', go);
+        el.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+        });
+      });
     }
 
     // Contradiction alert
