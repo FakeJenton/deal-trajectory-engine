@@ -414,21 +414,21 @@ def run_card_generator():
     for card in queue[:20]:
         md = build_markdown_card(card, first_moves[card["deal_id"]])
         safe_name = re.sub(r"[^a-zA-Z0-9_-]", "_", card["deal_id"])
-        with open(cards_dir / f"{safe_name}.md", "w") as f:
+        with open(cards_dir / f"{safe_name}.md", "w", encoding="utf-8") as f:
             f.write(md)
     print(f"  → {min(20, len(queue))} markdown cards written to outputs/cards/")
 
     # Build manager brief
     print("\n[4] Building daily manager brief...")
     brief = build_manager_brief(queue, summary, first_moves)
-    with open(OUTPUT_DIR / "manager_brief.md", "w") as f:
+    with open(OUTPUT_DIR / "manager_brief.md", "w", encoding="utf-8") as f:
         f.write(brief)
     print("  → manager_brief.md written")
 
     # Build dashboard payload
     print("\n[5] Building dashboard payload...")
     payload = build_dashboard_payload(queue, scored_df, summary, first_moves)
-    with open(OUTPUT_DIR / "dashboard_payload.json", "w") as f:
+    with open(OUTPUT_DIR / "dashboard_payload.json", "w", encoding="utf-8") as f:
         # allow_nan=False + pre-sanitize ensures the JSON parses cleanly in
         # build_dashboard.js (which uses strict JSON.parse).
         json.dump(_sanitize_nans(payload), f, indent=2, default=str, allow_nan=False)

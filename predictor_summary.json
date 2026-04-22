@@ -1,89 +1,89 @@
 {
-  "run_timestamp": "2026-04-21 15:03:39",
+  "run_timestamp": "2026-04-22 12:19:56",
   "total_pipeline_deals": 150,
   "trajectory_distribution": {
-    "critical": 69,
-    "healthy": 56,
-    "watch": 20,
-    "at-risk": 5
+    "healthy": 105,
+    "watch": 18,
+    "at-risk": 14,
+    "critical": 13
   },
-  "flagged_deal_count": 74,
-  "flagged_pct": 0.493,
-  "total_acv_scored": 31880700.0,
-  "acv_at_risk": 16132800.0,
-  "acv_at_risk_pct": 0.506,
+  "flagged_deal_count": 27,
+  "flagged_pct": 0.18,
+  "total_acv_scored": 24854100.0,
+  "acv_at_risk": 4549200.0,
+  "acv_at_risk_pct": 0.183,
   "stall_type_distribution": {
-    "Exec Vacuum": 33,
-    "Ghost Stall": 18,
-    "Champion Collapse": 15,
-    "Competitor Displacement": 8
+    "Exec Vacuum": 7,
+    "Champion Collapse": 7,
+    "Ghost Stall": 7,
+    "Competitor Displacement": 6
   },
   "segment_distribution": {
-    "('Enterprise', 'critical')": 25,
-    "('Enterprise', 'at-risk')": 1,
-    "('Mid-Market', 'critical')": 25,
-    "('Mid-Market', 'at-risk')": 3,
-    "('SMB', 'critical')": 19,
-    "('SMB', 'at-risk')": 1
+    "('Enterprise', 'at-risk')": 5,
+    "('Enterprise', 'critical')": 3,
+    "('Mid-Market', 'critical')": 6,
+    "('Mid-Market', 'at-risk')": 4,
+    "('SMB', 'at-risk')": 5,
+    "('SMB', 'critical')": 4
   },
   "reps_with_most_flags": {
-    "David Park": 13,
-    "Sophia Nguyen": 11,
-    "Rachel Kim": 10,
-    "Priya Shah": 8,
-    "Marcus Chen": 7,
-    "James O'Brien": 6,
-    "Nina Petrov": 6,
-    "Emily Rodriguez": 5,
-    "Alex Morgan": 4,
-    "Tyler Brooks": 4
+    "James O'Brien": 5,
+    "Alex Morgan": 3,
+    "Sophia Nguyen": 3,
+    "Tyler Brooks": 3,
+    "Rachel Kim": 3,
+    "David Park": 2,
+    "Nina Petrov": 2,
+    "Marcus Chen": 2,
+    "Emily Rodriguez": 2,
+    "Priya Shah": 2
   },
-  "contradiction_flags": 36,
+  "contradiction_flags": 23,
   "top_5_priority_deals": [
     {
-      "deal_id": "PIPE-2115",
-      "company": "wheeler llc",
-      "acv": 545200.0,
-      "stall": "Competitor Displacement",
+      "deal_id": "PIPE-2128",
+      "company": "mcdowell-doyle",
+      "acv": 309400.0,
+      "stall": "Champion Collapse",
       "trajectory": "critical",
       "priority": 3.0,
-      "top_action": "Accelerate technical validation immediately \u2014 schedule a working session, not a demo"
+      "top_action": "Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours"
     },
     {
-      "deal_id": "PIPE-2132",
-      "company": "Robinson-Brown LLC",
-      "acv": 541400.0,
+      "deal_id": "PIPE-2058",
+      "company": "Serrano-Anderson",
+      "acv": 207800.0,
       "stall": "Exec Vacuum",
       "trajectory": "critical",
       "priority": 3.0,
       "top_action": "Ask the champion directly: 'Who else needs to say yes for this to move forward?' \u2014 then get a warm intro to that person in the same week"
     },
     {
-      "deal_id": "PIPE-2108",
-      "company": "The Jackson, Mcdonald and Greene",
-      "acv": 279400.0,
-      "stall": "Champion Collapse",
-      "trajectory": "critical",
-      "priority": 3.0,
-      "top_action": "Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours"
-    },
-    {
-      "deal_id": "PIPE-2123",
-      "company": "Alexander,OrtizandSutton",
-      "acv": 427200.0,
-      "stall": "Champion Collapse",
-      "trajectory": "critical",
-      "priority": 3.0,
-      "top_action": "Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours"
-    },
-    {
-      "deal_id": "PIPE-2101",
-      "company": NaN,
-      "acv": 598700.0,
+      "deal_id": "PIPE-2079",
+      "company": "Alexander Inc",
+      "acv": 153200.0,
       "stall": "Competitor Displacement",
       "trajectory": "critical",
-      "priority": 3.0,
+      "priority": 2.7924,
       "top_action": "Accelerate technical validation immediately \u2014 schedule a working session, not a demo"
+    },
+    {
+      "deal_id": "PIPE-2095",
+      "company": "Hampton, Jones and Fernandez",
+      "acv": 86700.0,
+      "stall": "Ghost Stall",
+      "trajectory": "critical",
+      "priority": 2.269,
+      "top_action": "Break the email thread \u2014 call, text, or LinkedIn. Change the medium before you change the message."
+    },
+    {
+      "deal_id": "PIPE-2064",
+      "company": "FERRELL LTD",
+      "acv": 74700.0,
+      "stall": "Champion Collapse",
+      "trajectory": "critical",
+      "priority": 2.1365,
+      "top_action": "Immediate multi-thread: identify 2+ additional stakeholders and make warm intro within 48 hours"
     }
   ]
 }

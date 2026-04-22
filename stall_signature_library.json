@@ -1,44 +1,17 @@
 {
   "Champion Collapse": {
     "description": "Deal champion disengages or loses organizational authority mid-cycle. Thread collapses to a single contact with declining responsiveness.",
-    "deal_count": 126,
+    "deal_count": 127,
     "loss_rate": 1.0,
-    "avg_acv": 181660.0,
-    "avg_cycle_days": 87.3,
+    "avg_acv": 238119.0,
+    "avg_cycle_days": 97.3,
     "defining_signals": {
       "email_response_latency_delta_days": {
-        "threshold": 3.42,
+        "threshold": 3.17,
         "direction": "above",
-        "stall_median": 6.54,
-        "healthy_median": 0.3,
-        "cohen_d": 7.476,
-        "p_value": 0.0,
-        "signal_group": "engagement_decay"
-      },
-      "champion_engagement_score_delta": {
-        "threshold": -12.0,
-        "direction": "below",
-        "stall_median": -28.0,
-        "healthy_median": 4.0,
-        "cohen_d": -4.792,
-        "p_value": 0.0,
-        "signal_group": "engagement_decay"
-      },
-      "days_since_multithread_touch": {
-        "threshold": 18.5,
-        "direction": "above",
-        "stall_median": 29.0,
-        "healthy_median": 8.0,
-        "cohen_d": 3.831,
-        "p_value": 0.0,
-        "signal_group": "stakeholder_breadth"
-      },
-      "champion_engagement_score": {
-        "threshold": 55.5,
-        "direction": "below",
-        "stall_median": 38.0,
-        "healthy_median": 73.0,
-        "cohen_d": -3.443,
+        "stall_median": 6.35,
+        "healthy_median": 0.0,
+        "cohen_d": 8.453,
         "p_value": 0.0,
         "signal_group": "engagement_decay"
       },
@@ -47,16 +20,43 @@
         "direction": "below",
         "stall_median": 0.0,
         "healthy_median": 1.0,
-        "cohen_d": -2.132,
+        "cohen_d": -8.05,
         "p_value": 0.0,
         "signal_group": "stakeholder_breadth"
       },
+      "champion_engagement_score_delta": {
+        "threshold": -11.5,
+        "direction": "below",
+        "stall_median": -28.0,
+        "healthy_median": 5.0,
+        "cohen_d": -6.11,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
+      "champion_engagement_score": {
+        "threshold": 57.0,
+        "direction": "below",
+        "stall_median": 34.0,
+        "healthy_median": 80.0,
+        "cohen_d": -4.883,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
       "unique_stakeholders_at_midpoint": {
-        "threshold": 2.5,
+        "threshold": 3.5,
         "direction": "below",
         "stall_median": 1.0,
-        "healthy_median": 4.0,
-        "cohen_d": -2.069,
+        "healthy_median": 6.0,
+        "cohen_d": -4.292,
+        "p_value": 0.0,
+        "signal_group": "stakeholder_breadth"
+      },
+      "days_since_multithread_touch": {
+        "threshold": 16.0,
+        "direction": "above",
+        "stall_median": 26.0,
+        "healthy_median": 6.0,
+        "cohen_d": 4.289,
         "p_value": 0.0,
         "signal_group": "stakeholder_breadth"
       }
@@ -66,42 +66,51 @@
       "champion_engagement_score_delta": 1.0,
       "champion_engagement_score": 1.0,
       "unique_stakeholders_at_midpoint": 1.0,
-      "days_since_multithread_touch": 0.952,
+      "days_since_multithread_touch": 1.0,
       "executive_sponsor_engaged": 1.0
     },
     "top_3_signals": [
       "email_response_latency_delta_days",
-      "champion_engagement_score_delta",
-      "days_since_multithread_touch"
+      "executive_sponsor_engaged",
+      "champion_engagement_score_delta"
     ],
     "segment_prevalence": {
-      "SMB": 0.214,
-      "Mid-Market": 0.172,
-      "Enterprise": 0.18
+      "SMB": 0.173,
+      "Mid-Market": 0.192,
+      "Enterprise": 0.209
     }
   },
   "Competitor Displacement": {
     "description": "A competitor gains foothold in the deal \u2014 often surfacing as pricing pressure, increased objections, and stage regression.",
     "deal_count": 127,
     "loss_rate": 1.0,
-    "avg_acv": 201169.0,
-    "avg_cycle_days": 86.2,
+    "avg_acv": 187249.0,
+    "avg_cycle_days": 86.7,
     "defining_signals": {
+      "discount_pct": {
+        "threshold": 0.15,
+        "direction": "above",
+        "stall_median": 0.28,
+        "healthy_median": 0.02,
+        "cohen_d": 6.723,
+        "p_value": 0.0,
+        "signal_group": "competitive_pressure"
+      },
+      "pricing_objection_raised": {
+        "threshold": 0.5,
+        "direction": "above",
+        "stall_median": 1.0,
+        "healthy_median": 0.0,
+        "cohen_d": 5.926,
+        "p_value": 0.0,
+        "signal_group": "competitive_pressure"
+      },
       "competitive_mentions_count": {
         "threshold": 3.0,
         "direction": "above",
         "stall_median": 5.0,
         "healthy_median": 1.0,
-        "cohen_d": 3.297,
-        "p_value": 0.0,
-        "signal_group": "competitive_pressure"
-      },
-      "discount_pct": {
-        "threshold": 0.17,
-        "direction": "above",
-        "stall_median": 0.28,
-        "healthy_median": 0.06,
-        "cohen_d": 2.468,
+        "cohen_d": 3.421,
         "p_value": 0.0,
         "signal_group": "competitive_pressure"
       },
@@ -110,140 +119,131 @@
         "direction": "above",
         "stall_median": 2.0,
         "healthy_median": 0.0,
-        "cohen_d": 2.149,
-        "p_value": 0.0,
-        "signal_group": "competitive_pressure"
-      },
-      "pricing_objection_raised": {
-        "threshold": 1.0,
-        "direction": "above",
-        "stall_median": 1.0,
-        "healthy_median": 1.0,
-        "cohen_d": 1.378,
+        "cohen_d": 3.265,
         "p_value": 0.0,
         "signal_group": "competitive_pressure"
       },
       "pricing_objection_count": {
-        "threshold": 2.0,
+        "threshold": 1.5,
         "direction": "above",
         "stall_median": 3.0,
-        "healthy_median": 1.0,
-        "cohen_d": 0.982,
+        "healthy_median": 0.0,
+        "cohen_d": 2.505,
         "p_value": 0.0,
         "signal_group": "competitive_pressure"
       }
     },
     "signal_coverage": {
-      "competitive_mentions_count": 0.764,
-      "pricing_objection_raised": 0.0,
-      "pricing_objection_count": 0.567,
-      "stage_regression_count": 0.614,
+      "competitive_mentions_count": 0.78,
+      "pricing_objection_raised": 1.0,
+      "pricing_objection_count": 0.709,
+      "stage_regression_count": 0.709,
       "discount_pct": 1.0
     },
     "top_3_signals": [
-      "competitive_mentions_count",
       "discount_pct",
-      "stage_regression_count"
+      "pricing_objection_raised",
+      "competitive_mentions_count"
     ],
     "segment_prevalence": {
-      "SMB": 0.251,
-      "Mid-Market": 0.241,
-      "Enterprise": 0.207
+      "SMB": 0.234,
+      "Mid-Market": 0.266,
+      "Enterprise": 0.226
     }
   },
   "Ghost Stall": {
     "description": "Prospect goes silent without a stated reason. No activity, no replies, no forward motion. Deal lives in the pipeline but is effectively dead.",
     "deal_count": 126,
     "loss_rate": 1.0,
-    "avg_acv": 201520.0,
-    "avg_cycle_days": 91.4,
+    "avg_acv": 215452.0,
+    "avg_cycle_days": 91.0,
     "defining_signals": {
-      "days_since_last_rep_touch": {
-        "threshold": 13.5,
-        "direction": "above",
-        "stall_median": 23.0,
-        "healthy_median": 4.0,
-        "cohen_d": 3.893,
-        "p_value": 0.0,
-        "signal_group": "engagement_decay"
-      },
-      "days_in_current_stage": {
-        "threshold": 27.0,
-        "direction": "above",
-        "stall_median": 43.0,
-        "healthy_median": 11.0,
-        "cohen_d": 3.641,
-        "p_value": 0.0,
-        "signal_group": "process_velocity"
-      },
-      "days_since_last_activity": {
-        "threshold": 15.75,
-        "direction": "above",
-        "stall_median": 26.5,
-        "healthy_median": 5.0,
-        "cohen_d": 3.404,
+      "email_response_rate": {
+        "threshold": 0.47,
+        "direction": "below",
+        "stall_median": 0.15,
+        "healthy_median": 0.78,
+        "cohen_d": -5.597,
         "p_value": 0.0,
         "signal_group": "engagement_decay"
       },
       "meeting_count_last_30d": {
-        "threshold": 1.5,
+        "threshold": 2.0,
         "direction": "below",
         "stall_median": 0.0,
-        "healthy_median": 3.0,
-        "cohen_d": -3.035,
+        "healthy_median": 4.0,
+        "cohen_d": -4.379,
         "p_value": 0.0,
         "signal_group": "engagement_decay"
       },
-      "email_response_rate": {
-        "threshold": 0.38,
-        "direction": "below",
-        "stall_median": 0.16,
-        "healthy_median": 0.59,
-        "cohen_d": -2.372,
+      "days_since_last_rep_touch": {
+        "threshold": 14.0,
+        "direction": "above",
+        "stall_median": 25.0,
+        "healthy_median": 3.0,
+        "cohen_d": 4.231,
+        "p_value": 0.0,
+        "signal_group": "engagement_decay"
+      },
+      "days_in_current_stage": {
+        "threshold": 24.75,
+        "direction": "above",
+        "stall_median": 41.5,
+        "healthy_median": 8.0,
+        "cohen_d": 4.203,
+        "p_value": 0.0,
+        "signal_group": "process_velocity"
+      },
+      "days_since_last_activity": {
+        "threshold": 14.0,
+        "direction": "above",
+        "stall_median": 25.0,
+        "healthy_median": 3.0,
+        "cohen_d": 3.523,
         "p_value": 0.0,
         "signal_group": "engagement_decay"
       }
     },
     "signal_coverage": {
       "email_response_rate": 1.0,
-      "days_since_last_rep_touch": 0.937,
-      "days_since_last_activity": 0.865,
+      "days_since_last_rep_touch": 0.881,
+      "days_since_last_activity": 0.897,
       "meeting_count_last_30d": 1.0,
-      "days_in_current_stage": 0.905
+      "days_in_current_stage": 1.0
     },
     "top_3_signals": [
-      "days_since_last_rep_touch",
-      "days_in_current_stage",
-      "days_since_last_activity"
+      "email_response_rate",
+      "meeting_count_last_30d",
+      "days_since_last_rep_touch"
     ],
     "segment_prevalence": {
-      "SMB": 0.233,
-      "Mid-Market": 0.284,
-      "Enterprise": 0.243
+      "SMB": 0.178,
+      "Mid-Market": 0.201,
+      "Enterprise": 0.192
     }
   },
   "Exec Vacuum": {
     "description": "Deal is confined to IC-level champion with no economic buyer visibility. Budget decisions happen above the champion's authority level.",
     "deal_count": 153,
     "loss_rate": 1.0,
-    "avg_acv": 236006.0,
-    "avg_cycle_days": 98.0,
+    "avg_acv": 202145.0,
+    "avg_cycle_days": 95.8,
     "defining_signals": {
       "executive_sponsor_engaged": {
         "threshold": 0.5,
         "direction": "below",
         "stall_median": 0.0,
         "healthy_median": 1.0,
-        "cohen_d": -2.132,
+        "cohen_d": -8.05,
         "p_value": 0.0,
         "signal_group": "stakeholder_breadth"
       },
       "economic_buyer_meetings": {
-        "threshold": 1.0,
+        "threshold": 2.0,
         "direction": "below",
         "stall_median": 0.0,
-        "healthy_median": 2.0,
-        "cohen_d": -1.588,
+        "healthy_median": 4.0,
+        "cohen_d": -4.514,
         "p_value": 0.0,
         "signal_group": "stakeholder_breadth"
       }
@@ -257,9 +257,9 @@
       "economic_buyer_meetings"
     ],
     "segment_prevalence": {
-      "SMB": 0.6,
-      "Mid-Market": 0.621,
-      "Enterprise": 0.631
+      "SMB": 0.402,
+      "Mid-Market": 0.435,
+      "Enterprise": 0.483
     }
   }
 }

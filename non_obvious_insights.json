@@ -1,21 +1,21 @@
 [
   {
     "title": "Discounting under competitive pressure is anti-correlated with winning",
-    "finding": "In Competitor Displacement deals, lost deals had an average discount of 26.9% vs 24.5% in won deals. Higher discounts did not improve win rates \u2014 they may signal that reps are conceding price when they should be competing on value.",
+    "finding": "In Competitor Displacement deals, lost deals had an average discount of 22.8% vs 4.2% in won deals. Higher discounts did not improve win rates \u2014 they may signal that reps are conceding price when they should be competing on value.",
     "implication": "Consider tightening discount approval in competitive deals and investing the saved margin in accelerated technical validation instead.",
-    "effect_size": -0.595,
+    "effect_size": -2.326,
     "category": "pricing"
   },
   {
-    "title": "Mid-Market has the highest rate of misattributed loss reasons",
-    "finding": "31.9% of Mid-Market lost deals have a stated loss reason that contradicts the behavioral evidence. This is higher than other segments, suggesting Mid-Market reps are more likely to default to 'price' or 'timing' without accurately diagnosing why the deal actually failed.",
-    "implication": "Loss reason analysis for this segment is systematically unreliable. CRM-based competitive intelligence from this segment may be misleading.",
-    "category": "data_quality"
+    "title": "Exec Vacuum hits Enterprise hardest among lost deals",
+    "finding": "48% of lost Enterprise deals show Exec Vacuum behavioral signals, compared with SMB (40%) and Mid-Market (44%). Enterprise Exec Vacuum deals look legitimate on paper (VP-level champion, multi-stakeholder) but the true economic buyer sits one or two levels above \u2014 reps overestimate champion authority.",
+    "implication": "Enterprise deal reviews should require named economic-buyer engagement before Proposal Sent, not at Negotiation.",
+    "category": "segmentation"
   },
   {
-    "title": "Ghost Stall has a 9-day intervention window before recovery becomes unlikely",
-    "finding": "Won deals showing Ghost Stall signals intervened (re-established contact) when the deal had been in-stage for a median of 9 days. Lost deals with the same signals had a median of 34 days in-stage \u2014 suggesting reps wait too long before escalating.",
-    "implication": "Ghost Stall alerts should trigger at day 5 in-stage, not day 34. Current rep behavior is acting on the signal too late to recover.",
-    "category": "timing"
+    "title": "Enterprise has the highest rate of misattributed loss reasons",
+    "finding": "28.2% of Enterprise lost deals have a stated loss reason that contradicts the behavioral evidence. This is higher than other segments, suggesting Enterprise reps are more likely to default to 'price' or 'timing' without accurately diagnosing why the deal actually failed.",
+    "implication": "Loss reason analysis for this segment is systematically unreliable. CRM-based competitive intelligence from this segment may be misleading.",
+    "category": "data_quality"
   }
 ]

@@ -1,102 +1,102 @@
 [
   {
     "signal": "days_since_last_activity",
-    "importance": 0.1345,
-    "std": 0.0086
+    "importance": 0.2231,
+    "std": 0.0113
   },
   {
     "signal": "executive_sponsor_engaged",
-    "importance": 0.0786,
-    "std": 0.0076
-  },
-  {
-    "signal": "competitive_mentions_count",
-    "importance": 0.0277,
-    "std": 0.005
-  },
-  {
-    "signal": "champion_engagement_score",
-    "importance": 0.0263,
-    "std": 0.0044
-  },
-  {
-    "signal": "email_response_latency_delta_days",
-    "importance": 0.0263,
-    "std": 0.0038
-  },
-  {
-    "signal": "sales_cycle_days",
-    "importance": 0.0217,
-    "std": 0.0033
-  },
-  {
-    "signal": "champion_engagement_score_delta",
-    "importance": 0.0216,
-    "std": 0.0035
+    "importance": 0.104,
+    "std": 0.0073
   },
   {
     "signal": "intent_score",
-    "importance": 0.0177,
+    "importance": 0.0217,
+    "std": 0.002
+  },
+  {
+    "signal": "sales_cycle_days",
+    "importance": 0.0199,
     "std": 0.0016
   },
   {
-    "signal": "days_in_current_stage",
-    "importance": 0.0175,
+    "signal": "days_to_first_exec_engagement",
+    "importance": 0.017,
+    "std": 0.0021
+  },
+  {
+    "signal": "email_response_latency_delta_days",
+    "importance": 0.0142,
+    "std": 0.0019
+  },
+  {
+    "signal": "economic_buyer_meetings",
+    "importance": 0.0134,
+    "std": 0.0027
+  },
+  {
+    "signal": "champion_engagement_score_delta",
+    "importance": 0.0104,
+    "std": 0.0017
+  },
+  {
+    "signal": "champion_engagement_score",
+    "importance": 0.0099,
+    "std": 0.0019
+  },
+  {
+    "signal": "email_response_rate",
+    "importance": 0.0089,
     "std": 0.002
   },
   {
     "signal": "days_since_multithread_touch",
-    "importance": 0.0126,
-    "std": 0.0024
+    "importance": 0.0075,
+    "std": 0.0016
   },
   {
-    "signal": "email_response_rate",
-    "importance": 0.0123,
-    "std": 0.002
-  },
-  {
-    "signal": "discount_pct",
-    "importance": 0.0097,
-    "std": 0.0026
+    "signal": "technical_validation_complete",
+    "importance": 0.0066,
+    "std": 0.0025
   },
   {
     "signal": "days_to_proposal",
-    "importance": 0.0086,
-    "std": 0.0022
-  },
-  {
-    "signal": "unique_stakeholders_at_midpoint",
-    "importance": 0.0085,
-    "std": 0.0017
-  },
-  {
-    "signal": "multithread_attempt_count",
-    "importance": 0.0073,
-    "std": 0.0015
-  },
-  {
-    "signal": "stage_regression_count",
-    "importance": 0.0064,
-    "std": 0.0019
-  },
-  {
-    "signal": "days_to_first_exec_engagement",
-    "importance": 0.0056,
-    "std": 0.0023
-  },
-  {
-    "signal": "stage_change_count",
-    "importance": 0.0047,
-    "std": 0.0019
+    "importance": 0.0059,
+    "std": 0.001
   },
   {
     "signal": "days_since_last_rep_touch",
-    "importance": 0.0046,
-    "std": 0.0014
+    "importance": 0.0057,
+    "std": 0.0019
   },
   {
-    "signal": "legal_review_started",
+    "signal": "discount_pct",
+    "importance": 0.0043,
+    "std": 0.0012
+  },
+  {
+    "signal": "unique_stakeholders_at_midpoint",
+    "importance": 0.0043,
+    "std": 0.0012
+  },
+  {
+    "signal": "days_in_current_stage",
+    "importance": 0.0041,
+    "std": 0.0015
+  },
+  {
+    "signal": "meeting_count_last_30d",
+    "importance": 0.0038,
+    "std": 0.0012
+  },
+  {
+    "signal": "multithread_attempt_count",
     "importance": 0.003,
-    "std": 0.0013
+    "std": 0.0
+  },
+  {
+    "signal": "proposal_sent",
+    "importance": 0.0025,
+    "std": 0.0008
   }
 ]

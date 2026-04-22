@@ -217,12 +217,15 @@ def rep_notes_template(outcome, stall_type=None, competitor=None):
 # CORE RECORD BUILDER
 # ─────────────────────────────────────────────
 
-def build_deal(deal_id, closed=True, outcome=None, force_stall=None):
+def build_deal(deal_id, closed=True, outcome=None, force_stall=None, stall_severity="full"):
     """
     Build one deal record.
     closed=True  → historical deal (has outcome)
     closed=False → active pipeline deal (no outcome yet)
     force_stall  → inject a specific stall signature into behavioral fields
+    stall_severity → "full" (all signals breach thresholds hard) or "partial"
+                     (some signals breach lightly; simulates a deal showing
+                     early warning signs but not yet in deep trouble)
     """
     segment = random.choice(SEGMENTS)
     industry = random.choice(INDUSTRIES)
@@ -242,7 +245,10 @@ def build_deal(deal_id, closed=True, outcome=None, force_stall=None):
     acv_ranges = {"SMB": (8000, 35000), "Mid-Market": (35000, 150000), "Enterprise": (150000, 800000)}
     acv = round(random.uniform(*acv_ranges[segment]), -2)
 
-    discount_pct = round(random.uniform(0, 0.30), 2) if random.random() > 0.4 else 0.0
+    # Healthy baseline discount — most deals close at list or a small negotiation discount.
+    # Kept below the Competitor Displacement threshold (~0.16) so random price flex
+    # doesn't masquerade as competitive pressure.
+    discount_pct = round(random.uniform(0, 0.10), 2) if random.random() > 0.4 else 0.0
     net_acv = round(acv * (1 - discount_pct), -2)
 
     cycle_days_base = {"SMB": 30, "Mid-Market": 75, "Enterprise": 160}[segment]
@@ -253,37 +259,47 @@ def build_deal(deal_id, closed=True, outcome=None, force_stall=None):
 
     # ── Behavioral signals ──────────────────────────────
 
-    # Defaults for a healthy deal
+    # Defaults for a healthy deal. Ranges are tuned to sit clearly on the
+    # healthy side of the data-derived stall thresholds so that random noise
+    # in otherwise-healthy deals doesn't trip Critical tags in the scorer.
     email_resp_latency_start = round(random.uniform(0.5, 2.5), 1)
-    email_resp_latency_end = round(random.uniform(0.5, 3.0), 1)
-    unique_stakeholders = random.randint(2, 8)
-    stakeholders_at_midpoint = max(1, unique_stakeholders - random.randint(0, 2))
-    days_since_multithread = random.randint(1, 15)
-    days_since_last_activity = random.randint(0, 10)
-    days_since_last_rep_touch = random.randint(0, 8)
+    email_resp_latency_end = round(random.uniform(0.5, 2.5), 1)
+    unique_stakeholders = random.randint(4, 8)
+    stakeholders_at_midpoint = max(3, unique_stakeholders - random.randint(0, 1))
+    days_since_multithread = random.randint(1, 10)
+    days_since_last_activity = random.randint(0, 7)
+    days_since_last_rep_touch = random.randint(0, 6)
     call_frequency = round(random.uniform(0.5, 3.0), 1)
     total_calls = random.randint(3, 20)
     total_emails_sent = random.randint(10, 60)
-    total_emails_received = random.randint(5, total_emails_sent)
+    total_emails_received = random.randint(max(6, int(total_emails_sent * 0.55)), total_emails_sent)
     email_response_rate = round(total_emails_received / total_emails_sent, 2)
     meeting_count = random.randint(2, 12)
-    meeting_count_last_30d = random.randint(1, 5)
+    meeting_count_last_30d = random.randint(2, 5)
     demo_count = random.randint(1, 4)
     proposal_sent = random.choice([True, False])
     days_to_proposal = random.randint(10, 45) if proposal_sent else None
-    days_in_current_stage = random.randint(3, 20)
-    stage_regression_count = random.randint(0, 1)
-    stage_change_count = random.randint(2, 6)
-    champion_engagement_score = random.randint(55, 95)
-    champion_engagement_score_delta = random.randint(-10, 15)
+    days_in_current_stage = random.randint(3, 14)
+    stage_regression_count = 0 if random.random() < 0.9 else 1
+    # Keep stage progression modest so healthy deals don't compute as "overdue"
+    # under urgency weighting (which applies a 1.5x multiplier once a deal's
+    # estimated elapsed time exceeds the expected cycle for its segment).
+    stage_change_count = random.randint(2, 4)
+    champion_engagement_score = random.randint(65, 95)
+    champion_engagement_score_delta = random.randint(-5, 15)
     competitive_mentions_count = random.randint(0, 2)
-    pricing_objection_raised = random.choice([True, False])
+    # Healthy deals rarely have unresolved pricing objections — keep the rate low
+    # so ordinary deals don't trip Competitor Displacement signals.
+    pricing_objection_raised = random.random() < 0.08
     technical_validation_complete = random.choice([True, False])
     security_review_complete = random.choice([True, False])
     legal_review_started = random.choice([True, False])
-    executive_sponsor_engaged = random.choice([True, True, False])
-    days_to_first_exec_engagement = random.randint(5, 35) if executive_sponsor_engaged else None
-    economic_buyer_meetings = random.randint(1, 5) if executive_sponsor_engaged else 0
+    # Healthy deals reliably have exec alignment. Both Exec Vacuum binary signals
+    # (exec sponsor + economic buyer meetings) must stay clean so noise doesn't
+    # fabricate a 2-of-2 stall score on otherwise healthy deals.
+    executive_sponsor_engaged = random.random() < 0.98
+    days_to_first_exec_engagement = random.randint(5, 25) if executive_sponsor_engaged else None
+    economic_buyer_meetings = random.randint(2, 5)
     nps_score = maybe_null(random.randint(6, 10))
     intent_score = maybe_null(random.randint(50, 95))
     website_visits_last_30d = random.randint(2, 25)
@@ -294,33 +310,65 @@ def build_deal(deal_id, closed=True, outcome=None, force_stall=None):
     # ── Override behavioral signals based on stall signature ──
 
     stall_type = force_stall
+    partial = stall_severity == "partial"
     if stall_type == "Champion Collapse":
-        email_resp_latency_end = jitter(email_resp_latency_start + 6.5)
-        stakeholders_at_midpoint = 1
-        days_since_multithread = random.randint(18, 40)
-        champion_engagement_score_delta = random.randint(-35, -20)
-        champion_engagement_score = random.randint(20, 50)
-        executive_sponsor_engaged = False
-        days_to_first_exec_engagement = None
+        if partial:
+            # Early warning: latency creeping up, thread narrowing, engagement slipping
+            email_resp_latency_end = jitter(email_resp_latency_start + random.uniform(2.5, 4.0))
+            stakeholders_at_midpoint = random.randint(1, 2)
+            days_since_multithread = random.randint(10, 18)
+            champion_engagement_score_delta = random.randint(-18, -8)
+            champion_engagement_score = random.randint(45, 65)
+        else:
+            email_resp_latency_end = jitter(email_resp_latency_start + 6.5)
+            stakeholders_at_midpoint = 1
+            days_since_multithread = random.randint(18, 40)
+            champion_engagement_score_delta = random.randint(-35, -20)
+            champion_engagement_score = random.randint(20, 50)
+            executive_sponsor_engaged = False
+            days_to_first_exec_engagement = None
     elif stall_type == "Competitor Displacement":
-        competitive_mentions_count = random.randint(3, 7)
-        pricing_objection_raised = True
-        days_since_last_activity = random.randint(10, 20)
-        stage_regression_count = random.randint(1, 3)
-        discount_pct = round(random.uniform(0.20, 0.35), 2)
+        if partial:
+            competitive_mentions_count = random.randint(2, 3)
+            pricing_objection_raised = random.choice([True, False])
+            days_since_last_activity = random.randint(6, 11)
+            stage_regression_count = random.randint(0, 1)
+            discount_pct = round(random.uniform(0.12, 0.22), 2)
+        else:
+            competitive_mentions_count = random.randint(3, 7)
+            pricing_objection_raised = True
+            days_since_last_activity = random.randint(10, 20)
+            stage_regression_count = random.randint(1, 3)
+            discount_pct = round(random.uniform(0.20, 0.35), 2)
     elif stall_type == "Ghost Stall":
-        days_since_last_rep_touch = random.randint(12, 35)
-        email_response_rate = round(random.uniform(0.05, 0.25), 2)
-        meeting_count_last_30d = 0
-        days_in_current_stage = random.randint(25, 60)
-        days_since_last_activity = random.randint(12, 40)
-        total_emails_received = max(1, int(total_emails_sent * email_response_rate))
+        if partial:
+            days_since_last_rep_touch = random.randint(8, 13)
+            email_response_rate = round(random.uniform(0.25, 0.45), 2)
+            meeting_count_last_30d = random.randint(0, 1)
+            days_in_current_stage = random.randint(18, 28)
+            days_since_last_activity = random.randint(8, 14)
+            total_emails_received = max(1, int(total_emails_sent * email_response_rate))
+        else:
+            days_since_last_rep_touch = random.randint(12, 35)
+            email_response_rate = round(random.uniform(0.05, 0.25), 2)
+            meeting_count_last_30d = 0
+            days_in_current_stage = random.randint(25, 60)
+            days_since_last_activity = random.randint(12, 40)
+            total_emails_received = max(1, int(total_emails_sent * email_response_rate))
     elif stall_type == "Exec Vacuum":
-        executive_sponsor_engaged = False
-        days_to_first_exec_engagement = None
-        economic_buyer_meetings = 0
-        champion_seniority = "IC"
-        champion_title = random.choice(["Data Engineer", "Senior Data Engineer", "Analytics Engineer"])
+        if partial:
+            # Early warning: exec is engaged but late / shallow. Only one of the
+            # two binary signals trips so we stay in the watch band, not critical.
+            executive_sponsor_engaged = True
+            days_to_first_exec_engagement = random.randint(25, 45)
+            economic_buyer_meetings = random.randint(0, 1)
+            champion_seniority = random.choice(["IC", "Manager"])
+        else:
+            executive_sponsor_engaged = False
+            days_to_first_exec_engagement = None
+            economic_buyer_meetings = 0
+            champion_seniority = "IC"
+            champion_title = random.choice(["Data Engineer", "Senior Data Engineer", "Analytics Engineer"])
 
     # ── Outcome and labels ──────────────────────────────────
 
@@ -567,20 +615,28 @@ def generate_active_pipeline(n=150):
     records = []
     deal_counter = 2000
 
-    # Mix of healthy deals and deals showing stall signals
-    stall_mix = (
-        [None] * 55 +                          # healthy (~37%)
-        ["Champion Collapse"] * 24 +
-        ["Competitor Displacement"] * 24 +
-        ["Ghost Stall"] * 24 +
-        ["Exec Vacuum"] * 23
-    )
-    random.shuffle(stall_mix)
-    stall_mix = stall_mix[:n]
+    # Pipeline mix for a company performing well: most deals are healthy,
+    # a chunk are showing early-warning signals (partial stall → watch / at-risk),
+    # and a small tail are in real trouble (full stall → critical).
+    # Targets roughly: ~50% healthy, ~30% watch, ~13% at-risk, ~7% critical —
+    # matching the shape of a well-run enterprise SaaS pipeline.
+    healthy_count  = 85
+    partial_count  = 50
+    full_count     = 15
+    stall_types    = ["Champion Collapse", "Competitor Displacement", "Ghost Stall", "Exec Vacuum"]
 
-    for i, stall in enumerate(stall_mix):
+    entries = [(None, "full")] * healthy_count
+    for i in range(partial_count):
+        entries.append((stall_types[i % len(stall_types)], "partial"))
+    for i in range(full_count):
+        entries.append((stall_types[i % len(stall_types)], "full"))
+
+    random.shuffle(entries)
+    entries = entries[:n]
+
+    for i, (stall, severity) in enumerate(entries):
         deal_id = f"PIPE-{deal_counter + i}"
-        rec = build_deal(deal_id, closed=False, force_stall=stall)
+        rec = build_deal(deal_id, closed=False, force_stall=stall, stall_severity=severity)
         # Remove outcome fields that wouldn't exist on active deals
         rec["outcome"] = None
         rec["stated_loss_reason"] = None
