@@ -435,6 +435,61 @@
   .rep-section.open .rep-section-head .chev { transform: rotate(90deg); }
   .rep-section-body { display: none; padding: 16px 20px 22px; }
   .rep-section.open .rep-section-body { display: block; }
+  .rep-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+  .rep-sort-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .rep-sort-group select {
+    background: var(--panel-3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .rep-sort-group select:hover { border-color: var(--accent); }
+  .rep-sort-group button {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .rep-sort-group button:hover { border-color: var(--accent); }
+  .rep-active-pill {
+    font-size: 11px;
+    color: var(--accent);
+    background: rgba(110,231,255,0.08);
+    border: 1px solid rgba(110,231,255,0.25);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-weight: 500;
+  }
+  .rep-active-pill[hidden] { display: none; }
+  .rep-empty {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 14px;
+    text-align: center;
+    background: var(--panel-3);
+    border-radius: 8px;
+  }
   .rep-table { width: 100%; border-collapse: collapse; font-size: 13px; }
   .rep-table th, .rep-table td {
     padding: 10px 12px;
@@ -448,11 +503,54 @@
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
+  .rep-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s;
+  }
+  .rep-table th.sortable:hover { color: var(--text); }
+  .rep-table th.sortable.active { color: var(--accent); }
+  .rep-table th .sort-arrow { font-size: 10px; margin-left: 4px; opacity: 0.7; }
+  .rep-table tbody tr {
+    cursor: pointer;
+    transition: background 0.12s;
+  }
   .rep-table tbody tr:hover { background: var(--panel-2); }
+  .rep-table tbody tr.active {
+    background: rgba(110,231,255,0.07);
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+  .rep-table tbody tr.active:hover { background: rgba(110,231,255,0.11); }
   .rep-table .num { text-align: right; font-variant-numeric: tabular-nums; font-family: ui-monospace, Menlo, monospace; }
   .rep-table .rep-name-cell { color: var(--text); font-weight: 600; }
   .rep-table .acv-cell { color: var(--text); font-weight: 600; }
   .rep-table .crit-cell strong { color: var(--critical); }
+  .rep-check {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    border: 1.5px solid var(--border-strong);
+    margin-right: 8px;
+    vertical-align: -3px;
+    position: relative;
+    transition: all 0.12s;
+  }
+  tr.active .rep-check {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+  tr.active .rep-check::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    font-size: 10px;
+    font-weight: 700;
+  }
 
   /* "See active deals" button on stall pattern cards */
   .see-active-btn {
@@ -1925,16 +2023,20 @@
     <div class="viz-grid" id="pipeline-viz"></div>
 
     <div class="section-title">Filter by stall pattern</div>
-    <div class="section-hint">A stall pattern is the specific way a deal is losing momentum. Click one to see only those deals.</div>
+    <div class="section-hint">A stall pattern is the specific way a deal is losing momentum. Click chips to toggle — select more than one to combine patterns. "All" clears the group.</div>
     <div class="filters" id="stall-filters"></div>
 
     <div class="section-title">Filter by health</div>
-    <div class="section-hint">Critical = needs action today. At-risk = multiple warning signs. Watch = minor signals. Healthy = on track.</div>
+    <div class="section-hint">Critical = needs action today. At-risk = multiple warning signs. Watch = minor signals. Healthy = on track. Select multiple to combine — e.g. Critical + At-risk.</div>
     <div class="filters" id="traj-filters"></div>
 
     <div class="section-title">Filter by confidence</div>
-    <div class="section-hint">Auto = system is confident in this recommendation. Caution = worth a sanity check before acting. Escalate = manager review required — do not act autonomously.</div>
+    <div class="section-hint">Auto = system is confident in this recommendation. Caution = worth a sanity check before acting. Escalate = manager review required. Combine Caution + Escalate to surface everything that needs a human eye.</div>
     <div class="filters" id="review-filters"></div>
+
+    <div class="section-title">Filter by rep</div>
+    <div class="section-hint">Click a rep to see only their deals. Click multiple to combine — e.g. coach two at-risk reps side by side.</div>
+    <div class="filters" id="rep-filters"></div>
 
     <div class="search-wrap">
       <input type="text" class="search-input" id="search-input" placeholder="Search by company, rep, or deal ID..." autocomplete="off" />
@@ -2024,9 +2126,18 @@
   const pretty = s => (s || '').replace(/_/g, ' ');
 
   let currentData = DATA;
-  let activeStall = 'all';
-  let activeTraj = 'all';
-  let activeReview = 'all';
+  // Filter state: empty Set means "All" (no filter). Each Set holds one or more
+  // selected values so users can combine filters like "at-risk + watch".
+  let activeStall = new Set();
+  let activeTraj = new Set();
+  let activeReview = new Set();
+  let activeRep = new Set();
+  function toFilterSet(v) {
+    if (v == null) return new Set();
+    if (v instanceof Set) return new Set(v);
+    if (Array.isArray(v)) return new Set(v);
+    return new Set([v]);
+  }
   let searchTerm = '';
   let contradictionOnly = false;
   let activeStallCard = null;   // which compact card is expanded on Historical Deal Insights
@@ -2120,9 +2231,17 @@
 
   }
 
+  // A chip is "active" when its key is in the filter set. The "all" chip is
+  // active only when the set is empty (the default / cleared state).
+  function chipActive(set, key) {
+    if (key === 'all') return set.size === 0;
+    return set.has(key);
+  }
+
   function renderFilters(data) {
     const stats = data.signal_stats;
-    const total = allDeals(data).length;
+    const deals = allDeals(data);
+    const total = deals.length;
 
     const stallCounts = stats.stall_type_distribution;
     const healthyCount = (data.non_flagged_deals || []).length;
@@ -2130,7 +2249,7 @@
       .concat(Object.keys(stallCounts).map(k => ({ key: k, label: k, count: stallCounts[k] })))
       .concat(healthyCount > 0 ? [{ key: '__none__', label: 'No Stall Signal', count: healthyCount }] : []);
     document.getElementById('stall-filters').innerHTML = stallFilters.map(f =>
-      `<button class="chip ${f.key === activeStall ? 'active' : ''}" data-stall="${f.key}">
+      `<button class="chip ${chipActive(activeStall, f.key) ? 'active' : ''}" data-stall="${f.key}">
          ${f.label}<span class="ct">${f.count}</span>
        </button>`
     ).join('');
@@ -2140,13 +2259,12 @@
     const trajFilters = [{ key: 'all', label: 'All', count: total }]
       .concat(trajOrder.filter(k => trajCounts[k]).map(k => ({ key: k, label: k, count: trajCounts[k] })));
     document.getElementById('traj-filters').innerHTML = trajFilters.map(f =>
-      `<button class="chip ${f.key === activeTraj ? 'active' : ''}" data-traj="${f.key}">
+      `<button class="chip ${chipActive(activeTraj, f.key) ? 'active' : ''}" data-traj="${f.key}">
          ${f.label}<span class="ct">${f.count}</span>
        </button>`
     ).join('');
 
     // Review status filters — count from enriched deals
-    const deals = allDeals(data);
     const revCounts = { auto: 0, caution: 0, escalate: 0 };
     deals.forEach(d => { if (d.review_status) revCounts[d.review_status] = (revCounts[d.review_status] || 0) + 1; });
     const revOrder = [
@@ -2156,10 +2274,28 @@
       { key: 'escalate', label: 'Escalate', count: revCounts.escalate },
     ];
     document.getElementById('review-filters').innerHTML = revOrder.map(f =>
-      `<button class="chip ${f.key === activeReview ? 'active' : ''}" data-review="${f.key}">
+      `<button class="chip ${chipActive(activeReview, f.key) ? 'active' : ''}" data-review="${f.key}">
          ${f.label}<span class="ct">${f.count}</span>
        </button>`
     ).join('');
+
+    // Rep filters — one chip per rep present in the pipeline, sorted by deal count
+    const repWrap = document.getElementById('rep-filters');
+    if (repWrap) {
+      const repCounts = {};
+      deals.forEach(d => {
+        if (d.rep_name) repCounts[d.rep_name] = (repCounts[d.rep_name] || 0) + 1;
+      });
+      const repList = Object.entries(repCounts)
+        .sort((a, b) => b[1] - a[1])
+        .map(([name, count]) => ({ key: name, label: name, count }));
+      const repFilters = [{ key: 'all', label: 'All reps', count: total }].concat(repList);
+      repWrap.innerHTML = repFilters.map(f =>
+        `<button class="chip ${chipActive(activeRep, f.key) ? 'active' : ''}" data-rep="${f.key}">
+           ${f.label}<span class="ct">${f.count}</span>
+         </button>`
+      ).join('');
+    }
   }
 
   function renderReviewBlock(d) {
@@ -2408,19 +2544,18 @@
     const deals = allDeals(data);
     const q = searchTerm.trim().toLowerCase();
     return deals.filter(d => {
-      const stallMatch =
-        activeStall === 'all' ||
-        (activeStall === '__none__' && !d.has_intervention) ||
-        d.dominant_stall_type === activeStall;
-      const trajMatch = activeTraj === 'all' ||
-        (Array.isArray(activeTraj) ? activeTraj.includes(d.trajectory) : d.trajectory === activeTraj);
-      const reviewMatch = activeReview === 'all' || d.review_status === activeReview;
+      const stallMatch = activeStall.size === 0 ||
+        activeStall.has(d.dominant_stall_type) ||
+        (activeStall.has('__none__') && !d.has_intervention);
+      const trajMatch = activeTraj.size === 0 || activeTraj.has(d.trajectory);
+      const reviewMatch = activeReview.size === 0 || activeReview.has(d.review_status);
+      const repMatch = activeRep.size === 0 || activeRep.has(d.rep_name);
       const searchMatch = !q ||
         (d.company_name || '').toLowerCase().includes(q) ||
         (d.rep_name || '').toLowerCase().includes(q) ||
         (d.deal_id || '').toLowerCase().includes(q);
       const contrMatch = !contradictionOnly || !!d.note_contradiction;
-      return stallMatch && trajMatch && reviewMatch && searchMatch && contrMatch;
+      return stallMatch && trajMatch && reviewMatch && repMatch && searchMatch && contrMatch;
     });
   }
 
@@ -2434,12 +2569,14 @@
       </div>`;
     document.getElementById('xf-clear').addEventListener('click', () => {
       xFilterContext = null;
-      activeStall = 'all';
-      activeTraj = 'all';
-      activeReview = 'all';
+      activeStall.clear();
+      activeTraj.clear();
+      activeReview.clear();
+      activeRep.clear();
       contradictionOnly = false;
       renderFilters(currentData);
       renderQueue(currentData);
+      renderRepBreakdown(currentData);
     });
   }
 
@@ -2504,32 +2641,136 @@
     });
   }
 
+  // Rep breakdown view state — sort column + direction, plus a local search
+  let repSort = { col: 'acv_at_risk', dir: 'desc' };
+  const REP_SORT_LABELS = {
+    acv_at_risk: 'ACV at risk',
+    critical: 'Critical count',
+    at_risk: 'At-risk count',
+    rep_name: 'Rep name',
+  };
+
   function renderRepBreakdown(data) {
     const rows = data.rep_breakdown || [];
     const body = document.getElementById('rep-section-body');
     if (!rows.length) {
-      body.innerHTML = '<div style="color:var(--muted);font-size:13px">No reps have flagged deals.</div>';
+      body.innerHTML = '<div class="rep-empty">No reps have flagged deals.</div>';
       return;
     }
+
+    // Sort a copy so we don't mutate the payload; all numeric columns default to desc
+    const sorted = [...rows].sort((a, b) => {
+      const col = repSort.col;
+      const av = a[col], bv = b[col];
+      if (col === 'rep_name') {
+        return repSort.dir === 'desc'
+          ? String(bv || '').localeCompare(String(av || ''))
+          : String(av || '').localeCompare(String(bv || ''));
+      }
+      const an = Number(av) || 0, bn = Number(bv) || 0;
+      return repSort.dir === 'desc' ? bn - an : an - bn;
+    });
+
+    const activeCount = activeRep.size;
+    const arrow = (col) => col === repSort.col
+      ? `<span class="sort-arrow">${repSort.dir === 'desc' ? '▼' : '▲'}</span>`
+      : '';
+    const activeCls = (col) => col === repSort.col ? 'active' : '';
+
     body.innerHTML = `
+      <div class="rep-controls">
+        <div class="rep-sort-group">
+          <span>Sort by</span>
+          <select id="rep-sort-select" aria-label="Sort reps by">
+            ${Object.entries(REP_SORT_LABELS).map(([k, label]) =>
+              `<option value="${k}" ${k === repSort.col ? 'selected' : ''}>${label}</option>`
+            ).join('')}
+          </select>
+          <button type="button" id="rep-sort-dir" title="Toggle sort direction">
+            ${repSort.dir === 'desc' ? '▼ High → low' : '▲ Low → high'}
+          </button>
+        </div>
+        <div class="rep-sort-group">
+          <span class="rep-active-pill" ${activeCount > 0 ? '' : 'hidden'}>
+            ${activeCount} rep${activeCount === 1 ? '' : 's'} filtered
+          </span>
+          <button type="button" id="rep-clear-btn" ${activeCount > 0 ? '' : 'hidden'}>Clear rep filter</button>
+        </div>
+      </div>
       <table class="rep-table">
         <thead><tr>
-          <th>Rep</th>
-          <th class="num">Critical</th>
-          <th class="num">At-risk</th>
-          <th class="num">ACV at risk</th>
+          <th class="sortable ${activeCls('rep_name')}" data-rep-sort="rep_name">Rep ${arrow('rep_name')}</th>
+          <th class="num sortable ${activeCls('critical')}" data-rep-sort="critical">Critical ${arrow('critical')}</th>
+          <th class="num sortable ${activeCls('at_risk')}" data-rep-sort="at_risk">At-risk ${arrow('at_risk')}</th>
+          <th class="num sortable ${activeCls('acv_at_risk')}" data-rep-sort="acv_at_risk">ACV at risk ${arrow('acv_at_risk')}</th>
           <th>Most common pattern</th>
         </tr></thead>
-        <tbody>${rows.map(r => `
-          <tr>
-            <td class="rep-name-cell">${r.rep_name}</td>
+        <tbody>${sorted.map(r => {
+          const isActive = activeRep.has(r.rep_name);
+          return `<tr class="${isActive ? 'active' : ''}" data-rep-row="${r.rep_name}" title="Click to ${isActive ? 'remove' : 'add'} ${r.rep_name} from the pipeline filter">
+            <td class="rep-name-cell"><span class="rep-check"></span>${r.rep_name}</td>
             <td class="num crit-cell">${r.critical ? '<strong>' + r.critical + '</strong>' : 0}</td>
             <td class="num">${r.at_risk || 0}</td>
             <td class="num acv-cell">${fmtMoneyShort(r.acv_at_risk)}</td>
             <td>${r.top_stall || '—'}${r.top_stall_count > 1 ? ' <span style="color:var(--muted);font-size:11px">(' + r.top_stall_count + '×)</span>' : ''}</td>
-          </tr>`).join('')}
+          </tr>`;
+        }).join('')}
         </tbody>
       </table>`;
+
+    // Wire sort select + direction toggle
+    const selectEl = document.getElementById('rep-sort-select');
+    if (selectEl) {
+      selectEl.addEventListener('change', e => {
+        repSort.col = e.target.value;
+        // Strings default to ascending, numbers to descending — feels natural
+        repSort.dir = (repSort.col === 'rep_name') ? 'asc' : 'desc';
+        renderRepBreakdown(currentData);
+      });
+    }
+    const dirBtn = document.getElementById('rep-sort-dir');
+    if (dirBtn) {
+      dirBtn.addEventListener('click', () => {
+        repSort.dir = repSort.dir === 'desc' ? 'asc' : 'desc';
+        renderRepBreakdown(currentData);
+      });
+    }
+    // Clickable column headers
+    body.querySelectorAll('.rep-table th.sortable').forEach(th => {
+      th.addEventListener('click', () => {
+        const col = th.dataset.repSort;
+        if (repSort.col === col) {
+          repSort.dir = repSort.dir === 'desc' ? 'asc' : 'desc';
+        } else {
+          repSort.col = col;
+          repSort.dir = (col === 'rep_name') ? 'asc' : 'desc';
+        }
+        renderRepBreakdown(currentData);
+      });
+    });
+    // Clickable rows toggle the rep filter — clicking stays in place and
+    // updates the pipeline above so the user can see the effect immediately.
+    body.querySelectorAll('.rep-table tbody tr').forEach(tr => {
+      tr.addEventListener('click', () => {
+        const name = tr.dataset.repRow;
+        if (!name) return;
+        toggleFilterChip(activeRep, name);
+        renderFilters(currentData);
+        renderQueue(currentData);
+        renderRepBreakdown(currentData);
+      });
+    });
+    // Clear-rep-filter button
+    const clearBtn = document.getElementById('rep-clear-btn');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        activeRep.clear();
+        renderFilters(currentData);
+        renderQueue(currentData);
+        renderRepBreakdown(currentData);
+      });
+    }
   }
 
   // Plain-English 1–2 sentence synopsis from stall_score + signal_coverage + top evidence
@@ -2575,9 +2816,10 @@
 
   // ---------- Navigation helpers for Executive Summary ----------
   function clearAllFilters() {
-    activeStall = 'all';
-    activeTraj = 'all';
-    activeReview = 'all';
+    activeStall.clear();
+    activeTraj.clear();
+    activeReview.clear();
+    activeRep.clear();
     contradictionOnly = false;
     searchTerm = '';
     const si = document.getElementById('search-input');
@@ -2615,14 +2857,16 @@
 
   function jumpWithFilter(opts) {
     clearAllFilters();
-    if (opts.stall) activeStall = opts.stall;
-    if (opts.traj) activeTraj = opts.traj;
-    if (opts.review) activeReview = opts.review;
+    if (opts.stall) activeStall = toFilterSet(opts.stall);
+    if (opts.traj) activeTraj = toFilterSet(opts.traj);
+    if (opts.review) activeReview = toFilterSet(opts.review);
+    if (opts.rep) activeRep = toFilterSet(opts.rep);
     if (opts.contradictionOnly) contradictionOnly = true;
     xFilterContext = opts.label ? { source: opts.source || 'exec-card', label: opts.label } : null;
     switchTab('pipeline');
     renderFilters(currentData);
     renderQueue(currentData);
+    renderRepBreakdown(currentData);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
@@ -3147,15 +3391,7 @@
       btn.addEventListener('click', e => {
         e.stopPropagation();
         const stallType = btn.dataset.seeActive;
-        activeStall = stallType;
-        activeTraj = 'all';
-        activeReview = 'all';
-        contradictionOnly = false;
-        xFilterContext = { source: 'stall-card', label: 'Pattern · ' + stallType };
-        switchTab('pipeline');
-        renderFilters(currentData);
-        renderQueue(currentData);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        jumpWithFilter({ stall: stallType, label: 'Pattern · ' + stallType, source: 'stall-card' });
       });
     });
     document.querySelectorAll('.stall-detail-panel .detail-toggle').forEach(btn => {
@@ -3318,18 +3554,11 @@
       card.addEventListener('click', () => {
         const ins = h.insights[+card.dataset.insightIdx];
         const stallKey = insightStallFromText(ins);
-        if (stallKey) {
-          activeStall = stallKey;
-          xFilterContext = { source: 'insight', label: ins.title + ' (' + stallKey + ')' };
-        } else {
-          activeStall = 'all';
-          xFilterContext = { source: 'insight', label: ins.title };
-        }
-        activeTraj = 'all';
-        activeReview = 'all';
-        switchTab('pipeline');
-        renderFilters(currentData);
-        renderQueue(currentData);
+        jumpWithFilter({
+          stall: stallKey || undefined,
+          label: stallKey ? ins.title + ' (' + stallKey + ')' : ins.title,
+          source: 'insight',
+        });
       });
     });
   }
@@ -3361,13 +3590,7 @@
       row.addEventListener('click', () => {
         const key = row.dataset.stall;
         if (!key) return;
-        activeStall = key;
-        activeTraj = 'all';
-        activeReview = 'all';
-        xFilterContext = { source: 'save-rate', label: 'Save rate · ' + key };
-        switchTab('pipeline');
-        renderFilters(currentData);
-        renderQueue(currentData);
+        jumpWithFilter({ stall: key, label: 'Save rate · ' + key, source: 'save-rate' });
       });
     });
   }
@@ -3456,27 +3679,48 @@
     }
   }
 
+  // Toggle a value in a filter set: the "all" chip clears the set, any other
+  // chip adds (or removes if already present) so multi-select works naturally.
+  function toggleFilterChip(set, key) {
+    if (key === 'all') { set.clear(); return; }
+    if (set.has(key)) set.delete(key); else set.add(key);
+  }
   document.getElementById('stall-filters').addEventListener('click', e => {
     const btn = e.target.closest('.chip');
     if (!btn) return;
-    activeStall = btn.dataset.stall;
-    document.querySelectorAll('#stall-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
+    toggleFilterChip(activeStall, btn.dataset.stall);
+    renderFilters(currentData);
     renderQueue(currentData);
+    renderRepBreakdown(currentData);
   });
   document.getElementById('traj-filters').addEventListener('click', e => {
     const btn = e.target.closest('.chip');
     if (!btn) return;
-    activeTraj = btn.dataset.traj;
-    document.querySelectorAll('#traj-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
+    toggleFilterChip(activeTraj, btn.dataset.traj);
+    renderFilters(currentData);
     renderQueue(currentData);
+    renderRepBreakdown(currentData);
   });
   document.getElementById('review-filters').addEventListener('click', e => {
     const btn = e.target.closest('.chip');
     if (!btn) return;
-    activeReview = btn.dataset.review;
-    document.querySelectorAll('#review-filters .chip').forEach(c => c.classList.toggle('active', c === btn));
+    toggleFilterChip(activeReview, btn.dataset.review);
+    renderFilters(currentData);
     renderQueue(currentData);
+    renderRepBreakdown(currentData);
   });
+  // Rep filter chips (delegated so we don't crash if the element is missing)
+  const repFiltersEl = document.getElementById('rep-filters');
+  if (repFiltersEl) {
+    repFiltersEl.addEventListener('click', e => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      toggleFilterChip(activeRep, btn.dataset.rep);
+      renderFilters(currentData);
+      renderQueue(currentData);
+      renderRepBreakdown(currentData);
+    });
+  }
   document.getElementById('refresh-btn').addEventListener('click', refresh);
 
   // Export modal — download raw source files for deep-dive analysis
