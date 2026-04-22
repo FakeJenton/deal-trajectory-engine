@@ -207,6 +207,8 @@ def _signal_label(signal: str, val: float, threshold: float, direction: str, sta
             f"Only {val*100:.0f}% of emails getting replies (threshold: {threshold*100:.0f}%)",
         "days_since_last_rep_touch":
             f"Last rep outreach was {val:.0f} days ago (threshold: {threshold:.0f}d)",
+        "days_since_last_activity":
+            f"No activity on the deal for {val:.0f} days (threshold: {threshold:.0f}d)",
         "days_in_current_stage":
             f"Deal has been stuck in current stage for {val:.0f} days (threshold: {threshold:.0f}d)",
         "meeting_count_last_30d":
@@ -227,6 +229,8 @@ def _signal_label(signal: str, val: float, threshold: float, direction: str, sta
             f"No executive sponsor engaged (required by this stage for recovery likelihood)",
         "pricing_objection_count":
             f"{val:.0f} pricing objections raised (threshold: {threshold:.0f})",
+        "pricing_objection_raised":
+            f"Pricing objection has been raised on this deal",
     }
     return templates.get(signal, f"{signal} = {val:.2f} (threshold: {threshold:.2f})")
 

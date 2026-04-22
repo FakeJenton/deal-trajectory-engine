@@ -76,12 +76,48 @@
      strip so a new viewer knows where to look and in what order. Replaces
      the flat prose intro-banner on each tab. */
   .tour-banner {
+    position: relative;
     background: linear-gradient(135deg, rgba(110,231,255,0.09) 0%, rgba(192,132,252,0.07) 100%);
     border: 1px solid var(--border-strong);
     border-radius: 12px;
     padding: 20px 24px;
     margin-bottom: 26px;
   }
+  .tour-banner.hidden { display: none; }
+  .tour-banner .tb-dismiss {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .tour-banner .tb-dismiss:hover {
+    background: rgba(255,255,255,0.06);
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .tour-show-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  .tour-show-btn:hover { color: var(--text); border-color: var(--border-strong); }
+  .tour-show-btn.hidden { display: none; }
   .tour-banner .tb-kicker {
     display: inline-block;
     background: rgba(110,231,255,0.15);
@@ -1135,6 +1171,31 @@
     width: auto;
     display: inline-block;
   }
+  .deal-body .action-card .action-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .deal-body .action-card .copy-draft-btn {
+    font-size: 12px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted-1);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .deal-body .action-card .copy-draft-btn:hover {
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .deal-body .action-card .copy-draft-btn.copied {
+    color: var(--good);
+    border-color: rgba(58,188,150,0.45);
+  }
 
   /* Compact review pill — replaces the old full-width review block */
   .deal-body .review-pill-row {
@@ -1875,14 +1936,28 @@
   }
   .exec-pattern-card.clickable { cursor: pointer; transition: border-color 0.15s, transform 0.1s; }
   .exec-pattern-card.clickable:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+  .exec-pattern-card .epc-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 11px;
+  }
   .exec-pattern-card .epc-jump {
     color: var(--muted-2);
-    font-size: 11px;
-    margin-top: 6px;
     opacity: 0;
     transition: opacity 0.15s;
   }
+  .exec-pattern-card .epc-jump-muted { opacity: 0.6; }
   .exec-pattern-card.clickable:hover .epc-jump { opacity: 1; color: var(--accent); }
+  .exec-pattern-card .epc-playbook {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(110,231,255,0.45);
+    cursor: pointer;
+    padding: 2px 0;
+  }
+  .exec-pattern-card .epc-playbook:hover { border-bottom-color: var(--accent); }
   .exec-pattern-card.disabled { opacity: 0.55; }
   .exec-pattern-card.disabled:hover { border-color: var(--border); transform: none; }
 
@@ -2227,7 +2302,9 @@
 </nav>
 <main>
   <div class="tab-pane active" id="tab-executive">
-    <div class="tour-banner">
+    <button class="tour-show-btn hidden" data-tour-show="executive">Show how-to-read guide</button>
+    <div class="tour-banner" data-tour-id="executive">
+      <button class="tb-dismiss" data-tour-dismiss="executive" type="button" title="Hide this guide">Hide guide ✕</button>
       <div class="tb-kicker">Start here · 3-minute scan</div>
       <div class="tb-title">What needs your attention right now, in the order that matters.</div>
       <div class="tb-steps">
@@ -2266,7 +2343,9 @@
   </div>
 
   <div class="tab-pane" id="tab-pipeline">
-    <div class="tour-banner">
+    <button class="tour-show-btn hidden" data-tour-show="pipeline">Show how-to-read guide</button>
+    <div class="tour-banner" data-tour-id="pipeline">
+      <button class="tb-dismiss" data-tour-dismiss="pipeline" type="button" title="Hide this guide">Hide guide ✕</button>
       <div class="tb-kicker">How to use this page</div>
       <div class="tb-title">Every active deal, ranked by how urgently it needs attention.</div>
       <div class="tb-steps">
@@ -2276,8 +2355,6 @@
         <div class="tb-step" data-n="4"><strong>Escalate first.</strong> Rows tagged <em>Escalate</em> or <em>Notes conflict</em> need a human call before you act on them.</div>
       </div>
     </div>
-
-    <div class="agg-stats" id="agg-stats"></div>
 
     <div class="viz-grid" id="pipeline-viz"></div>
 
@@ -2364,7 +2441,9 @@
   </div>
 
   <div class="tab-pane" id="tab-historical">
-    <div class="tour-banner">
+    <button class="tour-show-btn hidden" data-tour-show="historical">Show how-to-read guide</button>
+    <div class="tour-banner" data-tour-id="historical">
+      <button class="tb-dismiss" data-tour-dismiss="historical" type="button" title="Hide this guide">Hide guide ✕</button>
       <div class="tb-kicker">What's on this page</div>
       <div class="tb-title">Use this when you want to understand the model — why a deal was flagged, or to coach a rep on the underlying patterns.</div>
       <div class="tb-steps">
@@ -2411,7 +2490,29 @@
 (function () {
   const fmt$ = n => '$' + Math.round(n).toLocaleString();
   const fmtM = n => '$' + (n / 1_000_000).toFixed(1) + 'M';
-  const pretty = s => (s || '').replace(/_/g, ' ');
+  // Human-readable labels for raw behavioral signal field names. The underlying
+  // data keeps snake_case for stability, but nothing user-facing should render
+  // it. Unknown signals fall back to space-separated for forward compatibility.
+  const SIGNAL_LABELS = {
+    email_response_latency_delta_days: 'Response latency trend',
+    email_response_rate: 'Email response rate',
+    champion_engagement_score: 'Champion engagement score',
+    champion_engagement_score_delta: 'Champion engagement trend',
+    days_since_last_rep_touch: 'Days since last rep outreach',
+    days_since_last_activity: 'Days since any activity',
+    days_in_current_stage: 'Days stuck in current stage',
+    days_since_multithread_touch: 'Days since multi-thread touch',
+    meeting_count_last_30d: 'Meetings in last 30 days',
+    unique_stakeholders_at_midpoint: 'Stakeholders at midpoint',
+    competitive_mentions_count: 'Competitor mentions',
+    discount_pct: 'Discount %',
+    stage_regression_count: 'Stage regressions',
+    economic_buyer_meetings: 'Economic-buyer meetings',
+    executive_sponsor_engaged: 'Executive sponsor engaged',
+    pricing_objection_count: 'Pricing objections raised',
+    pricing_objection_raised: 'Pricing objection raised',
+  };
+  const pretty = s => SIGNAL_LABELS[s] || (s || '').replace(/_/g, ' ');
 
   let currentData = DATA;
   // Filter state: empty Set means "All" (no filter). Each Set holds one or more
@@ -2652,9 +2753,15 @@
     const status = d.review_status || 'auto';
     const reason = d.review_reason || '';
     const labels = { auto: 'Auto-recommend', caution: 'Sanity-check first', escalate: 'Escalate to manager' };
+    const tips = {
+      auto: 'Confidence \u2265 80% and signals align with a known stall pattern. Run the recommended play as-is.',
+      caution: 'Confidence is moderate or signals are partial. Sanity-check the evidence before acting.',
+      escalate: 'Rep notes conflict with the data or confidence is low. Have a human review before coaching.',
+    };
+    const tip = tips[status] || '';
     return `
       <div class="block review-pill-row">
-        <span class="review-pill review-${status}">${labels[status] || status}</span>
+        <span class="review-pill review-${status}" title="${escapeHtml(tip)}">${labels[status] || status}</span>
         ${reason ? `<span class="review-pill-note">${escapeHtml(reason)}</span>` : ''}
       </div>`;
   }
@@ -2772,13 +2879,17 @@
     const draftLabel = action
       ? `<div class="draft-label">Drafted first move — for ${escapeHtml(d.rep_name || 'rep')}</div>`
       : '';
+    const copyPayload = (d.first_move || '').replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1');
+    const copyBtn = copyPayload
+      ? `<button class="copy-draft-btn" data-copy-draft="${d.deal_id}" data-copy-text="${escapeHtml(copyPayload)}" type="button">\u29C9 Copy draft</button>`
+      : '';
     const actionCard = `
       <div class="action-card">
         <div class="action-head">${actionHead}</div>
         ${rationale}
         ${draftLabel}
         <div class="first-move">${firstMoveHtml}</div>
-        ${renderActionButton(d)}
+        <div class="action-row">${renderActionButton(d)}${copyBtn}</div>
       </div>`;
 
     const contrBlock = renderContradictionExplain(d);
@@ -2889,8 +3000,14 @@
         arrow.textContent = '';
       }
     });
-    document.getElementById('sort-label').textContent =
-      SORT_LABELS[activeSort.col] + ' (' + (activeSort.dir === 'desc' ? 'high → low' : 'low → high') + ')';
+    // "priority rank (low \u2192 high)" was confusing since rank #1 is the most
+    // urgent — a low rank number means high priority. Drop the direction
+    // suffix for priority rank and phrase it as "top deals first".
+    const sortLbl = SORT_LABELS[activeSort.col];
+    const dirSuffix = activeSort.col === 'rank'
+      ? (activeSort.dir === 'asc' ? ' (top deals first)' : ' (reverse)')
+      : ' (' + (activeSort.dir === 'desc' ? 'high \u2192 low' : 'low \u2192 high') + ')';
+    document.getElementById('sort-label').textContent = sortLbl + dirSuffix;
   }
 
   function filterDeals(data) {
@@ -2936,9 +3053,13 @@
   }
 
   function renderAggStats(data) {
+    // The five hero stat cards that used to render here duplicated the
+    // Executive Summary. The Pipeline tab now leads with the health
+    // stacked bar — the stats live on the Executive Summary tab.
+    const host = document.getElementById('agg-stats');
+    if (!host) return;
     const a = data.aggregate_stats || {};
     const atRiskCount = allDeals(data).filter(d => d.trajectory === 'at-risk').length;
-    // Same five cards as Executive Summary — each is clickable-as-filter
     const cells = [
       {
         label: 'Total pipeline ACV',
@@ -3255,11 +3376,19 @@
         foot: 'Multiple warning signs', kind: 'warn',
         filter: { traj: 'at-risk', label: 'At-risk deals' },
       },
-      {
-        label: 'Contradiction flags', value: String(agg.contradiction_count || 0),
-        foot: 'Notes disagree with data', kind: 'warn',
-        filter: { contradictionOnly: true, label: 'Deals with contradiction flags' },
-      },
+      (() => {
+        const contrs = allDeals(data).filter(d => d.note_contradiction);
+        const names = contrs.slice(0, 2).map(d => d.company_name || '').filter(Boolean);
+        const extra = contrs.length - names.length;
+        const footBase = names.length
+          ? names.join(', ') + (extra > 0 ? ', +' + extra + ' more' : '')
+          : 'Notes disagree with data';
+        return {
+          label: 'Contradiction flags', value: String(agg.contradiction_count || 0),
+          foot: footBase, kind: 'warn',
+          filter: { contradictionOnly: true, label: 'Deals with contradiction flags' },
+        };
+      })(),
     ];
     document.getElementById('exec-hero').innerHTML = hero.map((c, i) =>
       `<div class="agg-stat ${c.kind} clickable" data-hero-idx="${i}" role="button" tabindex="0">
@@ -3340,18 +3469,45 @@
         </div>
         <div class="epc-bar"><div class="epc-fill" style="width:${pct}%"></div></div>
         <div class="epc-foot">Recovery rate <strong style="color:var(--text)">${pct}%</strong> historically · ${count === 1 ? '1 flagged deal' : count + ' flagged deals'}</div>
-        ${count > 0 ? '<div class="epc-jump">View these deals →</div>' : ''}
+        <div class="epc-links">
+          ${count > 0 ? '<span class="epc-jump">View these deals \u2192</span>' : '<span class="epc-jump epc-jump-muted">No flagged deals</span>'}
+          <a class="epc-playbook" data-playbook-pattern="${p}" role="button" tabindex="0">See playbook \u2192</a>
+        </div>
       </div>`;
     }).join('');
     document.getElementById('exec-pattern-grid').innerHTML = patternHtml;
     document.querySelectorAll('#exec-pattern-grid .exec-pattern-card.clickable').forEach(el => {
-      const go = () => {
+      const go = (e) => {
+        // Let the See-playbook link handle its own click so we don't
+        // double-fire into the Active Pipeline jump.
+        if (e && e.target && e.target.closest('.epc-playbook')) return;
         const p = el.dataset.pattern;
         jumpWithFilter({ stall: p, label: 'Stall pattern · ' + p, source: 'exec-stall-card' });
       };
       el.addEventListener('click', go);
       el.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(e); }
+      });
+    });
+    // See-playbook links jump to Historical Deal Insights and open that
+    // pattern's detail panel. Available on both clickable and disabled cards.
+    document.querySelectorAll('#exec-pattern-grid .epc-playbook').forEach(link => {
+      const openPlaybook = () => {
+        const pattern = link.dataset.playbookPattern;
+        switchTab('historical');
+        setTimeout(() => {
+          const card = document.querySelector(`#stall-library .stall-compact[data-stall="${pattern}"]`);
+          if (card) {
+            if (!card.classList.contains('active')) card.click();
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }, 60);
+      };
+      link.addEventListener('click', (e) => { e.stopPropagation(); openPlaybook(); });
+      link.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); openPlaybook(); }
       });
     });
 
@@ -3487,6 +3643,42 @@
       });
     });
 
+    // Copy-draft button: puts the drafted first-move message on the
+    // clipboard so reps can paste into email / LinkedIn without
+    // fighting highlight-and-copy.
+    queueEl.querySelectorAll('.copy-draft-btn').forEach(btn => {
+      btn.addEventListener('click', async e => {
+        e.stopPropagation();
+        const text = btn.dataset.copyText || '';
+        const flash = (label) => {
+          const original = btn.textContent;
+          btn.textContent = label;
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove('copied');
+          }, 1600);
+        };
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(text);
+          } else {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+          }
+          flash('\u2713 Copied');
+        } catch (_) {
+          flash('Copy failed');
+        }
+      });
+    });
+
     // Feedback button wiring
     queueEl.querySelectorAll('.fb-btn').forEach(btn => {
       btn.addEventListener('click', e => {
@@ -3604,14 +3796,18 @@
 
   function renderHistStats(h) {
     const s = h.summary;
-    const totalRecovered = Object.values(h.stall_library).reduce((a, v) => a + (v.recovered_deal_count || 0), 0);
-    const totalStalled = Object.values(h.stall_library).reduce((a, v) => a + (v.lost_deal_count || 0) + (v.recovered_deal_count || 0), 0);
-    const recoveryRate = totalStalled ? Math.round(totalRecovered / totalStalled * 100) : 0;
+    // Old header showed "Saved deals: 645 / Past deals studied: 662" which
+    // read as a 97% recovery rate — contradicting the per-pattern recovery
+    // rates (26–31%) shown on the cards below. Saved-deals counts across
+    // patterns overlap (a deal can match multiple patterns), so headlining
+    // the raw total misleads. We now surface scale + data-quality facts only.
+    const contrPct = s.contradiction_pct != null
+      ? (Math.round(s.contradiction_pct * 10) / 10)
+      : null;
     const stats = [
-      { label: 'Past deals we studied', value: s.total_historical_deals.toLocaleString(), foot: 'Closed Won or Lost' },
-      { label: 'Saved deals', value: totalRecovered.toLocaleString(), foot: 'Stalled, then recovered to a win' },
-      { label: 'Overall save rate', value: recoveryRate + '%', foot: 'Across all stall patterns' },
-      { label: 'Patterns found', value: Object.keys(h.stall_library).length, foot: 'Learned from the data, not preset' },
+      { label: 'Past deals we studied', value: s.total_historical_deals.toLocaleString(), foot: 'Closed Won or Lost — the training set' },
+      { label: 'Stall patterns identified', value: Object.keys(h.stall_library).length, foot: 'Learned from the data, not preset' },
+      { label: 'Notes vs. data conflicts', value: (s.contradictions || 0).toLocaleString() + (contrPct != null ? ' (' + contrPct + '%)' : ''), foot: 'Lost deals where the stated reason didn\u2019t match the behavior' },
     ];
     document.getElementById('hist-stats').innerHTML = stats.map(s =>
       `<div class="stat ${s.alert ? 'alert' : ''}">
@@ -4203,6 +4399,42 @@
     switchTab(link.dataset.gotoTab);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // Tour-banner dismiss + restore. Preference persists per-tab in localStorage
+  // so a returning user sees them collapsed, but can always reopen them.
+  const TOUR_KEY = 'dte.tour.hidden';
+  function getHiddenTours() {
+    try { return new Set(JSON.parse(localStorage.getItem(TOUR_KEY) || '[]')); }
+    catch (_) { return new Set(); }
+  }
+  function setHiddenTours(set) {
+    try { localStorage.setItem(TOUR_KEY, JSON.stringify([...set])); } catch (_) {}
+  }
+  function applyTourState() {
+    const hidden = getHiddenTours();
+    document.querySelectorAll('.tour-banner[data-tour-id]').forEach(el => {
+      el.classList.toggle('hidden', hidden.has(el.dataset.tourId));
+    });
+    document.querySelectorAll('.tour-show-btn[data-tour-show]').forEach(el => {
+      el.classList.toggle('hidden', !hidden.has(el.dataset.tourShow));
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const hide = e.target.closest('[data-tour-dismiss]');
+    const show = e.target.closest('[data-tour-show]');
+    if (hide) {
+      const set = getHiddenTours();
+      set.add(hide.dataset.tourDismiss);
+      setHiddenTours(set);
+      applyTourState();
+    } else if (show) {
+      const set = getHiddenTours();
+      set.delete(show.dataset.tourShow);
+      setHiddenTours(set);
+      applyTourState();
+    }
+  });
+  applyTourState();
 
   dataReady = true;
   renderAll(DATA);
