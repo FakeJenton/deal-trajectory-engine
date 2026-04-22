@@ -3685,11 +3685,11 @@
           <div class="p-action">${step.action}</div>
           <div class="p-rationale">${step.rationale}</div>
         </div>`).join('');
-      const segments = Object.entries(lib.segment_loss_rate || {}).map(([seg, rate]) => `
+      const segments = Object.entries(lib.segment_prevalence || {}).map(([seg, rate]) => `
         <div class="segment-cell">
           <div class="s-label">${seg}</div>
           <div class="s-value">${Math.round(rate * 100)}%</div>
-          <div class="s-foot">loss rate when present</div>
+          <div class="s-foot">of lost ${seg} deals show this pattern</div>
         </div>`).join('');
       const timingNote = lib.timing_insights
         ? `<div class="block"><h4>When to intervene</h4><div class="historical">${lib.timing_insights.note} Saved deals caught this pattern around <strong>${lib.timing_insights.avg_days_in_stage_at_stall.recovered} days</strong> into the stage on average — lost deals didn't see action until <strong>${lib.timing_insights.avg_days_in_stage_at_stall.lost} days</strong>.</div></div>`

@@ -363,6 +363,36 @@ def build_stall_signature_library(df: pd.DataFrame, patterns: dict) -> dict:
         # Rank defining signals by effect size
         ranked_signals = sorted(thresholds.items(), key=lambda x: abs(x[1]["cohen_d"]), reverse=True)
 
+        # Segment prevalence — "of all the lost deals in this segment, what share
+        # exhibit this pattern behaviorally?" Answers "who does this hit hardest"
+        # with segment-differentiating values. We behavioral-match every lost
+        # deal against the thresholds (≥40% of defining signals hit counts as
+        # "exhibits the pattern") rather than using injected_stall_signature,
+        # which would only reflect how stalls were synthetically seeded.
+        def _match_fraction(row):
+            checked = 0
+            hits = 0
+            for sig, m in thresholds.items():
+                v = row.get(sig)
+                if pd.isna(v):
+                    continue
+                checked += 1
+                if m["direction"] == "above" and float(v) > m["threshold"]:
+                    hits += 1
+                elif m["direction"] == "below" and float(v) < m["threshold"]:
+                    hits += 1
+            return (hits / checked) if checked > 0 else 0.0
+
+        segment_prevalence = {}
+        if thresholds:
+            lost = df[df["is_won"] == 0].copy()
+            lost["_match"] = lost.apply(_match_fraction, axis=1)
+            for seg in ["SMB", "Mid-Market", "Enterprise"]:
+                seg_lost = lost[lost["segment"] == seg]
+                if len(seg_lost) >= 3:
+                    share = (seg_lost["_match"] >= 0.4).mean()
+                    segment_prevalence[seg] = round(float(share), 3)
+
         library[stall_type] = {
             "description":      _stall_descriptions()[stall_type],
             "deal_count":       int(len(stall_deals)),
@@ -372,13 +402,7 @@ def build_stall_signature_library(df: pd.DataFrame, patterns: dict) -> dict:
             "defining_signals": {k: v for k, v in ranked_signals[:8]},
             "signal_coverage":  coverage_stats,
             "top_3_signals":    [k for k, _ in ranked_signals[:3]],
-            "segment_loss_rate": {
-                seg: round(float(
-                    (stall_deals[stall_deals["segment"] == seg]["is_won"] == 0).mean()
-                ), 3)
-                for seg in ["SMB", "Mid-Market", "Enterprise"]
-                if len(stall_deals[stall_deals["segment"] == seg]) >= 3
-            },
+            "segment_prevalence": segment_prevalence,
         }
 
     print(f"[signatures] Built library for {len(library)} stall types")
@@ -749,8 +773,34 @@ def extract_non_obvious_insights(df: pd.DataFrame, patterns: dict,
     won  = df[df["is_won"] == 1]
     lost = df[df["is_won"] == 0]
 
+    # Behavioral-match helper: flag deals whose signals match a stall signature
+    # at ≥40% of defining-signal coverage. This is the honest membership test
+    # for "deal exhibits this pattern" — `injected_stall_signature` only reflects
+    # how stalls were synthetically seeded (lost deals only), so using it for any
+    # cross-outcome comparison produces degenerate (all-zero) numbers.
+    def behavioral_matches(stall_type: str) -> pd.DataFrame:
+        lib = signature_library.get(stall_type, {})
+        thresholds = lib.get("defining_signals") or {}
+        if not thresholds:
+            return df.iloc[0:0]
+        def _frac(row):
+            checked = 0
+            hits = 0
+            for sig, m in thresholds.items():
+                v = row.get(sig)
+                if pd.isna(v):
+                    continue
+                checked += 1
+                if m["direction"] == "above" and float(v) > m["threshold"]:
+                    hits += 1
+                elif m["direction"] == "below" and float(v) < m["threshold"]:
+                    hits += 1
+            return (hits / checked) if checked > 0 else 0.0
+        scores = df.apply(_frac, axis=1)
+        return df[scores >= 0.4]
+
     # ── 1. Discount paradox ──────────────────────────────────────────────────
-    comp_disp = df[df["injected_stall_signature"] == "Competitor Displacement"]
+    comp_disp = behavioral_matches("Competitor Displacement")
     if len(comp_disp) > 10:
         disc_won  = pd.to_numeric(comp_disp[comp_disp["is_won"] == 1]["discount_pct"], errors="coerce").dropna().astype(float)
         disc_lost = pd.to_numeric(comp_disp[comp_disp["is_won"] == 0]["discount_pct"], errors="coerce").dropna().astype(float)
@@ -768,24 +818,45 @@ def extract_non_obvious_insights(df: pd.DataFrame, patterns: dict,
                 "category": "pricing",
             })
 
-    # ── 2. SMB Exec Vacuum is the silent killer ──────────────────────────────
-    exec_vac = df[df["injected_stall_signature"] == "Exec Vacuum"]
-    if len(exec_vac) > 10:
-        smb_loss  = exec_vac[exec_vac["segment"] == "SMB"]["is_won"].mean()
-        ent_loss  = exec_vac[exec_vac["segment"] == "Enterprise"]["is_won"].mean()
-        mm_loss   = exec_vac[exec_vac["segment"] == "Mid-Market"]["is_won"].mean()
-        min_seg   = min([("SMB", smb_loss), ("Enterprise", ent_loss), ("Mid-Market", mm_loss)], key=lambda x: x[1])
-        if min_seg[0] == "SMB":
+    # ── 2. Exec Vacuum prevalence by segment ────────────────────────────────
+    # Reframed from win-rate to pattern-prevalence: "among lost deals in each
+    # segment, what share exhibit Exec Vacuum signals?" The win-rate framing is
+    # degenerate here because Exec Vacuum is a deal-death pattern; very few
+    # won deals carry its signature, so the cross-segment win rates collapse to
+    # ~0% and tell us nothing about where the pattern actually hurts most.
+    ev_prev = (signature_library.get("Exec Vacuum", {}) or {}).get("segment_prevalence", {})
+    if len(ev_prev) == 3:
+        top_seg, top_rate = max(ev_prev.items(), key=lambda kv: kv[1])
+        other_items = [(s, r) for s, r in ev_prev.items() if s != top_seg]
+        gap = top_rate - min(r for _, r in other_items)
+        if gap >= 0.05:
+            other_desc = " and ".join(f"{s} ({r*100:.0f}%)" for s, r in other_items)
+            if top_seg == "SMB":
+                flavor = (
+                    "The assumption that SMB is simpler is wrong — SMB champions are disproportionately "
+                    "ICs with no path to budget authority, and reps treat it as a high-velocity segment "
+                    "rather than one requiring exec access."
+                )
+                implication = "SMB qualification should include an explicit question about who controls the technology budget, not just who owns the use case."
+            elif top_seg == "Enterprise":
+                flavor = (
+                    "Enterprise Exec Vacuum deals look legitimate on paper (VP-level champion, multi-stakeholder) "
+                    "but the true economic buyer sits one or two levels above — reps overestimate champion authority."
+                )
+                implication = "Enterprise deal reviews should require named economic-buyer engagement before Proposal Sent, not at Negotiation."
+            else:
+                flavor = (
+                    "Mid-Market Exec Vacuum often reflects a founder or department head who controls budget in name "
+                    "but defers to a risk-averse CFO for signatures — reps miss the second approver."
+                )
+                implication = "Mid-Market qualification should map signer vs approver explicitly during Technical Validation, not at close."
             insights.append({
-                "title": "Exec Vacuum hits SMB hardest — the opposite of the expected pattern",
+                "title": f"Exec Vacuum hits {top_seg} hardest among lost deals",
                 "finding": (
-                    f"SMB deals with Exec Vacuum signal have the lowest win rate ({smb_loss*100:.1f}%) "
-                    f"compared to Mid-Market ({mm_loss*100:.1f}%) and Enterprise ({ent_loss*100:.1f}%). "
-                    f"The assumption that SMB is simpler is wrong — SMB champions are disproportionately "
-                    f"ICs with no path to budget authority, and reps treat it as a high-velocity segment "
-                    f"rather than one requiring exec access."
+                    f"{top_rate*100:.0f}% of lost {top_seg} deals show Exec Vacuum behavioral signals, "
+                    f"compared with {other_desc}. {flavor}"
                 ),
-                "implication": "SMB qualification should include an explicit question about who controls the technology budget, not just who owns the use case.",
+                "implication": implication,
                 "category": "segmentation",
             })
 
@@ -810,7 +881,7 @@ def extract_non_obvious_insights(df: pd.DataFrame, patterns: dict,
                 })
 
     # ── 4. Ghost stall timing window ────────────────────────────────────────
-    ghost = df[df["injected_stall_signature"] == "Ghost Stall"]
+    ghost = behavioral_matches("Ghost Stall")
     if len(ghost) > 10:
         ghost_won  = ghost[ghost["is_won"] == 1]["days_in_current_stage"].dropna()
         ghost_lost = ghost[ghost["is_won"] == 0]["days_in_current_stage"].dropna()
@@ -878,7 +949,7 @@ def generate_synthesis_report(
         st: {
             "loss_rate":       meta["loss_rate"],
             "top_3_signals":   meta["top_3_signals"],
-            "segment_loss_rate": meta["segment_loss_rate"],
+            "segment_prevalence": meta["segment_prevalence"],
         }
         for st, meta in signature_library.items()
     }

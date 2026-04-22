@@ -428,7 +428,7 @@ for (const [stallType, lib] of Object.entries(stallLibrary)) {
     recovery_rate: interventions.recovery_rate,
     recovered_deal_count: interventions.recovered_deal_count,
     lost_deal_count: interventions.lost_deal_count,
-    segment_loss_rate: lib.segment_loss_rate || {},
+    segment_prevalence: lib.segment_prevalence || {},
     top_signals: Object.entries(lib.defining_signals || {}).map(([signal, s]) => ({
       signal,
       threshold: s.threshold,

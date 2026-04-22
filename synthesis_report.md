@@ -2,12 +2,12 @@
 
 ## Key Findings
 
-### Exec Vacuum hits SMB hardest â€” the opposite of the expected pattern
+### Discounting under competitive pressure is anti-correlated with winning
 
-SMB deals with Exec Vacuum signal have the lowest win rate (0.0%) compared to Mid-Market (0.0%) and Enterprise (0.0%). The assumption that SMB is simpler is wrong â€” SMB champions are disproportionately ICs with no path to budget authority, and reps treat it as a high-velocity segment rather than one requiring exec access.
+In Competitor Displacement deals, lost deals had an average discount of 26.9% vs 24.5% in won deals. Higher discounts did not improve win rates — they may signal that reps are conceding price when they should be competing on value.
 
 
-**Implication:** SMB qualification should include an explicit question about who controls the technology budget, not just who owns the use case.
+**Implication:** Consider tightening discount approval in competitive deals and investing the saved margin in accelerated technical validation instead.
 
 
 ### Mid-Market has the highest rate of misattributed loss reasons
@@ -16,6 +16,14 @@ SMB deals with Exec Vacuum signal have the lowest win rate (0.0%) compared to Mi
 
 
 **Implication:** Loss reason analysis for this segment is systematically unreliable. CRM-based competitive intelligence from this segment may be misleading.
+
+
+### Ghost Stall has a 9-day intervention window before recovery becomes unlikely
+
+Won deals showing Ghost Stall signals intervened (re-established contact) when the deal had been in-stage for a median of 9 days. Lost deals with the same signals had a median of 34 days in-stage — suggesting reps wait too long before escalating.
+
+
+**Implication:** Ghost Stall alerts should trigger at day 5 in-stage, not day 34. Current rep behavior is acting on the signal too late to recover.
 
 
 ## Recovery Rates by Stall Type

@@ -74,10 +74,10 @@
       "champion_engagement_score_delta",
       "days_since_multithread_touch"
     ],
-    "segment_loss_rate": {
-      "SMB": 1.0,
-      "Mid-Market": 1.0,
-      "Enterprise": 1.0
+    "segment_prevalence": {
+      "SMB": 0.214,
+      "Mid-Market": 0.172,
+      "Enterprise": 0.18
     }
   },
   "Competitor Displacement": {
@@ -145,10 +145,10 @@
       "discount_pct",
       "stage_regression_count"
     ],
-    "segment_loss_rate": {
-      "SMB": 1.0,
-      "Mid-Market": 1.0,
-      "Enterprise": 1.0
+    "segment_prevalence": {
+      "SMB": 0.251,
+      "Mid-Market": 0.241,
+      "Enterprise": 0.207
     }
   },
   "Ghost Stall": {
@@ -216,10 +216,10 @@
       "days_in_current_stage",
       "days_since_last_activity"
     ],
-    "segment_loss_rate": {
-      "SMB": 1.0,
-      "Mid-Market": 1.0,
-      "Enterprise": 1.0
+    "segment_prevalence": {
+      "SMB": 0.233,
+      "Mid-Market": 0.284,
+      "Enterprise": 0.243
     }
   },
   "Exec Vacuum": {
@@ -256,10 +256,10 @@
       "executive_sponsor_engaged",
       "economic_buyer_meetings"
     ],
-    "segment_loss_rate": {
-      "SMB": 1.0,
-      "Mid-Market": 1.0,
-      "Enterprise": 1.0
+    "segment_prevalence": {
+      "SMB": 0.6,
+      "Mid-Market": 0.621,
+      "Enterprise": 0.631
     }
   }
 }
