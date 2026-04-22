@@ -603,6 +603,150 @@
   .chip .ct { opacity: 0.65; margin-left: 8px; font-size: 11px; font-weight: 500; }
   .chip.active .ct { opacity: 0.8; }
 
+  /* Compact multi-select filter dropdowns — all four filters fit on one row */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0 14px;
+    align-items: stretch;
+  }
+  .filter-dd {
+    position: relative;
+    flex: 1 1 180px;
+    min-width: 160px;
+    max-width: 280px;
+  }
+  .filter-dd .fd-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 9px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .filter-dd .fd-btn:hover { background: var(--panel-2); border-color: var(--border-strong); }
+  .filter-dd.open .fd-btn { border-color: var(--accent); background: var(--panel-2); }
+  .filter-dd.has-selection .fd-btn { border-color: var(--accent); }
+  .filter-dd .fd-label {
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    margin-right: 4px;
+  }
+  .filter-dd .fd-summary {
+    color: var(--text);
+    font-weight: 600;
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .filter-dd.has-selection .fd-summary { color: var(--accent); }
+  .filter-dd .fd-caret {
+    color: var(--muted);
+    font-size: 10px;
+    transition: transform 0.15s;
+    flex-shrink: 0;
+  }
+  .filter-dd.open .fd-caret { transform: rotate(180deg); color: var(--accent); }
+  .filter-dd .fd-popover {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: var(--panel);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 6px;
+    max-height: 320px;
+    overflow-y: auto;
+    z-index: 40;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    display: none;
+    min-width: 220px;
+  }
+  .filter-dd.open .fd-popover { display: block; }
+  .filter-dd .fd-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--text);
+    transition: background 0.1s;
+    user-select: none;
+  }
+  .filter-dd .fd-option:hover { background: var(--panel-2); }
+  .filter-dd .fd-option.fd-option-all {
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    margin-bottom: 4px;
+    padding-bottom: 10px;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .filter-dd .fd-option.active { color: var(--accent); }
+  .filter-dd .fd-check {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    border: 1px solid var(--border-strong);
+    background: var(--panel-3);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .filter-dd .fd-option.active .fd-check {
+    border-color: var(--accent);
+    background: var(--accent);
+  }
+  .filter-dd .fd-option.active .fd-check::after {
+    content: '✓';
+    position: absolute;
+    inset: 0;
+    color: var(--bg);
+    font-size: 11px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .filter-dd .fd-option-label { flex: 1; }
+  .filter-dd .fd-option-count {
+    color: var(--muted);
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+  }
+  .filter-dd .fd-clear-wrap {
+    padding: 6px 10px 4px;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+  .filter-dd .fd-clear {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    font-size: 11px;
+    cursor: pointer;
+    padding: 4px 0;
+    text-decoration: underline;
+  }
+  .filter-dd .fd-clear:hover { color: var(--accent); }
+
   .deal-row {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -928,6 +1072,98 @@
     margin-top: 14px;
   }
   .deal-body strong { color: var(--text); }
+
+  /* Merged action card — what to do, at the top of every flagged deal dropdown */
+  .deal-body .action-card {
+    background: linear-gradient(135deg, rgba(110,231,255,0.08), rgba(110,231,255,0.02));
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 18px 20px 20px;
+    margin-bottom: 22px;
+    box-shadow: 0 0 0 1px rgba(110,231,255,0.05);
+  }
+  .deal-body .action-card .action-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .deal-body .action-card .action-badge {
+    font-size: 10px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--accent);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .deal-body .action-card .action-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+  }
+  .deal-body .action-card .action-rationale {
+    color: var(--muted);
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 14px;
+    margin-top: 2px;
+  }
+  .deal-body .action-card .draft-label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .deal-body .action-card .first-move {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    white-space: pre-wrap;
+    line-height: 1.65;
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+  .deal-body .action-card .action-btn {
+    width: auto;
+    display: inline-block;
+  }
+
+  /* Compact review pill — replaces the old full-width review block */
+  .deal-body .review-pill-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .deal-body .review-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .deal-body .review-pill.review-auto    { background: rgba(58,188,150,0.12); color: var(--good);  border: 1px solid rgba(58,188,150,0.45); }
+  .deal-body .review-pill.review-caution { background: rgba(255,192,82,0.12);  color: var(--warn);  border: 1px solid rgba(255,192,82,0.45); }
+  .deal-body .review-pill.review-escalate{ background: rgba(247,113,113,0.12); color: var(--alert); border: 1px solid rgba(247,113,113,0.45); }
+  .deal-body .review-pill-note {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
 
   .empty {
     padding: 40px;
@@ -2022,21 +2258,50 @@
 
     <div class="viz-grid" id="pipeline-viz"></div>
 
-    <div class="section-title">Filter by stall pattern</div>
-    <div class="section-hint">A stall pattern is the specific way a deal is losing momentum. Click chips to toggle — select more than one to combine patterns. "All" clears the group.</div>
-    <div class="filters" id="stall-filters"></div>
-
-    <div class="section-title">Filter by health</div>
-    <div class="section-hint">Critical = needs action today. At-risk = multiple warning signs. Watch = minor signals. Healthy = on track. Select multiple to combine — e.g. Critical + At-risk.</div>
-    <div class="filters" id="traj-filters"></div>
-
-    <div class="section-title">Filter by confidence</div>
-    <div class="section-hint">Auto = system is confident in this recommendation. Caution = worth a sanity check before acting. Escalate = manager review required. Combine Caution + Escalate to surface everything that needs a human eye.</div>
-    <div class="filters" id="review-filters"></div>
-
-    <div class="section-title">Filter by rep</div>
-    <div class="section-hint">Click a rep to see only their deals. Click multiple to combine — e.g. coach two at-risk reps side by side.</div>
-    <div class="filters" id="rep-filters"></div>
+    <div class="section-title">Filter pipeline</div>
+    <div class="section-hint">Each dropdown supports multiple selections. Combine e.g. Critical + At-risk, or pick two reps to coach side by side.</div>
+    <div class="filter-bar" id="filter-bar">
+      <div class="filter-dd" id="filter-dd-stall" data-fdkind="stall">
+        <button class="fd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="fd-label">Stall</span>
+          <span class="fd-summary">All</span>
+          <span class="fd-caret">▼</span>
+        </button>
+        <div class="fd-popover" id="stall-filters" role="listbox" aria-multiselectable="true"></div>
+      </div>
+      <div class="filter-dd" id="filter-dd-traj" data-fdkind="traj">
+        <button class="fd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="fd-label">Health</span>
+          <span class="fd-summary">All</span>
+          <span class="fd-caret">▼</span>
+        </button>
+        <div class="fd-popover" id="traj-filters" role="listbox" aria-multiselectable="true"></div>
+      </div>
+      <div class="filter-dd" id="filter-dd-review" data-fdkind="review">
+        <button class="fd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="fd-label">Confidence</span>
+          <span class="fd-summary">All</span>
+          <span class="fd-caret">▼</span>
+        </button>
+        <div class="fd-popover" id="review-filters" role="listbox" aria-multiselectable="true"></div>
+      </div>
+      <div class="filter-dd" id="filter-dd-stage" data-fdkind="stage">
+        <button class="fd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="fd-label">Stage</span>
+          <span class="fd-summary">All</span>
+          <span class="fd-caret">▼</span>
+        </button>
+        <div class="fd-popover" id="stage-filters" role="listbox" aria-multiselectable="true"></div>
+      </div>
+      <div class="filter-dd" id="filter-dd-rep" data-fdkind="rep">
+        <button class="fd-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+          <span class="fd-label">Rep</span>
+          <span class="fd-summary">All</span>
+          <span class="fd-caret">▼</span>
+        </button>
+        <div class="fd-popover" id="rep-filters" role="listbox" aria-multiselectable="true"></div>
+      </div>
+    </div>
 
     <div class="search-wrap">
       <input type="text" class="search-input" id="search-input" placeholder="Search by company, rep, or deal ID..." autocomplete="off" />
@@ -2132,6 +2397,7 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
   let activeTraj = new Set();
   let activeReview = new Set();
   let activeRep = new Set();
+  let activeStage = new Set();
   function toFilterSet(v) {
     if (v == null) return new Set();
     if (v instanceof Set) return new Set(v);
@@ -2238,6 +2504,48 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
     return set.has(key);
   }
 
+  // Build the inner <div class="fd-option"> rows for a dropdown popover, and
+  // sync the parent .filter-dd button summary + has-selection styling.
+  function renderFilterDropdown(popoverId, options, set, dataAttr) {
+    const popover = document.getElementById(popoverId);
+    if (!popover) return;
+    const allOption = options[0];
+    const rest = options.slice(1);
+    const body = rest.map(o =>
+      `<div class="fd-option ${chipActive(set, o.key) ? 'active' : ''}" data-${dataAttr}="${escapeHtml(String(o.key))}" role="option" aria-selected="${chipActive(set, o.key)}">
+         <span class="fd-check"></span>
+         <span class="fd-option-label">${escapeHtml(String(o.label))}</span>
+         <span class="fd-option-count">${o.count}</span>
+       </div>`
+    ).join('');
+    const allRow = `<div class="fd-option fd-option-all ${chipActive(set, 'all') ? 'active' : ''}" data-${dataAttr}="all" role="option">
+        <span class="fd-option-label">${escapeHtml(String(allOption.label))} (clear)</span>
+        <span class="fd-option-count">${allOption.count}</span>
+      </div>`;
+    const clearRow = set.size > 0
+      ? `<div class="fd-clear-wrap"><button type="button" class="fd-clear" data-${dataAttr}="all">Clear ${set.size} selection${set.size === 1 ? '' : 's'}</button></div>`
+      : '';
+    popover.innerHTML = allRow + body + clearRow;
+
+    // Sync the dropdown button summary + state
+    const dd = popover.closest('.filter-dd');
+    if (!dd) return;
+    const summaryEl = dd.querySelector('.fd-summary');
+    if (set.size === 0) {
+      summaryEl.textContent = 'All';
+      dd.classList.remove('has-selection');
+    } else if (set.size === 1) {
+      // Show the single label if we can find it, otherwise a count
+      const onlyKey = [...set][0];
+      const opt = rest.find(o => String(o.key) === String(onlyKey));
+      summaryEl.textContent = opt ? opt.label : `${set.size} selected`;
+      dd.classList.add('has-selection');
+    } else {
+      summaryEl.textContent = `${set.size} selected`;
+      dd.classList.add('has-selection');
+    }
+  }
+
   function renderFilters(data) {
     const stats = data.signal_stats;
     const deals = allDeals(data);
@@ -2245,41 +2553,52 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
 
     const stallCounts = stats.stall_type_distribution;
     const healthyCount = (data.non_flagged_deals || []).length;
-    const stallFilters = [{ key: 'all', label: 'All', count: total }]
+    const stallOptions = [{ key: 'all', label: 'All', count: total }]
       .concat(Object.keys(stallCounts).map(k => ({ key: k, label: k, count: stallCounts[k] })))
       .concat(healthyCount > 0 ? [{ key: '__none__', label: 'No Stall Signal', count: healthyCount }] : []);
-    document.getElementById('stall-filters').innerHTML = stallFilters.map(f =>
-      `<button class="chip ${chipActive(activeStall, f.key) ? 'active' : ''}" data-stall="${f.key}">
-         ${f.label}<span class="ct">${f.count}</span>
-       </button>`
-    ).join('');
+    renderFilterDropdown('stall-filters', stallOptions, activeStall, 'stall');
 
     const trajCounts = stats.trajectory_distribution;
     const trajOrder = ['critical', 'at-risk', 'watch', 'healthy'];
-    const trajFilters = [{ key: 'all', label: 'All', count: total }]
+    const trajOptions = [{ key: 'all', label: 'All', count: total }]
       .concat(trajOrder.filter(k => trajCounts[k]).map(k => ({ key: k, label: k, count: trajCounts[k] })));
-    document.getElementById('traj-filters').innerHTML = trajFilters.map(f =>
-      `<button class="chip ${chipActive(activeTraj, f.key) ? 'active' : ''}" data-traj="${f.key}">
-         ${f.label}<span class="ct">${f.count}</span>
-       </button>`
-    ).join('');
+    renderFilterDropdown('traj-filters', trajOptions, activeTraj, 'traj');
 
     // Review status filters — count from enriched deals
     const revCounts = { auto: 0, caution: 0, escalate: 0 };
     deals.forEach(d => { if (d.review_status) revCounts[d.review_status] = (revCounts[d.review_status] || 0) + 1; });
-    const revOrder = [
+    const revOptions = [
       { key: 'all', label: 'All', count: total },
       { key: 'auto', label: 'Auto', count: revCounts.auto },
       { key: 'caution', label: 'Caution', count: revCounts.caution },
       { key: 'escalate', label: 'Escalate', count: revCounts.escalate },
     ];
-    document.getElementById('review-filters').innerHTML = revOrder.map(f =>
-      `<button class="chip ${chipActive(activeReview, f.key) ? 'active' : ''}" data-review="${f.key}">
-         ${f.label}<span class="ct">${f.count}</span>
-       </button>`
-    ).join('');
+    renderFilterDropdown('review-filters', revOptions, activeReview, 'review');
 
-    // Rep filters — one chip per rep present in the pipeline, sorted by deal count
+    // Stage filters — one row per sales-cycle stage currently in the pipeline,
+    // sorted in canonical early-to-late order with any unknown stages appended.
+    const stageWrap = document.getElementById('stage-filters');
+    if (stageWrap) {
+      const STAGE_ORDER = ['Prospecting', 'Discovery', 'Qualification', 'Technical Validation', 'Proposal Sent', 'Proposal', 'Negotiation', 'Closed Won', 'Closed Lost'];
+      const stageCounts = {};
+      deals.forEach(d => {
+        if (d.current_stage) stageCounts[d.current_stage] = (stageCounts[d.current_stage] || 0) + 1;
+      });
+      const stageList = Object.keys(stageCounts)
+        .sort((a, b) => {
+          const ia = STAGE_ORDER.indexOf(a);
+          const ib = STAGE_ORDER.indexOf(b);
+          if (ia === -1 && ib === -1) return a.localeCompare(b);
+          if (ia === -1) return 1;
+          if (ib === -1) return -1;
+          return ia - ib;
+        })
+        .map(name => ({ key: name, label: name, count: stageCounts[name] }));
+      const stageOptions = [{ key: 'all', label: 'All stages', count: total }].concat(stageList);
+      renderFilterDropdown('stage-filters', stageOptions, activeStage, 'stage');
+    }
+
+    // Rep filters — one row per rep present in the pipeline, sorted by deal count
     const repWrap = document.getElementById('rep-filters');
     if (repWrap) {
       const repCounts = {};
@@ -2289,12 +2608,8 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       const repList = Object.entries(repCounts)
         .sort((a, b) => b[1] - a[1])
         .map(([name, count]) => ({ key: name, label: name, count }));
-      const repFilters = [{ key: 'all', label: 'All reps', count: total }].concat(repList);
-      repWrap.innerHTML = repFilters.map(f =>
-        `<button class="chip ${chipActive(activeRep, f.key) ? 'active' : ''}" data-rep="${f.key}">
-           ${f.label}<span class="ct">${f.count}</span>
-         </button>`
-      ).join('');
+      const repOptions = [{ key: 'all', label: 'All reps', count: total }].concat(repList);
+      renderFilterDropdown('rep-filters', repOptions, activeRep, 'rep');
     }
   }
 
@@ -2306,6 +2621,18 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
           <div class="review-head">${reviewChip(d.review_status, { full: true })}</div>
           <div class="review-body">${d.review_reason || ''}</div>
         </div>
+      </div>`;
+  }
+
+  // Compact review pill — used in the simplified dropdown instead of renderReviewBlock
+  function renderReviewPill(d) {
+    const status = d.review_status || 'auto';
+    const reason = d.review_reason || '';
+    const labels = { auto: 'Auto-recommend', caution: 'Sanity-check first', escalate: 'Escalate to manager' };
+    return `
+      <div class="block review-pill-row">
+        <span class="review-pill review-${status}">${labels[status] || status}</span>
+        ${reason ? `<span class="review-pill-note">${escapeHtml(reason)}</span>` : ''}
       </div>`;
   }
 
@@ -2403,50 +2730,59 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
   }
 
   function renderFlaggedBody(d) {
-    const synopsis = whyScoreSynopsis(d);
-    const synopsisBlock = synopsis ? `<div class="why-synopsis">${synopsis}</div>` : '';
-    const contrBlock = renderContradictionExplain(d);
-    const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
+    // Head of Sales feedback (Apr 2026): put the action at the top, merge
+    // "Recommended first move" + "Playbook intervention" into one block,
+    // and drop the background-workings blocks (rank explainer, why-score
+    // factor list, stall signature description, meta row).
     const firstMoveHtml = (d.first_move || '')
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/\*(.+?)\*/g, '<em>$1</em>');
-    const interventionBlock = d.top_intervention
-      ? `<div class="block">
-          <h4>Playbook Intervention</h4>
-          <div><strong>${d.top_intervention.action}</strong></div>
-          <div class="historical" style="margin-top:6px">${d.top_intervention.rationale}</div>
-        </div>` : '';
-    const metaBlock = `
-      <div class="meta">
-        <span>Composite priority: <strong>${(d.composite_priority || 0).toFixed(2)}</strong></span>
-        <span>Urgency: <strong>${d.urgency_stage || '—'}</strong></span>
-        <span>Stall score: <strong>${((d.stall_score || 0) * 100).toFixed(0)}%</strong></span>
-      </div>`;
-    return `
-      ${renderRankExplain(d)}
-      ${synopsisBlock}
-      ${contrBlock}
-      ${renderReviewBlock(d)}
-      ${renderWhyScoreBlock(d)}
-      <div class="block">
-        <h4>Stall Signature · ${d.signal_coverage || ''}</h4>
-        <div>${d.stall_description || ''}</div>
-      </div>
-      <div class="block">
-        <h4>Signal Evidence</h4>
-        <ul>${evidenceList}</ul>
-      </div>
-      <div class="block">
-        <h4>Historical Context</h4>
-        <div class="historical">${d.historical_context || ''}</div>
-      </div>
-      <div class="block">
-        <h4>Recommended First Move — For ${d.rep_name}</h4>
+    const action = d.top_intervention;
+    const actionHead = action
+      ? `<span class="action-badge">Do this</span>
+         <span class="action-label">${escapeHtml(action.action)}</span>`
+      : `<span class="action-badge">Do this</span>
+         <span class="action-label">First move for ${escapeHtml(d.rep_name || 'rep')}</span>`;
+    const rationale = action && action.rationale
+      ? `<div class="action-rationale">${escapeHtml(action.rationale)}</div>`
+      : '';
+    const draftLabel = action
+      ? `<div class="draft-label">Drafted first move — for ${escapeHtml(d.rep_name || 'rep')}</div>`
+      : '';
+    const actionCard = `
+      <div class="action-card">
+        <div class="action-head">${actionHead}</div>
+        ${rationale}
+        ${draftLabel}
         <div class="first-move">${firstMoveHtml}</div>
-      </div>
-      ${interventionBlock}
-      ${metaBlock}
-      ${renderActionButton(d)}
+        ${renderActionButton(d)}
+      </div>`;
+
+    const contrBlock = renderContradictionExplain(d);
+    const evidenceList = (d.evidence || []).map(e => `<li>${e}</li>`).join('');
+    const evidenceBlock = evidenceList ? `
+      <div class="block">
+        <h4>What the signals show</h4>
+        <ul>${evidenceList}</ul>
+      </div>` : '';
+    const historicalBlock = d.historical_context ? `
+      <div class="block">
+        <h4>Historical context</h4>
+        <div class="historical">${d.historical_context}</div>
+      </div>` : '';
+    // Review pill sits at the very top so a rep sees
+    // Auto/Caution/Escalate before reading anything else. Notes-conflict
+    // block comes next when present — its header explicitly says "read
+    // before acting". "Why this score" sits directly under the action so
+    // reps can quickly see the confidence + scoring factors behind the
+    // recommendation.
+    return `
+      ${renderReviewPill(d)}
+      ${contrBlock}
+      ${actionCard}
+      ${renderWhyScoreBlock(d)}
+      ${evidenceBlock}
+      ${historicalBlock}
       ${renderFeedbackRow(d)}`;
   }
 
@@ -2458,25 +2794,19 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       ? `<div class="block"><h4>Signals observed</h4><div>${d.signals_hit_count} minor signal(s) hit: ${d.signals_hit_labels || '—'}</div></div>`
       : '';
     return `
-      ${renderRankExplain(d)}
-      ${renderReviewBlock(d)}
-      ${renderWhyScoreBlock(d)}
+      ${renderReviewPill(d)}
       <div class="block">
         <div class="monitor-note">${label}</div>
       </div>
       ${signalsNote}
       <div class="block">
-        <h4>Deal Context</h4>
+        <h4>Deal context</h4>
         <div>
-          <strong>${d.segment}</strong> · Stage: <strong>${d.current_stage}</strong> · Forecast: <strong>${d.forecast_category || '—'}</strong>
+          <strong>${escapeHtml(d.segment || '—')}</strong> · Stage: <strong>${escapeHtml(d.current_stage || '—')}</strong> · Forecast: <strong>${escapeHtml(d.forecast_category || '—')}</strong>
         </div>
         <div class="historical" style="margin-top:6px">
           Next step defined: ${d.next_step_defined ? 'Yes' : 'No'}
         </div>
-      </div>
-      <div class="meta">
-        <span>Composite priority: <strong>${(d.composite_priority || 0).toFixed(2)}</strong></span>
-        <span>Trajectory: <strong>${d.trajectory}</strong></span>
       </div>
       ${renderActionButton(d)}
       ${renderFeedbackRow(d)}`;
@@ -2550,12 +2880,13 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       const trajMatch = activeTraj.size === 0 || activeTraj.has(d.trajectory);
       const reviewMatch = activeReview.size === 0 || activeReview.has(d.review_status);
       const repMatch = activeRep.size === 0 || activeRep.has(d.rep_name);
+      const stageMatch = activeStage.size === 0 || activeStage.has(d.current_stage);
       const searchMatch = !q ||
         (d.company_name || '').toLowerCase().includes(q) ||
         (d.rep_name || '').toLowerCase().includes(q) ||
         (d.deal_id || '').toLowerCase().includes(q);
       const contrMatch = !contradictionOnly || !!d.note_contradiction;
-      return stallMatch && trajMatch && reviewMatch && repMatch && searchMatch && contrMatch;
+      return stallMatch && trajMatch && reviewMatch && repMatch && stageMatch && searchMatch && contrMatch;
     });
   }
 
@@ -2573,6 +2904,7 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
       activeTraj.clear();
       activeReview.clear();
       activeRep.clear();
+      activeStage.clear();
       contradictionOnly = false;
       renderFilters(currentData);
       renderQueue(currentData);
@@ -2820,6 +3152,7 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
     activeTraj.clear();
     activeReview.clear();
     activeRep.clear();
+    activeStage.clear();
     contradictionOnly = false;
     searchTerm = '';
     const si = document.getElementById('search-input');
@@ -2861,6 +3194,7 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
     if (opts.traj) activeTraj = toFilterSet(opts.traj);
     if (opts.review) activeReview = toFilterSet(opts.review);
     if (opts.rep) activeRep = toFilterSet(opts.rep);
+    if (opts.stage) activeStage = toFilterSet(opts.stage);
     if (opts.contradictionOnly) contradictionOnly = true;
     xFilterContext = opts.label ? { source: opts.source || 'exec-card', label: opts.label } : null;
     switchTab('pipeline');
@@ -3685,42 +4019,56 @@ const DATA = {"generated_at":"2026-04-21 15:04:01","signal_stats":{"trajectory_d
     if (key === 'all') { set.clear(); return; }
     if (set.has(key)) set.delete(key); else set.add(key);
   }
-  document.getElementById('stall-filters').addEventListener('click', e => {
-    const btn = e.target.closest('.chip');
-    if (!btn) return;
-    toggleFilterChip(activeStall, btn.dataset.stall);
-    renderFilters(currentData);
-    renderQueue(currentData);
-    renderRepBreakdown(currentData);
+  // Open/close dropdowns: clicking the button toggles; clicking outside closes.
+  function closeAllDropdowns(except) {
+    document.querySelectorAll('.filter-dd.open').forEach(dd => {
+      if (dd !== except) {
+        dd.classList.remove('open');
+        const btn = dd.querySelector('.fd-btn');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+  document.querySelectorAll('.filter-dd .fd-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const dd = btn.closest('.filter-dd');
+      const wasOpen = dd.classList.contains('open');
+      closeAllDropdowns();
+      if (!wasOpen) {
+        dd.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
   });
-  document.getElementById('traj-filters').addEventListener('click', e => {
-    const btn = e.target.closest('.chip');
-    if (!btn) return;
-    toggleFilterChip(activeTraj, btn.dataset.traj);
-    renderFilters(currentData);
-    renderQueue(currentData);
-    renderRepBreakdown(currentData);
+  // Click outside or Escape closes any open dropdown
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.filter-dd')) closeAllDropdowns();
   });
-  document.getElementById('review-filters').addEventListener('click', e => {
-    const btn = e.target.closest('.chip');
-    if (!btn) return;
-    toggleFilterChip(activeReview, btn.dataset.review);
-    renderFilters(currentData);
-    renderQueue(currentData);
-    renderRepBreakdown(currentData);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeAllDropdowns();
   });
-  // Rep filter chips (delegated so we don't crash if the element is missing)
-  const repFiltersEl = document.getElementById('rep-filters');
-  if (repFiltersEl) {
-    repFiltersEl.addEventListener('click', e => {
-      const btn = e.target.closest('.chip');
-      if (!btn) return;
-      toggleFilterChip(activeRep, btn.dataset.rep);
+
+  // Helper: wire an option-click handler for a given popover + active set
+  function wireFilterPopover(popoverId, attr, set) {
+    const pop = document.getElementById(popoverId);
+    if (!pop) return;
+    pop.addEventListener('click', e => {
+      const opt = e.target.closest('[data-' + attr + ']');
+      if (!opt) return;
+      e.stopPropagation();
+      const key = opt.getAttribute('data-' + attr);
+      toggleFilterChip(set, key);
       renderFilters(currentData);
       renderQueue(currentData);
       renderRepBreakdown(currentData);
     });
   }
+  wireFilterPopover('stall-filters', 'stall', activeStall);
+  wireFilterPopover('traj-filters', 'traj', activeTraj);
+  wireFilterPopover('review-filters', 'review', activeReview);
+  wireFilterPopover('rep-filters', 'rep', activeRep);
+  wireFilterPopover('stage-filters', 'stage', activeStage);
   document.getElementById('refresh-btn').addEventListener('click', refresh);
 
   // Export modal — download raw source files for deep-dive analysis
