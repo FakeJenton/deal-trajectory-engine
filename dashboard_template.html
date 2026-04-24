@@ -2240,7 +2240,7 @@
         <a class="export-card" href="flagged_deals.csv" download>
           <div class="ec-text">
             <div class="ec-name">Flagged Pipeline Deals <span class="ec-ext">CSV</span></div>
-            <div class="ec-desc">Just the 74 deals that tripped a stall pattern — with dominant stall type, composite priority, and urgency multiplier.</div>
+            <div class="ec-desc">Just the 27 deals that tripped a stall pattern — with dominant stall type, composite priority, and urgency multiplier.</div>
           </div>
           <div class="ec-arrow">⭳</div>
         </a>
@@ -3380,8 +3380,12 @@
         const contrs = allDeals(data).filter(d => d.note_contradiction);
         const names = contrs.slice(0, 2).map(d => d.company_name || '').filter(Boolean);
         const extra = contrs.length - names.length;
+        // Separator is " \u00b7 " (middle dot) instead of a comma because
+        // Faker-generated company names can themselves contain commas
+        // ("Brown, Miller and Martinez Inc"), which made the comma-joined
+        // footer ambiguous about where one company ended and the next began.
         const footBase = names.length
-          ? names.join(', ') + (extra > 0 ? ', +' + extra + ' more' : '')
+          ? names.join(' \u00b7 ') + (extra > 0 ? ' \u00b7 +' + extra + ' more' : '')
           : 'Notes disagree with data';
         return {
           label: 'Contradiction flags', value: String(agg.contradiction_count || 0),
