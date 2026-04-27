@@ -1171,31 +1171,6 @@
     width: auto;
     display: inline-block;
   }
-  .deal-body .action-card .action-row {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .deal-body .action-card .copy-draft-btn {
-    font-size: 12px;
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--muted-1);
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
-  }
-  .deal-body .action-card .copy-draft-btn:hover {
-    background: rgba(255,255,255,0.04);
-    color: var(--text);
-    border-color: var(--border-strong);
-  }
-  .deal-body .action-card .copy-draft-btn.copied {
-    color: var(--good);
-    border-color: rgba(58,188,150,0.45);
-  }
 
   /* Compact review pill — replaces the old full-width review block */
   .deal-body .review-pill-row {
@@ -2879,17 +2854,13 @@ const DATA = {"generated_at":"2026-04-24 10:04:01","signal_stats":{"trajectory_d
     const draftLabel = action
       ? `<div class="draft-label">Drafted first move — for ${escapeHtml(d.rep_name || 'rep')}</div>`
       : '';
-    const copyPayload = (d.first_move || '').replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1');
-    const copyBtn = copyPayload
-      ? `<button class="copy-draft-btn" data-copy-draft="${d.deal_id}" data-copy-text="${escapeHtml(copyPayload)}" type="button">\u29C9 Copy draft</button>`
-      : '';
     const actionCard = `
       <div class="action-card">
         <div class="action-head">${actionHead}</div>
         ${rationale}
         ${draftLabel}
         <div class="first-move">${firstMoveHtml}</div>
-        <div class="action-row">${renderActionButton(d)}${copyBtn}</div>
+        ${renderActionButton(d)}
       </div>`;
 
     const contrBlock = renderContradictionExplain(d);
@@ -3644,42 +3615,6 @@ const DATA = {"generated_at":"2026-04-24 10:04:01","signal_stats":{"trajectory_d
         else actionedDeals.add(dealId);
         saveActioned(actionedDeals);
         renderQueue(currentData);
-      });
-    });
-
-    // Copy-draft button: puts the drafted first-move message on the
-    // clipboard so reps can paste into email / LinkedIn without
-    // fighting highlight-and-copy.
-    queueEl.querySelectorAll('.copy-draft-btn').forEach(btn => {
-      btn.addEventListener('click', async e => {
-        e.stopPropagation();
-        const text = btn.dataset.copyText || '';
-        const flash = (label) => {
-          const original = btn.textContent;
-          btn.textContent = label;
-          btn.classList.add('copied');
-          setTimeout(() => {
-            btn.textContent = original;
-            btn.classList.remove('copied');
-          }, 1600);
-        };
-        try {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(text);
-          } else {
-            const ta = document.createElement('textarea');
-            ta.value = text;
-            ta.style.position = 'fixed';
-            ta.style.opacity = '0';
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            document.body.removeChild(ta);
-          }
-          flash('\u2713 Copied');
-        } catch (_) {
-          flash('Copy failed');
-        }
       });
     });
 
