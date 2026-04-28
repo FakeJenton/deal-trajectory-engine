@@ -647,6 +647,25 @@
     margin: 18px 0 14px;
     align-items: stretch;
   }
+  .filter-clear-btn {
+    display: none;
+    align-self: stretch;
+    padding: 9px 14px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted-1);
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .filter-clear-btn:hover {
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    border-color: var(--border-strong);
+  }
+  .filter-clear-btn.visible { display: inline-flex; align-items: center; }
   .filter-dd {
     position: relative;
     flex: 1 1 180px;
@@ -2376,6 +2395,7 @@
         </button>
         <div class="fd-popover" id="rep-filters" role="listbox" aria-multiselectable="true"></div>
       </div>
+      <button class="filter-clear-btn" id="filter-clear-btn" type="button" title="Clear all filters and search">Clear filters &#x2715;</button>
     </div>
 
     <div class="search-wrap">
@@ -3551,6 +3571,7 @@
     renderSortHeaders();
     renderSummaryStrip(data);
     renderXFilterBanner();
+    updateClearFiltersVisibility();
 
     const queueEl = document.getElementById('queue');
 
@@ -4310,6 +4331,38 @@
     searchClear.classList.remove('show');
     searchInput.focus();
     renderQueue(currentData);
+  });
+
+  // Clear-all-filters button — appears in the filter bar only when at least
+  // one filter, search term, or cross-filter context is active.
+  function updateClearFiltersVisibility() {
+    const btn = document.getElementById('filter-clear-btn');
+    if (!btn) return;
+    const anyActive =
+      activeStall.size > 0 ||
+      activeTraj.size > 0 ||
+      activeReview.size > 0 ||
+      activeRep.size > 0 ||
+      activeStage.size > 0 ||
+      contradictionOnly ||
+      !!xFilterContext ||
+      !!searchTerm;
+    btn.classList.toggle('visible', anyActive);
+  }
+  document.getElementById('filter-clear-btn').addEventListener('click', () => {
+    activeStall.clear();
+    activeTraj.clear();
+    activeReview.clear();
+    activeRep.clear();
+    activeStage.clear();
+    contradictionOnly = false;
+    xFilterContext = null;
+    searchTerm = '';
+    searchInput.value = '';
+    searchClear.classList.remove('show');
+    renderFilters(currentData);
+    renderQueue(currentData);
+    renderRepBreakdown(currentData);
   });
 
   // Rep breakdown toggle
