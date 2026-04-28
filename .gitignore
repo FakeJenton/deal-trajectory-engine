@@ -27,4 +27,5 @@ Thumbs.db
 desktop.ini
 
 # Build artifacts (regeneratable)
-# dashboard.html is committed intentionally — it's the primary submission artifact
+# dashboard.html is committed intentionally; it's the primary build artifact
+.claude/

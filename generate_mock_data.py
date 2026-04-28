@@ -364,9 +364,9 @@ def build_deal(deal_id, closed=True, outcome=None, force_stall=None):
         "Checking in",
         "fwd: technical review docs",
         "Q4 pricing — URGENT",
-        "[External] Re: Tiger Data POC",
+        "[External] Re: POC follow-up",
         "following up again...",
-        "Introduction: {name} <> Tiger Data",
+        "Introduction: {name} <> Acme Data",
         None,
     ]
     last_email_subject = maybe_null(random.choice(email_subjects), null_rate=0.12)

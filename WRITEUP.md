@@ -1,4 +1,4 @@
-# Deal Trajectory Engine — Submission Writeup
+# Deal Trajectory Engine — Design Writeup
 
 ## Why this problem
 

@@ -30,7 +30,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Champion left the company. Couldn't rebuild the relationship in time.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2058",
@@ -59,7 +59,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2079",
@@ -91,7 +91,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2095",
@@ -123,7 +123,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2064",
@@ -160,7 +160,7 @@
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
     },
     "rep_notes": "new data lead came in and had a prior relationship with snowflake..",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2102",
@@ -197,7 +197,7 @@
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
     },
     "rep_notes": "New data lead came in and had a prior relationship with Snowflake.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2091",
@@ -229,7 +229,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2043",
@@ -260,7 +260,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 price / budget. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2065",
@@ -290,7 +290,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2101",
@@ -318,7 +318,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Champion was IC level, couldn't drive the purchase alone.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2062",
@@ -346,7 +346,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Never got above the data team. Budget decision was above champion's level.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2140",
@@ -380,7 +380,7 @@
       "flag": "Rep notes suggest 'Competitor Displacement' but behavioral signals point to 'Champion Collapse'. Investigate before intervening."
     },
     "rep_notes": "new data lead came in and had a prior relationship with snowflake..",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2138",
@@ -410,7 +410,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 price / budget. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2094",
@@ -440,7 +440,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "they went with databricks.. had deeper existing footprint..",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2135",
@@ -472,7 +472,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2106",
@@ -506,7 +506,7 @@
       "flag": "Rep notes suggest 'Champion Collapse' but behavioral signals point to 'Competitor Displacement'. Investigate before intervening."
     },
     "rep_notes": "Lost \u2014 champion left. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2006",
@@ -534,7 +534,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "champion was ic level, couldn't drive teh purchase alone..",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2070",
@@ -566,7 +566,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 wrong timing. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2126",
@@ -595,7 +595,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Never got above the data team. Budget decision was above champion's level.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2142",
@@ -623,7 +623,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Champion was IC level, couldn't drive the purchase alone.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2085",
@@ -655,7 +655,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost to Fivetran on connector breadth. They had 200+ native connectors.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2053",
@@ -684,7 +684,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 security / compliance failed. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2047",
@@ -715,7 +715,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 missing feature. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2035",
@@ -744,7 +744,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Lost \u2014 price / budget. No additional detail.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2028",
@@ -773,7 +773,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "lost \u2014 price / budget.. no additional detail..",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2003",
@@ -801,7 +801,7 @@
     },
     "note_contradiction": null,
     "rep_notes": "Never got above the data team. Budget decision was above champion's level.",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   },
   {
     "deal_id": "PIPE-2061",
@@ -831,6 +831,6 @@
     },
     "note_contradiction": null,
     "rep_notes": "lost \u2014 security / compliance failed.. no additional detail..",
-    "generated_at": "2026-04-24 09:59:41"
+    "generated_at": "2026-04-28 19:49:17"
   }
 ]

@@ -211,7 +211,7 @@ The Stall Predictor's stall type classification achieves **76.9% accuracy** agai
 | `dashboard_template.html` | 4 | Template used to build `dashboard.html` (data placeholder) |
 | `build_dashboard.js` | 4 | Node script that embeds `dashboard_payload.json` into the template |
 | `cards/` | 4 | Individual markdown intervention cards, top 20 by priority |
-| `WRITEUP.md` | — | 1-page submission writeup |
+| `WRITEUP.md` | — | 1-page design writeup |
 | `README.md` | — | This file |
 
 ---
