@@ -40,6 +40,23 @@
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
   }
+  .gtm-suitebar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 32px; height: 46px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel-3);
+  }
+  .gtm-brand { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 650; color: var(--text); text-decoration: none; }
+  .gtm-brand:hover { opacity: 0.85; }
+  .gtm-mark {
+    width: 20px; height: 20px; border-radius: 6px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+    color: #04121a; display: grid; place-items: center; font-size: 11px; font-weight: 800;
+  }
+  .gtm-mods { display: inline-flex; gap: 4px; }
+  .gtm-mods a { font-size: 12.5px; font-weight: 550; color: var(--muted); padding: 5px 11px; border-radius: 7px; text-decoration: none; }
+  .gtm-mods a:hover { color: var(--text); background: var(--panel-2); }
+  .gtm-mods a.active { color: var(--accent); background: var(--accent-soft); }
   header {
     padding: 28px 32px 24px;
     border-bottom: 1px solid var(--border);
@@ -2194,6 +2211,16 @@
 </style>
 </head>
 <body>
+<div class="gtm-suitebar">
+  <a class="gtm-brand" href="https://gtm-command-center-phi.vercel.app">
+    <span class="gtm-mark">G</span>
+    <span>GTM Command Center</span>
+  </a>
+  <nav class="gtm-mods">
+    <a href="https://lead-routing-engine.vercel.app">Lead Routing</a>
+    <a class="active" href="/">Deal Trajectory</a>
+  </nav>
+</div>
 <header>
   <div class="header-row">
     <div>
